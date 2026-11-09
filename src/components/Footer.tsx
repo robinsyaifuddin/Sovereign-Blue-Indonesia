@@ -26,10 +26,10 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-forest-950 text-slate-300 pt-16 pb-8 border-t-2 border-forest-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-forest-900">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-forest-900">
           
-          {/* Kolom 1: Profil Pondok */}
-          <div className="lg:col-span-2 space-y-4">
+          {/* Kolom 1: Profil Pondok (5 Cols) */}
+          <div className="md:col-span-5 space-y-4 pr-0 lg:pr-6">
             <div className="flex items-center gap-3">
               <img 
                 src="/logo.png" 
@@ -49,13 +49,13 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            <p className="text-xs text-slate-400 leading-relaxed pr-4">
+            <p className="text-xs text-slate-400 leading-relaxed">
               Lembaga pendidikan Islam terpadu yang memadukan kedalaman ilmu agama (Tahfidzul Qur'an & Kitab Kuning) dengan kurikulum nasional, melahirkan generasi hafidz yang berakhlakul karimah, mandiri, dan berwawasan masa depan.
             </p>
           </div>
 
-          {/* Kolom 2: Navigasi Cepat */}
-          <div className="space-y-3">
+          {/* Kolom 2: Navigasi Cepat (3 Cols - agak ke kiri) */}
+          <div className="md:col-span-3 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white border-b border-forest-900 pb-2">
               Menu Utama
             </h4>
@@ -98,8 +98,8 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Kolom 3: Hubungi Kami */}
-          <div className="space-y-3">
+          {/* Kolom 3: Hubungi Kami (4 Cols - merapat ke kiri berdampingan dengan Menu Utama) */}
+          <div className="md:col-span-4 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white border-b border-forest-900 pb-2">
               Alamat & Kontak
             </h4>
