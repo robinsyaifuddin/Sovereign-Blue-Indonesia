@@ -46,12 +46,15 @@ class Database {
                     }
                 }
 
+                // Log error ke sistem secara lokal tanpa membocorkan detail ke client
+                error_log('Database connection error: ' . $e->getMessage());
+
                 http_response_code(500);
-                header('Content-Type: application/json');
+                header('Content-Type: application/json; charset=UTF-8');
                 echo json_encode([
                     'success' => false,
-                    'message' => 'Koneksi Database Gagal: ' . $e->getMessage()
-                ]);
+                    'message' => 'Layanan database sedang tidak dapat diakses. Silakan hubungi administrator.'
+                ], JSON_UNESCAPED_UNICODE);
                 exit;
             }
         }

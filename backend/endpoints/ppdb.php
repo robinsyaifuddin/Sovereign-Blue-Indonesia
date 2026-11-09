@@ -56,11 +56,10 @@ if ($method === 'POST') {
         jsonResponse(false, null, 'Nama lengkap, nama orang tua, no telepon, dan pilihan program wajib diisi.', 400);
     }
 
-    // Auto-generate nomor registrasi unik: PPDB-TAHUN-URUTAN
+    // Auto-generate nomor registrasi unik aman race condition: PPDB-TAHUN-RANDOM_HEX
     $year = date('Y');
-    $countStmt = $pdo->query("SELECT COUNT(*) as total FROM ppdb_applicants");
-    $count = (int)$countStmt->fetch()['total'] + 1;
-    $regNum = sprintf("PPDB-%s-%04d", $year, $count);
+    $randomCode = strtoupper(bin2hex(random_bytes(3))); // 6 karakter unik
+    $regNum = sprintf("PPDB-%s-%s", $year, $randomCode);
 
     $sql = "INSERT INTO ppdb_applicants 
             (registration_number, full_name, gender, nisn, birth_place, birth_date, parent_name, phone, address, program_choice, status, notes) 

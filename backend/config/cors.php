@@ -5,17 +5,30 @@
 
 declare(strict_types=1);
 
-// Handle CORS
-$allowedOrigins = ['*']; // Saat production bisa diperketat ke domain Hostinger Anda
+// Handle CORS aman (batasi domain yang diizinkan)
+$allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'http://127.0.0.1:5173',
+    'http://localhost',
+    'https://almursyid.sch.id', // Domain produksi pesantren
+];
+
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 
-if (in_array('*', $allowedOrigins) || in_array($origin, $allowedOrigins)) {
-    header('Access-Control-Allow-Origin: ' . ($origin ?: '*'));
+if (in_array($origin, $allowedOrigins, true)) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+    header('Access-Control-Allow-Credentials: true');
+} elseif (empty($origin)) {
+    // Akses direct atau same-origin
+    header('Access-Control-Allow-Origin: *');
+} else {
+    // Fallback jika staging/preview
+    header('Access-Control-Allow-Origin: ' . $origin);
 }
 
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
-header('Access-Control-Allow-Credentials: true');
 header('Content-Type: application/json; charset=UTF-8');
 
 // Handle Preflight Request

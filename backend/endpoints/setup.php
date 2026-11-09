@@ -9,6 +9,19 @@ declare(strict_types=1);
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../config/cors.php';
 
+// Proteksi Keamanan: Cegah eksekusi setup oleh publik
+$lockFile = __DIR__ . '/../config/.setup_completed';
+$setupSecret = getenv('SETUP_SECRET_KEY') ?: 'almursyid_secure_setup_2026';
+$providedKey = $_GET['key'] ?? ($_POST['key'] ?? '');
+
+if (file_exists($lockFile) && $providedKey !== $setupSecret) {
+    jsonResponse(false, null, 'Akses ditolak: Setup database telah dikunci demi keamanan.', 403);
+}
+
+if ($providedKey !== $setupSecret && php_sapi_name() !== 'cli') {
+    jsonResponse(false, null, 'Akses ditolak: Setup key tidak valid.', 401);
+}
+
 $pdo = Database::getConnection();
 
 // Baca schema.sql
@@ -131,9 +144,12 @@ if ((int)$checkFac === 0) {
     }
 }
 
+// Buat lock file agar setup tidak bisa dipanggil sembarangan lagi
+@file_put_contents($lockFile, date('c'));
+
 jsonResponse(true, [
     'status' => 'ready',
     'database' => 'connected',
     'admin_username' => 'admin',
-    'admin_password' => 'admin123'
+    'notice' => 'Setup telah dikunci untuk keamanan.'
 ], 'Inisialisasi Database dan Akun Admin Berhasil.');
