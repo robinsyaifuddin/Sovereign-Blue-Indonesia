@@ -47,27 +47,13 @@ export const ProgramPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* Horizontal Inset Image with Floating Pill */}
+              {/* Horizontal Inset Image */}
               <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
                 <img
                   src="/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.png"
                   alt="Suasana Halaqah Tahfidz Al-Mursyid"
                   className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent pointer-events-none" />
-                
-                {/* Floating Action Pill */}
-                <div className="absolute right-4 bottom-4">
-                  <a
-                    href={SITE_INFO.contacts.ppdbWa}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-white/95 hover:bg-forest-900 hover:text-white text-forest-900 border border-emerald-200/80 shadow-md px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide inline-flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                  >
-                    <span>Konsultasi Program Tahfidz</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-emerald-600 group-hover:text-white" />
-                  </a>
-                </div>
               </div>
 
               {/* Two-Column Details */}
@@ -177,27 +163,13 @@ export const ProgramPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* Horizontal Inset Image with Floating Pill */}
+              {/* Horizontal Inset Image */}
               <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
                 <img
                   src="/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.png"
                   alt="Kitab Turats dan Kajian Pesantren"
                   className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent pointer-events-none" />
-                
-                {/* Floating Action Pill */}
-                <div className="absolute right-4 bottom-4">
-                  <a
-                    href={SITE_INFO.contacts.ppdbWa}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-white/95 hover:bg-forest-900 hover:text-white text-forest-900 border border-emerald-200/80 shadow-md px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide inline-flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                  >
-                    <span>Detail Silabus Diniyah</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-emerald-600 group-hover:text-white" />
-                  </a>
-                </div>
               </div>
 
               {/* Two-Column Details */}
@@ -253,25 +225,13 @@ export const ProgramPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* Horizontal Inset Image with Floating Pill */}
+              {/* Horizontal Inset Image */}
               <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
                 <img
                   src="/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.png"
                   alt="Laboratorium dan Ruang Belajar Formal"
                   className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent pointer-events-none" />
-                
-                {/* Floating Action Pill */}
-                <div className="absolute right-4 bottom-4">
-                  <Link
-                    to="/ppdb"
-                    className="bg-white/95 hover:bg-forest-900 hover:text-white text-forest-900 border border-emerald-200/80 shadow-md px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide inline-flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                  >
-                    <span>Informasi Jalur Masuk</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-emerald-600 group-hover:text-white" />
-                  </Link>
-                </div>
               </div>
 
               {/* Two-Column Details */}
@@ -381,27 +341,13 @@ export const ProgramPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* Horizontal Inset Image with Floating Pill */}
+              {/* Horizontal Inset Image */}
               <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
                 <img
                   src="/gambar/ekstrakurikuler.png"
                   alt="Aktivitas Bahasa dan Komunikasi Santri"
                   className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent pointer-events-none" />
-                
-                {/* Floating Action Pill */}
-                <div className="absolute right-4 bottom-4">
-                  <a
-                    href={SITE_INFO.contacts.ppdbWa}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-white/95 hover:bg-forest-900 hover:text-white text-forest-900 border border-emerald-200/80 shadow-md px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide inline-flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                  >
-                    <span>Ragam Kegiatan Santri</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-emerald-600 group-hover:text-white" />
-                  </a>
-                </div>
               </div>
 
               {/* Two-Column Details */}
