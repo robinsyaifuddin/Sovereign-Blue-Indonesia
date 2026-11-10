@@ -429,7 +429,7 @@ export const PPDB_FEES = [
 export interface GalleryItem {
   id: string;
   title: string;
-  category: "Tahfidz & Ibadah" | "Akademik & Formal" | "Ekstrakurikuler" | "Kemandirian & Sosial" | "Peringatan Hari Besar";
+  category: "Tahfidz & Ibadah" | "Akademik & Formal" | "Ekstrakurikuler" | "Kemandirian & Sosial" | "Peringatan Hari Besar" | string;
   date: string;
   location: string;
   image: string;
@@ -458,7 +458,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-2",
     title: "Gedung Asrama Santri & Pembinaan Karakter",
-    category: "Lingkungan & Asrama",
+    category: "Kemandirian & Sosial",
     date: "24 Oktober 2026",
     location: "Kompleks Asrama Pondok",
     image: "/gambar/asrama.png",
@@ -467,7 +467,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-3",
     title: "Kawasan & Gerbang Masuk Kampus Pesantren",
-    category: "Lingkungan Kampus",
+    category: "Kemandirian & Sosial",
     date: "19 Oktober 2026",
     location: "Gerbang Utama Al-Mursyid",
     image: "/gambar/gerbangmasuk.png",
@@ -476,7 +476,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-4",
     title: "Halaman Depan & Plaza Utama Pesantren",
-    category: "Fasilitas & Kampus",
+    category: "Peringatan Hari Besar",
     date: "15 Oktober 2026",
     location: "Plaza Utama Kampus Al-Mursyid",
     image: "/gambar/halamandepan.png",
@@ -494,7 +494,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-6",
     title: "Suasana Lingkungan Al-Mursyid Asri & Sejuk",
-    category: "Lingkungan Kampus",
+    category: "Kemandirian & Sosial",
     date: "22 Oktober 2026",
     location: "Area Kampus Way Lalaan",
     image: "/gambar/lingkungan.png",
@@ -503,7 +503,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-7",
     title: "Proses Belajar Mengajar & Madrasah Diniyah",
-    category: "Pendidikan & Diniyah",
+    category: "Akademik & Formal",
     date: "08 Oktober 2026",
     location: "Ruang Kelas & Madrasah Diniyah",
     image: "/gambar/pendidikan.png",
@@ -512,7 +512,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-8",
     title: "Pendidikan Karakter & Kedisiplinan Santri",
-    category: "Pendidikan & Karakter",
+    category: "Akademik & Formal",
     date: "03 Oktober 2026",
     location: "Kampus Al-Mursyid Tanggamus",
     image: "/gambar/pedidikan.png",
