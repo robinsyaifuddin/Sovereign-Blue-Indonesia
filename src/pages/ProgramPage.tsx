@@ -50,7 +50,7 @@ export const ProgramPage: React.FC = () => {
               {/* Horizontal Inset Image with Floating Pill */}
               <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
                 <img
-                  src={tahfidzProg?.image || "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1200&q=80"}
+                  src="/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.png"
                   alt="Suasana Halaqah Tahfidz Al-Mursyid"
                   className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
@@ -97,7 +97,7 @@ export const ProgramPage: React.FC = () => {
             <div className="lg:col-span-5 relative group">
               <div className="relative rounded-2xl overflow-hidden border border-emerald-200/80 shadow-md bg-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1000&q=80"
+                  src="/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.png"
                   alt="Mushaf Al-Qur'an dan Pembinaan Santri"
                   className="w-full h-[460px] sm:h-[540px] object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                 />
@@ -134,7 +134,7 @@ export const ProgramPage: React.FC = () => {
             <div className="lg:col-span-5 order-2 lg:order-1 relative group">
               <div className="relative rounded-2xl overflow-hidden border border-emerald-200/80 shadow-md bg-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1532012164546-f432f2e3edd4?auto=format&fit=crop&w=1000&q=80"
+                  src="/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.png"
                   alt="Kajian Kitab Kuning Pesantren"
                   className="w-full h-[460px] sm:h-[540px] object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                 />
@@ -180,7 +180,7 @@ export const ProgramPage: React.FC = () => {
               {/* Horizontal Inset Image with Floating Pill */}
               <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
                 <img
-                  src={diniyahProg?.image || "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1200&q=80"}
+                  src="/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.png"
                   alt="Kitab Turats dan Kajian Pesantren"
                   className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
@@ -256,7 +256,7 @@ export const ProgramPage: React.FC = () => {
               {/* Horizontal Inset Image with Floating Pill */}
               <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
                 <img
-                  src={formalProg?.image || "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80"}
+                  src="/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.png"
                   alt="Laboratorium dan Ruang Belajar Formal"
                   className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
@@ -301,7 +301,7 @@ export const ProgramPage: React.FC = () => {
             <div className="lg:col-span-5 relative group">
               <div className="relative rounded-2xl overflow-hidden border border-emerald-200/80 shadow-md bg-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80"
+                  src="/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.png"
                   alt="Santri Berprestasi di Kelas Formal"
                   className="w-full h-[460px] sm:h-[540px] object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                 />
@@ -338,7 +338,7 @@ export const ProgramPage: React.FC = () => {
             <div className="lg:col-span-5 order-2 lg:order-1 relative group">
               <div className="relative rounded-2xl overflow-hidden border border-emerald-200/80 shadow-md bg-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=80"
+                  src="/gambar/ekstrakurikuler.png"
                   alt="Aktivitas Pengembangan Kepribadian dan Kepanduan"
                   className="w-full h-[460px] sm:h-[540px] object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                 />
@@ -384,7 +384,7 @@ export const ProgramPage: React.FC = () => {
               {/* Horizontal Inset Image with Floating Pill */}
               <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
                 <img
-                  src={ekskulProg?.image || "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80"}
+                  src="/gambar/ekstrakurikuler.png"
                   alt="Aktivitas Bahasa dan Komunikasi Santri"
                   className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />

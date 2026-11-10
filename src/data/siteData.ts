@@ -131,7 +131,8 @@ export const PROGRAMS = [
     tagline: "Bahasa Internasional & Soft Skills",
     desc: "Membekali santri kemampuan komunikasi aktif bahasa Arab dan Inggris sehari-hari, serta ekstrakurikuler kepanduan (Pramuka), seni Kaligrafi Islam, dan bela diri.",
     icon: "Languages",
-    highlights: ["Yaumul Lughah (Hari Wajib Berbahasa)", "Klub Kaligrafi & Tilawah", "Pramuka Gugus Depan Pesantren", "Pelatihan Public Speaking & Khitobah"]
+    highlights: ["Yaumul Lughah (Hari Wajib Berbahasa)", "Klub Kaligrafi & Tilawah", "Pramuka Gugus Depan Pesantren", "Pelatihan Public Speaking & Khitobah"],
+    image: "/gambar/ekstrakurikuler.png"
   }
 ];
 
