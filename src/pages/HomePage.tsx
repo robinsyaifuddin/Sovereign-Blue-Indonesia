@@ -8,6 +8,7 @@ import {
   X, ZoomIn, MousePointerClick
 } from 'lucide-react';
 import { SITE_INFO, PROGRAMS, FACILITIES, NEWS_DATA, LATEST_POSTS, GALLERY_ITEMS } from '../data/siteData';
+import { useAppStoreData } from '../hooks/useAppStoreData';
 import { createSlug } from '../utils/slug';
 
 const HERO_SLIDES = [
@@ -65,6 +66,7 @@ const STRIP_PILLARS = [
 ];
 
 export const HomePage: React.FC = () => {
+  const { ppdbSettings } = useAppStoreData();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [activeProgram, setActiveProgram] = useState(0);
   const [newsHeroIndex, setNewsHeroIndex] = useState(0);
@@ -109,7 +111,7 @@ export const HomePage: React.FC = () => {
       ],
       link: "/program#tahfidz",
       linkLabel: "Pelajari Kurikulum Tahfidz",
-      image: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1200&q=80",
+      image: "/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.png",
       quote: "Sebaik-baik kalian adalah yang mempelajari Al-Qur'an dan mengajarkannya.",
       quoteSource: "HR. Bukhari",
       icon: BookOpen,
@@ -131,7 +133,7 @@ export const HomePage: React.FC = () => {
       ],
       link: "/program#diniyah",
       linkLabel: "Silabus Kitab Kuning",
-      image: "https://images.unsplash.com/photo-1532012164546-f432f2e3edd4?auto=format&fit=crop&w=1200&q=80",
+      image: "/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.png",
       quote: "Menuntut ilmu adalah kewajiban bagi setiap muslim dan pembuka jalan ke surga.",
       quoteSource: "HR. Ibnu Majah",
       icon: Award,
@@ -153,7 +155,7 @@ export const HomePage: React.FC = () => {
       ],
       link: "/program#formal",
       linkLabel: "Kurikulum Formal & Fasilitas",
-      image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80",
+      image: "/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.png",
       quote: "Pendidikan adalah senjata paling ampuh untuk mengubah dunia dan membentuk adab.",
       quoteSource: "Visi Pendidikan",
       icon: GraduationCap,
@@ -175,7 +177,7 @@ export const HomePage: React.FC = () => {
       ],
       link: "/program#bilingual",
       linkLabel: "Eksplorasi Ekstrakurikuler",
-      image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80",
+      image: "/gambar/ekstrakurikuler.png",
       quote: "Bahasa adalah kunci jendela dunia, adab adalah pemandu langkah manusia.",
       quoteSource: "Prinsip Global",
       icon: Languages,
@@ -801,15 +803,19 @@ export const HomePage: React.FC = () => {
                 
                 {/* Visual Image Container (Rasio Tetap 3:4) */}
                 <div 
-                  onClick={() => setPreviewModal({ image: FACILITIES[1].image, title: "Fasilitas dan Asrama Santri", category: "PPDB & Kampus" })}
+                  onClick={() => setPreviewModal({ 
+                    image: (ppdbSettings?.heroImage && !ppdbSettings.heroImage.includes('unsplash.com')) ? ppdbSettings.heroImage : "/gambar/halamandepan.png", 
+                    title: "Informasi Pendaftaran Santri Baru (PPDB)", 
+                    category: "PPDB & Kampus" 
+                  })}
                   className="relative aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 group cursor-pointer"
                   role="button"
                   tabIndex={0}
-                  aria-label="Lihat foto Fasilitas dan Lingkungan Pondok Pesantren"
+                  aria-label="Lihat foto Poster PPDB Pondok Pesantren"
                 >
                   <img
-                    src={FACILITIES[1].image}
-                    alt="Fasilitas dan Lingkungan Pondok Pesantren Al-Mursyid"
+                    src={(ppdbSettings?.heroImage && !ppdbSettings.heroImage.includes('unsplash.com')) ? ppdbSettings.heroImage : "/gambar/halamandepan.png"}
+                    alt="Poster PPDB Pondok Pesantren Al-Mursyid"
                     className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />

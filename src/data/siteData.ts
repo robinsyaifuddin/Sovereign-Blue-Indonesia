@@ -448,75 +448,75 @@ export const GALLERY_CATEGORIES = [
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-1",
-    title: "Halaqah Tahfidzul Qur'an & Talaqqi Ba'da Subuh",
+    title: "Masjid Jami' Al-Mursyid & Halaqah Qur'ani",
     category: "Tahfidz & Ibadah",
     date: "28 Oktober 2026",
     location: "Masjid Jami' Al-Mursyid",
-    image: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1200&q=80",
+    image: "/gambar/masjid.png",
     desc: "Suasana syahdu santri menyetorkan ziyadah hafalan Al-Qur'an dan muraja'ah bersama asatidz pengampu tahfidz."
   },
   {
     id: "gal-2",
-    title: "Praktikum Sains & Eksperimen Biologi Terpadu",
-    category: "Akademik & Formal",
+    title: "Gedung Asrama Santri & Pembinaan Karakter",
+    category: "Lingkungan & Asrama",
     date: "24 Oktober 2026",
-    location: "Laboratorium Sains SMP-SMA Islam",
-    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80",
-    desc: "Santri mempraktikkan pengamatan mikroskopis dan formulasi kimia ramah lingkungan dalam pembelajaran sains terpadu."
+    location: "Kompleks Asrama Pondok",
+    image: "/gambar/asrama.png",
+    desc: "Kawasan asrama bersih dan tertata asri di lereng bukit Way Lalaan Tanggamus untuk kenyamanan santri beristirahat."
   },
   {
     id: "gal-3",
-    title: "Tadabbur Alam & Survival Camp di Alam Way Lalaan",
-    category: "Ekstrakurikuler",
+    title: "Kawasan & Gerbang Masuk Kampus Pesantren",
+    category: "Lingkungan Kampus",
     date: "19 Oktober 2026",
-    location: "Kawasan Alam Way Lalaan, Tanggamus",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-    desc: "Eksplorasi alam santri pecinta alam mengasah ketahanan fisik, kerja sama regu, dan tadabbur keagungan ciptaan Allah."
+    location: "Gerbang Utama Al-Mursyid",
+    image: "/gambar/gerbangmasuk.png",
+    desc: "Akses gerbang utama kampus Pondok Pesantren Al-Mursyid yang tertib, asri, dan aman bagi seluruh civitas santri."
   },
   {
     id: "gal-4",
-    title: "Kemandirian Santri: Panen Kebun Hidroponik & Ikan Air Tawar",
-    category: "Kemandirian & Sosial",
+    title: "Halaman Depan & Plaza Utama Pesantren",
+    category: "Fasilitas & Kampus",
     date: "15 Oktober 2026",
-    location: "Kebun Edukasi Agropreneur Santri",
-    image: "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&w=1200&q=80",
-    desc: "Edukasi budidaya sayuran hijau dan sistem perikanan mandiri guna membekali santri jiwa wirausaha dan ketahanan pangan."
+    location: "Plaza Utama Kampus Al-Mursyid",
+    image: "/gambar/halamandepan.png",
+    desc: "Halaman depan yang luas dan tertata rapi sebagai pusat aktivitas apel santri dan kegiatan outdoor."
   },
   {
     id: "gal-5",
-    title: "Latihan Rutin Seni Bela Diri Tapak Suci & Panahan Tradisional",
+    title: "Kegiatan Ekstrakurikuler Santri",
     category: "Ekstrakurikuler",
     date: "12 Oktober 2026",
-    location: "Lapangan Serbaguna Kampus Al-Mursyid",
-    image: "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&w=1200&q=80",
-    desc: "Melatih kebugaran, kedisiplinan gerak, serta sunnah berolahraga memanah bagi para santriwan dan santriwati."
+    location: "Kawasan Pesantren Al-Mursyid",
+    image: "/gambar/ekstrakurikuler.png",
+    desc: "Pengembangan bakat, ketangkasan fisik, kemandirian, dan kreativitas santri melalui ragam kegiatan ekstrakurikuler."
   },
   {
     id: "gal-6",
-    title: "Peringatan Hari Santri Nasional & Apel Akbar Keikhlasan",
-    category: "Peringatan Hari Besar",
+    title: "Suasana Lingkungan Al-Mursyid Asri & Sejuk",
+    category: "Lingkungan Kampus",
     date: "22 Oktober 2026",
-    location: "Plaza Utama Al-Mursyid",
-    image: "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1200&q=80",
-    desc: "Semarak upacara Hari Santri Nasional bersama segenap masyaikh, dewan guru, dan wali santri dalam balutan ukhuwah."
+    location: "Area Kampus Way Lalaan",
+    image: "/gambar/lingkungan.png",
+    desc: "Lingkungan belajar kondusif bebas kebisingan kota, berhawa sejuk di kaki pegunungan Tanggamus."
   },
   {
     id: "gal-7",
-    title: "Sorogan Kitab Kuning & Muwajjahah Diniyah Sore Hari",
-    category: "Tahfidz & Ibadah",
+    title: "Proses Belajar Mengajar & Madrasah Diniyah",
+    category: "Pendidikan & Diniyah",
     date: "08 Oktober 2026",
-    location: "Serambi Madrasah Diniyah",
-    image: "https://images.unsplash.com/photo-1532012164546-f432f2e3edd4?auto=format&fit=crop&w=1200&q=80",
-    desc: "Pendalaman kaidah nahwu, sharaf, dan fiqih klasik dengan metode sorogan talaqqi langsung kepada para asatidz."
+    location: "Ruang Kelas & Madrasah Diniyah",
+    image: "/gambar/pendidikan.png",
+    desc: "Pembelajaran intensif kurikulum formal berpadu dengan kajian kitab kuning turats salafiyah secara terstruktur."
   },
   {
     id: "gal-8",
-    title: "Pelatihan Kaligrafi Kontemporer & Pameran Seni Khath",
-    category: "Ekstrakurikuler",
+    title: "Pendidikan Karakter & Kedisiplinan Santri",
+    category: "Pendidikan & Karakter",
     date: "03 Oktober 2026",
-    location: "Studio Seni & Kaligrafi Islam",
-    image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80",
-    desc: "Mengasah kepekaan estetika dan kecintaan terhadap seni tulisan mushaf Al-Qur'an gaya Tsuluts, Naskhi, dan Diwani."
+    location: "Kampus Al-Mursyid Tanggamus",
+    image: "/gambar/pedidikan.png",
+    desc: "Pembiasaan adab mulia, kepemimpinan, dan kemandirian hidup berasrama 24 jam di bawah bimbingan asatidz."
   },
   {
     id: "gal-9",

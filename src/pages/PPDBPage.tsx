@@ -17,7 +17,9 @@ export const PPDBPage: React.FC = () => {
 
   const steps = ppdbSettings?.steps || [];
   const fees = ppdbSettings?.fees || [];
-  const heroImage = ppdbSettings?.heroImage || "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1000&q=80";
+  const heroImage = ppdbSettings?.heroImage && !ppdbSettings.heroImage.includes('unsplash.com') 
+    ? ppdbSettings.heroImage 
+    : "/gambar/halamandepan.png";
   const whatsappNumber = ppdbSettings?.whatsappNumber || siteInfo?.contacts?.phone || "0838-4847-8150";
   const formUrl = ppdbSettings?.formUrl || siteInfo?.contacts?.ppdbFormUrl || "https://forms.gle/almursyid-ppdb";
   const brochurePdfUrl = ppdbSettings?.brochurePdfUrl || formUrl;

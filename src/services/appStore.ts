@@ -48,7 +48,7 @@ export interface PPDBSettings {
 }
 
 const DEFAULT_PPDB_SETTINGS: PPDBSettings = {
-  heroImage: "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1000&q=80",
+  heroImage: "/gambar/halamandepan.png",
   whatsappNumber: "0838-4847-8150",
   formUrl: "https://forms.gle/almursyid-ppdb",
   brochurePdfUrl: "https://forms.gle/almursyid-ppdb",
