@@ -332,7 +332,7 @@ export const AboutPage: React.FC = () => {
                 {/* Gambar A4 Portrait (Rasio 1:1.414 / ~3:4) */}
                 <div className="relative aspect-[1/1.4] max-h-72 overflow-hidden bg-stone-200">
                   <img 
-                    src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=800&q=80" 
+                    src="/gambar/SERTIFIKAT.jpeg" 
                     alt="Piagam Terdaftar Pesantren Kemenag RI" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
@@ -368,7 +368,7 @@ export const AboutPage: React.FC = () => {
                 {/* Gambar A4 Portrait (Rasio 1:1.414 / ~3:4) */}
                 <div className="relative aspect-[1/1.4] max-h-72 overflow-hidden bg-stone-200">
                   <img 
-                    src="https://images.unsplash.com/photo-1532012164546-f432f2e3edd4?auto=format&fit=crop&w=800&q=80" 
+                    src="/gambar/AHU.jpeg" 
                     alt="Pengesahan Badan Hukum Yayasan Kemenkumham RI" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
