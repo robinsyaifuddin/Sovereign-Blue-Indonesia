@@ -31,7 +31,7 @@ const GALLERY_FACILITIES: FacilityItem[] = [
     category: "Ibadah & Halaqah",
     tagline: "Pusat spiritual santri & halaqah Quran",
     desc: "Pusat spiritual utama santri untuk salat berjamaah 5 waktu, tahsin bersanad, kajian kitab kuning turats, dan qiyamul lail dengan suasana hening kaki bukit Tanggamus.",
-    image: "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1200&q=80",
+    image: "/gambar/masjid.png",
     badge: "Pusat Ibadah",
     highlightPoints: ["Kapasitas 500+ jamaah", "Sirkulasi sejuk alami", "Halaqah tahfidz 24 jam"]
   },
@@ -41,7 +41,7 @@ const GALLERY_FACILITIES: FacilityItem[] = [
     category: "Hunian Santri",
     tagline: "Hunian nyaman & beradab putra-putri",
     desc: "Gedung asrama santri putra dan putri terpisah mandiri. Kamar tidur tertata higienis, ranjang bertingkat kokoh, lemari perorangan, dan sirkulasi angin pegunungan yang menyehatkan.",
-    image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1000&q=80",
+    image: "/gambar/asrama.png",
     badge: "Hunian Nyaman",
     highlightPoints: ["Gedung putra & putri terpisah", "Pengawasan musyrif 24 jam", "Sanitasi bersih terawat"]
   },
@@ -51,7 +51,7 @@ const GALLERY_FACILITIES: FacilityItem[] = [
     category: "Pendidikan Formal",
     tagline: "Kombinasi sains, bahasa & teknologi",
     desc: "Ruang belajar representatif berfasilitas modern untuk kurikulum nasional dan pesantren, dilengkapi proyektor, papan interaktif, serta laboratorium komputer berbasis literasi digital.",
-    image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80",
+    image: "/gambar/pendidikan.png",
     badge: "Sains & Teknologi",
     highlightPoints: ["Ruang belajar ergonomis", "Lab komputer & multimedia", "Akses jaringan edukasi"]
   },
@@ -91,7 +91,7 @@ const GALLERY_FACILITIES: FacilityItem[] = [
     category: "Lingkungan Pesantren",
     tagline: "Suasana asri penyejuk pikiran santri",
     desc: "Pekarangan asri berlatar kaki Gunung Tanggamus yang mendukung suasana tadabbur alam, ketenangan batin dalam menghafal Al-Qur'an, dan lingkungan bebas polusi perkotaan.",
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1000&q=80",
+    image: "/gambar/lingkungan.png",
     badge: "Asri Pegunungan",
     highlightPoints: ["Jauh dari kebisingan kota", "Ekosistem sejuk & hijau", "Area tadabbur alam"]
   }

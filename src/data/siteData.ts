@@ -140,25 +140,25 @@ export const FACILITIES = [
     name: "Masjid Jami' Al-Mursyid",
     category: "Ibadah & Halaqah",
     desc: "Pusat spiritual santri untuk salat berjamaah 5 waktu, kajian diniyah, wirid, dan halaqah tahfidz yang sejuk dan luas.",
-    image: "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1000&q=80"
+    image: "/gambar/masjid.png"
   },
   {
     name: "Asrama Santri Putra & Putri Terpisah",
     category: "Tempat Tinggal",
     desc: "Gedung asrama bersih, nyaman, dengan sirkulasi udara pegunungan Tanggamus yang segar, dilengkapi ranjang tingkat dan lemari mandiri.",
-    image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1000&q=80"
+    image: "/gambar/asrama.png"
   },
   {
     name: "Ruang Kelas & Madrasah Diniyah",
     category: "Pendidikan",
     desc: "Ruang belajar representatif berfasilitas modern untuk pembelajaran formal, kajian kitab kuning, sains, dan literasi teknologi.",
-    image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80"
+    image: "/gambar/pendidikan.png"
   },
   {
-    name: "Dapur & Ruang Makan Higienis",
-    category: "Nutrisi & Konsumsi",
-    desc: "Penyediaan menu makanan santri 3 kali sehari yang terjamin gizi seimbang, halal, dan disiapkan dengan standar kebersihan tinggi.",
-    image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1000&q=80"
+    name: "Kawasan Lingkungan Asri & Hijau",
+    category: "Lingkungan",
+    desc: "Lingkungan pesantren yang asri, hijau, dan sejuk di kaki pegunungan Tanggamus untuk kenyamanan santri beraktivitas.",
+    image: "/gambar/lingkungan.png"
   },
   {
     name: "Lapangan Olahraga & Area Terbuka",

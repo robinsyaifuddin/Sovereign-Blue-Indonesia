@@ -332,7 +332,7 @@ export const HomePage: React.FC = () => {
               {/* Gambar dasar / latar utama */}
               <div className="absolute inset-x-5 inset-y-4 overflow-hidden rounded-xl shadow-md border border-slate-200/80 bg-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1000&q=80"
+                  src="/gambar/halamandepan.png"
                   alt="Pondok Pesantren Al-Mursyid"
                   className="w-full h-full object-cover filter contrast-[1.03]"
                 />
@@ -341,7 +341,7 @@ export const HomePage: React.FC = () => {
               {/* Panel pecahan kiri atas (overlap frame dengan garis border putih) */}
               <div className="absolute -top-1 left-0 w-3/5 h-3/5 rounded-xl overflow-hidden shadow-xl border-[2.5px] border-white bg-slate-100 transition-transform duration-500 hover:-translate-y-1">
                 <img
-                  src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1000&q=80"
+                  src="/gambar/halamandepan.png"
                   alt=""
                   className="w-[170%] h-[170%] max-w-none object-cover -translate-x-3 -translate-y-3"
                 />
@@ -350,7 +350,7 @@ export const HomePage: React.FC = () => {
               {/* Panel pecahan vertikal kanan */}
               <div className="absolute top-5 right-0 w-[27%] h-3/5 rounded-xl overflow-hidden shadow-lg border-[2.5px] border-white bg-slate-100 transition-transform duration-500 hover:translate-y-1">
                 <img
-                  src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1000&q=80"
+                  src="/gambar/halamandepan.png"
                   alt=""
                   className="w-[360%] h-[170%] max-w-none object-cover -translate-x-[68%] -translate-y-8"
                 />
@@ -359,7 +359,7 @@ export const HomePage: React.FC = () => {
               {/* Panel pecahan kanan bawah */}
               <div className="absolute bottom-0 right-2 w-7/12 h-1/2 rounded-xl overflow-hidden shadow-xl border-[2.5px] border-white bg-slate-100 transition-transform duration-500 hover:translate-x-1">
                 <img
-                  src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1000&q=80"
+                  src="/gambar/halamandepan.png"
                   alt=""
                   className="w-[175%] h-[200%] max-w-none object-cover -translate-x-[42%] -translate-y-[48%]"
                 />
@@ -368,7 +368,7 @@ export const HomePage: React.FC = () => {
               {/* Aksen pecahan kecil kiri bawah */}
               <div className="absolute bottom-3 left-2 w-14 h-14 rounded-lg overflow-hidden shadow-md border-2 border-white bg-slate-100 transition-transform duration-500 hover:scale-105">
                 <img
-                  src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1000&q=80"
+                  src="/gambar/halamandepan.png"
                   alt=""
                   className="w-[500%] h-[500%] max-w-none object-cover -translate-x-[15%] -translate-y-[80%]"
                 />
@@ -899,8 +899,8 @@ export const HomePage: React.FC = () => {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="text-xs font-semibold text-emerald-950">Dapur & Sanitasi Terstandarisasi</h4>
-                      <p className="text-[11px] text-slate-500 leading-normal">Menu 3x sehari bergizi seimbang dengan air bersih pegunungan.</p>
+                      <h4 className="text-xs font-semibold text-emerald-950">Lingkungan Asri & Nyaman</h4>
+                      <p className="text-[11px] text-slate-500 leading-normal">Kawasan hijau sejuk bebas polusi dan kebisingan di lereng pegunungan.</p>
                     </div>
                   </div>
                 </div>
