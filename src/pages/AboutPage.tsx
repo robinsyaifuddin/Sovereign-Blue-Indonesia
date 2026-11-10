@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Play, ShieldCheck, FileText, CheckCircle2, UserCheck, 
-  BookOpen, HeartHandshake, Compass, MapPin, ArrowRight
+  BookOpen, HeartHandshake, Compass, MapPin, ArrowRight, X, ZoomIn
 } from 'lucide-react';
 import { SITE_INFO as FALLBACK_SITE_INFO } from '../data/siteData';
 import { useAppStoreData } from '../hooks/useAppStoreData';
@@ -10,6 +10,7 @@ import { useAppStoreData } from '../hooks/useAppStoreData';
 export const AboutPage: React.FC = () => {
   const { siteInfo: STORE_SITE_INFO } = useAppStoreData();
   const SITE_INFO = STORE_SITE_INFO || FALLBACK_SITE_INFO;
+  const [selectedLegalImage, setSelectedLegalImage] = useState<{ src: string; title: string } | null>(null);
 
   return (
     <div className="bg-white text-slate-900 min-h-screen selection:bg-emerald-100 selection:text-emerald-900">
@@ -323,79 +324,79 @@ export const AboutPage: React.FC = () => {
             </div>
           </div>
 
-          {/* DUA KARTU SEJAJAR DI SAMPING KANAN (Ukuran A4 Portrait Minimalis) */}
+          {/* DUA KARTU SEJAJAR DI SAMPING KANAN */}
           <div className="lg:col-span-8 flex justify-center lg:justify-end">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-xl w-full">
               
               {/* Card 1: Piagam Kemenag RI */}
-              <div className="group bg-emerald-50/40 rounded-2xl overflow-hidden border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between">
-                {/* Gambar A4 Portrait (Rasio 1:1.414 / ~3:4) */}
-                <div className="relative aspect-[1/1.4] max-h-72 overflow-hidden bg-stone-200">
+              <div className="group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                {/* Gambar Full Panjang Dokumen */}
+                <div 
+                  onClick={() => setSelectedLegalImage({ src: '/gambar/SERTIFIKAT.jpeg', title: 'Piagam Terdaftar Pesantren (NSP) - Kementerian Agama RI' })}
+                  className="relative w-full overflow-hidden bg-stone-100 cursor-pointer group/img"
+                >
                   <img 
                     src="/gambar/SERTIFIKAT.jpeg" 
                     alt="Piagam Terdaftar Pesantren Kemenag RI" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="w-full h-auto object-contain block group-hover/img:scale-[1.02] transition-transform duration-500 ease-out"
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/15 transition-colors flex items-center justify-center">
+                    <span className="opacity-0 group-hover/img:opacity-100 transition-opacity bg-black/70 text-white text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
+                      <ZoomIn className="w-3.5 h-3.5" /> Lihat Dokumen
+                    </span>
+                  </div>
                 </div>
 
-                {/* Konten Dokumen Bawah Ringkas Tanpa Deskripsi Panjang */}
-                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-1.5">
-                    <span className="text-[9px] uppercase tracking-wider text-emerald-800 font-bold block">
-                      KEMENTERIAN AGAMA RI
-                    </span>
-                    
-                    <h3 className="text-sm sm:text-base font-bold text-slate-900 tracking-tight leading-snug">
-                      Piagam Terdaftar Pesantren (NSP)
-                    </h3>
+                {/* Footer Card Ringkas (Status/Tanggal & Tombol Modal) */}
+                <div className="p-4 border-t border-stone-200/80 flex items-center justify-between bg-stone-50/50">
+                  <div>
+                    <span className="text-[10px] text-stone-500 block uppercase tracking-wider font-semibold">Ditetapkan</span>
+                    <span className="text-xs font-bold text-slate-800">{SITE_INFO.legal.establishedDate}</span>
                   </div>
-
-                  {/* Footer Card ala Gambar 2 (Label Kiri + Tombol Panah Bulat Kanan) */}
-                  <div className="pt-3 border-t border-stone-300/60 flex items-center justify-between">
-                    <div>
-                      <span className="text-[9px] text-stone-700 block">Ditetapkan</span>
-                      <span className="text-[11px] font-bold text-slate-800">{SITE_INFO.legal.establishedDate}</span>
-                    </div>
-                    <div className="w-8 h-8 rounded-full bg-white border border-stone-300 group-hover:border-slate-900 group-hover:bg-slate-900 group-hover:text-white transition-all flex items-center justify-center text-stone-700 shadow-2xs">
-                      <ArrowRight className="w-3 h-3" />
-                    </div>
-                  </div>
+                  <button 
+                    type="button"
+                    onClick={() => setSelectedLegalImage({ src: '/gambar/SERTIFIKAT.jpeg', title: 'Piagam Terdaftar Pesantren (NSP) - Kementerian Agama RI' })}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-800 hover:bg-emerald-900 active:scale-95 text-white text-xs font-semibold shadow-2xs transition-all"
+                  >
+                    <span>Buka</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               </div>
 
               {/* Card 2: SK Kemenkumham RI */}
-              <div className="group bg-emerald-50/40 rounded-2xl overflow-hidden border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between">
-                {/* Gambar A4 Portrait (Rasio 1:1.414 / ~3:4) */}
-                <div className="relative aspect-[1/1.4] max-h-72 overflow-hidden bg-stone-200">
+              <div className="group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                {/* Gambar Full Panjang Dokumen */}
+                <div 
+                  onClick={() => setSelectedLegalImage({ src: '/gambar/AHU.jpeg', title: 'Pengesahan Badan Hukum Yayasan - Kemenkumham RI' })}
+                  className="relative w-full overflow-hidden bg-stone-100 cursor-pointer group/img"
+                >
                   <img 
                     src="/gambar/AHU.jpeg" 
                     alt="Pengesahan Badan Hukum Yayasan Kemenkumham RI" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="w-full h-auto object-contain block group-hover/img:scale-[1.02] transition-transform duration-500 ease-out"
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/15 transition-colors flex items-center justify-center">
+                    <span className="opacity-0 group-hover/img:opacity-100 transition-opacity bg-black/70 text-white text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
+                      <ZoomIn className="w-3.5 h-3.5" /> Lihat Dokumen
+                    </span>
+                  </div>
                 </div>
 
-                {/* Konten Dokumen Bawah Ringkas Tanpa Deskripsi Panjang */}
-                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-1.5">
-                    <span className="text-[9px] uppercase tracking-wider text-emerald-800 font-bold block">
-                      KEMENKUMHAM REPUBLIK INDONESIA
-                    </span>
-
-                    <h3 className="text-sm sm:text-base font-bold text-slate-900 tracking-tight leading-snug">
-                      Pengesahan Badan Hukum Yayasan
-                    </h3>
+                {/* Footer Card Ringkas (Status & Tombol Modal) */}
+                <div className="p-4 border-t border-stone-200/80 flex items-center justify-between bg-stone-50/50">
+                  <div>
+                    <span className="text-[10px] text-stone-500 block uppercase tracking-wider font-semibold">Status Hukum</span>
+                    <span className="text-xs font-bold text-emerald-800">Terdaftar &amp; Aktif</span>
                   </div>
-
-                  {/* Footer Card ala Gambar 2 (Label Kiri + Tombol Panah Bulat Kanan) */}
-                  <div className="pt-3 border-t border-stone-300/60 flex items-center justify-between">
-                    <div>
-                      <span className="text-[9px] text-stone-700 block">Status Hukum</span>
-                      <span className="text-[11px] font-bold text-emerald-800">Terdaftar & Aktif</span>
-                    </div>
-                    <div className="w-8 h-8 rounded-full bg-white border border-stone-300 group-hover:border-slate-900 group-hover:bg-slate-900 group-hover:text-white transition-all flex items-center justify-center text-stone-700 shadow-2xs">
-                      <ArrowRight className="w-3 h-3" />
-                    </div>
-                  </div>
+                  <button 
+                    type="button"
+                    onClick={() => setSelectedLegalImage({ src: '/gambar/AHU.jpeg', title: 'Pengesahan Badan Hukum Yayasan - Kemenkumham RI' })}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-800 hover:bg-emerald-900 active:scale-95 text-white text-xs font-semibold shadow-2xs transition-all"
+                  >
+                    <span>Buka</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               </div>
 
@@ -603,6 +604,45 @@ export const AboutPage: React.FC = () => {
 
         </div>
       </section>
+
+      {/* MODAL LIGHTBOX PREVIEW DOKUMEN LEGALITAS */}
+      {selectedLegalImage && (
+        <div 
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setSelectedLegalImage(null)}
+        >
+          <div 
+            className="relative bg-white rounded-2xl max-w-3xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl border border-stone-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header Modal */}
+            <div className="flex items-center justify-between px-5 py-3.5 border-b border-stone-200 bg-stone-50">
+              <p className="text-sm font-bold text-slate-800 line-clamp-1 pr-4">
+                {selectedLegalImage.title}
+              </p>
+              <button 
+                type="button"
+                onClick={() => setSelectedLegalImage(null)}
+                className="p-1.5 rounded-full hover:bg-stone-200 text-stone-600 hover:text-stone-900 transition-colors"
+                aria-label="Tutup"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Konten Gambar Dokumen (Scrollable jika layar kecil) */}
+            <div className="p-4 overflow-y-auto flex items-center justify-center bg-stone-100 max-h-[calc(92vh-60px)]">
+              <img 
+                src={selectedLegalImage.src} 
+                alt={selectedLegalImage.title} 
+                className="max-h-[80vh] w-auto max-w-full object-contain rounded-md shadow-md border border-stone-200 bg-white"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
