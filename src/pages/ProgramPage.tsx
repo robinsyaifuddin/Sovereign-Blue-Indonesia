@@ -4,18 +4,11 @@ import {
   ArrowRight, CheckCircle2, BookOpen, 
   GraduationCap, Globe2, Compass, ShieldCheck, Award
 } from 'lucide-react';
-import { SITE_INFO as FALLBACK_SITE_INFO } from '../data/siteData';
-import { useAppStoreData } from '../hooks/useAppStoreData';
+import { SITE_INFO } from '../data/siteData';
 
 export const ProgramPage: React.FC = () => {
-  const { siteInfo: STORE_SITE_INFO, programs } = useAppStoreData();
-  const SITE_INFO = STORE_SITE_INFO || FALLBACK_SITE_INFO;
+  const ppdbWaUrl = SITE_INFO?.contacts?.ppdbWa || `https://wa.me/6283848478150`;
 
-  // Temukan program dari store berdasarkan ID
-  const tahfidzProg = programs.find((p: any) => p.id === 'tahfidz');
-  const diniyahProg = programs.find((p: any) => p.id === 'diniyah');
-  const formalProg = programs.find((p: any) => p.id === 'formal');
-  const ekskulProg = programs.find((p: any) => p.id === 'ekskul');
   return (
     <div className="space-y-16 pt-8 pb-20">
       {/* Program Showcase List */}
@@ -396,7 +389,7 @@ export const ProgramPage: React.FC = () => {
               <ArrowRight className="w-4 h-4 text-forest-900" />
             </Link>
             <a
-              href={SITE_INFO.contacts.ppdbWa}
+              href={ppdbWaUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-forest-900/80 hover:bg-forest-900 border border-emerald-400/30 text-white font-bold px-6 py-3 rounded-full text-xs sm:text-sm uppercase tracking-wider inline-flex items-center gap-2 transition-all hover:-translate-y-0.5 active:scale-95"
