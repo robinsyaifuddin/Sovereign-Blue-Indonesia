@@ -12,19 +12,19 @@ import { createSlug } from '../utils/slug';
 
 const HERO_SLIDES = [
   {
-    image: "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1920&q=80",
+    image: "/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.png",
     title: "Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi",
     subtitle: "Pondok Pesantren Al-Mursyid Islamic Boarding School Tanggamus memadukan keutamaan Tahfidzul Qur'an, Madrasah Diniyah, dan Pendidikan Formal Terpadu.",
     badge: "Penerimaan Santri Baru Telah Dibuka"
   },
   {
-    image: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1920&q=80",
+    image: "/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.png",
     title: "Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama",
     subtitle: "Target hafalan mutqin 30 juz diiringi penguasaan kaidah kitab klasik dan pembiasaan aktif bahasa Arab & Inggris untuk menyiapkan generasi pemimpin umat.",
     badge: "Sanad Keilmuan Muttashil & Terakreditasi"
   },
   {
-    image: "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=1920&q=80",
+    image: "/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.png",
     title: "Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah",
     subtitle: "Didampingi asatidz berkompeten dalam lingkungan asrama yang asri, islami, disiplin, dan aman di kaki pegunungan Way Lalaan Tanggamus.",
     badge: "Legalitas Terdaftar Resmi Kemenkumham & Kemenag"

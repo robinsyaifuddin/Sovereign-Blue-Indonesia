@@ -52,13 +52,13 @@ export const AboutPage: React.FC = () => {
                   <div className="space-y-3">
                     {/* Foto Kiri Atas: Busur Lingkaran 90 Derajat Kiri-Atas */}
                     <div className="relative aspect-[3/4] rounded-tl-[145px] overflow-hidden bg-stone-200 border border-stone-200/80 shadow-2xs group">
-                      <span className="absolute top-3 left-4 z-10 text-[11px] font-bold text-stone-700 tracking-wider">
+                      <span className="absolute top-3 left-4 z-10 text-[11px] font-bold text-white drop-shadow-md tracking-wider">
                         '22
                       </span>
                       <img 
-                        src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=800&q=80" 
-                        alt="Kawasan Santri Al-Mursyid" 
-                        className="w-full h-full object-cover grayscale contrast-110 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500"
+                        src="/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.png" 
+                        alt="Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama" 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                       />
                     </div>
 
@@ -77,8 +77,8 @@ export const AboutPage: React.FC = () => {
                     {/* Foto Kanan Atas: Busur Lingkaran 90 Derajat Kanan-Atas */}
                     <div className="relative aspect-[4/3] rounded-tr-[145px] overflow-hidden bg-stone-200 border border-stone-200/80 shadow-2xs group">
                       <img 
-                        src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=800&q=80" 
-                        alt="Fasilitas Asrama Al-Mursyid" 
+                        src="/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.png" 
+                        alt="Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi" 
                         className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                       />
                     </div>
@@ -86,8 +86,8 @@ export const AboutPage: React.FC = () => {
                     {/* Foto Kanan Tengah: Persegi Landscape */}
                     <div className="relative aspect-[4/3] rounded-md overflow-hidden bg-stone-200 border border-stone-200/80 shadow-2xs group">
                       <img 
-                        src="https://images.unsplash.com/photo-1532012164546-f432f2e3edd4?auto=format&fit=crop&w=800&q=80" 
-                        alt="Lingkungan Belajar Diniyah" 
+                        src="/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.png" 
+                        alt="Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah" 
                         className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                       />
                     </div>
