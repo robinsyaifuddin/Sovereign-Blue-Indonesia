@@ -117,26 +117,37 @@ export const AboutPage: React.FC = () => {
           
           {/* Kolom Kiri: Poster Profil Tokoh (4 Kolom - Full Height Sejajar dengan Kolom Kanan) */}
           <div className="lg:col-span-4 flex">
-            {/* Foto Tokoh Full Frame */}
-            <div className="w-full rounded-3xl overflow-hidden bg-stone-900 border border-emerald-900/50 shadow-md group relative min-h-[350px] lg:min-h-full">
-              <img 
-                src={
-                  (typeof SITE_INFO?.leadership?.pembina === 'object' && SITE_INFO?.leadership?.pembina?.image)
-                    ? SITE_INFO.leadership.pembina.image
-                    : "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
-                } 
-                alt={typeof SITE_INFO?.leadership?.pembina === 'object' ? SITE_INFO?.leadership?.pembina?.name : SITE_INFO?.leadership?.pembina || 'Pembina Yayasan'} 
-                className="w-full h-full object-cover object-top filter brightness-95 contrast-105 group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/40 to-transparent flex flex-col justify-end p-6 text-center">
-                <p className="text-lg font-bold tracking-tight text-white drop-shadow-sm">
-                  {typeof SITE_INFO?.leadership?.pembina === 'object' ? SITE_INFO?.leadership?.pembina?.name : SITE_INFO?.leadership?.pembina}
-                </p>
-                <p className="text-xs text-emerald-300 font-sans tracking-wide">
-                  {(typeof SITE_INFO?.leadership?.pembina === 'object' && SITE_INFO?.leadership?.pembina?.role) ? SITE_INFO.leadership.pembina.role : 'Pembina & Pendiri Yayasan'}
-                </p>
-              </div>
-            </div>
+              {/* Foto Tokoh Full Frame */}
+              {((typeof SITE_INFO?.leadership?.pembina === 'object' && SITE_INFO?.leadership?.pembina?.image && !SITE_INFO.leadership.pembina.image.includes('unsplash.com'))) ? (
+                <div className="w-full rounded-3xl overflow-hidden bg-stone-900 border border-emerald-900/50 shadow-md group relative min-h-[350px] lg:min-h-full">
+                  <img 
+                    src={SITE_INFO.leadership.pembina.image} 
+                    alt={typeof SITE_INFO?.leadership?.pembina === 'object' ? SITE_INFO?.leadership?.pembina?.name : SITE_INFO?.leadership?.pembina || 'Pembina Yayasan'} 
+                    className="w-full h-full object-cover object-top filter brightness-95 contrast-105 group-hover:scale-105 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/40 to-transparent flex flex-col justify-end p-6 text-center">
+                    <p className="text-lg font-bold tracking-tight text-white drop-shadow-sm">
+                      {typeof SITE_INFO?.leadership?.pembina === 'object' ? SITE_INFO?.leadership?.pembina?.name : SITE_INFO?.leadership?.pembina}
+                    </p>
+                    <p className="text-xs text-emerald-300 font-sans tracking-wide">
+                      {(typeof SITE_INFO?.leadership?.pembina === 'object' && SITE_INFO?.leadership?.pembina?.role) ? SITE_INFO.leadership.pembina.role : 'Pembina & Pendiri Yayasan'}
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div className="w-full rounded-3xl overflow-hidden bg-emerald-900/30 border border-emerald-800/40 shadow-inner flex flex-col items-center justify-center p-8 text-center min-h-[350px] lg:min-h-full">
+                  <div className="w-20 h-20 rounded-full bg-emerald-800/60 border border-emerald-700/50 flex items-center justify-center text-white text-2xl font-bold mb-4 shadow-sm">
+                    {((typeof SITE_INFO?.leadership?.pembina === 'object' ? SITE_INFO?.leadership?.pembina?.name : SITE_INFO?.leadership?.pembina) || 'U').charAt(0)}
+                  </div>
+                  <p className="text-xl font-bold tracking-tight text-emerald-950">
+                    {typeof SITE_INFO?.leadership?.pembina === 'object' ? SITE_INFO?.leadership?.pembina?.name : SITE_INFO?.leadership?.pembina}
+                  </p>
+                  <p className="text-xs text-emerald-700 font-medium tracking-wide mt-1">
+                    {(typeof SITE_INFO?.leadership?.pembina === 'object' && SITE_INFO?.leadership?.pembina?.role) ? SITE_INFO.leadership.pembina.role : 'Pembina & Pendiri Yayasan'}
+                  </p>
+                </div>
+              )}
           </div>
 
           {/* Kolom Kanan: Slab Hijau Forest Memanjang ke Samping yang Berisi Teks Sambutan (8 Kolom) */}
@@ -453,16 +464,19 @@ export const AboutPage: React.FC = () => {
               <div className="group relative rounded-3xl overflow-hidden bg-white border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300 p-6 flex flex-col justify-between">
                 <div className="flex items-start gap-5">
                   {/* Frame Foto Portrait Profil */}
-                  <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden shrink-0 bg-stone-100 border border-stone-200/80 shadow-2xs">
-                    <img
-                      src={
-                        (typeof SITE_INFO.leadership.pembina === 'object' && SITE_INFO.leadership.pembina?.image)
-                          ? SITE_INFO.leadership.pembina.image
-                          : "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80"
-                      }
-                      alt={typeof SITE_INFO.leadership.pembina === 'object' ? SITE_INFO.leadership.pembina?.name : SITE_INFO.leadership.pembina}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
+                  <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden shrink-0 bg-stone-100 border border-stone-200/80 shadow-2xs flex items-center justify-center">
+                    {(typeof SITE_INFO.leadership.pembina === 'object' && SITE_INFO.leadership.pembina?.image && !SITE_INFO.leadership.pembina.image.includes('unsplash.com')) ? (
+                      <img
+                        src={SITE_INFO.leadership.pembina.image}
+                        alt={typeof SITE_INFO.leadership.pembina === 'object' ? SITE_INFO.leadership.pembina?.name : SITE_INFO.leadership.pembina}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-xl">
+                        {((typeof SITE_INFO.leadership.pembina === 'object' ? SITE_INFO.leadership.pembina?.name : SITE_INFO.leadership.pembina) || 'U').charAt(0)}
+                      </div>
+                    )}
                     <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl"></div>
                   </div>
 
@@ -500,16 +514,19 @@ export const AboutPage: React.FC = () => {
               <div className="group relative rounded-3xl overflow-hidden bg-white border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300 p-6 flex flex-col justify-between">
                 <div className="flex items-start gap-5">
                   {/* Frame Foto Portrait Profil */}
-                  <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden shrink-0 bg-stone-100 border border-stone-200/80 shadow-2xs">
-                    <img
-                      src={
-                        (typeof SITE_INFO.leadership.pengawas === 'object' && SITE_INFO.leadership.pengawas?.image)
-                          ? SITE_INFO.leadership.pengawas.image
-                          : "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80"
-                      }
-                      alt={typeof SITE_INFO.leadership.pengawas === 'object' ? SITE_INFO.leadership.pengawas?.name : SITE_INFO.leadership.pengawas}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
+                  <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden shrink-0 bg-stone-100 border border-stone-200/80 shadow-2xs flex items-center justify-center">
+                    {(typeof SITE_INFO.leadership.pengawas === 'object' && SITE_INFO.leadership.pengawas?.image && !SITE_INFO.leadership.pengawas.image.includes('unsplash.com')) ? (
+                      <img
+                        src={SITE_INFO.leadership.pengawas.image}
+                        alt={typeof SITE_INFO.leadership.pengawas === 'object' ? SITE_INFO.leadership.pengawas?.name : SITE_INFO.leadership.pengawas}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-14 h-14 rounded-full bg-stone-200 text-stone-700 font-bold flex items-center justify-center text-xl">
+                        {((typeof SITE_INFO.leadership.pengawas === 'object' ? SITE_INFO.leadership.pengawas?.name : SITE_INFO.leadership.pengawas) || 'B').charAt(0)}
+                      </div>
+                    )}
                     <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl"></div>
                   </div>
 
@@ -562,7 +579,7 @@ export const AboutPage: React.FC = () => {
             {/* Grid 6 Kartu Profil Sejajar Kesamping dengan Rasio Gambar 3:4 */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
               {SITE_INFO.leadership.pengurus.map((item: any, idx: number) => {
-                const photoSrc = item.image || "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80";
+                const hasRealPhoto = item.image && !item.image.includes('unsplash.com');
                 const isLeader = idx === 0;
 
                 return (
@@ -571,12 +588,19 @@ export const AboutPage: React.FC = () => {
                     className="group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300 p-2.5 sm:p-3 flex flex-col justify-between"
                   >
                     {/* Frame Foto Profile Rasio Aspect 3:4 */}
-                    <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-stone-100 border border-stone-200/70">
-                      <img
-                        src={photoSrc}
-                        alt={item.name}
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
-                      />
+                    <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-stone-100 border border-stone-200/70 flex items-center justify-center">
+                      {hasRealPhoto ? (
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-lg">
+                          {item.name.charAt(0)}
+                        </div>
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
                     </div>
 

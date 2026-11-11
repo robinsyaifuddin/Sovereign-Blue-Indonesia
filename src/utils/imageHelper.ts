@@ -8,14 +8,20 @@
 
 export const HOSTINGER_BASE_URL = 'https://orange-cheetah-927765.hostingersite.com';
 
-export const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80';
+// Fallback kosong transparan (tidak memunculkan foto fiktif/orang asing)
+export const FALLBACK_EMPTY_IMAGE = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%23f1f5f9"/></svg>';
 
-export function getImageUrl(path: string | null | undefined, fallback: string = FALLBACK_IMAGE): string {
+export function getImageUrl(path: string | null | undefined, fallback: string = ''): string {
   if (!path || typeof path !== 'string' || path.trim() === '') {
     return fallback;
   }
 
   const clean = path.trim();
+
+  // Hindari gambar dummy unsplash asing
+  if (clean.includes('images.unsplash.com')) {
+    return fallback;
+  }
 
   // 1. Jika sudah merupakan full URL (http:// atau https://), gunakan langsung
   if (clean.startsWith('http://') || clean.startsWith('https://')) {
@@ -44,3 +50,4 @@ export function getImageUrl(path: string | null | undefined, fallback: string = 
 
   return `/${clean}`;
 }
+
