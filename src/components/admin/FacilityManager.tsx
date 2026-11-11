@@ -268,8 +268,20 @@ export const FacilityManager: React.FC = () => {
                 typedFacilities.map((item: FacilityItem, index: number) => (
                   <tr key={index} className="hover:bg-slate-50/60 transition-colors">
                     <td className="py-3 px-4">
-                      <div className="w-20 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
-                        <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                      <div className="w-20 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center text-slate-300">
+                        {item.image ? (
+                          <img 
+                            src={item.image} 
+                            alt={item.name} 
+                            className="w-full h-full object-cover" 
+                            onError={(e) => {
+                              // Sembunyikan ikon broken jika file 404
+                              e.currentTarget.style.display = 'none';
+                            }}
+                          />
+                        ) : (
+                          <span className="text-[10px] font-semibold text-slate-400">Kosong</span>
+                        )}
                       </div>
                     </td>
                     <td className="py-3 px-4 max-w-sm">

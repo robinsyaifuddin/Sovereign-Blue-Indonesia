@@ -429,8 +429,17 @@ export const NewsManager: React.FC = () => {
                 filteredNews.map((item: NewsItem) => (
                   <tr key={item.id} className="hover:bg-slate-50/60 transition-colors">
                     <td className="py-3 px-4">
-                      <div className="w-16 h-12 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
-                        <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                      <div className="w-16 h-12 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center text-slate-300">
+                        {item.image ? (
+                          <img 
+                            src={item.image} 
+                            alt={item.title} 
+                            className="w-full h-full object-cover" 
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                          />
+                        ) : (
+                          <span className="text-[10px] font-semibold text-slate-400">Kosong</span>
+                        )}
                       </div>
                     </td>
                     <td className="py-3 px-4 max-w-md">
