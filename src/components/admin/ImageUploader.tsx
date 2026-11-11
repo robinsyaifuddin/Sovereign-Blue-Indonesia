@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { UploadCloud, Image as ImageIcon, Trash2, AlertCircle, Loader2 } from 'lucide-react';
 import { api } from '../../services/apiClient';
+import { getImageUrl } from '../../utils/imageHelper';
 
 interface ImageUploaderProps {
   label: string;
@@ -45,7 +46,11 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
       // 1. Coba upload langsung ke Hostinger storage backend
       const res = await api.uploadFile(file);
       if (res && res.url) {
-        onChange(res.url);
+        // Normalisasi URL gambar: jika kembalian backend berupa path relatif (/uploads/...), simpan full url Hostinger
+        const finalUrl = res.url.startsWith('http') 
+          ? res.url 
+          : `https://orange-cheetah-927765.hostingersite.com${res.url.startsWith('/') ? res.url : '/' + res.url}`;
+        onChange(finalUrl);
         setIsUploading(false);
         return;
       }
@@ -142,9 +147,16 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
           <div className="w-full flex flex-col items-center">
             <div className={`w-full ${compact ? 'max-w-[120px] sm:max-w-[130px]' : 'max-w-xs'} ${aspectClass} rounded-xl overflow-hidden border border-slate-200 bg-white shadow-2xs relative group`}>
               <img
-                src={value}
+                src={getImageUrl(value)}
                 alt="Preview Upload"
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  // Fallback jika URL relatif tidak ditemukan di host lokal
+                  const target = e.currentTarget;
+                  if (!target.src.includes('orange-cheetah-927765.hostingersite.com') && value.includes('/uploads/')) {
+                    target.src = `https://orange-cheetah-927765.hostingersite.com${value.startsWith('/') ? value : '/' + value}`;
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-[10px] font-bold">
                 Ganti Foto
