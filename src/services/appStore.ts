@@ -8,6 +8,7 @@ import {
   GalleryItem 
 } from '../data/siteData';
 import { api } from './apiClient';
+import { getImageUrl } from '../utils/imageHelper';
 
 export interface PPDBApplicant {
   id: string;
@@ -149,7 +150,7 @@ export const AppStore = {
           subCategory: item.subCategory || 'Umum',
           summary: item.excerpt || item.summary || item.content || '',
           content: item.content || item.summary || item.excerpt || '',
-          image: item.imageUrl || item.image_url || item.image || '',
+          image: getImageUrl(item.imageUrl || item.image_url || item.image || ''),
           date: item.date || item.published_at || 'Baru saja',
           timeAgo: item.timeAgo || 'Baru saja',
           isFeatured: Boolean(item.isFeatured)
@@ -245,7 +246,7 @@ export const AppStore = {
           id: String(item.id),
           title: item.title,
           category: item.category || 'Tahfidz & Ibadah',
-          image: item.imageUrl || item.image_url || item.image || '',
+          image: getImageUrl(item.imageUrl || item.image_url || item.image || ''),
           date: item.date || 'Terbaru',
           location: 'Pondok Pesantren Al-Mursyid',
           desc: item.desc || ''
@@ -341,7 +342,7 @@ export const AppStore = {
           desc: p.description || p.desc || '',
           icon: p.icon || 'BookOpen',
           highlights: Array.isArray(p.highlights) ? p.highlights : [],
-          image: p.image || ''
+          image: getImageUrl(p.image || '')
         }));
         localStorage.setItem(STORAGE_KEYS.PROGRAMS, JSON.stringify(normalized));
         dispatchStoreUpdate(STORAGE_KEYS.PROGRAMS);
@@ -409,7 +410,7 @@ export const AppStore = {
           name: f.name,
           category: f.category || 'Umum',
           desc: f.description || f.desc || '',
-          image: f.imageUrl || f.image_url || f.image || ''
+          image: getImageUrl(f.imageUrl || f.image_url || f.image || '')
         }));
         localStorage.setItem(STORAGE_KEYS.FACILITIES, JSON.stringify(normalized));
         dispatchStoreUpdate(STORAGE_KEYS.FACILITIES);
