@@ -454,7 +454,6 @@ export const PengurusManager: React.FC = () => {
                 <th className="py-3.5 px-4 w-20">Foto</th>
                 <th className="py-3.5 px-4">Nama Lengkap &amp; Gelar</th>
                 <th className="py-3.5 px-4">Amanah / Jabatan</th>
-                <th className="py-3.5 px-4">Status / Tingkat</th>
                 <th className="py-3.5 px-4 text-right">Aksi</th>
               </tr>
             </thead>
@@ -471,23 +470,13 @@ export const PengurusManager: React.FC = () => {
                   </div>
                 </td>
                 <td className="py-3 px-4 font-bold text-slate-900 text-sm">
-                  <div className="flex items-center gap-2">
-                    <span>{pembinaData.name}</span>
-                    <span className="px-1.5 py-0.5 text-[9px] font-bold rounded bg-emerald-100 text-emerald-800 uppercase tracking-wider">
-                      Pembina
-                    </span>
-                  </div>
+                  <span>{pembinaData.name}</span>
                   {pembinaData.desc && (
                     <p className="text-[11px] text-slate-400 font-normal line-clamp-1 mt-0.5">{pembinaData.desc}</p>
                   )}
                 </td>
                 <td className="py-3 px-4 text-slate-700 font-semibold text-xs">
                   {pembinaData.role || 'Pembina Yayasan'}
-                </td>
-                <td className="py-3 px-4">
-                  <span className="inline-block px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200/80">
-                    Amanah Tertinggi
-                  </span>
                 </td>
                 <td className="py-3 px-4 text-right">
                   <button
@@ -514,23 +503,13 @@ export const PengurusManager: React.FC = () => {
                   </div>
                 </td>
                 <td className="py-3 px-4 font-bold text-slate-900 text-sm">
-                  <div className="flex items-center gap-2">
-                    <span>{pengawasData.name}</span>
-                    <span className="px-1.5 py-0.5 text-[9px] font-bold rounded bg-slate-200 text-slate-800 uppercase tracking-wider">
-                      Pengawas
-                    </span>
-                  </div>
+                  <span>{pengawasData.name}</span>
                   {pengawasData.desc && (
                     <p className="text-[11px] text-slate-400 font-normal line-clamp-1 mt-0.5">{pengawasData.desc}</p>
                   )}
                 </td>
                 <td className="py-3 px-4 text-slate-700 font-semibold text-xs">
                   {pengawasData.role || 'Pengawas Yayasan'}
-                </td>
-                <td className="py-3 px-4">
-                  <span className="inline-block px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
-                    Tata Kelola
-                  </span>
                 </td>
                 <td className="py-3 px-4 text-right">
                   <button
@@ -663,14 +642,13 @@ export const PengurusManager: React.FC = () => {
                 <th className="py-3.5 px-4 w-20">Foto</th>
                 <th className="py-3.5 px-4">Nama Lengkap &amp; Gelar</th>
                 <th className="py-3.5 px-4">Amanah / Jabatan</th>
-                <th className="py-3.5 px-4">Status Pengurus</th>
                 <th className="py-3.5 px-4 text-right">Aksi</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {pengurusList.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="py-12 text-center text-slate-400">
+                  <td colSpan={4} className="py-12 text-center text-slate-400">
                     Belum ada pengurus yang terdaftar.
                   </td>
                 </tr>
@@ -694,32 +672,12 @@ export const PengurusManager: React.FC = () => {
 
                       {/* Nama Lengkap */}
                       <td className="py-3 px-4 font-bold text-slate-900 text-sm">
-                        <div className="flex items-center gap-2">
-                          <span>{item.name}</span>
-                          {item.highlight && (
-                            <span className="px-1.5 py-0.5 text-[9px] font-bold rounded bg-emerald-100 text-emerald-800 uppercase tracking-wider">
-                              Inti
-                            </span>
-                          )}
-                        </div>
+                        <span>{item.name}</span>
                       </td>
 
                       {/* Jabatan */}
                       <td className="py-3 px-4 text-slate-700 font-semibold text-xs">
                         {item.role}
-                      </td>
-
-                      {/* Status */}
-                      <td className="py-3 px-4">
-                        {item.highlight ? (
-                          <span className="inline-block px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200/80">
-                            Pengurus Inti
-                          </span>
-                        ) : (
-                          <span className="inline-block px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-100 text-slate-600 border border-slate-200">
-                            Staf / Divisi
-                          </span>
-                        )}
                       </td>
 
                       {/* Aksi */}
