@@ -16,8 +16,8 @@ jobs:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: 🚀 Sync Backend to Hostinger Subdomain
+      - name: 🚀 Sync Backend to Hostinger
         run: |
           sudo apt-get update && sudo apt-get install -y lftp
-          # Mirror folder backend lokal ke folder public_html/api/backend di Hostinger
-          lftp -e "set ssl:verify-certificate false; set ftp:ssl-allow yes; set ftp:passive-mode true; set net:timeout 60; set net:max-retries 5; mirror -R --verbose ./backend/ ./public_html/api/backend/; quit" -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_SERVER }}"
+          # Mirror folder backend lokal ke public_html/backend di hostingersite Hostinger
+          lftp -e "set ssl:verify-certificate false; set ftp:ssl-allow yes; set ftp:passive-mode true; set net:timeout 60; set net:max-retries 5; mirror -R --verbose ./backend/ ./public_html/backend/; quit" -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_SERVER }}"

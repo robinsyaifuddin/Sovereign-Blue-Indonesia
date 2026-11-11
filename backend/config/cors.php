@@ -13,6 +13,7 @@ $allowedOrigins = [
     'http://localhost',
     'https://almursyidtanggamus.web.id',
     'https://www.almursyidtanggamus.web.id',
+    'https://orange-cheetah-927765.hostingersite.com',
     'https://almursyid.sch.id',
 ];
 
