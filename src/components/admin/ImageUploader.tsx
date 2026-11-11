@@ -43,10 +43,9 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
     setIsUploading(true);
 
     try {
-      // 1. Coba upload langsung ke Hostinger storage backend
+      // 1. Upload langsung ke Hostinger storage backend (agar tersimpan sebagai URL permanen)
       const res = await api.uploadFile(file);
       if (res && res.url) {
-        // Normalisasi URL gambar: jika kembalian backend berupa path relatif (/uploads/...), simpan full url Hostinger
         const finalUrl = res.url.startsWith('http') 
           ? res.url 
           : `https://orange-cheetah-927765.hostingersite.com${res.url.startsWith('/') ? res.url : '/' + res.url}`;
@@ -54,21 +53,11 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
         setIsUploading(false);
         return;
       }
+      throw new Error('Gagal mengunggah foto ke server.');
     } catch (e: any) {
-      // Fallback: jika backend offline saat testing lokal, gunakan FileReader base64
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        const result = ev.target?.result as string;
-        if (result) {
-          onChange(result);
-        }
-        setIsUploading(false);
-      };
-      reader.onerror = () => {
-        setErrorMsg('Gagal memproses file gambar.');
-        setIsUploading(false);
-      };
-      reader.readAsDataURL(file);
+      console.error('Upload gagal:', e);
+      setErrorMsg(e?.message || 'Gagal mengunggah foto ke server Hostinger. Pastikan koneksi internet stabil.');
+      setIsUploading(false);
       return;
     }
   };
