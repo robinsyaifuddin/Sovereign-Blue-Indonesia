@@ -388,7 +388,7 @@ export const ProgramPage: React.FC = () => {
               to="/ppdb"
               className="bg-white hover:bg-emerald-50 text-forest-950 font-bold px-6 py-3 rounded-full text-xs sm:text-sm uppercase tracking-wider inline-flex items-center gap-2 shadow-sm transition-all hover:-translate-y-0.5 active:scale-95"
             >
-              <span>Daftar Santri Baru Sekarang</span>
+              <span>Daftar Sekarang</span>
               <ArrowRight className="w-4 h-4 text-forest-900" />
             </Link>
             <a

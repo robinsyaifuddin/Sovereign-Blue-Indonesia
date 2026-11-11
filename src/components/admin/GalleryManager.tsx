@@ -136,7 +136,7 @@ export const GalleryManager: React.FC = () => {
           </button>
         </div>
 
-        <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm max-w-3xl">
+        <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm w-full">
           <form onSubmit={handleSave} className="space-y-6">
             <div>
               <label className="text-xs font-bold text-slate-700 block mb-1.5">Judul / Momen Foto *</label>
