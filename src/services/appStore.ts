@@ -140,7 +140,7 @@ export const AppStore = {
   syncNewsFromApi: async (): Promise<any[]> => {
     try {
       const remoteNews = await api.getNews();
-      if (Array.isArray(remoteNews) && remoteNews.length > 0) {
+      if (Array.isArray(remoteNews)) {
         // Normalisasi struktur agar sesuai dengan yang diharapkan komponen frontend
         const normalized = remoteNews.map(item => ({
           id: String(item.id),
@@ -241,7 +241,7 @@ export const AppStore = {
   syncGalleryFromApi: async (): Promise<GalleryItem[]> => {
     try {
       const remoteGallery = await api.getGallery();
-      if (Array.isArray(remoteGallery) && remoteGallery.length > 0) {
+      if (Array.isArray(remoteGallery)) {
         const normalized: GalleryItem[] = remoteGallery.map(item => ({
           id: String(item.id),
           title: item.title,
@@ -334,7 +334,7 @@ export const AppStore = {
   syncProgramsFromApi: async (): Promise<any[]> => {
     try {
       const remotePrograms = await api.getPrograms();
-      if (Array.isArray(remotePrograms) && remotePrograms.length > 0) {
+      if (Array.isArray(remotePrograms)) {
         const normalized = remotePrograms.map(p => ({
           id: p.id,
           title: p.title,
@@ -404,7 +404,7 @@ export const AppStore = {
   syncFacilitiesFromApi: async (): Promise<any[]> => {
     try {
       const remoteFacilities = await api.getFacilities();
-      if (Array.isArray(remoteFacilities) && remoteFacilities.length > 0) {
+      if (Array.isArray(remoteFacilities)) {
         const normalized = remoteFacilities.map(f => ({
           id: f.id,
           name: f.name,

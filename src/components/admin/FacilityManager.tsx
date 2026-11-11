@@ -87,10 +87,10 @@ export const FacilityManager: React.FC = () => {
     }
   };
 
-  const handleDelete = async (index: number, name: string) => {
+  const handleDelete = async (item: FacilityItem, index: number) => {
     const isConfirmed = await confirm({
       title: 'Hapus Fasilitas',
-      message: `Apakah Anda yakin ingin menghapus fasilitas "${name}"?`,
+      message: `Apakah Anda yakin ingin menghapus fasilitas "${item.name}"?`,
       confirmText: 'Ya, Hapus Fasilitas',
       type: 'danger'
     });
@@ -98,8 +98,8 @@ export const FacilityManager: React.FC = () => {
     if (isConfirmed) {
       startLoading('Menghapus fasilitas...');
       try {
-        await AppStore.deleteFacilityRemote(index);
-        toast.success('Fasilitas Dihapus', `Sarana "${name}" telah berhasil dihapus.`);
+        await AppStore.deleteFacilityRemote((item as any).id ?? index);
+        toast.success('Fasilitas Dihapus', `Sarana "${item.name}" telah berhasil dihapus.`);
       } catch (err: any) {
         toast.error('Gagal Menghapus', err?.message || 'Terjadi kesalahan sistem.');
       } finally {
@@ -305,7 +305,7 @@ export const FacilityManager: React.FC = () => {
                         </button>
                         <button
                           type="button"
-                          onClick={() => handleDelete(index, item.name)}
+                          onClick={() => handleDelete(item, index)}
                           className="p-1.5 text-rose-500 hover:bg-rose-50 rounded-lg transition-colors"
                           title="Hapus Fasilitas"
                         >
