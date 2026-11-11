@@ -61,7 +61,7 @@ const GALLERY_FACILITIES: FacilityItem[] = [
     category: "Pustaka & Riset",
     tagline: "Khazanah ilmu salaf dan kontemporer",
     desc: "Menyediakan ratusan koleksi kitab kuning mu'tabarah, tafsir, ensiklopedia sains islam, buku teks kurikulum, dan sudut baca hening untuk menumbuhkan minat literasi riset santri.",
-    image: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1000&q=80",
+    image: "/gambar/pendidikan.png",
     badge: "Khazanah Literasi",
     highlightPoints: ["Koleksi kitab kuning salaf", "Buku referensi sains modern", "Ruang baca kondusif"]
   },
@@ -71,7 +71,7 @@ const GALLERY_FACILITIES: FacilityItem[] = [
     category: "Kebugaran & Olahraga",
     tagline: "Tubuh sehat, jiwa tangguh & disiplin",
     desc: "Lapangan multifungsi untuk futsal, voli, bulu tangkis, latihan bela diri, serta area upacara dan apel pramuka dengan panorama asri perbukitan Way Lalaan.",
-    image: "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&w=1000&q=80",
+    image: "/gambar/ekstrakurikuler.png",
     badge: "Kebugaran Santri",
     highlightPoints: ["Lapangan futsal & voli", "Area latihan bela diri", "Udara pegunungan segar"]
   },
@@ -81,7 +81,7 @@ const GALLERY_FACILITIES: FacilityItem[] = [
     category: "Gizi & Konsumsi",
     tagline: "Nutrisi sehat terjamin 3x sehari",
     desc: "Dapur pengolahan pangan berstandar kebersihan tinggi, menjamin asupan makanan halal, lezat, dan bergizi seimbang untuk menopang stamina dan kecerdasan para santri.",
-    image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1000&q=80",
+    image: "/gambar/gerbangmasuk.png",
     badge: "Gizi Seimbang",
     highlightPoints: ["Menu 3 kali sehari", "Bahan segar & halal", "Penyajian higienis"]
   },

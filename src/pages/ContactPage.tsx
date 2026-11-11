@@ -89,9 +89,9 @@ export const ContactPage: React.FC = () => {
           {/* Panoramic Campus Hero Visual */}
           <div className="mt-10 sm:mt-12 rounded-xl sm:rounded-2xl overflow-hidden aspect-[21/9] sm:aspect-[24/9] relative bg-stone-200 border border-stone-300/70 shadow-sm">
             <img 
-              src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1800&q=85" 
+              src="/gambar/halamandepan.png" 
               alt="Kampus Pondok Pesantren Al-Mursyid Tanggamus" 
-              className="w-full h-full object-cover grayscale-[15%] contrast-[1.02] hover:scale-[1.01] transition-transform duration-700 ease-out"
+              className="w-full h-full object-cover contrast-[1.02] hover:scale-[1.01] transition-transform duration-700 ease-out"
             />
             <div className="absolute inset-0 bg-stone-900/10 pointer-events-none" />
             <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 px-3 py-1.5 rounded bg-stone-900/80 backdrop-blur-sm text-stone-100 text-[11px] ">
