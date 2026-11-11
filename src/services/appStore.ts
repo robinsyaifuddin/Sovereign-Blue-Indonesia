@@ -549,7 +549,7 @@ export const AppStore = {
   syncPPDBSettingsFromApi: async (): Promise<PPDBSettings> => {
     try {
       const remoteSettings = await api.getSetting('ppdb_settings');
-      if (remoteSettings && typeof remoteSettings === 'object' && remoteSettings.steps) {
+      if (remoteSettings && typeof remoteSettings === 'object' && remoteSettings.heroImage) {
         localStorage.setItem(STORAGE_KEYS.PPDB_SETTINGS, JSON.stringify(remoteSettings));
         dispatchStoreUpdate(STORAGE_KEYS.PPDB_SETTINGS);
         return remoteSettings;

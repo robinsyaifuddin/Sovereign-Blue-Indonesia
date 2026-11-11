@@ -10,6 +10,7 @@ import {
 import { SITE_INFO as FALLBACK_SITE_INFO, PROGRAMS as FALLBACK_PROGRAMS, FACILITIES as FALLBACK_FACILITIES, NEWS_DATA as FALLBACK_NEWS, LATEST_POSTS as FALLBACK_LATEST_POSTS, GALLERY_ITEMS as FALLBACK_GALLERY } from '../data/siteData';
 import { useAppStoreData } from '../hooks/useAppStoreData';
 import { createSlug } from '../utils/slug';
+import { getImageUrl } from '../utils/imageHelper';
 
 const HERO_SLIDES = [
   {
@@ -814,7 +815,7 @@ export const HomePage: React.FC = () => {
                 {/* Visual Image Container (Rasio Instagram 3:4) */}
                 <div 
                   onClick={() => setPreviewModal({ 
-                    image: (ppdbSettings?.heroImage && !ppdbSettings.heroImage.includes('unsplash.com')) ? ppdbSettings.heroImage : "/gambar/halamandepan.png", 
+                    image: getImageUrl(ppdbSettings?.heroImage, "/gambar/halamandepan.png"), 
                     title: "Informasi Pendaftaran Santri Baru (PPDB)", 
                     category: "PPDB & Kampus" 
                   })}
@@ -824,10 +825,16 @@ export const HomePage: React.FC = () => {
                   aria-label="Lihat foto Poster PPDB Pondok Pesantren"
                 >
                   <img
-                    src={(ppdbSettings?.heroImage && !ppdbSettings.heroImage.includes('unsplash.com')) ? ppdbSettings.heroImage : "/gambar/halamandepan.png"}
+                    src={getImageUrl(ppdbSettings?.heroImage, "/gambar/halamandepan.png")}
                     alt="Poster PPDB Pondok Pesantren Al-Mursyid"
                     className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.src.includes('/gambar/halamandepan.png')) {
+                        target.src = '/gambar/halamandepan.png';
+                      }
+                    }}
                   />
                   <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                     <div className="w-9 h-9 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
