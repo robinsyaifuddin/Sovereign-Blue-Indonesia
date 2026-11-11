@@ -7,7 +7,7 @@ import {
   Link2,
   Check
 } from 'lucide-react';
-import { NEWS_DATA as FALLBACK_NEWS, DONT_MISS_NEWS } from '../data/siteData';
+import { NEWS_DATA as FALLBACK_NEWS } from '../data/siteData';
 import { createSlug } from '../utils/slug';
 import { useAppStoreData } from '../hooks/useAppStoreData';
 
@@ -17,36 +17,9 @@ export const NewsDetailPage: React.FC = () => {
   const { news } = useAppStoreData();
   const NEWS_DATA = news && news.length > 0 ? news : FALLBACK_NEWS;
 
-  // Kumpulkan semua artikel yang tersedia
+  // Hanya gunakan artikel asli dari database / news store
   const allArticles = React.useMemo(() => {
-    const list = [...NEWS_DATA];
-    if (DONT_MISS_NEWS?.tallLead) {
-      list.push({
-        id: createSlug(DONT_MISS_NEWS.tallLead.title),
-        title: DONT_MISS_NEWS.tallLead.title,
-        date: "26 Oktober 2026",
-        timeAgo: DONT_MISS_NEWS.tallLead.timeAgo,
-        category: DONT_MISS_NEWS.tallLead.category,
-        subCategory: "Ekstrakurikuler",
-        summary: "Santri Al-Mursyid mengikuti rangkaian tadabbur alam dan edukasi kelestarian lingkungan di kawasan lereng Tanggamus.",
-        image: DONT_MISS_NEWS.tallLead.image,
-        isFeatured: false
-      });
-    }
-    DONT_MISS_NEWS?.gridItems?.forEach((item) => {
-      list.push({
-        id: createSlug(item.title),
-        title: item.title,
-        date: "24 Oktober 2026",
-        timeAgo: item.timeAgo,
-        category: item.category,
-        subCategory: "Kegiatan Santri",
-        summary: item.title + " yang dilaksanakan secara khidmat dan penuh semangat kebersamaan.",
-        image: item.image,
-        isFeatured: false
-      });
-    });
-    return list;
+    return [...NEWS_DATA];
   }, [NEWS_DATA]);
 
   // Temukan artikel berdasarkan slug yang cocok
@@ -175,52 +148,15 @@ export const NewsDetailPage: React.FC = () => {
 
             {/* Article Body Content */}
             <div className="prose prose-slate max-w-none space-y-5 text-[15px] sm:text-base leading-relaxed text-slate-700 pt-2">
-              <p className="font-semibold text-slate-900 leading-snug">
-                <span className="text-emerald-800 font-bold">TANGGAMUS, LAMPUNG – </span>
-                {article.summary}
-              </p>
-
-              {(article as any).content && (article as any).content !== article.summary ? (
-                <div className="whitespace-pre-line text-slate-700 space-y-4">
-                  {(article as any).content}
-                </div>
-              ) : (
-                <>
-                  <p>
-                    Pondok Pesantren Modern Al-Mursyid terus berkomitmen menjaga tradisi keilmuan Islam yang luhur sembari membekali para santri dengan ketangkasan sains, bahasa asing, dan kecakapan kepemimpinan yang berakhlak karimah. Kegiatan ini menjadi salah satu tonggak penting dalam melahirkan generasi Qur'ani yang berdaya saing global.
-                  </p>
-
-                  <h2 className="text-xl font-bold text-slate-900 tracking-tight pt-4">
-                    Komitmen Pendidikan & Penguatan Karakter Santri
-                  </h2>
-
-                  <p>
-                    Pimpinan Pondok Pesantren menyampaikan rasa syukur dan apresiasi mendalam kepada seluruh jajaran dewan asatidz, pengasuh asrama, serta para wali santri yang senantiasa memberikan doa dan dukungan penuh. Sinergi yang kokoh antara lembaga dan orang tua menjadi pilar utama keberhasilan proses pendidikan santri selama menempuh tholabul 'ilmi di kampus Al-Mursyid.
-                  </p>
-
-                  <p>
-                    Rangkaian kegiatan ini juga menjadi wahana evaluasi berkala bagi capaian tahfidzul Qur'an santri, kedisiplinan berbahasa resmi pondok (Bahasa Arab dan Bahasa Inggris), serta pengembangan minat bakat di bidang riset sains teknologi dan kewirausahaan mandiri.
-                  </p>
-
-                  <div className="p-5 my-6 rounded-xl bg-emerald-50/60 border-l-4 border-emerald-600 text-slate-800 italic text-sm leading-relaxed">
-                    "Pendidikan pesantren bukan semata tentang transfer ilmu, melainkan penanaman adab, ketangguhan mental, dan keikhlasan berkhidmah untuk agama, umat, dan bangsa."
+              {/* Tampilkan teks murni asli dari dashboard */}
+              {(() => {
+                const rawContent = (article as any).content || article.summary || '';
+                return (
+                  <div className="whitespace-pre-line text-slate-800 font-normal leading-relaxed text-[15px] sm:text-base">
+                    {rawContent}
                   </div>
-
-                  <h3 className="text-lg font-bold text-slate-900 tracking-tight pt-2">
-                    Poin Penting & Agenda Lanjutan
-                  </h3>
-
-                  <ul className="list-disc pl-5 space-y-2 text-slate-700">
-                    <li>Penguatan kurikulum integrasi Salafiyah-Nasional berbasis adab dan kompetensi era modern.</li>
-                    <li>Penyediaan beasiswa pembinaan prestasi tahfidz dan sains bagi santri berprestasi.</li>
-                    <li>Peningkatan fasilitas penunjang pembelajaran, laboratorium digital, dan sarana kebugaran santri.</li>
-                  </ul>
-
-                  <p className="pt-2">
-                    Dengan terselenggaranya agenda ini, diharapkan seluruh santriwan dan santriwati semakin termotivasi untuk terus mengasah potensi diri, memperdalam pemahaman kitab turats, serta membawa nama harum pesantren di kancah nasional maupun internasional.
-                  </p>
-                </>
-              )}
+                );
+              })()}
             </div>
 
             {/* Back Button */}

@@ -4,7 +4,7 @@ import {
   CheckCircle2, ChevronRight, ChevronDown,
   Sparkles, FileText, Download, GraduationCap
 } from 'lucide-react';
-import { SITE_INFO as FALLBACK_SITE_INFO } from '../data/siteData';
+import { getImageUrl } from '../utils/imageHelper';
 import { useAppStoreData } from '../hooks/useAppStoreData';
 
 export const PPDBPage: React.FC = () => {
@@ -18,7 +18,7 @@ export const PPDBPage: React.FC = () => {
   const steps = ppdbSettings?.steps || [];
   const fees = ppdbSettings?.fees || [];
   const heroImage = ppdbSettings?.heroImage && !ppdbSettings.heroImage.includes('unsplash.com') 
-    ? ppdbSettings.heroImage 
+    ? getImageUrl(ppdbSettings.heroImage, "/gambar/halamandepan.png") 
     : "/gambar/halamandepan.png";
   const whatsappNumber = ppdbSettings?.whatsappNumber || siteInfo?.contacts?.phone || "0838-4847-8150";
   const formUrl = ppdbSettings?.formUrl || siteInfo?.contacts?.ppdbFormUrl || "https://forms.gle/almursyid-ppdb";
@@ -116,6 +116,12 @@ export const PPDBPage: React.FC = () => {
                 src={heroImage}
                 alt="Pondok Pesantren Al-Mursyid"
                 className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.src.includes('/gambar/halamandepan.png')) {
+                    target.src = '/gambar/halamandepan.png';
+                  }
+                }}
               />
             </div>
           </div>
