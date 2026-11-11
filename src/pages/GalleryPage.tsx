@@ -75,14 +75,14 @@ export const GalleryPage: React.FC = () => {
         <header className="mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-3 mb-3">
             <span className="text-xs font-bold uppercase tracking-widest text-emerald-800 block">
-              Our Stories
+              Kisah & Cerita Kami
             </span>
             <span className="h-[2px] w-14 sm:w-16 bg-emerald-600 block rounded-full"></span>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-stone-900 leading-[1.08]">
-              Photo Gallery
+              Galeri Foto
             </h1>
             <p className="text-xs sm:text-sm text-stone-500 max-w-xs sm:text-right leading-relaxed font-normal">
               Dokumentasi visual keseharian dan ragam kegiatan santri Al-Mursyid Islamic Boarding School.

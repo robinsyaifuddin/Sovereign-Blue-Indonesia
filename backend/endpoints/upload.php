@@ -69,7 +69,8 @@ if (!empty($_FILES['file'])) {
     $targetPath = $uploadDir . $fileName;
 
     if (move_uploaded_file($file['tmp_name'], $targetPath)) {
-        $finalUrl = $publicUrlPrefix . $fileName;
+        // Gunakan file.php streaming endpoint agar aman dari rewrite SPA Hostinger dan CORS
+        $finalUrl = "{$protocol}{$host}/backend/endpoints/file.php?f=" . urlencode($fileName);
         jsonResponse(true, [
             'url' => $finalUrl,
             'fileName' => $fileName,
@@ -116,7 +117,7 @@ if (!empty($input['base64'])) {
         $targetPath = $uploadDir . $fileName;
 
         if (file_put_contents($targetPath, $decoded) !== false) {
-            $finalUrl = $publicUrlPrefix . $fileName;
+            $finalUrl = "{$protocol}{$host}/backend/endpoints/file.php?f=" . urlencode($fileName);
             jsonResponse(true, [
                 'url' => $finalUrl,
                 'fileName' => $fileName

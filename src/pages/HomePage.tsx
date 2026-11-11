@@ -665,10 +665,10 @@ export const HomePage: React.FC = () => {
       {/* 5. SECTION CARD DOKUMENTASI & GALERI ARSITEKTURAL */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 lg:pb-16">
         <div className="relative">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center justify-center max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center justify-center max-w-6xl mx-auto">
             
             {/* Kolom 1 Kiri: Galeri Mosaik Arsitektural */}
-            <div className="lg:col-span-7 w-full max-w-[490px] lg:max-w-[530px] mx-auto lg:mx-0">
+            <div className="lg:col-span-7 w-full max-w-[560px] lg:max-w-[620px] mx-auto lg:mx-0">
               <div className="space-y-3.5">
                 {/* Accent mini header dengan tombol Jelajahi Galeri di kanan atas */}
                 <div className="flex items-center justify-between pb-1.5 border-b border-emerald-900/10">
@@ -799,16 +799,16 @@ export const HomePage: React.FC = () => {
 
             {/* Kolom 2 Kanan: Card Visual Ringkas PPDB */}
             <div className="lg:col-span-5 w-full flex justify-center lg:justify-start">
-              <div className="w-full max-w-[280px] sm:max-w-[310px] bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden border border-slate-200/80 p-3 transition-all duration-300">
+              <div className="w-full max-w-[320px] sm:max-w-[360px] bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden border border-slate-200/80 p-3.5 transition-all duration-300">
                 
-                {/* Visual Image Container (Rasio Tetap 3:4) */}
+                {/* Visual Image Container (Rasio Instagram 3:4) */}
                 <div 
                   onClick={() => setPreviewModal({ 
                     image: (ppdbSettings?.heroImage && !ppdbSettings.heroImage.includes('unsplash.com')) ? ppdbSettings.heroImage : "/gambar/halamandepan.png", 
                     title: "Informasi Pendaftaran Santri Baru (PPDB)", 
                     category: "PPDB & Kampus" 
                   })}
-                  className="relative aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 group cursor-pointer"
+                  className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-slate-100 group cursor-pointer"
                   role="button"
                   tabIndex={0}
                   aria-label="Lihat foto Poster PPDB Pondok Pesantren"

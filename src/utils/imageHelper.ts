@@ -23,13 +23,19 @@ export function getImageUrl(path: string | null | undefined, fallback: string = 
     return fallback;
   }
 
-  // 1. Jika sudah merupakan full URL (http:// atau https://), gunakan langsung
+  // 1. Jika sudah merupakan full URL (http:// atau https://)
   if (clean.startsWith('http://') || clean.startsWith('https://')) {
     // Jika masih mengarah ke localhost saat di production, replace ke hostinger
-    if (clean.includes('localhost') || clean.includes('127.0.0.1')) {
-      return clean.replace(/http:\/\/(localhost|127\.0\.0\.1)(:\d+)?/, HOSTINGER_BASE_URL);
+    let url = clean;
+    if (url.includes('localhost') || url.includes('127.0.0.1')) {
+      url = url.replace(/http:\/\/(localhost|127\.0\.0\.1)(:\d+)?/, HOSTINGER_BASE_URL);
     }
-    return clean;
+    // Jika URL lama berupa direct /uploads/nama_file.png di Hostinger, arahkan ke file.php streaming endpoint
+    if (url.includes('/uploads/abs_')) {
+      const fileName = url.substring(url.lastIndexOf('/') + 1);
+      return `${HOSTINGER_BASE_URL}/backend/endpoints/file.php?f=${encodeURIComponent(fileName)}`;
+    }
+    return url;
   }
 
   // 2. Jika path adalah data URL base64
@@ -37,10 +43,10 @@ export function getImageUrl(path: string | null | undefined, fallback: string = 
     return clean;
   }
 
-  // 3. Jika path gambar ada di uploads backend Hostinger (/uploads/...)
+  // 3. Jika path gambar ada di uploads backend Hostinger (/uploads/... atau abs_...)
   if (clean.startsWith('/uploads/') || clean.startsWith('uploads/')) {
-    const relative = clean.startsWith('/') ? clean : `/${clean}`;
-    return `${HOSTINGER_BASE_URL}${relative}`;
+    const fileName = clean.substring(clean.lastIndexOf('/') + 1);
+    return `${HOSTINGER_BASE_URL}/backend/endpoints/file.php?f=${encodeURIComponent(fileName)}`;
   }
 
   // 4. Jika aset lokal frontend publik (/gambar/..., /hero/..., /logo.png, dll.)

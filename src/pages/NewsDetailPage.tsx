@@ -159,14 +159,16 @@ export const NewsDetailPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Featured Image dengan Rounded Presisi */}
-            <div className="relative rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-100 aspect-video md:aspect-[16/9]">
-              <img 
-                src={article.image} 
-                alt={article.title} 
-                className="w-full h-full object-cover"
-              />
-            </div>
+            {/* Featured Image dengan Rounded Presisi (Tampil jika sudah diupload) */}
+            {article.image && article.image.trim() !== '' && (
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-100 aspect-video md:aspect-[16/9]">
+                <img 
+                  src={article.image} 
+                  alt={article.title} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
 
             {/* Article Body Content */}
             <div className="prose prose-slate max-w-none space-y-5 text-[15px] sm:text-base leading-relaxed text-slate-700 pt-2">
@@ -319,15 +321,21 @@ export const NewsDetailPage: React.FC = () => {
                       to={`/berita/${relSlug}`}
                       className="pt-3.5 first:pt-0 flex items-center gap-3.5 group block"
                     >
-                      {/* Thumbnail Image */}
-                      <div className="relative w-20 h-16 sm:w-24 sm:h-18 rounded-xl overflow-hidden shrink-0 bg-slate-100 border border-slate-200/80">
-                        <img 
-                          src={rel.image} 
-                          alt={rel.title} 
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      </div>
+                      {/* Thumbnail Image (Tampil jika sudah diupload) */}
+                      {rel.image && rel.image.trim() !== '' ? (
+                        <div className="relative w-20 h-16 sm:w-24 sm:h-18 rounded-xl overflow-hidden shrink-0 bg-slate-100 border border-slate-200/80">
+                          <img 
+                            src={rel.image} 
+                            alt={rel.title} 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                        </div>
+                      ) : (
+                        <div className="relative w-20 h-16 sm:w-24 sm:h-18 rounded-xl overflow-hidden shrink-0 bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-800 font-bold text-xs">
+                          Al-Mursyid
+                        </div>
+                      )}
 
                       {/* Content */}
                       <div className="flex-1 min-w-0 space-y-1">
