@@ -3,9 +3,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { 
   Menu, X, ArrowRight
 } from 'lucide-react';
-import { SITE_INFO, NAV_LINKS } from '../data/siteData';
+import { SITE_INFO as FALLBACK_SITE_INFO, NAV_LINKS } from '../data/siteData';
+import { useAppStoreData } from '../hooks/useAppStoreData';
 
 export const Navbar: React.FC = () => {
+  const { siteInfo } = useAppStoreData();
+  const SITE_INFO = siteInfo || FALLBACK_SITE_INFO;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 

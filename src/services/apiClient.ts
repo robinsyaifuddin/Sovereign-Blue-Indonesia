@@ -3,7 +3,12 @@
  * Terhubung ke backend Hostinger /api/ / backend/endpoints
  */
 
-const API_BASE = import.meta.env.VITE_API_URL || '/backend/endpoints';
+const FALLBACK_PRODUCTION_API = 'https://orange-cheetah-927765.hostingersite.com/backend/endpoints';
+const API_BASE = (import.meta.env.VITE_API_URL && import.meta.env.VITE_API_URL.trim() !== '') 
+  ? import.meta.env.VITE_API_URL 
+  : (typeof window !== 'undefined' && window.location.origin.includes('hostingersite.com') 
+      ? '/backend/endpoints' 
+      : FALLBACK_PRODUCTION_API);
 
 interface ApiResponse<T = any> {
   success: boolean;

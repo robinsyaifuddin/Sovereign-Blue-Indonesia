@@ -5,7 +5,7 @@ import {
   Building2, Users, CheckCircle2,
   Award, Compass, PhoneCall, Calendar, Sparkles, Languages,
   Library, HeartHandshake, MapPin, Check, ChevronRight, Clock,
-  X, ZoomIn, MousePointerClick
+  X, ZoomIn, MousePointerClick, Newspaper
 } from 'lucide-react';
 import { SITE_INFO as FALLBACK_SITE_INFO, PROGRAMS as FALLBACK_PROGRAMS, FACILITIES as FALLBACK_FACILITIES, NEWS_DATA as FALLBACK_NEWS, LATEST_POSTS as FALLBACK_LATEST_POSTS, GALLERY_ITEMS as FALLBACK_GALLERY } from '../data/siteData';
 import { useAppStoreData } from '../hooks/useAppStoreData';
@@ -1087,12 +1087,17 @@ export const HomePage: React.FC = () => {
             {/* Main Featured News Card (Left - 8 cols) */}
             <div className="lg:col-span-8 relative rounded-2xl overflow-hidden shadow-sm border border-slate-900/10 min-h-[380px] md:min-h-[420px] flex flex-col justify-end p-5 sm:p-8 group bg-slate-900">
               {/* Background Image with Overlay */}
-              <img 
-                src={currentNewsSlide.image} 
-                alt={currentNewsSlide.title} 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-transparent"></div>
+              {currentNewsSlide?.image && currentNewsSlide.image.trim() !== '' ? (
+                <img 
+                  src={getImageUrl(currentNewsSlide.image)} 
+                  alt={currentNewsSlide.title} 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+              ) : null}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/30"></div>
               <div className="absolute inset-0 bg-[#064e3b]/25 mix-blend-multiply"></div>
 
               {/* Content Box */}
@@ -1163,48 +1168,57 @@ export const HomePage: React.FC = () => {
 
                 {/* List of Latest Posts */}
                 <div className="divide-y divide-slate-100">
-                  {LATEST_POSTS.map((post, idx) => (
-                    <Link 
-                      key={idx} 
-                      to={`/berita/${createSlug(post.title)}`}
-                      className="py-2.5 flex items-center gap-3 group cursor-pointer block"
-                    >
-                      {/* Mini Thumbnail */}
-                      <div className="relative w-11 h-11 rounded-lg overflow-hidden shrink-0 bg-slate-100 border border-slate-200/80">
-                        <img 
-                          src={post.image} 
-                          alt={post.title} 
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      </div>
-
-                      <div className="flex-1 min-w-0 space-y-0.5">
-                        <h4 className="text-xs font-semibold text-slate-800 line-clamp-2 leading-snug group-hover:text-emerald-700 transition-colors">
-                          {post.title}
-                        </h4>
-                        <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
-                          <span className="text-emerald-700 font-semibold">{post.category}</span>
-                          <span>•</span>
-                          <span className="flex items-center gap-1">
-                            <Clock className="w-2.5 h-2.5 text-slate-400" />
-                            {post.timeAgo}
-                          </span>
+                  {LATEST_POSTS.map((post, idx) => {
+                    const hasImg = Boolean(post.image && post.image.trim() !== '');
+                    return (
+                      <Link 
+                        key={idx} 
+                        to={`/berita/${createSlug(post.title)}`}
+                        className="py-2.5 flex items-center gap-3 group cursor-pointer block"
+                      >
+                        {/* Mini Thumbnail */}
+                        <div className="relative w-11 h-11 rounded-lg overflow-hidden shrink-0 bg-slate-100 border border-slate-200/80 flex items-center justify-center">
+                          {hasImg ? (
+                            <img 
+                              src={getImageUrl(post.image)} 
+                              alt={post.title} 
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              loading="lazy"
+                              onError={(e) => {
+                                e.currentTarget.style.display = 'none';
+                              }}
+                            />
+                          ) : (
+                            <Newspaper className="w-5 h-5 text-slate-400" />
+                          )}
                         </div>
-                      </div>
-                    </Link>
-                  ))}
+
+                        <div className="flex-1 min-w-0 space-y-0.5">
+                          <h4 className="text-xs font-semibold text-slate-800 line-clamp-2 leading-snug group-hover:text-emerald-700 transition-colors">
+                            {post.title}
+                          </h4>
+                          <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
+                            <span className="text-emerald-700 font-semibold">{post.category}</span>
+                            <span>•</span>
+                            <span className="flex items-center gap-1">
+                              <Clock className="w-2.5 h-2.5 text-slate-400" />
+                              {post.timeAgo || (post as any).date || 'Baru saja'}
+                            </span>
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
 
-              {/* Bottom Link */}
-              <div className="pt-3 mt-1 border-t border-slate-100 text-center">
+              <div className="pt-3 mt-2 border-t border-slate-100 text-center">
                 <Link 
-                  to="/berita"
-                  className="text-xs text-emerald-700 hover:text-emerald-800 font-semibold inline-flex items-center gap-1 group/link"
+                  to="/berita" 
+                  className="text-xs text-emerald-700 font-semibold hover:text-emerald-800 inline-flex items-center gap-1 transition-colors"
                 >
                   <span>Jelajahi seluruh kabar pondok</span>
-                  <ChevronRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>

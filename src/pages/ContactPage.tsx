@@ -3,7 +3,8 @@ import {
   ArrowUpRight, ChevronDown, Check,
   Send, Clock
 } from 'lucide-react';
-import { SITE_INFO } from '../data/siteData';
+import { SITE_INFO as FALLBACK_SITE_INFO } from '../data/siteData';
+import { useAppStoreData } from '../hooks/useAppStoreData';
 
 interface FAQItem {
   id: string;
@@ -40,6 +41,8 @@ const FAQS: FAQItem[] = [
 ];
 
 export const ContactPage: React.FC = () => {
+  const { siteInfo } = useAppStoreData();
+  const SITE_INFO = siteInfo || FALLBACK_SITE_INFO;
   const [openFaq, setOpenFaq] = useState<string | null>("01");
   const [sent, setSent] = useState(false);
   const [formData, setFormData] = useState({

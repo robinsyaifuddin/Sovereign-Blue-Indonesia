@@ -4,9 +4,12 @@ import {
   ArrowRight, CheckCircle2, BookOpen, 
   GraduationCap, Globe2, Compass, ShieldCheck, Award
 } from 'lucide-react';
-import { SITE_INFO } from '../data/siteData';
+import { SITE_INFO as FALLBACK_SITE_INFO } from '../data/siteData';
+import { useAppStoreData } from '../hooks/useAppStoreData';
 
 export const ProgramPage: React.FC = () => {
+  const { siteInfo } = useAppStoreData();
+  const SITE_INFO = siteInfo || FALLBACK_SITE_INFO;
   const ppdbWaUrl = SITE_INFO?.contacts?.ppdbWa || `https://wa.me/6283848478150`;
 
   return (

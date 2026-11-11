@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
-  Clock
+  Clock,
+  Newspaper
 } from 'lucide-react';
 import { 
   NEWS_DATA as FALLBACK_NEWS
 } from '../data/siteData';
 import { createSlug } from '../utils/slug';
 import { useAppStoreData } from '../hooks/useAppStoreData';
+import { getImageUrl } from '../utils/imageHelper';
 
 export const NewsPage: React.FC = () => {
   const { news } = useAppStoreData();
@@ -34,32 +36,42 @@ export const NewsPage: React.FC = () => {
         <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
         <div className="animate-marquee-rtl flex items-center">
-          {[...tickerItems, ...tickerItems].map((item, idx) => (
-            <Link 
-              key={idx} 
-              to={`/berita/${item.slug || createSlug(item.title)}`}
-              className="flex items-center gap-3 pr-8 group/card cursor-pointer shrink-0 border-r border-slate-100 last:border-r-0 max-w-[320px] sm:max-w-[360px]"
-            >
-              <div className="relative w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-100 border border-slate-200/80">
-                <img 
-                  src={item.image || '/gambar/halamandepan.png'} 
-                  alt={item.title} 
-                  className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h4 className="text-[12px] font-semibold text-slate-800 line-clamp-1 leading-snug group-hover/card:text-emerald-700 transition-colors">
-                  {item.title}
-                </h4>
-                <div className="flex items-center gap-1.5 mt-0.5 text-[11px] text-slate-400">
-                  <span className="font-semibold text-emerald-700">{item.category}</span>
-                  <span>•</span>
-                  <span>{item.timeAgo || item.date || 'Baru saja'}</span>
+          {[...tickerItems, ...tickerItems].map((item, idx) => {
+            const hasImg = Boolean(item.image && item.image.trim() !== '');
+            return (
+              <Link 
+                key={idx} 
+                to={`/berita/${item.slug || createSlug(item.title)}`}
+                className="flex items-center gap-3 pr-8 group/card cursor-pointer shrink-0 border-r border-slate-100 last:border-r-0 max-w-[320px] sm:max-w-[360px]"
+              >
+                <div className="relative w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-100 border border-slate-200/80 flex items-center justify-center">
+                  {hasImg ? (
+                    <img 
+                      src={getImageUrl(item.image)} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                  ) : (
+                    <Newspaper className="w-5 h-5 text-slate-400" />
+                  )}
                 </div>
-              </div>
-            </Link>
-          ))}
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-[12px] font-semibold text-slate-800 line-clamp-1 leading-snug group-hover/card:text-emerald-700 transition-colors">
+                    {item.title}
+                  </h4>
+                  <div className="flex items-center gap-1.5 mt-0.5 text-[11px] text-slate-400">
+                    <span className="font-semibold text-emerald-700">{item.category}</span>
+                    <span>•</span>
+                    <span>{item.timeAgo || item.date || 'Baru saja'}</span>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
@@ -70,14 +82,19 @@ export const NewsPage: React.FC = () => {
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
           {/* Main Hero Banner (8 Col) */}
-          <div className="lg:col-span-8 relative rounded-2xl overflow-hidden shadow-sm border border-slate-800/10 min-h-[420px] md:min-h-[460px] flex flex-col justify-end p-6 sm:p-10 group">
-            <img 
-              src={currentSlide.image || '/gambar/halamandepan.png'} 
-              alt={currentSlide.title} 
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
-            <div className="absolute inset-0 bg-forest-950/20 mix-blend-multiply"></div>
+          <div className="lg:col-span-8 relative rounded-2xl overflow-hidden shadow-sm border border-slate-800/10 min-h-[420px] md:min-h-[460px] flex flex-col justify-end p-6 sm:p-10 group bg-slate-900">
+            {currentSlide?.image && currentSlide.image.trim() !== '' ? (
+              <img 
+                src={getImageUrl(currentSlide.image)} 
+                alt={currentSlide.title} 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+            ) : null}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/30"></div>
+            <div className="absolute inset-0 bg-[#064e3b]/20 mix-blend-multiply"></div>
 
             <div className="relative z-10 space-y-4 max-w-2xl">
               <div className="inline-flex items-center gap-2">
@@ -137,36 +154,46 @@ export const NewsPage: React.FC = () => {
               </div>
 
               <div className="divide-y divide-slate-100">
-                {latestPosts.map((post, idx) => (
-                  <Link 
-                    key={idx} 
-                    to={`/berita/${post.slug || createSlug(post.title)}`}
-                    className="py-3 flex items-center gap-3.5 group cursor-pointer block"
-                  >
-                    <div className="relative w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-100 border border-slate-200/80">
-                      <img 
-                        src={post.image || '/gambar/halamandepan.png'} 
-                        alt={post.title} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    <div className="flex-1 min-w-0 space-y-1">
-                      <h4 className="text-xs font-semibold text-slate-800 line-clamp-2 leading-snug group-hover:text-emerald-700 transition-colors">
-                        {post.title}
-                      </h4>
-                      <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
-                        <span className="text-emerald-700 font-semibold">{post.category}</span>
-                        <span>•</span>
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-2.5 h-2.5 text-slate-400" />
-                          {post.timeAgo || post.date || 'Baru saja'}
-                        </span>
+                {latestPosts.map((post, idx) => {
+                  const hasImg = Boolean(post.image && post.image.trim() !== '');
+                  return (
+                    <Link 
+                      key={idx} 
+                      to={`/berita/${post.slug || createSlug(post.title)}`}
+                      className="py-3 flex items-center gap-3.5 group cursor-pointer block"
+                    >
+                      <div className="relative w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-100 border border-slate-200/80 flex items-center justify-center">
+                        {hasImg ? (
+                          <img 
+                            src={getImageUrl(post.image)} 
+                            alt={post.title} 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                            }}
+                          />
+                        ) : (
+                          <Newspaper className="w-5 h-5 text-slate-400" />
+                        )}
                       </div>
-                    </div>
-                  </Link>
-                ))}
+
+                      <div className="flex-1 min-w-0 space-y-1">
+                        <h4 className="text-xs font-semibold text-slate-800 line-clamp-2 leading-snug group-hover:text-emerald-700 transition-colors">
+                          {post.title}
+                        </h4>
+                        <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
+                          <span className="text-emerald-700 font-semibold">{post.category}</span>
+                          <span>•</span>
+                          <span className="flex items-center gap-1">
+                            <Clock className="w-2.5 h-2.5 text-slate-400" />
+                            {post.timeAgo || post.date || 'Baru saja'}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -188,15 +215,20 @@ export const NewsPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
               <Link 
                 to={`/berita/${hotLead.slug || createSlug(hotLead.title)}`}
-                className="md:col-span-5 relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-[420px] group cursor-pointer border border-slate-200/90 shadow-sm flex flex-col justify-end p-6 block"
+                className="md:col-span-5 relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-[420px] group cursor-pointer border border-slate-200/90 shadow-sm flex flex-col justify-end p-6 block bg-slate-900"
               >
-                <img 
-                  src={hotLead.image || '/gambar/halamandepan.png'} 
-                  alt={hotLead.title} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-transparent"></div>
+                {hotLead.image && hotLead.image.trim() !== '' ? (
+                  <img 
+                    src={getImageUrl(hotLead.image)} 
+                    alt={hotLead.title} 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                ) : null}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-slate-950/30"></div>
                 <div className="relative z-10 space-y-2.5">
                   <span className="inline-block bg-emerald-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded shadow-sm">
                     {hotLead.category}
@@ -216,15 +248,20 @@ export const NewsPage: React.FC = () => {
                   <Link 
                     key={idx}
                     to={`/berita/${item.slug || createSlug(item.title)}`}
-                    className="relative rounded-2xl overflow-hidden h-48 sm:h-auto min-h-[195px] group cursor-pointer border border-slate-200/80 shadow-sm flex flex-col justify-end p-4 block"
+                    className="relative rounded-2xl overflow-hidden h-48 sm:h-auto min-h-[195px] group cursor-pointer border border-slate-200/80 shadow-sm flex flex-col justify-end p-4 block bg-slate-900"
                   >
-                    <img 
-                      src={item.image || '/gambar/halamandepan.png'} 
-                      alt={item.title} 
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-transparent"></div>
+                    {item.image && item.image.trim() !== '' ? (
+                      <img 
+                        src={getImageUrl(item.image)} 
+                        alt={item.title} 
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    ) : null}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-slate-950/30"></div>
                     <div className="relative z-10 space-y-1.5">
                       <span className="inline-block bg-slate-900/80 backdrop-blur-sm border border-white/20 text-emerald-300 text-[9px] font-bold px-2 py-0.5 rounded">
                         {item.category}

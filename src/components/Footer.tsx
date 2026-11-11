@@ -4,7 +4,8 @@ import {
   MapPin, Phone, Mail, Clock, 
   ArrowRight, ExternalLink 
 } from 'lucide-react';
-import { SITE_INFO } from '../data/siteData';
+import { SITE_INFO as FALLBACK_SITE_INFO } from '../data/siteData';
+import { useAppStoreData } from '../hooks/useAppStoreData';
 
 const InstagramIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" }) => (
   <svg 
@@ -23,6 +24,8 @@ const InstagramIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4"
 );
 
 export const Footer: React.FC = () => {
+  const { siteInfo } = useAppStoreData();
+  const SITE_INFO = siteInfo || FALLBACK_SITE_INFO;
   return (
     <footer className="bg-forest-950 text-slate-300 pt-16 pb-8 border-t-2 border-forest-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
