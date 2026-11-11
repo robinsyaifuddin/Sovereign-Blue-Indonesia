@@ -8,23 +8,24 @@ import {
   ShieldCheck, 
   Sparkles,
   MapPin,
-  CheckCircle2
+  CheckCircle2,
+  Building2
 } from 'lucide-react';
-import { FACILITIES } from '../data/siteData';
+import { useAppStoreData } from '../hooks/useAppStoreData';
+import { getImageUrl } from '../utils/imageHelper';
 
-// Extended curated data for the bento gallery
-interface FacilityItem {
-  id: string;
+interface FacilityDisplayItem {
+  id: string | number;
   name: string;
   category: string;
-  tagline: string;
   desc: string;
   image: string;
+  tagline?: string;
   badge?: string;
   highlightPoints?: string[];
 }
 
-const GALLERY_FACILITIES: FacilityItem[] = [
+const FALLBACK_FACILITIES: FacilityDisplayItem[] = [
   {
     id: "masjid",
     name: "Masjid Jami' Al-Mursyid",
@@ -98,23 +99,62 @@ const GALLERY_FACILITIES: FacilityItem[] = [
 ];
 
 export const FacilityPage: React.FC = () => {
-  const [selectedFacility, setSelectedFacility] = useState<FacilityItem | null>(null);
+  const { facilities } = useAppStoreData();
+  const [selectedFacility, setSelectedFacility] = useState<FacilityDisplayItem | null>(null);
 
-  // Quick pointers matching the minimalist list style in Image 2
-  const highlights = [
-    { label: "Ruang Ibadah Khusyuk", category: "Masjid & Halaqah", targetId: "masjid" },
-    { label: "Asrama Bersih & Higienis", category: "Hunian Santri", targetId: "asrama" },
-    { label: "Lab & Kelas Ergonomis", category: "Fasilitas Formal", targetId: "kelas" },
-    { label: "Alam Asri Way Lalaan", category: "Lingkungan Hijau", targetId: "taman" },
-  ];
+  // Normalisasi data dari database/store
+  const activeFacilities: FacilityDisplayItem[] = React.useMemo(() => {
+    if (Array.isArray(facilities) && facilities.length > 0) {
+      return facilities.map((f: any, idx: number) => {
+        // Cocokkan data fallback jika ada untuk memperkaya highlightPoints / tagline
+        const matchedFallback = FALLBACK_FACILITIES.find(
+          fb => fb.name.toLowerCase() === (f.name || '').toLowerCase()
+        );
+        return {
+          id: f.id ?? `fac-${idx}`,
+          name: f.name || 'Fasilitas Pondok',
+          category: f.category || 'Fasilitas & Sarana',
+          tagline: matchedFallback?.tagline || `Sarana pendukung ${f.category || 'santri'}`,
+          desc: f.desc || f.description || matchedFallback?.desc || 'Sarana prasarana penunjang kegiatan santri di Pondok Pesantren Al-Mursyid.',
+          image: getImageUrl(f.image || f.imageUrl || matchedFallback?.image || '/gambar/masjid.png'),
+          badge: matchedFallback?.badge || f.category || 'Fasilitas Pondok',
+          highlightPoints: matchedFallback?.highlightPoints || [
+            'Fasilitas bersih & terawat',
+            'Didukung lingkungan islami',
+            'Aman & representatif'
+          ]
+        };
+      });
+    }
+    return FALLBACK_FACILITIES;
+  }, [facilities]);
 
-  const openModal = (facility: FacilityItem) => {
+  // Highlight links list diambil dari item yang tersedia
+  const highlightLinks = React.useMemo(() => {
+    return activeFacilities.slice(0, 4).map((f) => ({
+      label: f.name.length > 25 ? f.name.substring(0, 23) + '...' : f.name,
+      category: f.category,
+      item: f
+    }));
+  }, [activeFacilities]);
+
+  const openModal = (facility: FacilityDisplayItem) => {
     setSelectedFacility(facility);
   };
 
   const closeModal = () => {
     setSelectedFacility(null);
   };
+
+  // Safe items accessor
+  const item1 = activeFacilities[0] || FALLBACK_FACILITIES[0];
+  const item2 = activeFacilities[1] || FALLBACK_FACILITIES[1];
+  const item3 = activeFacilities[2] || FALLBACK_FACILITIES[2];
+  const item4 = activeFacilities[3] || FALLBACK_FACILITIES[3];
+  const item5 = activeFacilities[4] || FALLBACK_FACILITIES[4];
+  const item6 = activeFacilities[5] || FALLBACK_FACILITIES[5];
+  const item7 = activeFacilities[6] || FALLBACK_FACILITIES[6];
+  const extraFacilities = activeFacilities.slice(7);
 
   return (
     <div className="min-h-screen bg-white text-slate-900 pb-24">
@@ -153,7 +193,7 @@ export const FacilityPage: React.FC = () => {
               </Link>
               <button
                 type="button"
-                onClick={() => openModal(GALLERY_FACILITIES[0])}
+                onClick={() => openModal(item1)}
                 className="border border-slate-300 hover:border-slate-400 bg-white text-slate-700 text-xs sm:text-sm font-medium px-5 py-3 rounded-full transition-all duration-200 active:scale-95 inline-flex items-center gap-2"
               >
                 <span>Lihat Foto Fasilitas</span>
@@ -165,12 +205,12 @@ export const FacilityPage: React.FC = () => {
           {/* KOLOM KANAN ATAS (Item 1): Card Vertikal Foto Portrait Kanan Atas */}
           <div className="md:col-span-4">
             <div 
-              onClick={() => openModal(GALLERY_FACILITIES[0])}
+              onClick={() => openModal(item1)}
               className="group relative h-64 sm:h-80 md:h-[340px] w-full rounded-3xl overflow-hidden bg-slate-200 cursor-pointer shadow-sm hover:shadow-md transition-all duration-300"
             >
               <img
-                src={GALLERY_FACILITIES[0].image}
-                alt={GALLERY_FACILITIES[0].name}
+                src={item1.image}
+                alt={item1.name}
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
@@ -179,10 +219,10 @@ export const FacilityPage: React.FC = () => {
               </div>
               <div className="absolute bottom-5 left-5 right-5 text-white">
                 <span className="text-[11px] font-semibold tracking-wider uppercase text-emerald-300 block mb-1">
-                  {GALLERY_FACILITIES[0].category}
+                  {item1.category}
                 </span>
                 <h3 className="text-lg font-bold leading-snug">
-                  {GALLERY_FACILITIES[0].name}
+                  {item1.name}
                 </h3>
               </div>
             </div>
@@ -191,12 +231,12 @@ export const FacilityPage: React.FC = () => {
           {/* BARIS TENGAH - KIRI (Item 2): Foto Asrama */}
           <div className="md:col-span-3">
             <div 
-              onClick={() => openModal(GALLERY_FACILITIES[1])}
+              onClick={() => openModal(item2)}
               className="group relative h-56 sm:h-64 md:h-[290px] w-full rounded-3xl overflow-hidden bg-slate-200 cursor-pointer shadow-sm hover:shadow-md transition-all duration-300"
             >
               <img
-                src={GALLERY_FACILITIES[1].image}
-                alt={GALLERY_FACILITIES[1].name}
+                src={item2.image}
+                alt={item2.name}
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
@@ -205,10 +245,10 @@ export const FacilityPage: React.FC = () => {
               </div>
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <span className="text-[10px] font-semibold tracking-wider uppercase text-emerald-300 block mb-0.5">
-                  {GALLERY_FACILITIES[1].category}
+                  {item2.category}
                 </span>
                 <h3 className="text-base font-bold leading-tight">
-                  {GALLERY_FACILITIES[1].name}
+                  {item2.name}
                 </h3>
               </div>
             </div>
@@ -217,12 +257,12 @@ export const FacilityPage: React.FC = () => {
           {/* BARIS TENGAH - TENGAH (Item 3): Foto Ruang Kelas / Laboratorium */}
           <div className="md:col-span-3">
             <div 
-              onClick={() => openModal(GALLERY_FACILITIES[2])}
+              onClick={() => openModal(item3)}
               className="group relative h-56 sm:h-64 md:h-[290px] w-full rounded-3xl overflow-hidden bg-slate-200 cursor-pointer shadow-sm hover:shadow-md transition-all duration-300"
             >
               <img
-                src={GALLERY_FACILITIES[2].image}
-                alt={GALLERY_FACILITIES[2].name}
+                src={item3.image}
+                alt={item3.name}
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
@@ -231,10 +271,10 @@ export const FacilityPage: React.FC = () => {
               </div>
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <span className="text-[10px] font-semibold tracking-wider uppercase text-emerald-300 block mb-0.5">
-                  {GALLERY_FACILITIES[2].category}
+                  {item3.category}
                 </span>
                 <h3 className="text-base font-bold leading-tight">
-                  {GALLERY_FACILITIES[2].name}
+                  {item3.name}
                 </h3>
               </div>
             </div>
@@ -242,38 +282,35 @@ export const FacilityPage: React.FC = () => {
 
           {/* BARIS TENGAH - KANAN (Item 4 - Teks List Panah sesuai Desain Referensi) */}
           <div className="md:col-span-2 flex flex-col justify-center py-4 px-2 space-y-4">
-            {highlights.map((h, idx) => {
-              const matched = GALLERY_FACILITIES.find(f => f.id === h.targetId);
-              return (
-                <button
-                  key={idx}
-                  type="button"
-                  onClick={() => matched && openModal(matched)}
-                  className="group flex items-start gap-2.5 text-left transition-transform duration-200 hover:translate-x-1"
-                >
-                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-700 transition-colors shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block text-xs sm:text-sm font-semibold text-slate-800 group-hover:text-forest-900 transition-colors">
-                      {h.label}
-                    </span>
-                    <span className="block text-[11px] text-slate-500 font-normal">
-                      {h.category}
-                    </span>
-                  </div>
-                </button>
-              );
-            })}
+            {highlightLinks.map((h, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => openModal(h.item)}
+                className="group flex items-start gap-2.5 text-left transition-transform duration-200 hover:translate-x-1"
+              >
+                <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-700 transition-colors shrink-0 mt-0.5" />
+                <div>
+                  <span className="block text-xs sm:text-sm font-semibold text-slate-800 group-hover:text-forest-900 transition-colors">
+                    {h.label}
+                  </span>
+                  <span className="block text-[11px] text-slate-500 font-normal">
+                    {h.category}
+                  </span>
+                </div>
+              </button>
+            ))}
           </div>
 
           {/* BARIS TENGAH & BAWAH KANAN (Item 5): Card Tower Vertikal Besar */}
           <div className="md:col-span-4 md:row-span-2">
             <div 
-              onClick={() => openModal(GALLERY_FACILITIES[3])}
+              onClick={() => openModal(item4)}
               className="group relative h-72 sm:h-96 md:h-full min-h-[380px] w-full rounded-3xl overflow-hidden bg-slate-200 cursor-pointer shadow-sm hover:shadow-md transition-all duration-300"
             >
               <img
-                src={GALLERY_FACILITIES[3].image}
-                alt={GALLERY_FACILITIES[3].name}
+                src={item4.image}
+                alt={item4.name}
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
@@ -282,13 +319,13 @@ export const FacilityPage: React.FC = () => {
               </div>
               <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
                 <span className="inline-block bg-white/20 backdrop-blur-md text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-md text-emerald-300 border border-white/10">
-                  {GALLERY_FACILITIES[3].category}
+                  {item4.category}
                 </span>
                 <h3 className="text-xl font-bold leading-snug">
-                  {GALLERY_FACILITIES[3].name}
+                  {item4.name}
                 </h3>
                 <p className="text-xs text-slate-200 line-clamp-3 font-normal leading-relaxed">
-                  {GALLERY_FACILITIES[3].desc}
+                  {item4.desc}
                 </p>
                 <div className="pt-2 flex items-center gap-1.5 text-xs text-emerald-300 font-medium">
                   <span>Klik untuk detail sarana</span>
@@ -301,12 +338,12 @@ export const FacilityPage: React.FC = () => {
           {/* BARIS BAWAH - KIRI (Item 6): Lapangan Olahraga */}
           <div className="md:col-span-3">
             <div 
-              onClick={() => openModal(GALLERY_FACILITIES[4])}
+              onClick={() => openModal(item5)}
               className="group relative h-56 sm:h-64 md:h-[260px] w-full rounded-3xl overflow-hidden bg-slate-200 cursor-pointer shadow-sm hover:shadow-md transition-all duration-300"
             >
               <img
-                src={GALLERY_FACILITIES[4].image}
-                alt={GALLERY_FACILITIES[4].name}
+                src={item5.image}
+                alt={item5.name}
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
@@ -315,10 +352,10 @@ export const FacilityPage: React.FC = () => {
               </div>
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <span className="text-[10px] font-semibold tracking-wider uppercase text-emerald-300 block mb-0.5">
-                  {GALLERY_FACILITIES[4].category}
+                  {item5.category}
                 </span>
                 <h3 className="text-base font-bold leading-tight">
-                  {GALLERY_FACILITIES[4].name}
+                  {item5.name}
                 </h3>
               </div>
             </div>
@@ -327,12 +364,12 @@ export const FacilityPage: React.FC = () => {
           {/* BARIS BAWAH - TENGAH (Item 7): Dapur & Ruang Makan */}
           <div className="md:col-span-3">
             <div 
-              onClick={() => openModal(GALLERY_FACILITIES[5])}
+              onClick={() => openModal(item6)}
               className="group relative h-56 sm:h-64 md:h-[260px] w-full rounded-3xl overflow-hidden bg-slate-200 cursor-pointer shadow-sm hover:shadow-md transition-all duration-300"
             >
               <img
-                src={GALLERY_FACILITIES[5].image}
-                alt={GALLERY_FACILITIES[5].name}
+                src={item6.image}
+                alt={item6.name}
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
@@ -341,10 +378,10 @@ export const FacilityPage: React.FC = () => {
               </div>
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <span className="text-[10px] font-semibold tracking-wider uppercase text-emerald-300 block mb-0.5">
-                  {GALLERY_FACILITIES[5].category}
+                  {item6.category}
                 </span>
                 <h3 className="text-base font-bold leading-tight">
-                  {GALLERY_FACILITIES[5].name}
+                  {item6.name}
                 </h3>
               </div>
             </div>
@@ -353,12 +390,12 @@ export const FacilityPage: React.FC = () => {
           {/* BARIS BAWAH - KANAN BAWAH (Item 8): Lanskap Hijau Way Lalaan */}
           <div className="md:col-span-2">
             <div 
-              onClick={() => openModal(GALLERY_FACILITIES[6])}
+              onClick={() => openModal(item7)}
               className="group relative h-56 sm:h-64 md:h-[260px] w-full rounded-3xl overflow-hidden bg-slate-200 cursor-pointer shadow-sm hover:shadow-md transition-all duration-300"
             >
               <img
-                src={GALLERY_FACILITIES[6].image}
-                alt={GALLERY_FACILITIES[6].name}
+                src={item7.image}
+                alt={item7.name}
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
@@ -367,16 +404,57 @@ export const FacilityPage: React.FC = () => {
               </div>
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <span className="text-[10px] font-semibold tracking-wider uppercase text-emerald-300 block mb-0.5">
-                  {GALLERY_FACILITIES[6].category}
+                  {item7.category}
                 </span>
                 <h3 className="text-base font-bold leading-tight">
-                  {GALLERY_FACILITIES[6].name}
+                  {item7.name}
                 </h3>
               </div>
             </div>
           </div>
 
         </div>
+
+        {/* JIKA ADA FASILITAS TAMBAHAN DARI DATABASE (LEBIH DARI 7 ITEM) */}
+        {extraFacilities.length > 0 && (
+          <div className="mt-14 space-y-6">
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-emerald-800">
+                Sarana & Fasilitas Lainnya
+              </span>
+              <span className="h-px flex-1 bg-slate-200"></span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+              {extraFacilities.map((fac, idx) => (
+                <div
+                  key={fac.id || idx}
+                  onClick={() => openModal(fac)}
+                  className="group relative h-60 rounded-3xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm hover:shadow-md transition-all duration-300 border border-slate-200/80 flex flex-col justify-end p-5"
+                >
+                  <img
+                    src={fac.image}
+                    alt={fac.name}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
+                  
+                  <div className="relative z-10 text-white space-y-1">
+                    <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald-300 block">
+                      {fac.category}
+                    </span>
+                    <h4 className="text-base font-bold leading-snug line-clamp-1">
+                      {fac.name}
+                    </h4>
+                    <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                      {fac.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Banner Penjaminan Mutu & Keamanan */}
         <div className="mt-16 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">

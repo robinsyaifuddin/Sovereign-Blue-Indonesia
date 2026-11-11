@@ -180,7 +180,7 @@ export const AboutPage: React.FC = () => {
             </div>
 
             {/* Footer Slab Hijau */}
-            <div className="pt-4 border-t border-white/20 flex items-center justify-between text-[11px] text-emerald-100/90">
+            <div className="pt-4 border-t border-white/20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-[11px] text-emerald-100/90">
               <p>WAY LALAAN, KOTA AGUNG TIMUR</p>
               <p className="text-emerald-200 font-bold">PROVINSI LAMPUNG</p>
             </div>

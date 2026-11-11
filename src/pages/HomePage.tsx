@@ -82,6 +82,7 @@ export const HomePage: React.FC = () => {
     image: string;
     title: string;
     category?: string;
+    id?: string;
   } | null>(null);
 
   // Close preview on escape key
@@ -95,12 +96,13 @@ export const HomePage: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  const validGalleryItems = GALLERY_ITEMS.filter((item) => item.image && item.image.trim() !== '');
   const galleryPicks = [
-    GALLERY_ITEMS[0] || FALLBACK_GALLERY[0],
-    GALLERY_ITEMS[1] || FALLBACK_GALLERY[1],
-    GALLERY_ITEMS[2] || FALLBACK_GALLERY[2],
-    GALLERY_ITEMS[3] || FALLBACK_GALLERY[6] || FALLBACK_GALLERY[0],
-    GALLERY_ITEMS[4] || FALLBACK_GALLERY[7] || FALLBACK_GALLERY[1],
+    validGalleryItems[0] || FALLBACK_GALLERY[0],
+    validGalleryItems[1] || FALLBACK_GALLERY[1],
+    validGalleryItems[2] || FALLBACK_GALLERY[2],
+    validGalleryItems[3] || FALLBACK_GALLERY[3] || FALLBACK_GALLERY[0],
+    validGalleryItems[4] || FALLBACK_GALLERY[4] || FALLBACK_GALLERY[1],
   ];
 
   const newsHeroSlides = NEWS_DATA.slice(0, 4);
@@ -210,8 +212,9 @@ export const HomePage: React.FC = () => {
   return (
     <div className="space-y-0 w-full overflow-x-hidden bg-white text-slate-800">
       
-      {/* 1. HERO SLIDER SECTION (Full Viewport Screen Fit) */}
-      <section className="relative w-full min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] bg-[#070c09] overflow-hidden flex flex-col justify-center pt-8 sm:pt-10 pb-20 sm:pb-28">
+      {/* 1. HERO SLIDER SECTION + VALUE PILLARS MARQUEE (Pas Viewport Mobile iOS & Android) */}
+      <section className="relative w-full h-[calc(100svh-4rem)] sm:h-[calc(100vh-5rem)] min-h-[520px] sm:min-h-[600px] bg-[#070c09] overflow-hidden flex flex-col justify-between">
+        {/* Background Slider Images */}
         {HERO_SLIDES.map((slide, index) => (
           <div
             key={index}
@@ -235,37 +238,38 @@ export const HomePage: React.FC = () => {
             <div 
               className="absolute inset-0 pointer-events-none sm:hidden"
               style={{
-                background: 'linear-gradient(to top, rgba(7, 12, 9, 0.95) 0%, transparent 60%)'
+                background: 'linear-gradient(to top, rgba(7, 12, 9, 0.95) 0%, rgba(7, 12, 9, 0.4) 40%, transparent 80%)'
               }}
             />
           </div>
         ))}
 
-        <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 z-10 my-auto">
-          <div className="max-w-2xl relative min-h-[220px] sm:min-h-[200px]">
+        {/* Content Container (Center Aligned Flex Grow) */}
+        <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 z-10 flex-1 flex flex-col justify-center pt-4 sm:pt-8 pb-3 sm:pb-6">
+          <div className="max-w-2xl relative min-h-[200px] sm:min-h-[220px]">
             {HERO_SLIDES.map((slide, index) => (
               <div
                 key={index}
-                className={`transition-opacity duration-500 space-y-3 sm:space-y-4 ${
+                className={`transition-opacity duration-500 space-y-2.5 sm:space-y-4 ${
                   index === currentSlide
                     ? 'opacity-100 relative pointer-events-auto'
                     : 'opacity-0 absolute inset-0 pointer-events-none'
                 }`}
               >
                 {/* Heading Modern Reguler & Terang Synchronized */}
-                <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-bold tracking-tight text-white drop-shadow-sm leading-[1.18]">
+                <h1 className="text-2xl sm:text-4xl lg:text-[46px] font-bold tracking-tight text-white drop-shadow-sm leading-[1.2]">
                   {slide.title}
                 </h1>
 
-                <p className="text-base sm:text-lg text-stone-100 leading-relaxed max-w-xl font-normal drop-shadow-sm">
+                <p className="text-xs sm:text-lg text-stone-200 leading-relaxed max-w-xl font-normal drop-shadow-sm line-clamp-3 sm:line-clamp-none">
                   {slide.subtitle}
                 </p>
 
                 {/* Modern Action Buttons */}
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-0.5">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1">
                   <Link
                     to="/ppdb"
-                    className="bg-aurora-btn text-white font-bold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider shadow-md shadow-emerald-950/20 flex items-center justify-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+                    className="bg-aurora-btn text-white font-bold px-5 sm:px-6 py-2.5 rounded-full text-xs uppercase tracking-wider shadow-md shadow-emerald-950/20 flex items-center justify-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
                   >
                     <span>Daftar Santri Baru</span>
                     <ArrowRight className="w-3.5 h-3.5 text-white/90" />
@@ -281,56 +285,56 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 {/* Mini Trust Bar */}
-                <div className="pt-2 border-t border-white/20 flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-white/90">
+                <div className="pt-2 border-t border-white/15 flex flex-wrap items-center gap-2.5 sm:gap-4 text-[11px] sm:text-xs text-white/90">
                   <div className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                     <span>SK Kemenkumham 2020</span>
                   </div>
                   <span className="text-white/40 hidden sm:inline">•</span>
                   <div className="flex items-center gap-1.5">
-                    <Award className="w-4 h-4 text-gold-400 shrink-0" />
-                    <span>NSP Kemenag: <strong className="text-white ">{SITE_INFO.legal.nsp}</strong></span>
+                    <Award className="w-3.5 h-3.5 text-gold-400 shrink-0" />
+                    <span>NSP Kemenag: <strong className="text-white">{SITE_INFO.legal.nsp}</strong></span>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Slide Indicator Dots */}
+          <div className="flex items-center gap-2 pt-3 sm:pt-4">
+            {HERO_SLIDES.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentSlide(i)}
+                className={`h-1.5 sm:h-2 rounded-full transition-all ${
+                  i === currentSlide ? 'w-6 sm:w-8 bg-gold-400' : 'w-1.5 sm:w-2 bg-white/50 hover:bg-white/80'
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* Slide Indicator Dots */}
-        <div className="absolute bottom-28 sm:bottom-36 right-6 sm:right-12 flex items-center gap-2 z-20">
-          {HERO_SLIDES.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrentSlide(i)}
-              className={`h-2 rounded-full transition-all ${
-                i === currentSlide ? 'w-8 bg-gold-400' : 'w-2 bg-white/50 hover:bg-white/80'
-              }`}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* 2. VALUE PILLARS MARQUEE (Clean Typography, Teks & Icon Putih Tanpa Box/Shape) */}
-      <section className="relative -mt-14 sm:-mt-16 z-20 w-full overflow-hidden border-y border-white/10 bg-black/25 backdrop-blur-[2px] py-2.5 sm:py-3">
-        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
-          <div className="flex w-max animate-marquee-rtl items-center">
-            {[...STRIP_PILLARS, ...STRIP_PILLARS, ...STRIP_PILLARS, ...STRIP_PILLARS].map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="flex items-center gap-2.5 px-4 sm:px-6 py-1 transition-opacity group cursor-default"
-                >
-                  <Icon className="w-4 h-4 text-white shrink-0 stroke-[2] drop-shadow-sm group-hover:scale-110 transition-transform duration-150" />
-                  <span className="text-xs sm:text-sm font-medium text-white drop-shadow-sm tracking-wide whitespace-nowrap">
-                    {item.title}
-                  </span>
-                  <span className="text-white/40 ml-4 sm:ml-6 select-none">•</span>
-                </div>
-              );
-            })}
+        {/* 2. VALUE PILLARS MARQUEE (Batas Bawah Hero Terkunci di Layar Mobile) */}
+        <div className="relative z-20 w-full overflow-hidden border-t border-white/10 bg-black/40 backdrop-blur-[4px] py-2.5 sm:py-3 shrink-0">
+          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+            <div className="flex w-max animate-marquee-rtl items-center">
+              {[...STRIP_PILLARS, ...STRIP_PILLARS, ...STRIP_PILLARS, ...STRIP_PILLARS].map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2 px-3.5 sm:px-6 py-0.5 transition-opacity group cursor-default"
+                  >
+                    <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white shrink-0 stroke-[2] drop-shadow-sm group-hover:scale-110 transition-transform duration-150" />
+                    <span className="text-xs sm:text-sm font-medium text-white drop-shadow-sm tracking-wide whitespace-nowrap">
+                      {item.title}
+                    </span>
+                    <span className="text-white/40 ml-3.5 sm:ml-6 select-none">•</span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -703,17 +707,18 @@ export const HomePage: React.FC = () => {
                   <div className="grid grid-cols-12 gap-2.5">
                     {/* Baris 1: 3 Foto Berjajar (Frame 1, 2, 3) */}
                     <div 
-                      onClick={() => setPreviewModal({ image: galleryPicks[0].image, title: galleryPicks[0].title, category: galleryPicks[0].category })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[0].image, title: galleryPicks[0].title, category: galleryPicks[0].category, id: galleryPicks[0].id })}
                       className="col-span-4 aspect-square rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
                       aria-label={`Lihat foto ${galleryPicks[0].title}`}
                     >
                       <img
-                        src={galleryPicks[0].image}
+                        src={getImageUrl(galleryPicks[0].image)}
                         alt={galleryPicks[0].title}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
+                        onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                       />
                       <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
@@ -723,17 +728,18 @@ export const HomePage: React.FC = () => {
                     </div>
 
                     <div 
-                      onClick={() => setPreviewModal({ image: galleryPicks[1].image, title: galleryPicks[1].title, category: galleryPicks[1].category })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[1].image, title: galleryPicks[1].title, category: galleryPicks[1].category, id: galleryPicks[1].id })}
                       className="col-span-4 aspect-square rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
                       aria-label={`Lihat foto ${galleryPicks[1].title}`}
                     >
                       <img
-                        src={galleryPicks[1].image}
+                        src={getImageUrl(galleryPicks[1].image)}
                         alt={galleryPicks[1].title}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
+                        onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                       />
                       <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
@@ -743,17 +749,18 @@ export const HomePage: React.FC = () => {
                     </div>
 
                     <div 
-                      onClick={() => setPreviewModal({ image: galleryPicks[2].image, title: galleryPicks[2].title, category: galleryPicks[2].category })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[2].image, title: galleryPicks[2].title, category: galleryPicks[2].category, id: galleryPicks[2].id })}
                       className="col-span-4 aspect-square rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
                       aria-label={`Lihat foto ${galleryPicks[2].title}`}
                     >
                       <img
-                        src={galleryPicks[2].image}
+                        src={getImageUrl(galleryPicks[2].image)}
                         alt={galleryPicks[2].title}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
+                        onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                       />
                       <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
@@ -764,17 +771,18 @@ export const HomePage: React.FC = () => {
 
                     {/* Baris 2: Foto Kiri Melebar (Frame 4 - 8 kolom) & Frame Foto Kanan (Frame 5 - 4 kolom) */}
                     <div 
-                      onClick={() => setPreviewModal({ image: galleryPicks[3].image, title: galleryPicks[3].title, category: galleryPicks[3].category })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[3].image, title: galleryPicks[3].title, category: galleryPicks[3].category, id: galleryPicks[3].id })}
                       className="col-span-8 aspect-[16/10] rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
                       aria-label={`Lihat foto ${galleryPicks[3].title}`}
                     >
                       <img
-                        src={galleryPicks[3].image}
+                        src={getImageUrl(galleryPicks[3].image)}
                         alt={galleryPicks[3].title}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
+                        onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                       />
                       <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
@@ -785,17 +793,18 @@ export const HomePage: React.FC = () => {
 
                     {/* Frame Foto Kanan Bawah */}
                     <div 
-                      onClick={() => setPreviewModal({ image: galleryPicks[4].image, title: galleryPicks[4].title, category: galleryPicks[4].category })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[4].image, title: galleryPicks[4].title, category: galleryPicks[4].category, id: galleryPicks[4].id })}
                       className="col-span-4 aspect-[8/10] rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
                       aria-label={`Lihat foto ${galleryPicks[4].title}`}
                     >
                       <img
-                        src={galleryPicks[4].image}
+                        src={getImageUrl(galleryPicks[4].image)}
                         alt={galleryPicks[4].title}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
+                        onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                       />
                       <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
@@ -1245,6 +1254,18 @@ export const HomePage: React.FC = () => {
                 alt={previewModal.title}
                 className="w-full h-full object-cover animate-in fade-in zoom-in-[0.98] duration-200"
               />
+
+              {/* Floating Link ke Halaman Galeri */}
+              {previewModal.id && (
+                <Link
+                  to={`/galeri?photo=${encodeURIComponent(previewModal.id)}`}
+                  className="absolute top-3 right-3 bg-black/60 hover:bg-emerald-800 text-white backdrop-blur-md px-3 py-1.5 rounded-full text-[11px] font-semibold flex items-center gap-1.5 transition-colors shadow-sm"
+                  onClick={() => setPreviewModal(null)}
+                >
+                  <span>Buka di Galeri</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              )}
 
               {/* Floating Judul Pojok Kanan Bawah */}
               <div className="absolute bottom-0 right-0 bg-white pt-2.5 pb-2 px-4 rounded-tl-[18px] shadow-sm max-w-[88%] sm:max-w-[78%]">

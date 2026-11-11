@@ -20,12 +20,47 @@ if ($method === 'POST') {
         jsonResponse(false, null, 'Username dan password wajib diisi.', 400);
     }
 
+    $clientIp = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+    $rateLimitFile = sys_get_temp_dir() . '/almursyid_login_rate_' . md5($clientIp);
+
+    // Rate Limiting: Maksimal 5 percobaan gagal dalam rentang 15 menit
+    if (file_exists($rateLimitFile)) {
+        $rateData = @json_decode(file_get_contents($rateLimitFile), true);
+        if ($rateData && isset($rateData['lock_until']) && time() < $rateData['lock_until']) {
+            $remaining = ceil(($rateData['lock_until'] - time()) / 60);
+            jsonResponse(false, null, "Terlalu banyak percobaan login gagal. Demi keamanan, akun terkunci sementara. Coba lagi dalam {$remaining} menit.", 429);
+        }
+    }
+
     $stmt = $pdo->prepare("SELECT id, username, password_hash, name, role FROM users WHERE username = ? LIMIT 1");
     $stmt->execute([$username]);
     $user = $stmt->fetch();
 
     if (!$user || !password_verify($password, $user['password_hash'])) {
-        jsonResponse(false, null, 'Username atau password salah.', 401);
+        // Catat kegagalan login untuk IP ini
+        $attempts = 1;
+        if (file_exists($rateLimitFile)) {
+            $rateData = @json_decode(file_get_contents($rateLimitFile), true) ?: [];
+            $attempts = ($rateData['attempts'] ?? 0) + 1;
+        }
+        $lockUntil = ($attempts >= 5) ? (time() + 900) : 0; // Kunci 15 menit jika 5x gagal
+        @file_put_contents($rateLimitFile, json_encode([
+            'attempts' => $attempts,
+            'lock_until' => $lockUntil,
+            'last_attempt' => time()
+        ]));
+
+        if ($lockUntil > 0) {
+            jsonResponse(false, null, 'Terlalu banyak percobaan gagal. Akses ditangguhkan selama 15 menit demi keamanan sistem.', 429);
+        }
+
+        $sisa = 5 - $attempts;
+        jsonResponse(false, null, "Username atau kata sandi tidak valid. Sisa percobaan: {$sisa}.", 401);
+    }
+
+    // Reset rate limiter setelah login sukses
+    if (file_exists($rateLimitFile)) {
+        @unlink($rateLimitFile);
     }
 
     // Generate secure token (valid 7 hari)

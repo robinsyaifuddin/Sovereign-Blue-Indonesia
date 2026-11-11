@@ -21,9 +21,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   INDEX `idx_token` (`token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Admin default: admin / admin123 (Password hash default bcrypt)
+-- Admin default: almursyidtanggamus / almursyid@123 (Password hash default bcrypt)
 INSERT IGNORE INTO `users` (`id`, `username`, `password_hash`, `name`, `role`)
-VALUES (1, 'admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Administrator Pesantren', 'admin');
+VALUES (1, 'almursyidtanggamus', '$2y$10$OZQS024M6S.g.XAzxYakjeh2fWEUmbYjOZUO0P./7vNa6iVJvY9jq', 'Administrator Pesantren', 'admin');
 
 -- 2. TABEL PENGATURAN SITUS (Key-Value ter-index)
 CREATE TABLE IF NOT EXISTS `site_settings` (

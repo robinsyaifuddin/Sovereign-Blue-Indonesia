@@ -1,12 +1,31 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { X, ZoomIn, ChevronRight } from 'lucide-react';
 import { GALLERY_ITEMS as FALLBACK_GALLERY, GalleryItem } from '../data/siteData';
 import { useAppStoreData } from '../hooks/useAppStoreData';
+import { getImageUrl } from '../utils/imageHelper';
 
 export const GalleryPage: React.FC = () => {
+  const location = useLocation();
   const { gallery } = useAppStoreData();
-  const GALLERY_ITEMS = gallery && gallery.length > 0 ? gallery : FALLBACK_GALLERY;
+  const GALLERY_ITEMS = (gallery && gallery.length > 0 ? gallery : FALLBACK_GALLERY).filter(
+    (item) => item.image && item.image.trim() !== ''
+  );
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  // Otomatis buka foto jika ada parameter ?photo= atau ?id= di URL
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const photoId = params.get('photo') || params.get('id');
+    if (photoId) {
+      const foundIdx = GALLERY_ITEMS.findIndex(
+        (item, idx) => item.id === photoId || String(idx) === photoId
+      );
+      if (foundIdx !== -1) {
+        setActiveIndex(foundIdx);
+      }
+    }
+  }, [location.search, GALLERY_ITEMS]);
 
   // Touch gesture state for swipe
   const touchStartX = useRef<number | null>(null);
@@ -101,10 +120,11 @@ export const GalleryPage: React.FC = () => {
                 className="md:col-span-8 group relative aspect-[16/10] rounded-2xl overflow-hidden cursor-pointer bg-stone-100 shadow-xs hover:shadow-md transition-all duration-300"
               >
                 <img 
-                  src={GALLERY_ITEMS[0].image} 
+                  src={getImageUrl(GALLERY_ITEMS[0].image)} 
                   alt={GALLERY_ITEMS[0].title}
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out" 
                   loading="lazy"
+                  onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                 />
                 <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                   <div className="w-10 h-10 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
@@ -120,10 +140,11 @@ export const GalleryPage: React.FC = () => {
                 className="md:col-span-4 group relative aspect-[4/3] md:aspect-auto md:h-full rounded-2xl overflow-hidden cursor-pointer bg-stone-100 shadow-xs hover:shadow-md transition-all duration-300"
               >
                 <img 
-                  src={GALLERY_ITEMS[1].image} 
+                  src={getImageUrl(GALLERY_ITEMS[1].image)} 
                   alt={GALLERY_ITEMS[1].title}
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out" 
                   loading="lazy"
+                  onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                 />
                 <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                   <div className="w-10 h-10 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
@@ -146,10 +167,11 @@ export const GalleryPage: React.FC = () => {
                   className="group relative aspect-[4/3] sm:aspect-[4/4] lg:aspect-[4/3.5] rounded-2xl overflow-hidden cursor-pointer bg-stone-100 shadow-xs hover:shadow-md transition-all duration-300"
                 >
                   <img 
-                    src={item.image} 
+                    src={getImageUrl(item.image)} 
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out" 
                     loading="lazy"
+                    onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                   />
                   <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                     <div className="w-10 h-10 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
@@ -169,10 +191,11 @@ export const GalleryPage: React.FC = () => {
                 className="md:col-span-4 group relative aspect-[4/3] md:aspect-auto md:h-full rounded-2xl overflow-hidden cursor-pointer bg-stone-100 shadow-xs hover:shadow-md transition-all duration-300"
               >
                 <img 
-                  src={GALLERY_ITEMS[5].image} 
+                  src={getImageUrl(GALLERY_ITEMS[5].image)} 
                   alt={GALLERY_ITEMS[5].title}
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out" 
                   loading="lazy"
+                  onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                 />
                 <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                   <div className="w-10 h-10 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
@@ -188,10 +211,11 @@ export const GalleryPage: React.FC = () => {
                 className="md:col-span-8 group relative aspect-[16/10] rounded-2xl overflow-hidden cursor-pointer bg-stone-100 shadow-xs hover:shadow-md transition-all duration-300"
               >
                 <img 
-                  src={GALLERY_ITEMS[6].image} 
+                  src={getImageUrl(GALLERY_ITEMS[6].image)} 
                   alt={GALLERY_ITEMS[6].title}
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out" 
                   loading="lazy"
+                  onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                 />
                 <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                   <div className="w-10 h-10 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
@@ -214,10 +238,11 @@ export const GalleryPage: React.FC = () => {
                   className="group relative aspect-[4/3] sm:aspect-[4/4] lg:aspect-[4/3.5] rounded-2xl overflow-hidden cursor-pointer bg-stone-100 shadow-xs hover:shadow-md transition-all duration-300"
                 >
                   <img 
-                    src={item.image} 
+                    src={getImageUrl(item.image)} 
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out" 
                     loading="lazy"
+                    onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                   />
                   <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                     <div className="w-10 h-10 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
@@ -301,7 +326,7 @@ export const GalleryPage: React.FC = () => {
             {/* Inner Image Container with Rounded Corners */}
             <div className="relative w-full aspect-[4/4] sm:aspect-[4/3.8] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-stone-950">
               <img
-                src={activeItem.image}
+                src={getImageUrl(activeItem.image)}
                 alt={activeItem.title}
                 key={activeItem.id}
                 className="w-full h-full object-cover animate-in fade-in zoom-in-[0.98] duration-200"

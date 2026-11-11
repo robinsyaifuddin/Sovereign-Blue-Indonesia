@@ -1,4 +1,4 @@
-export interface NavItem {
+﻿export interface NavItem {
   label: string;
   href: string;
   children?: { label: string; href: string; desc?: string }[];
@@ -92,11 +92,11 @@ export const SITE_INFO = {
 
 export const NAV_LINKS: NavItem[] = [
   { label: "Beranda", href: "/" },
-  { label: "Tentang Kami", href: "/tentang-kami" },
+  { label: "Tentang", href: "/tentang-kami" },
   { label: "Program", href: "/program" },
   { label: "Fasilitas", href: "/fasilitas" },
   { label: "Galeri", href: "/galeri" },
-  { label: "PPDB Online", href: "/ppdb" },
+  { label: "PPDB", href: "/ppdb" },
   { label: "Berita", href: "/berita" },
 ];
 
