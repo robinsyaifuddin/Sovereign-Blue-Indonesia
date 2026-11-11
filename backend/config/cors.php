@@ -11,7 +11,9 @@ $allowedOrigins = [
     'http://localhost:3000',
     'http://127.0.0.1:5173',
     'http://localhost',
-    'https://almursyid.sch.id', // Domain produksi pesantren
+    'https://almursyidtanggamus.web.id',
+    'https://www.almursyidtanggamus.web.id',
+    'https://almursyid.sch.id',
 ];
 
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
