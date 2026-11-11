@@ -1,0 +1,23 @@
+name: Auto Deploy Backend to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+  workflow_dispatch:
+
+jobs:
+  deploy-backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🚀 Sync Backend to Hostinger Subdomain
+        run: |
+          sudo apt-get update && sudo apt-get install -y lftp
+          # Mirror folder backend lokal ke folder public_html/api/backend di Hostinger
+          lftp -e "set ssl:verify-certificate false; set ftp:ssl-allow yes; set ftp:passive-mode true; set net:timeout 60; set net:max-retries 5; mirror -R --verbose ./backend/ ./public_html/api/backend/; quit" -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_SERVER }}"
