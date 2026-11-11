@@ -7,7 +7,7 @@ import {
   Library, HeartHandshake, MapPin, Check, ChevronRight, Clock,
   X, ZoomIn, MousePointerClick
 } from 'lucide-react';
-import { SITE_INFO, PROGRAMS, FACILITIES, NEWS_DATA, LATEST_POSTS, GALLERY_ITEMS } from '../data/siteData';
+import { SITE_INFO as FALLBACK_SITE_INFO, PROGRAMS as FALLBACK_PROGRAMS, FACILITIES as FALLBACK_FACILITIES, NEWS_DATA as FALLBACK_NEWS, LATEST_POSTS as FALLBACK_LATEST_POSTS, GALLERY_ITEMS as FALLBACK_GALLERY } from '../data/siteData';
 import { useAppStoreData } from '../hooks/useAppStoreData';
 import { createSlug } from '../utils/slug';
 
@@ -66,7 +66,14 @@ const STRIP_PILLARS = [
 ];
 
 export const HomePage: React.FC = () => {
-  const { ppdbSettings } = useAppStoreData();
+  const { ppdbSettings, news, gallery, facilities, programs, siteInfo } = useAppStoreData();
+  const NEWS_DATA = news && news.length > 0 ? news : FALLBACK_NEWS;
+  const GALLERY_ITEMS = gallery && gallery.length > 0 ? gallery : FALLBACK_GALLERY;
+  const FACILITIES = facilities && facilities.length > 0 ? facilities : FALLBACK_FACILITIES;
+  const PROGRAMS = programs && programs.length > 0 ? programs : FALLBACK_PROGRAMS;
+  const SITE_INFO = siteInfo || FALLBACK_SITE_INFO;
+  const LATEST_POSTS = NEWS_DATA.slice(0, 4);
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [activeProgram, setActiveProgram] = useState(0);
   const [newsHeroIndex, setNewsHeroIndex] = useState(0);
@@ -87,12 +94,15 @@ export const HomePage: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const newsHeroSlides = [
-    NEWS_DATA[0], // Wisuda Akbar
-    NEWS_DATA[1], // Kajian Akbar
-    NEWS_DATA[2], // PPDB Online
-    NEWS_DATA[3]  // Olimpiade Sains
+  const galleryPicks = [
+    GALLERY_ITEMS[0] || FALLBACK_GALLERY[0],
+    GALLERY_ITEMS[1] || FALLBACK_GALLERY[1],
+    GALLERY_ITEMS[2] || FALLBACK_GALLERY[2],
+    GALLERY_ITEMS[3] || FALLBACK_GALLERY[6] || FALLBACK_GALLERY[0],
+    GALLERY_ITEMS[4] || FALLBACK_GALLERY[7] || FALLBACK_GALLERY[1],
   ];
+
+  const newsHeroSlides = NEWS_DATA.slice(0, 4);
   const currentNewsSlide = newsHeroSlides[newsHeroIndex] || newsHeroSlides[0];
 
   const PROGRAM_DATA = [
@@ -692,15 +702,15 @@ export const HomePage: React.FC = () => {
                   <div className="grid grid-cols-12 gap-2.5">
                     {/* Baris 1: 3 Foto Berjajar (Frame 1, 2, 3) */}
                     <div 
-                      onClick={() => setPreviewModal({ image: GALLERY_ITEMS[0].image, title: GALLERY_ITEMS[0].title, category: GALLERY_ITEMS[0].category })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[0].image, title: galleryPicks[0].title, category: galleryPicks[0].category })}
                       className="col-span-4 aspect-square rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
-                      aria-label={`Lihat foto ${GALLERY_ITEMS[0].title}`}
+                      aria-label={`Lihat foto ${galleryPicks[0].title}`}
                     >
                       <img
-                        src={GALLERY_ITEMS[0].image}
-                        alt={GALLERY_ITEMS[0].title}
+                        src={galleryPicks[0].image}
+                        alt={galleryPicks[0].title}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
@@ -712,15 +722,15 @@ export const HomePage: React.FC = () => {
                     </div>
 
                     <div 
-                      onClick={() => setPreviewModal({ image: GALLERY_ITEMS[1].image, title: GALLERY_ITEMS[1].title, category: GALLERY_ITEMS[1].category })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[1].image, title: galleryPicks[1].title, category: galleryPicks[1].category })}
                       className="col-span-4 aspect-square rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
-                      aria-label={`Lihat foto ${GALLERY_ITEMS[1].title}`}
+                      aria-label={`Lihat foto ${galleryPicks[1].title}`}
                     >
                       <img
-                        src={GALLERY_ITEMS[1].image}
-                        alt={GALLERY_ITEMS[1].title}
+                        src={galleryPicks[1].image}
+                        alt={galleryPicks[1].title}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
@@ -732,15 +742,15 @@ export const HomePage: React.FC = () => {
                     </div>
 
                     <div 
-                      onClick={() => setPreviewModal({ image: GALLERY_ITEMS[2].image, title: GALLERY_ITEMS[2].title, category: GALLERY_ITEMS[2].category })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[2].image, title: galleryPicks[2].title, category: galleryPicks[2].category })}
                       className="col-span-4 aspect-square rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
-                      aria-label={`Lihat foto ${GALLERY_ITEMS[2].title}`}
+                      aria-label={`Lihat foto ${galleryPicks[2].title}`}
                     >
                       <img
-                        src={GALLERY_ITEMS[2].image}
-                        alt={GALLERY_ITEMS[2].title}
+                        src={galleryPicks[2].image}
+                        alt={galleryPicks[2].title}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
@@ -753,15 +763,15 @@ export const HomePage: React.FC = () => {
 
                     {/* Baris 2: Foto Kiri Melebar (Frame 4 - 8 kolom) & Frame Foto Kanan (Frame 5 - 4 kolom) */}
                     <div 
-                      onClick={() => setPreviewModal({ image: GALLERY_ITEMS[6].image, title: GALLERY_ITEMS[6].title, category: GALLERY_ITEMS[6].category })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[3].image, title: galleryPicks[3].title, category: galleryPicks[3].category })}
                       className="col-span-8 aspect-[16/10] rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
-                      aria-label={`Lihat foto ${GALLERY_ITEMS[6].title}`}
+                      aria-label={`Lihat foto ${galleryPicks[3].title}`}
                     >
                       <img
-                        src={GALLERY_ITEMS[6].image}
-                        alt={GALLERY_ITEMS[6].title}
+                        src={galleryPicks[3].image}
+                        alt={galleryPicks[3].title}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
@@ -774,15 +784,15 @@ export const HomePage: React.FC = () => {
 
                     {/* Frame Foto Kanan Bawah */}
                     <div 
-                      onClick={() => setPreviewModal({ image: GALLERY_ITEMS[7].image, title: GALLERY_ITEMS[7].title, category: GALLERY_ITEMS[7].category })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[4].image, title: galleryPicks[4].title, category: galleryPicks[4].category })}
                       className="col-span-4 aspect-[8/10] rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
-                      aria-label={`Lihat foto ${GALLERY_ITEMS[7].title}`}
+                      aria-label={`Lihat foto ${galleryPicks[4].title}`}
                     >
                       <img
-                        src={GALLERY_ITEMS[7].image}
-                        alt={GALLERY_ITEMS[7].title}
+                        src={galleryPicks[4].image}
+                        alt={galleryPicks[4].title}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
                       />

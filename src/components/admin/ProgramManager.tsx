@@ -27,7 +27,7 @@ interface ProgramItem {
 export const ProgramManager: React.FC = () => {
   const { programs } = useAppStoreData();
   const typedPrograms: ProgramItem[] = programs as ProgramItem[];
-  const { toast, startLoading, stopLoading } = useToast();
+  const { toast, confirm, startLoading, stopLoading } = useToast();
   
   // Tampilan halaman: 'list' atau 'form' (in-place full page, sidebar tetap ada)
   const [viewMode, setViewMode] = useState<'list' | 'form'>('list');
@@ -113,7 +113,14 @@ export const ProgramManager: React.FC = () => {
   };
 
   const handleDelete = async (id: string, title: string) => {
-    if (window.confirm(`Hapus program "${title}"?`)) {
+    const isConfirmed = await confirm({
+      title: 'Hapus Program Unggulan',
+      message: `Apakah Anda yakin ingin menghapus program "${title}"?`,
+      confirmText: 'Ya, Hapus Program',
+      type: 'danger'
+    });
+
+    if (isConfirmed) {
       startLoading('Menghapus program...');
       try {
         await AppStore.deleteProgramRemote(id);

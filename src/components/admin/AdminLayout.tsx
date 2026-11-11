@@ -35,10 +35,18 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
   const { ppdbApplicants } = useAppStoreData();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const { toast } = useToast();
+  const { toast, confirm } = useToast();
 
-  const handleLogout = () => {
-    if (window.confirm('Apakah Anda yakin ingin keluar dari sesi Admin?')) {
+  const handleLogout = async () => {
+    const isConfirmed = await confirm({
+      title: 'Keluar Sesi Admin',
+      message: 'Apakah Anda yakin ingin keluar dari sesi Dashboard Admin?',
+      confirmText: 'Ya, Keluar',
+      cancelText: 'Batal',
+      type: 'warning'
+    });
+
+    if (isConfirmed) {
       clearAuthToken();
       toast.info('Sesi Ditutup', 'Anda telah keluar dari dashboard admin.');
       setTimeout(() => {
@@ -57,8 +65,16 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
     { id: 'facilities', label: 'Fasilitas Pondok', icon: Building2, badge: null },
   ];
 
-  const handleResetData = () => {
-    if (window.confirm('Kembalikan semua data ke setelan awal bawaan pesantren? Perubahan yang belum dicatat akan direset.')) {
+  const handleResetData = async () => {
+    const isConfirmed = await confirm({
+      title: 'Reset Data ke Bawaan',
+      message: 'Kembalikan semua data ke setelan awal bawaan pesantren? Perubahan yang belum dicatat akan direset.',
+      confirmText: 'Ya, Reset Data',
+      cancelText: 'Batal',
+      type: 'danger'
+    });
+
+    if (isConfirmed) {
       AppStore.resetAll();
       toast.success('Reset Berhasil', 'Data demo telah dipulihkan ke pengaturan awal pesantren.');
     }

@@ -24,7 +24,7 @@ interface FacilityItem {
 export const FacilityManager: React.FC = () => {
   const { facilities } = useAppStoreData();
   const typedFacilities: FacilityItem[] = facilities as FacilityItem[];
-  const { toast, startLoading, stopLoading } = useToast();
+  const { toast, confirm, startLoading, stopLoading } = useToast();
   
   // Tampilan halaman: 'list' atau 'form' (in-place full page, sidebar tetap ada)
   const [viewMode, setViewMode] = useState<'list' | 'form'>('list');
@@ -88,11 +88,18 @@ export const FacilityManager: React.FC = () => {
   };
 
   const handleDelete = async (index: number, name: string) => {
-    if (window.confirm(`Hapus fasilitas "${name}"?`)) {
+    const isConfirmed = await confirm({
+      title: 'Hapus Fasilitas',
+      message: `Apakah Anda yakin ingin menghapus fasilitas "${name}"?`,
+      confirmText: 'Ya, Hapus Fasilitas',
+      type: 'danger'
+    });
+
+    if (isConfirmed) {
       startLoading('Menghapus fasilitas...');
       try {
         await AppStore.deleteFacilityRemote(index);
-        toast.success('Fasilitas Dihapus', `Sarana "${name}" telah dihapus.`);
+        toast.success('Fasilitas Dihapus', `Sarana "${name}" telah berhasil dihapus.`);
       } catch (err: any) {
         toast.error('Gagal Menghapus', err?.message || 'Terjadi kesalahan sistem.');
       } finally {

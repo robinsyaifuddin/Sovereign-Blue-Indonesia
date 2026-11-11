@@ -34,7 +34,7 @@ interface NewsItem {
 export const NewsManager: React.FC = () => {
   const { news } = useAppStoreData();
   const typedNews: NewsItem[] = news as NewsItem[];
-  const { toast, startLoading, stopLoading } = useToast();
+  const { toast, confirm, startLoading, stopLoading } = useToast();
   
   const [search, setSearch] = useState('');
   const [filterCategory, setFilterCategory] = useState<string>('Semua');
@@ -118,11 +118,18 @@ export const NewsManager: React.FC = () => {
   };
 
   const handleDelete = async (id: string, title: string) => {
-    if (window.confirm(`Hapus berita "${title}"?`)) {
+    const isConfirmed = await confirm({
+      title: 'Hapus Berita / Artikel',
+      message: `Apakah Anda yakin ingin menghapus artikel "${title}"?`,
+      confirmText: 'Ya, Hapus Berita',
+      type: 'danger'
+    });
+
+    if (isConfirmed) {
       startLoading('Menghapus artikel...');
       try {
         await AppStore.deleteNewsRemote(id);
-        toast.success('Penghapusan Berhasil', `Artikel "${title}" telah dihapus.`);
+        toast.success('Penghapusan Berhasil', `Artikel "${title}" telah berhasil dihapus.`);
       } catch (err: any) {
         toast.error('Gagal Menghapus', err?.message || 'Terjadi kesalahan saat menghapus data.');
       } finally {

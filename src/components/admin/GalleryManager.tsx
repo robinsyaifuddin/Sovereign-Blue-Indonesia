@@ -17,7 +17,7 @@ import { useToast } from './ToastContext';
 
 export const GalleryManager: React.FC = () => {
   const { gallery } = useAppStoreData();
-  const { toast, startLoading, stopLoading } = useToast();
+  const { toast, confirm, startLoading, stopLoading } = useToast();
   const [search, setSearch] = useState('');
   
   // Tampilan halaman: 'list' atau 'form' (in-place full page, sidebar tetap ada)
@@ -83,11 +83,18 @@ export const GalleryManager: React.FC = () => {
   };
 
   const handleDelete = async (id: string, title: string) => {
-    if (window.confirm(`Hapus foto "${title}" dari galeri?`)) {
+    const isConfirmed = await confirm({
+      title: 'Hapus Foto Galeri',
+      message: `Apakah Anda yakin ingin menghapus foto "${title}" dari galeri? Tindakan ini tidak dapat dibatalkan.`,
+      confirmText: 'Ya, Hapus Foto',
+      type: 'danger'
+    });
+
+    if (isConfirmed) {
       startLoading('Menghapus foto galeri...');
       try {
         await AppStore.deleteGalleryRemote(id);
-        toast.success('Foto Terhapus', `Foto "${title}" telah dihapus.`);
+        toast.success('Foto Terhapus', `Foto "${title}" telah berhasil dihapus.`);
       } catch (err: any) {
         toast.error('Gagal Menghapus', err?.message || 'Terjadi kesalahan saat menghapus.');
       } finally {

@@ -31,7 +31,7 @@ interface PengurusItem {
 
 export const PengurusManager: React.FC = () => {
   const { siteInfo } = useAppStoreData();
-  const { toast, startLoading, stopLoading } = useToast();
+  const { toast, confirm, startLoading, stopLoading } = useToast();
   
   // Tampilan halaman: 'list' atau 'form' (in-place full page, sidebar tetap ada)
   const [viewMode, setViewMode] = useState<'list' | 'form'>('list');
@@ -51,13 +51,13 @@ export const PengurusManager: React.FC = () => {
     ? {
         name: rawPembina.name || '',
         role: rawPembina.role || 'Pembina Yayasan',
-        image: rawPembina.image || 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80',
+        image: rawPembina.image && !rawPembina.image.includes('unsplash.com') ? rawPembina.image : '',
         desc: rawPembina.desc || 'Pondok Pesantren Al-Mursyid Tanggamus, pembina arah kebijakan strategis & kepesantrenan.'
       }
     : {
         name: typeof rawPembina === 'string' ? rawPembina : 'Usman Mursyid',
         role: 'Pembina Yayasan',
-        image: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80',
+        image: '',
         desc: 'Pondok Pesantren Al-Mursyid Tanggamus, pembina arah kebijakan strategis & kepesantrenan.'
       };
 
@@ -66,13 +66,13 @@ export const PengurusManager: React.FC = () => {
     ? {
         name: rawPengawas.name || '',
         role: rawPengawas.role || 'Pengawas Yayasan',
-        image: rawPengawas.image || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80',
+        image: rawPengawas.image && !rawPengawas.image.includes('unsplash.com') ? rawPengawas.image : '',
         desc: rawPengawas.desc || 'Memastikan kepatuhan tata kelola, keterbukaan manajerial, dan operasional yayasan.'
       }
     : {
         name: typeof rawPengawas === 'string' ? rawPengawas : 'Budi Setiawan',
         role: 'Pengawas Yayasan',
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80',
+        image: '',
         desc: 'Memastikan kepatuhan tata kelola, keterbukaan manajerial, dan operasional yayasan.'
       };
 
@@ -149,12 +149,12 @@ export const PengurusManager: React.FC = () => {
       setPembinaData(typeof rawPembina === 'object' ? {
         name: rawPembina.name || '',
         role: rawPembina.role || 'Pembina Yayasan',
-        image: rawPembina.image || 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80',
+        image: rawPembina.image && !rawPembina.image.includes('unsplash.com') ? rawPembina.image : '',
         desc: rawPembina.desc || 'Pondok Pesantren Al-Mursyid Tanggamus, pembina arah kebijakan strategis & kepesantrenan.'
       } : {
         name: rawPembina,
         role: 'Pembina Yayasan',
-        image: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80',
+        image: '',
         desc: 'Pondok Pesantren Al-Mursyid Tanggamus, pembina arah kebijakan strategis & kepesantrenan.'
       });
     }
@@ -162,12 +162,12 @@ export const PengurusManager: React.FC = () => {
       setPengawasData(typeof rawPengawas === 'object' ? {
         name: rawPengawas.name || '',
         role: rawPengawas.role || 'Pengawas Yayasan',
-        image: rawPengawas.image || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80',
+        image: rawPengawas.image && !rawPengawas.image.includes('unsplash.com') ? rawPengawas.image : '',
         desc: rawPengawas.desc || 'Memastikan kepatuhan tata kelola, keterbukaan manajerial, dan operasional yayasan.'
       } : {
         name: rawPengawas,
         role: 'Pengawas Yayasan',
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80',
+        image: '',
         desc: 'Memastikan kepatuhan tata kelola, keterbukaan manajerial, dan operasional yayasan.'
       });
     }
@@ -233,7 +233,14 @@ export const PengurusManager: React.FC = () => {
   };
 
   const handleDeletePengurus = async (index: number, name: string) => {
-    if (window.confirm(`Hapus pengurus "${name}"?`)) {
+    const isConfirmed = await confirm({
+      title: 'Hapus Data Pengurus',
+      message: `Apakah Anda yakin ingin menghapus data pengurus "${name}"?`,
+      confirmText: 'Ya, Hapus Pengurus',
+      type: 'danger'
+    });
+
+    if (isConfirmed) {
       startLoading('Menghapus data pengurus...');
       try {
         const updatedPengurus = pengurusList.filter((_: PengurusItem, idx: number) => idx !== index);
@@ -461,12 +468,19 @@ export const PengurusManager: React.FC = () => {
               {/* Row 1: Dewan Pembina */}
               <tr className="hover:bg-slate-50/60 transition-colors">
                 <td className="py-3 px-4">
-                  <div className="w-12 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 shadow-2xs">
-                    <img 
-                      src={pembinaData.image || "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80"} 
-                      alt={pembinaData.name} 
-                      className="w-full h-full object-cover object-top" 
-                    />
+                  <div className="w-12 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 shadow-2xs flex items-center justify-center">
+                    {pembinaData.image && !pembinaData.image.includes('unsplash.com') ? (
+                      <img 
+                        src={pembinaData.image} 
+                        alt={pembinaData.name} 
+                        className="w-full h-full object-cover object-top" 
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center text-slate-400 bg-slate-50">
+                        <Users className="w-5 h-5 text-slate-300" />
+                        <span className="text-[9px] font-bold text-slate-400 mt-0.5">Kosong</span>
+                      </div>
+                    )}
                   </div>
                 </td>
                 <td className="py-3 px-4 font-bold text-slate-900 text-sm">
@@ -494,12 +508,19 @@ export const PengurusManager: React.FC = () => {
               {/* Row 2: Dewan Pengawas */}
               <tr className="hover:bg-slate-50/60 transition-colors">
                 <td className="py-3 px-4">
-                  <div className="w-12 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 shadow-2xs">
-                    <img 
-                      src={pengawasData.image || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80"} 
-                      alt={pengawasData.name} 
-                      className="w-full h-full object-cover object-top" 
-                    />
+                  <div className="w-12 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 shadow-2xs flex items-center justify-center">
+                    {pengawasData.image && !pengawasData.image.includes('unsplash.com') ? (
+                      <img 
+                        src={pengawasData.image} 
+                        alt={pengawasData.name} 
+                        className="w-full h-full object-cover object-top" 
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center text-slate-400 bg-slate-50">
+                        <Users className="w-5 h-5 text-slate-300" />
+                        <span className="text-[9px] font-bold text-slate-400 mt-0.5">Kosong</span>
+                      </div>
+                    )}
                   </div>
                 </td>
                 <td className="py-3 px-4 font-bold text-slate-900 text-sm">
@@ -654,19 +675,25 @@ export const PengurusManager: React.FC = () => {
                 </tr>
               ) : (
                 pengurusList.map((item: PengurusItem, index: number) => {
-                  const hasCustomImage = Boolean(item.image && item.image.trim() !== '');
-                  const displayPhoto = hasCustomImage ? item.image : "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80";
+                  const hasCustomImage = Boolean(item.image && item.image.trim() !== '' && !item.image.includes('unsplash.com'));
 
                   return (
                     <tr key={index} className="hover:bg-slate-50/60 transition-colors">
                       {/* Foto */}
                       <td className="py-3 px-4">
-                        <div className="w-12 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 shadow-2xs">
-                          <img 
-                            src={displayPhoto} 
-                            alt={item.name} 
-                            className="w-full h-full object-cover object-top" 
-                          />
+                        <div className="w-12 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 shadow-2xs flex items-center justify-center">
+                          {hasCustomImage ? (
+                            <img 
+                              src={item.image} 
+                              alt={item.name} 
+                              className="w-full h-full object-cover object-top" 
+                            />
+                          ) : (
+                            <div className="w-full h-full flex flex-col items-center justify-center text-slate-400 bg-slate-50">
+                              <Users className="w-5 h-5 text-slate-300" />
+                              <span className="text-[9px] font-bold text-slate-400 mt-0.5">Kosong</span>
+                            </div>
+                          )}
                         </div>
                       </td>
 
