@@ -68,6 +68,7 @@ export function useAppStoreData() {
     // 3. Ultra Fast & Lightweight Realtime Polling (cek event setiap 3.5 detik)
     // Jika ada event perubahan dari admin/perangkat manapun, langsung tarik data terbaru
     const pollRealtimeEvents = async () => {
+      if (typeof document !== "undefined" && document.hidden) return;
       try {
         const res = await api.getRealtimeEvents(lastEventIdRef.current);
         if (res && res.events && res.events.length > 0) {
@@ -97,12 +98,13 @@ export function useAppStoreData() {
       }
     };
 
-    const interval = setInterval(pollRealtimeEvents, 3500);
+    // Polling hemat bandwidth setiap 30 detik agar server aman dari 429
+    const interval = setInterval(pollRealtimeEvents, 30000);
 
     // Polling backup menyeluruh setiap 25 detik
     const fullBackupInterval = setInterval(() => {
       syncAllFromDatabase();
-    }, 25000);
+    }, 120000);
 
     return () => {
       window.removeEventListener('almursyid_store_updated', handleUpdate);

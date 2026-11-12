@@ -164,7 +164,7 @@ export const api = {
       body: JSON.stringify({ id, status, notes }),
     }),
 
-  // Upload File/Gambar Permanen ke Storage Hostinger
+  // Upload File/Gambar Permanen ke Storage Hostinger (dengan fallback Base64 jika upload multipart terkena rate limit / proxy buffer)
   uploadFile: async (file: File): Promise<{ url: string; fileName: string }> => {
     const token = getAuthToken();
     const formData = new FormData();
@@ -175,17 +175,43 @@ export const api = {
       headers['Authorization'] = `Bearer ${token}`;
     }
 
-    const response = await fetch(`${API_BASE}/upload.php`, {
-      method: 'POST',
-      headers,
-      body: formData,
-    });
+    try {
+      const response = await fetch(`${API_BASE}/upload.php`, {
+        method: 'POST',
+        headers,
+        body: formData,
+      });
 
-    const resJson = await response.json();
-    if (!response.ok || !resJson.success) {
-      throw new Error(resJson.message || 'Gagal mengunggah file.');
+      const text = await response.text();
+      let resJson: any = null;
+      try {
+        resJson = JSON.parse(text);
+      } catch {
+        // jika respons bukan JSON valid (misal html 429 atau 500)
+        throw new Error(text.includes('429') ? 'Server sedang sibuk (Rate Limit). Coba lagi dalam beberapa saat.' : 'Gagal memproses file di server.');
+      }
+
+      if (!response.ok || !resJson?.success) {
+        throw new Error(resJson?.message || `Upload gagal (Status ${response.status})`);
+      }
+      return resJson.data;
+    } catch (err: any) {
+      // Fallback kedua: Jika multipart gagal, konversi ke Base64 JSON
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = async () => {
+          try {
+            const base64Str = reader.result as string;
+            const res = await api.uploadBase64(base64Str);
+            resolve(res);
+          } catch (b64Err: any) {
+            reject(new Error(err.message || b64Err.message || 'Gagal mengunggah gambar.'));
+          }
+        };
+        reader.onerror = () => reject(err);
+        reader.readAsDataURL(file);
+      });
     }
-    return resJson.data;
   },
 
   uploadBase64: (base64: string) =>
