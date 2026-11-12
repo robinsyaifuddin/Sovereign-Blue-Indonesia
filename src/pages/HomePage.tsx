@@ -714,15 +714,15 @@ export const HomePage: React.FC = () => {
                   <div className="grid grid-cols-12 gap-2.5">
                     {/* Baris 1: 3 Foto Berjajar (Frame 1, 2, 3) */}
                     <div 
-                      onClick={() => setPreviewModal({ image: galleryPicks[0].image, title: galleryPicks[0].title, category: galleryPicks[0].category, id: galleryPicks[0].id })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[0]?.image, title: galleryPicks[0]?.title || '', category: galleryPicks[0]?.category, id: galleryPicks[0]?.id })}
                       className="col-span-4 aspect-square rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
-                      aria-label={`Lihat foto ${galleryPicks[0].title}`}
+                      aria-label={`Lihat foto ${galleryPicks[0]?.title || ''}`}
                     >
                       <img
-                        src={getImageUrl(galleryPicks[0].image)}
-                        alt={galleryPicks[0].title}
+                        src={getImageUrl(galleryPicks[0]?.image)}
+                        alt={galleryPicks[0]?.title || ''}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
                         onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
@@ -735,15 +735,15 @@ export const HomePage: React.FC = () => {
                     </div>
 
                     <div 
-                      onClick={() => setPreviewModal({ image: galleryPicks[1].image, title: galleryPicks[1].title, category: galleryPicks[1].category, id: galleryPicks[1].id })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[1]?.image, title: galleryPicks[1]?.title || '', category: galleryPicks[1]?.category, id: galleryPicks[1]?.id })}
                       className="col-span-4 aspect-square rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
-                      aria-label={`Lihat foto ${galleryPicks[1].title}`}
+                      aria-label={`Lihat foto ${galleryPicks[1]?.title || ''}`}
                     >
                       <img
-                        src={getImageUrl(galleryPicks[1].image)}
-                        alt={galleryPicks[1].title}
+                        src={getImageUrl(galleryPicks[1]?.image)}
+                        alt={galleryPicks[1]?.title || ''}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
                         onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
@@ -756,15 +756,15 @@ export const HomePage: React.FC = () => {
                     </div>
 
                     <div 
-                      onClick={() => setPreviewModal({ image: galleryPicks[2].image, title: galleryPicks[2].title, category: galleryPicks[2].category, id: galleryPicks[2].id })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[2]?.image, title: galleryPicks[2]?.title || '', category: galleryPicks[2]?.category, id: galleryPicks[2]?.id })}
                       className="col-span-4 aspect-square rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
-                      aria-label={`Lihat foto ${galleryPicks[2].title}`}
+                      aria-label={`Lihat foto ${galleryPicks[2]?.title || ''}`}
                     >
                       <img
-                        src={getImageUrl(galleryPicks[2].image)}
-                        alt={galleryPicks[2].title}
+                        src={getImageUrl(galleryPicks[2]?.image)}
+                        alt={galleryPicks[2]?.title || ''}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
                         onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
@@ -778,15 +778,15 @@ export const HomePage: React.FC = () => {
 
                     {/* Baris 2: Foto Kiri Melebar (Frame 4 - 8 kolom) & Frame Foto Kanan (Frame 5 - 4 kolom) */}
                     <div 
-                      onClick={() => setPreviewModal({ image: galleryPicks[3].image, title: galleryPicks[3].title, category: galleryPicks[3].category, id: galleryPicks[3].id })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[3]?.image, title: galleryPicks[3]?.title || '', category: galleryPicks[3]?.category, id: galleryPicks[3]?.id })}
                       className="col-span-8 aspect-[16/10] rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
-                      aria-label={`Lihat foto ${galleryPicks[3].title}`}
+                      aria-label={`Lihat foto ${galleryPicks[3]?.title || ''}`}
                     >
                       <img
-                        src={getImageUrl(galleryPicks[3].image)}
-                        alt={galleryPicks[3].title}
+                        src={getImageUrl(galleryPicks[3]?.image)}
+                        alt={galleryPicks[3]?.title || ''}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
                         onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
@@ -800,15 +800,15 @@ export const HomePage: React.FC = () => {
 
                     {/* Frame Foto Kanan Bawah */}
                     <div 
-                      onClick={() => setPreviewModal({ image: galleryPicks[4].image, title: galleryPicks[4].title, category: galleryPicks[4].category, id: galleryPicks[4].id })}
+                      onClick={() => setPreviewModal({ image: galleryPicks[4]?.image, title: galleryPicks[4]?.title || '', category: galleryPicks[4]?.category, id: galleryPicks[4]?.id })}
                       className="col-span-4 aspect-[8/10] rounded-2xl overflow-hidden bg-slate-200 shadow-xs group cursor-pointer relative"
                       role="button"
                       tabIndex={0}
-                      aria-label={`Lihat foto ${galleryPicks[4].title}`}
+                      aria-label={`Lihat foto ${galleryPicks[4]?.title || ''}`}
                     >
                       <img
-                        src={getImageUrl(galleryPicks[4].image)}
-                        alt={galleryPicks[4].title}
+                        src={getImageUrl(galleryPicks[4]?.image)}
+                        alt={galleryPicks[4]?.title || ''}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
                         onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
