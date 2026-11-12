@@ -30,7 +30,13 @@ export const GalleryManager: React.FC = () => {
     image: '',
   });
 
-  const filteredItems = gallery.filter(item => {
+  const [localItems, setLocalItems] = useState<GalleryItem[]>(gallery);
+
+  React.useEffect(() => {
+    setLocalItems(gallery);
+  }, [gallery]);
+
+  const filteredItems = localItems.filter(item => {
     return item.title.toLowerCase().includes(search.toLowerCase());
   });
 
@@ -91,11 +97,16 @@ export const GalleryManager: React.FC = () => {
     });
 
     if (isConfirmed) {
+      // Optimistic delete: langsung hapus dari daftar tampilan saat ini juga
+      setLocalItems(prev => prev.filter(item => String(item.id) !== String(id)));
+      
       startLoading('Menghapus foto galeri...');
       try {
         await AppStore.deleteGalleryRemote(id);
         toast.success('Foto Terhapus', `Foto "${title}" telah berhasil dihapus.`);
       } catch (err: any) {
+        // Rollback jika gagal
+        setLocalItems(gallery);
         toast.error('Gagal Menghapus', err?.message || 'Terjadi kesalahan saat menghapus.');
       } finally {
         stopLoading();

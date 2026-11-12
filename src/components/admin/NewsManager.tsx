@@ -34,6 +34,12 @@ interface NewsItem {
 export const NewsManager: React.FC = () => {
   const { news } = useAppStoreData();
   const typedNews: NewsItem[] = news as NewsItem[];
+  const [localNews, setLocalNews] = useState<NewsItem[]>(typedNews);
+
+  React.useEffect(() => {
+    setLocalNews(typedNews);
+  }, [typedNews]);
+
   const { toast, confirm, startLoading, stopLoading } = useToast();
   
   const [search, setSearch] = useState('');
@@ -56,7 +62,7 @@ export const NewsManager: React.FC = () => {
 
   const categories = ['Semua', 'Prestasi Santri', 'Agenda Pondok', 'Informasi PPDB', 'Prestasi Akademik', 'Kewirausahaan', 'Bahasa & Literasi', 'Teknologi'];
 
-  const filteredNews = typedNews.filter((item: NewsItem) => {
+  const filteredNews = localNews.filter((item: NewsItem) => {
     const matchSearch = item.title.toLowerCase().includes(search.toLowerCase()) || 
                         item.summary.toLowerCase().includes(search.toLowerCase());
     const matchCat = filterCategory === 'Semua' || item.category === filterCategory;
@@ -126,11 +132,13 @@ export const NewsManager: React.FC = () => {
     });
 
     if (isConfirmed) {
+      setLocalNews(prev => prev.filter(item => String(item.id) !== String(id)));
       startLoading('Menghapus artikel...');
       try {
         await AppStore.deleteNewsRemote(id);
         toast.success('Penghapusan Berhasil', `Artikel "${title}" telah berhasil dihapus.`);
       } catch (err: any) {
+        setLocalNews(typedNews);
         toast.error('Gagal Menghapus', err?.message || 'Terjadi kesalahan saat menghapus data.');
       } finally {
         stopLoading();

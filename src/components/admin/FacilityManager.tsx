@@ -24,6 +24,12 @@ interface FacilityItem {
 export const FacilityManager: React.FC = () => {
   const { facilities } = useAppStoreData();
   const typedFacilities: FacilityItem[] = facilities as FacilityItem[];
+  const [localFacilities, setLocalFacilities] = useState<FacilityItem[]>(typedFacilities);
+
+  React.useEffect(() => {
+    setLocalFacilities(typedFacilities);
+  }, [typedFacilities]);
+
   const { toast, confirm, startLoading, stopLoading } = useToast();
   
   // Tampilan halaman: 'list' atau 'form' (in-place full page, sidebar tetap ada)
@@ -96,11 +102,13 @@ export const FacilityManager: React.FC = () => {
     });
 
     if (isConfirmed) {
+      setLocalFacilities(prev => prev.filter((_, idx) => idx !== index));
       startLoading('Menghapus fasilitas...');
       try {
         await AppStore.deleteFacilityRemote((item as any).id ?? index);
         toast.success('Fasilitas Dihapus', `Sarana "${item.name}" telah berhasil dihapus.`);
       } catch (err: any) {
+        setLocalFacilities(typedFacilities);
         toast.error('Gagal Menghapus', err?.message || 'Terjadi kesalahan sistem.');
       } finally {
         stopLoading();
@@ -258,14 +266,14 @@ export const FacilityManager: React.FC = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
-              {typedFacilities.length === 0 ? (
+              {localFacilities.length === 0 ? (
                 <tr>
                   <td colSpan={4} className="py-12 text-center text-slate-400">
                     Belum ada fasilitas yang ditambahkan.
                   </td>
                 </tr>
               ) : (
-                typedFacilities.map((item: FacilityItem, index: number) => (
+                localFacilities.map((item: FacilityItem, index: number) => (
                   <tr key={index} className="hover:bg-slate-50/60 transition-colors">
                     <td className="py-3 px-4">
                       <div className="w-20 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center text-slate-300">

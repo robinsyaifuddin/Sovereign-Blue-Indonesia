@@ -27,6 +27,12 @@ interface ProgramItem {
 export const ProgramManager: React.FC = () => {
   const { programs } = useAppStoreData();
   const typedPrograms: ProgramItem[] = programs as ProgramItem[];
+  const [localPrograms, setLocalPrograms] = useState<ProgramItem[]>(typedPrograms);
+
+  React.useEffect(() => {
+    setLocalPrograms(typedPrograms);
+  }, [typedPrograms]);
+
   const { toast, confirm, startLoading, stopLoading } = useToast();
   
   // Tampilan halaman: 'list' atau 'form' (in-place full page, sidebar tetap ada)
@@ -121,11 +127,13 @@ export const ProgramManager: React.FC = () => {
     });
 
     if (isConfirmed) {
+      setLocalPrograms(prev => prev.filter(p => p.id !== id));
       startLoading('Menghapus program...');
       try {
         await AppStore.deleteProgramRemote(id);
         toast.success('Program Dihapus', `Program "${title}" berhasil dihapus.`);
       } catch (err: any) {
+        setLocalPrograms(typedPrograms);
         toast.error('Gagal Menghapus', err?.message || 'Terjadi kesalahan sistem.');
       } finally {
         stopLoading();
@@ -303,7 +311,7 @@ export const ProgramManager: React.FC = () => {
 
       {/* Program Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {typedPrograms.map((item: ProgramItem) => (
+        {localPrograms.map((item: ProgramItem) => (
           <div 
             key={item.id} 
             className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between group hover:border-slate-300 transition-all"
