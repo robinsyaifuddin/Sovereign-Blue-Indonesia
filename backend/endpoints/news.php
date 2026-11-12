@@ -34,9 +34,10 @@ if ($method === 'GET') {
     $stmt = $pdo->query("SELECT id, title, slug, category, excerpt, content, image_url as imageUrl, author, published_at as date, status FROM news WHERE status = 'published' ORDER BY id DESC");
     $newsList = $stmt->fetchAll();
 
-    // Cache header: Cepat langsung dari browser & LiteSpeed RAM
     jsonResponse(true, $newsList, 'Daftar berita berhasil dimuat.', 200, [
-        'Cache-Control' => 'public, max-age=30, stale-while-revalidate=180'
+        'Cache-Control' => 'no-cache, no-store, must-revalidate',
+        'Pragma' => 'no-cache',
+        'Expires' => '0'
     ]);
 }
 

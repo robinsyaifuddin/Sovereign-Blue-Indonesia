@@ -12,12 +12,15 @@ $pdo = Database::getConnection();
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
 // GET: Ambil fasilitas
+// GET: Fasilitas
 if ($method === 'GET') {
     $stmt = $pdo->query("SELECT id, name, category, description, image_url as imageUrl, sort_order FROM facilities ORDER BY sort_order ASC, id ASC");
     $facilities = $stmt->fetchAll();
 
     jsonResponse(true, $facilities, 'Fasilitas berhasil dimuat.', 200, [
-        'Cache-Control' => 'public, max-age=60, stale-while-revalidate=300'
+        'Cache-Control' => 'no-cache, no-store, must-revalidate',
+        'Pragma' => 'no-cache',
+        'Expires' => '0'
     ]);
 }
 

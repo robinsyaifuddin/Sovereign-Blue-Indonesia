@@ -56,7 +56,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
       throw new Error('Gagal mengunggah foto ke server.');
     } catch (e: any) {
       console.error('Upload gagal:', e);
-      setErrorMsg(e?.message || 'Gagal mengunggah foto ke server Hostinger. Pastikan koneksi internet stabil.');
+      setErrorMsg(e?.message || 'Gagal mengunggah foto. Pastikan koneksi internet stabil.');
       setIsUploading(false);
       return;
     }
@@ -130,7 +130,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
         {isUploading ? (
           <div className="py-6 px-4 flex flex-col items-center">
             <Loader2 className="w-7 h-7 text-emerald-600 animate-spin mb-2" />
-            <p className="text-xs font-bold text-slate-700">Mengunggah ke Storage Hostinger...</p>
+            <p className="text-xs font-bold text-slate-700">Mengunggah...</p>
           </div>
         ) : value ? (
           <div className="w-full flex flex-col items-center">

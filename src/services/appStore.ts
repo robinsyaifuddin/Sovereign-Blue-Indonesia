@@ -249,7 +249,8 @@ export const AppStore = {
           image: getImageUrl(item.imageUrl || item.image_url || item.image || ''),
           date: item.date || 'Terbaru',
           location: 'Pondok Pesantren Al-Mursyid',
-          desc: item.desc || ''
+          desc: item.desc || '',
+          isFeatured: Boolean(item.isFeatured || item.is_featured)
         }));
         localStorage.setItem(STORAGE_KEYS.GALLERY, JSON.stringify(normalized));
         dispatchStoreUpdate(STORAGE_KEYS.GALLERY);
@@ -264,7 +265,7 @@ export const AppStore = {
     localStorage.setItem(STORAGE_KEYS.GALLERY, JSON.stringify(items));
     dispatchStoreUpdate(STORAGE_KEYS.GALLERY);
   },
-  createGalleryRemote: async (item: { title: string; category?: string; image: string }) => {
+  createGalleryRemote: async (item: { title: string; category?: string; image: string; isFeatured?: boolean }) => {
     const tempId = `gal-${Date.now()}`;
     const newItem: GalleryItem = {
       id: tempId,
@@ -290,7 +291,7 @@ export const AppStore = {
       console.error('Remote gallery add error:', err);
     }
   },
-  updateGalleryRemote: async (id: string | number, item: { title: string; category?: string; image: string }) => {
+  updateGalleryRemote: async (id: string | number, item: { title: string; category?: string; image: string; isFeatured?: boolean }) => {
     const current = AppStore.getGallery();
     const updated = current.map(g => String(g.id) === String(id) ? { ...g, ...item } : g);
     localStorage.setItem(STORAGE_KEYS.GALLERY, JSON.stringify(updated));

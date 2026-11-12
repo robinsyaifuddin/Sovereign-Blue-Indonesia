@@ -39,6 +39,14 @@ export function getImageUrl(path: string | null | undefined, fallback: string = 
     if (url.includes('almursyidtanggamus.sch.id')) {
       url = url.replace('https://almursyidtanggamus.sch.id', HOSTINGER_BASE_URL);
     }
+    // Jika URL mengarah ke file.php streaming di backend Hostinger, arahkan ke proxy Vercel /api/file/
+    if (url.includes('/backend/endpoints/file.php?f=')) {
+      const parts = url.split('f=');
+      const param = parts[1] ? parts[1].split('&')[0] : '';
+      if (param) {
+        return `/api/file/${decodeURIComponent(param)}`;
+      }
+    }
     // Jika URL lama berupa direct /uploads/nama_file.png di Hostinger, arahkan ke proxy /img/
     if (url.includes('/uploads/abs_') || url.includes('/uploads/')) {
       const fileName = url.substring(url.lastIndexOf('/') + 1);

@@ -69,6 +69,12 @@ if (!empty($_FILES['file'])) {
     $targetPath = $uploadDir . $fileName;
 
     if (move_uploaded_file($file['tmp_name'], $targetPath)) {
+        // Simpan juga salinan ke direct public_html/uploads jika path fisik berbeda
+        $altUploadDir = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR;
+        if ($altUploadDir !== $uploadDir && is_dir($altUploadDir)) {
+            @copy($targetPath, $altUploadDir . $fileName);
+        }
+
         // Gunakan file.php streaming endpoint agar aman dari rewrite SPA Hostinger dan CORS
         $finalUrl = "{$protocol}{$host}/backend/endpoints/file.php?f=" . urlencode($fileName);
         jsonResponse(true, [

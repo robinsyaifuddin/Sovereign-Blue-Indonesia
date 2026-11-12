@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { 
+import {
+  Star,
   Image as ImageIcon, 
   Search, 
   Plus, 
@@ -28,6 +29,7 @@ export const GalleryManager: React.FC = () => {
   const [formData, setFormData] = useState({
     title: '',
     image: '',
+    isFeatured: false,
   });
 
   const [localItems, setLocalItems] = useState<GalleryItem[]>(gallery);
@@ -45,6 +47,7 @@ export const GalleryManager: React.FC = () => {
     setFormData({
       title: '',
       image: '',
+      isFeatured: false,
     });
     setViewMode('form');
   };
@@ -54,6 +57,7 @@ export const GalleryManager: React.FC = () => {
     setFormData({
       title: item.title,
       image: item.image,
+      isFeatured: Boolean(item.isFeatured),
     });
     setViewMode('form');
   };
@@ -71,12 +75,14 @@ export const GalleryManager: React.FC = () => {
         await AppStore.updateGalleryRemote(editingId, {
           title: formData.title,
           image: formData.image,
+          isFeatured: formData.isFeatured,
         });
         toast.success('Pembaruan Galeri', `Dokumentasi "${formData.title}" berhasil diperbarui.`);
       } else {
         await AppStore.createGalleryRemote({
           title: formData.title,
           image: formData.image,
+          isFeatured: formData.isFeatured,
         });
         toast.success('Dokumentasi Ditambahkan', `Foto "${formData.title}" berhasil ditambahkan.`);
       }
@@ -238,13 +244,14 @@ export const GalleryManager: React.FC = () => {
               <tr>
                 <th className="py-3.5 px-4 w-24">Foto</th>
                 <th className="py-3.5 px-4">Judul Dokumentasi Kegiatan</th>
+                <th className="py-3.5 px-4 w-28 text-center">Favorit</th>
                 <th className="py-3.5 px-4 text-right">Aksi</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {filteredItems.length === 0 ? (
                 <tr>
-                  <td colSpan={3} className="py-12 text-center text-slate-400">
+                  <td colSpan={4} className="py-12 text-center text-slate-400">
                     Tidak ada foto kegiatan yang cocok dengan pencarian.
                   </td>
                 </tr>
@@ -267,6 +274,37 @@ export const GalleryManager: React.FC = () => {
                     </td>
                     <td className="py-3 px-4">
                       <p className="font-bold text-slate-900 text-sm leading-snug">{item.title}</p>
+                    </td>
+                    <td className="py-3 px-4 text-center">
+                      <button
+                        type="button"
+                        onClick={async () => {
+                          const nextFeatured = !item.isFeatured;
+                          if (nextFeatured) {
+                            const currentFeaturedCount = localItems.filter(i => i.isFeatured && i.id !== item.id).length;
+                            if (currentFeaturedCount >= 5) {
+                              toast.warning('Batas Favorit Penuh', 'Maksimal 5 foto favorit untuk 5 frame utama. Matikan bintang pada foto lain terlebih dahulu.');
+                              return;
+                            }
+                          }
+                          setLocalItems(prev => prev.map(i => i.id === item.id ? { ...i, isFeatured: nextFeatured } : i));
+                          try {
+                            await AppStore.updateGalleryRemote(item.id, {
+                              title: item.title,
+                              image: item.image,
+                              isFeatured: nextFeatured
+                            });
+                            toast.success('Status Favorit', nextFeatured ? `"${item.title}" dijadikan foto favorit frame utama.` : `Status favorit "${item.title}" dicabut.`);
+                          } catch (err: any) {
+                            setLocalItems(gallery);
+                            toast.error('Gagal Update', err?.message || 'Terjadi kesalahan saat update favorit.');
+                          }
+                        }}
+                        className={`p-1.5 rounded-xl border transition-all ${item.isFeatured ? 'bg-amber-50 border-amber-300 text-amber-500 shadow-xs' : 'bg-slate-50 border-slate-200 text-slate-300 hover:text-slate-500'}`}
+                        title={item.isFeatured ? 'Foto Favorit (Tampil di frame atas)' : 'Klik untuk jadikan favorit'}
+                      >
+                        <Star className={`w-4 h-4 ${item.isFeatured ? 'fill-amber-500' : ''}`} />
+                      </button>
                     </td>
                     <td className="py-3 px-4 text-right">
                       <div className="flex items-center justify-end gap-1">

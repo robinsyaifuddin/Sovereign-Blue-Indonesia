@@ -420,6 +420,7 @@ export interface GalleryItem {
   location: string;
   image: string;
   desc: string;
+  isFeatured?: boolean;
 }
 
 export const GALLERY_CATEGORIES = [

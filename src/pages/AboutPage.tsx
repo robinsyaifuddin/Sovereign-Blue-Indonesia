@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Play, ShieldCheck, FileText, CheckCircle2, UserCheck, 
-  BookOpen, HeartHandshake, Compass, MapPin, ArrowRight, X, ZoomIn
+  BookOpen, HeartHandshake, Compass, MapPin, ArrowRight, X, ZoomIn,
+  ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { SITE_INFO as FALLBACK_SITE_INFO } from '../data/siteData';
 import { useAppStoreData } from '../hooks/useAppStoreData';
@@ -11,6 +12,17 @@ export const AboutPage: React.FC = () => {
   const { siteInfo: STORE_SITE_INFO } = useAppStoreData();
   const SITE_INFO = STORE_SITE_INFO || FALLBACK_SITE_INFO;
   const [selectedLegalImage, setSelectedLegalImage] = useState<{ src: string; title: string } | null>(null);
+  const pengurusSliderRef = useRef<HTMLDivElement>(null);
+
+  const scrollPengurus = (direction: 'left' | 'right') => {
+    if (pengurusSliderRef.current) {
+      const scrollAmount = 260;
+      pengurusSliderRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <div className="bg-white text-slate-900 min-h-screen selection:bg-emerald-100 selection:text-emerald-900">
@@ -482,9 +494,6 @@ export const AboutPage: React.FC = () => {
 
                   {/* Informasi Profil */}
                   <div className="flex-1 space-y-2 pt-1">
-                    <div className="inline-block px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider bg-emerald-50 text-emerald-800 border border-emerald-200/70 font-semibold">
-                      Amanah Tertinggi
-                    </div>
                     <div>
                       <span className="text-[11px] uppercase tracking-wider text-stone-800 font-bold block">
                         {(typeof SITE_INFO.leadership.pembina === 'object' && SITE_INFO.leadership.pembina?.role) ? SITE_INFO.leadership.pembina.role : 'PEMBINA YAYASAN'}
@@ -532,9 +541,6 @@ export const AboutPage: React.FC = () => {
 
                   {/* Informasi Profil */}
                   <div className="flex-1 space-y-2 pt-1">
-                    <div className="inline-block px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider bg-stone-100 text-stone-700 border border-stone-200 font-semibold">
-                      Tata Kelola
-                    </div>
                     <div>
                       <span className="text-[11px] uppercase tracking-wider text-stone-800 font-bold block">
                         {(typeof SITE_INFO.leadership.pengawas === 'object' && SITE_INFO.leadership.pengawas?.role) ? SITE_INFO.leadership.pengawas.role : 'PENGAWAS YAYASAN'}
@@ -571,21 +577,44 @@ export const AboutPage: React.FC = () => {
                   Dewan Pengurus Harian
                 </h3>
               </div>
-              <span className="text-xs text-stone-800">
-                Total {SITE_INFO.leadership.pengurus.length} Bidang Kepengurusan
-              </span>
+              <div className="flex items-center gap-3">
+                <span className="text-xs text-stone-800">
+                  Total {SITE_INFO.leadership.pengurus.length} Bidang Kepengurusan
+                </span>
+                {/* Navigasi Panah Khusus Layar Mobile di Luar Frame Gambar */}
+                <div className="flex md:hidden items-center gap-1.5">
+                  <button
+                    type="button"
+                    onClick={() => scrollPengurus('left')}
+                    aria-label="Geser ke kiri"
+                    className="w-8 h-8 rounded-full bg-white border border-stone-300 text-stone-700 flex items-center justify-center hover:bg-stone-50 active:scale-95 shadow-2xs transition-all"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => scrollPengurus('right')}
+                    aria-label="Geser ke kanan"
+                    className="w-8 h-8 rounded-full bg-white border border-stone-300 text-stone-700 flex items-center justify-center hover:bg-stone-50 active:scale-95 shadow-2xs transition-all"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Grid 6 Kartu Profil Sejajar Kesamping dengan Rasio Gambar 3:4 */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+            {/* Container Cards: Slide horizontal di mobile dengan snap & panah di luar frame, Grid 3 card per baris di tablet & desktop */}
+            <div
+              ref={pengurusSliderRef}
+              className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto md:overflow-x-visible pb-3 md:pb-0 pt-1 px-1 -mx-1 snap-x snap-mandatory md:snap-none scrollbar-none scroll-smooth"
+            >
               {SITE_INFO.leadership.pengurus.map((item: any, idx: number) => {
                 const hasRealPhoto = item.image && !item.image.includes('unsplash.com');
-                const isLeader = idx === 0;
 
                 return (
                   <div
                     key={idx}
-                    className="group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300 p-2.5 sm:p-3 flex flex-col justify-between"
+                    className="w-[260px] sm:w-[280px] md:w-auto shrink-0 md:shrink group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300 p-3 sm:p-3.5 flex flex-col justify-between snap-start"
                   >
                     {/* Frame Foto Profile Rasio Aspect 3:4 */}
                     <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-stone-100 border border-stone-200/70 flex items-center justify-center">
@@ -597,7 +626,7 @@ export const AboutPage: React.FC = () => {
                           loading="lazy"
                         />
                       ) : (
-                        <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-lg">
+                        <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-xl">
                           {item.name.charAt(0)}
                         </div>
                       )}
@@ -605,19 +634,19 @@ export const AboutPage: React.FC = () => {
                     </div>
 
                     {/* Konten Teks Bawah */}
-                    <div className="pt-2.5 px-0.5 flex items-end justify-between gap-1.5">
+                    <div className="pt-3 px-1 flex items-end justify-between gap-2">
                       <div className="min-w-0 flex-1">
-                        <span className="text-[9px] uppercase tracking-wider text-emerald-800 font-bold block truncate">
+                        <span className="text-[10px] uppercase tracking-wider text-emerald-800 font-bold block truncate">
                           {item.role}
                         </span>
-                        <h4 className="text-xs sm:text-sm font-bold text-slate-900 tracking-tight leading-snug line-clamp-2 mt-0.5" title={item.name}>
+                        <h4 className="text-sm sm:text-base font-bold text-slate-900 tracking-tight leading-snug line-clamp-2 mt-0.5" title={item.name}>
                           {item.name}
                         </h4>
                       </div>
 
                       {/* Tombol Bulat Panah */}
-                      <div className="shrink-0 w-7 h-7 rounded-full bg-white border border-stone-300 text-slate-900 flex items-center justify-center font-bold shadow-2xs group-hover:bg-emerald-800 group-hover:text-white group-hover:border-emerald-800 transition-all duration-300">
-                        <ArrowRight className="w-3 h-3 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                      <div className="shrink-0 w-8 h-8 rounded-full bg-white border border-stone-300 text-slate-900 flex items-center justify-center font-bold shadow-2xs group-hover:bg-emerald-800 group-hover:text-white group-hover:border-emerald-800 transition-all duration-300">
+                        <ArrowRight className="w-3.5 h-3.5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                       </div>
                     </div>
                   </div>

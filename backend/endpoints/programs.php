@@ -12,6 +12,7 @@ $pdo = Database::getConnection();
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
 // GET: Ambil semua program unggulan (Publik & Cepat)
+// GET: Program
 if ($method === 'GET') {
     $stmt = $pdo->query("SELECT id, title, tagline, description, icon, highlights, sort_order FROM programs ORDER BY sort_order ASC, id ASC");
     $programs = $stmt->fetchAll();
@@ -23,7 +24,9 @@ if ($method === 'GET') {
     }
 
     jsonResponse(true, $programs, 'Program berhasil dimuat.', 200, [
-        'Cache-Control' => 'public, max-age=60, stale-while-revalidate=300'
+        'Cache-Control' => 'no-cache, no-store, must-revalidate',
+        'Pragma' => 'no-cache',
+        'Expires' => '0'
     ]);
 }
 

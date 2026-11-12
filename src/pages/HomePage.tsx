@@ -5,7 +5,8 @@ import {
   Building2, Users, CheckCircle2,
   Award, Compass, PhoneCall, Calendar, Sparkles, Languages,
   Library, HeartHandshake, MapPin, Check, ChevronRight, Clock,
-  X, ZoomIn, MousePointerClick, Newspaper
+  X, ZoomIn,
+  Image as ImageIcon, MousePointerClick, Newspaper
 } from 'lucide-react';
 import { SITE_INFO as FALLBACK_SITE_INFO, PROGRAMS as FALLBACK_PROGRAMS, FACILITIES as FALLBACK_FACILITIES, NEWS_DATA as FALLBACK_NEWS, LATEST_POSTS as FALLBACK_LATEST_POSTS, GALLERY_ITEMS as FALLBACK_GALLERY } from '../data/siteData';
 import { useAppStoreData } from '../hooks/useAppStoreData';
@@ -96,13 +97,19 @@ export const HomePage: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const validGalleryItems = GALLERY_ITEMS.filter((item) => item.image && item.image.trim() !== '');
+    // Ambil hanya gambar dari database galeri. Prioritaskan 5 foto favorit (isFeatured)
+  const validDbGallery = (gallery || []).filter((item: any) => item.image && item.image.trim() !== '');
+  const featuredDbGallery = validDbGallery.filter((item: any) => item.isFeatured);
+  const nonFeaturedDbGallery = validDbGallery.filter((item: any) => !item.isFeatured);
+  const prioritizedGallery = [...featuredDbGallery, ...nonFeaturedDbGallery];
+  
+  // Tepat 5 frame (jika belum ada/kurang dari 5 foto, slot sisanya bernilai null agar frame kosong tetap tampil rapi)
   const galleryPicks = [
-    validGalleryItems[0] || FALLBACK_GALLERY[0],
-    validGalleryItems[1] || FALLBACK_GALLERY[1],
-    validGalleryItems[2] || FALLBACK_GALLERY[2],
-    validGalleryItems[3] || FALLBACK_GALLERY[3] || FALLBACK_GALLERY[0],
-    validGalleryItems[4] || FALLBACK_GALLERY[4] || FALLBACK_GALLERY[1],
+    prioritizedGallery[0] || null,
+    prioritizedGallery[1] || null,
+    prioritizedGallery[2] || null,
+    prioritizedGallery[3] || null,
+    prioritizedGallery[4] || null,
   ];
 
   const newsHeroSlides = NEWS_DATA.slice(0, 4);

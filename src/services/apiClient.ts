@@ -4,13 +4,24 @@
  */
 
 const FALLBACK_PRODUCTION_API = 'https://mediumorchid-zebra-535607.hostingersite.com/backend/endpoints';
-const API_BASE = (import.meta.env.VITE_API_URL && import.meta.env.VITE_API_URL.trim() !== '') 
-  ? import.meta.env.VITE_API_URL 
-  : (typeof window !== 'undefined' && window.location.origin.includes('almursyidtanggamus.web.id')
-      ? '/api/backend'
-      : (typeof window !== 'undefined' && window.location.origin.includes('hostingersite.com') 
-          ? '/backend/endpoints' 
-          : FALLBACK_PRODUCTION_API));
+
+export const getApiBase = (): string => {
+  if (typeof window !== 'undefined') {
+    const origin = window.location.origin;
+    if (origin.includes('almursyidtanggamus.web.id')) {
+      return '/api/backend';
+    }
+    if (origin.includes('hostingersite.com')) {
+      return '/backend/endpoints';
+    }
+  }
+  if (import.meta.env.VITE_API_URL && import.meta.env.VITE_API_URL.trim() !== '') {
+    return import.meta.env.VITE_API_URL;
+  }
+  return FALLBACK_PRODUCTION_API;
+};
+
+const API_BASE = getApiBase();
 
 interface ApiResponse<T = any> {
   success: boolean;
@@ -53,6 +64,7 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
   const url = `${API_BASE}${cleanEndpoint}`;
 
   const response = await fetch(url, {
+    cache: 'no-store',
     ...options,
     headers,
   });
