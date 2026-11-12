@@ -39,10 +39,10 @@ export function getImageUrl(path: string | null | undefined, fallback: string = 
     if (url.includes('almursyidtanggamus.sch.id')) {
       url = url.replace('https://almursyidtanggamus.sch.id', HOSTINGER_BASE_URL);
     }
-    // Jika URL lama berupa direct /uploads/nama_file.png di Hostinger, arahkan ke file.php streaming endpoint
-    if (url.includes('/uploads/abs_')) {
+    // Jika URL lama berupa direct /uploads/nama_file.png di Hostinger, arahkan ke proxy /img/
+    if (url.includes('/uploads/abs_') || url.includes('/uploads/')) {
       const fileName = url.substring(url.lastIndexOf('/') + 1);
-      return `${HOSTINGER_BASE_URL}/backend/endpoints/file.php?f=${encodeURIComponent(fileName)}`;
+      return `/img/${encodeURIComponent(fileName)}`;
     }
     return url;
   }
@@ -55,7 +55,7 @@ export function getImageUrl(path: string | null | undefined, fallback: string = 
   // 3. Jika path gambar ada di uploads backend Hostinger (/uploads/... atau abs_...)
   if (clean.startsWith('/uploads/') || clean.startsWith('uploads/')) {
     const fileName = clean.substring(clean.lastIndexOf('/') + 1);
-    return `${HOSTINGER_BASE_URL}/backend/endpoints/file.php?f=${encodeURIComponent(fileName)}`;
+    return `/img/${encodeURIComponent(fileName)}`;
   }
 
   // 4. Jika aset lokal frontend publik (/gambar/..., /hero/..., /logo.png, dll.)

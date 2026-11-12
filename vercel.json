@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/img/:path*",
+      "destination": "https://mediumorchid-zebra-535607.hostingersite.com/uploads/:path*"
+    },
+    {
+      "source": "/api/file/:path*",
+      "destination": "https://mediumorchid-zebra-535607.hostingersite.com/backend/endpoints/file.php?f=:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
