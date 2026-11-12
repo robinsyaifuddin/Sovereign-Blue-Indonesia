@@ -136,7 +136,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
           <div className="w-full flex flex-col items-center">
             <div className={`w-full ${compact ? 'max-w-[120px] sm:max-w-[130px]' : 'max-w-xs'} ${aspectClass} rounded-xl overflow-hidden border border-slate-200 bg-white shadow-2xs relative group`}>
               <img
-                src={getImageUrl(value, '/gambar/halamandepan.png')}
+                src={getImageUrl(value, '')}
                 alt="Preview Upload"
                 className="w-full h-full object-cover"
                 onError={(e) => {

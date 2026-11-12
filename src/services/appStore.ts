@@ -49,7 +49,7 @@ export interface PPDBSettings {
 }
 
 const DEFAULT_PPDB_SETTINGS: PPDBSettings = {
-  heroImage: "/gambar/halamandepan.png",
+  heroImage: "",
   whatsappNumber: "0838-4847-8150",
   formUrl: "https://forms.gle/almursyid-ppdb",
   brochurePdfUrl: "https://forms.gle/almursyid-ppdb",
@@ -79,13 +79,13 @@ const DEFAULT_PPDB_SETTINGS: PPDBSettings = {
 };
 
 const STORAGE_KEYS = {
-  SITE_INFO: 'almursyid_site_info_v1',
-  NEWS: 'almursyid_news_v1',
-  GALLERY: 'almursyid_gallery_v1',
-  PROGRAMS: 'almursyid_programs_v1',
-  FACILITIES: 'almursyid_facilities_v1',
-  PPDB: 'almursyid_ppdb_v1',
-  PPDB_SETTINGS: 'almursyid_ppdb_settings_v1',
+  SITE_INFO: 'almursyid_site_info_v2',
+  NEWS: 'almursyid_news_v2',
+  GALLERY: 'almursyid_gallery_v2',
+  PROGRAMS: 'almursyid_programs_v2',
+  FACILITIES: 'almursyid_facilities_v2',
+  PPDB: 'almursyid_ppdb_v2',
+  PPDB_SETTINGS: 'almursyid_ppdb_settings_v2',
 };
 
 // Dispatch custom event saat ada mutasi data
@@ -132,9 +132,9 @@ export const AppStore = {
   getNews: (): any[] => {
     try {
       const data = localStorage.getItem(STORAGE_KEYS.NEWS);
-      return data ? JSON.parse(data) : DEFAULT_NEWS;
+      return data ? JSON.parse(data) : [];
     } catch {
-      return DEFAULT_NEWS;
+      return [];
     }
   },
   syncNewsFromApi: async (): Promise<any[]> => {
@@ -233,9 +233,9 @@ export const AppStore = {
   getGallery: (): GalleryItem[] => {
     try {
       const data = localStorage.getItem(STORAGE_KEYS.GALLERY);
-      return data ? JSON.parse(data) : DEFAULT_GALLERY;
+      return data ? JSON.parse(data) : [];
     } catch {
-      return DEFAULT_GALLERY;
+      return [];
     }
   },
   syncGalleryFromApi: async (): Promise<GalleryItem[]> => {
@@ -396,9 +396,9 @@ export const AppStore = {
   getFacilities: (): any[] => {
     try {
       const data = localStorage.getItem(STORAGE_KEYS.FACILITIES);
-      return data ? JSON.parse(data) : DEFAULT_FACILITIES;
+      return data ? JSON.parse(data) : [];
     } catch {
-      return DEFAULT_FACILITIES;
+      return [];
     }
   },
   syncFacilitiesFromApi: async (): Promise<any[]> => {

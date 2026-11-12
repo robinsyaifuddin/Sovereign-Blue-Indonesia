@@ -6,9 +6,11 @@
 const FALLBACK_PRODUCTION_API = 'https://mediumorchid-zebra-535607.hostingersite.com/backend/endpoints';
 const API_BASE = (import.meta.env.VITE_API_URL && import.meta.env.VITE_API_URL.trim() !== '') 
   ? import.meta.env.VITE_API_URL 
-  : (typeof window !== 'undefined' && window.location.origin.includes('hostingersite.com') 
-      ? '/backend/endpoints' 
-      : FALLBACK_PRODUCTION_API);
+  : (typeof window !== 'undefined' && window.location.origin.includes('almursyidtanggamus.web.id')
+      ? '/api/backend'
+      : (typeof window !== 'undefined' && window.location.origin.includes('hostingersite.com') 
+          ? '/backend/endpoints' 
+          : FALLBACK_PRODUCTION_API));
 
 interface ApiResponse<T = any> {
   success: boolean;

@@ -18,8 +18,8 @@ export const PPDBPage: React.FC = () => {
   const steps = ppdbSettings?.steps || [];
   const fees = ppdbSettings?.fees || [];
   const heroImage = ppdbSettings?.heroImage && !ppdbSettings.heroImage.includes('unsplash.com') 
-    ? getImageUrl(ppdbSettings.heroImage, "/gambar/halamandepan.png") 
-    : "/gambar/halamandepan.png";
+    ? getImageUrl(ppdbSettings.heroImage, "") 
+    : "";
   const whatsappNumber = ppdbSettings?.whatsappNumber || siteInfo?.contacts?.phone || "0838-4847-8150";
   const formUrl = ppdbSettings?.formUrl || siteInfo?.contacts?.ppdbFormUrl || "https://forms.gle/almursyid-ppdb";
   const brochurePdfUrl = ppdbSettings?.brochurePdfUrl || formUrl;
@@ -109,22 +109,22 @@ export const PPDBPage: React.FC = () => {
 
           </div>
 
-          {/* Kolom Kanan: Clean Visual Frame 3:4 yang pas di viewport */}
-          <div className="lg:col-span-5 flex items-center justify-center lg:justify-end">
-            <div className="relative w-full max-w-[340px] xl:max-w-[360px] aspect-[3/4] max-h-[calc(100vh-170px)] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-slate-200/90 bg-slate-100 group">
-              <img
-                src={heroImage}
-                alt="Pondok Pesantren Al-Mursyid"
-                className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  if (!target.src.includes('/gambar/halamandepan.png')) {
-                    target.src = '/gambar/halamandepan.png';
-                  }
-                }}
-              />
+          {/* Kolom Kanan: Clean Visual Frame 3:4 yang pas di viewport (Hanya tampil jika ada foto real di database) */}
+          {heroImage ? (
+            <div className="lg:col-span-5 flex items-center justify-center lg:justify-end">
+              <div className="relative w-full max-w-[340px] xl:max-w-[360px] aspect-[3/4] max-h-[calc(100vh-170px)] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-slate-200/90 bg-slate-100 group">
+                <img
+                  src={heroImage}
+                  alt="Pondok Pesantren Al-Mursyid"
+                  className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    target.style.display = 'none';
+                  }}
+                />
+              </div>
             </div>
-          </div>
+          ) : null}
 
         </div>
 
