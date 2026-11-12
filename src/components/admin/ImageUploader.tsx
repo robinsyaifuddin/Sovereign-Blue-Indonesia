@@ -46,9 +46,9 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
       // 1. Upload langsung ke Hostinger storage backend (agar tersimpan sebagai URL permanen)
       const res = await api.uploadFile(file);
       if (res && res.url) {
-        const finalUrl = res.url.startsWith('http') 
-          ? res.url 
-          : `https://orange-cheetah-927765.hostingersite.com${res.url.startsWith('/') ? res.url : '/' + res.url}`;
+        // Simpan dalam format relatif /img/ agar selalu otomatis menggunakan domain resmi
+        const fileName = res.fileName || res.url.substring(res.url.lastIndexOf('/') + 1);
+        const finalUrl = `/img/${encodeURIComponent(fileName)}`;
         onChange(finalUrl);
         setIsUploading(false);
         return;
