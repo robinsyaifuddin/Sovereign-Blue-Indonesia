@@ -3,10 +3,10 @@
  * Memastikan gambar selalu tampil baik saat dibuka di:
  * - Vercel (almursyidtanggamus.web.id)
  * - Localhost (dev)
- * - Domain Hostinger langsung (orange-cheetah-927765.hostingersite.com)
+ * - Domain Hostinger langsung (mediumorchid-zebra-535607.hostingersite.com)
  */
 
-export const HOSTINGER_BASE_URL = 'https://orange-cheetah-927765.hostingersite.com';
+export const HOSTINGER_BASE_URL = 'https://mediumorchid-zebra-535607.hostingersite.com';
 
 // Fallback kosong transparan (tidak memunculkan foto fiktif/orang asing)
 export const FALLBACK_EMPTY_IMAGE = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%23f1f5f9"/></svg>';
@@ -29,6 +29,15 @@ export function getImageUrl(path: string | null | undefined, fallback: string = 
     let url = clean;
     if (url.includes('localhost') || url.includes('127.0.0.1')) {
       url = url.replace(/http:\/\/(localhost|127\.0\.0\.1)(:\d+)?/, HOSTINGER_BASE_URL);
+    }
+    if (url.includes('orange-cheetah-927765.hostingersite.com')) {
+      url = url.replace('orange-cheetah-927765.hostingersite.com', 'mediumorchid-zebra-535607.hostingersite.com');
+    }
+    if (url.includes('almursyid.sch.id')) {
+      url = url.replace('https://almursyid.sch.id', HOSTINGER_BASE_URL);
+    }
+    if (url.includes('almursyidtanggamus.sch.id')) {
+      url = url.replace('https://almursyidtanggamus.sch.id', HOSTINGER_BASE_URL);
     }
     // Jika URL lama berupa direct /uploads/nama_file.png di Hostinger, arahkan ke file.php streaming endpoint
     if (url.includes('/uploads/abs_')) {

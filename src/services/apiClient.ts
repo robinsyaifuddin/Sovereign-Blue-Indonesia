@@ -3,7 +3,7 @@
  * Terhubung ke backend Hostinger /api/ / backend/endpoints
  */
 
-const FALLBACK_PRODUCTION_API = 'https://orange-cheetah-927765.hostingersite.com/backend/endpoints';
+const FALLBACK_PRODUCTION_API = 'https://mediumorchid-zebra-535607.hostingersite.com/backend/endpoints';
 const API_BASE = (import.meta.env.VITE_API_URL && import.meta.env.VITE_API_URL.trim() !== '') 
   ? import.meta.env.VITE_API_URL 
   : (typeof window !== 'undefined' && window.location.origin.includes('hostingersite.com') 

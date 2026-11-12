@@ -13,8 +13,10 @@ $allowedOrigins = [
     'http://localhost',
     'https://almursyidtanggamus.web.id',
     'https://www.almursyidtanggamus.web.id',
+    'https://mediumorchid-zebra-535607.hostingersite.com',
     'https://orange-cheetah-927765.hostingersite.com',
     'https://almursyid.sch.id',
+    'https://almursyidtanggamus.sch.id',
 ];
 
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
