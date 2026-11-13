@@ -188,7 +188,7 @@ export const api = {
         resJson = JSON.parse(text);
       } catch {
         // jika respons bukan JSON valid (misal html 429 atau 500)
-        throw new Error(text.includes('429') ? 'Server sedang sibuk (Rate Limit). Coba lagi dalam beberapa saat.' : 'Gagal memproses file di server.');
+        throw new Error(text.includes('429') ? 'Server sedang sibuk (Rate Limit). Coba lagi dalam beberapa saat.' : (resJson?.message || 'Gagal memproses file di server.'));
       }
 
       if (!response.ok || !resJson?.success) {

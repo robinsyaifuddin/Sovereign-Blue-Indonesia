@@ -115,7 +115,8 @@ export const AppStoreProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       }
     };
 
-    const interval = setInterval(pollRealtimeEvents, 30000);
+    // Realtime ultra-cepat: cek update setiap 4 detik untuk update instan antar-perangkat
+    const interval = setInterval(pollRealtimeEvents, 4000);
 
     return () => {
       window.removeEventListener('almursyid_store_updated', handleUpdate);
