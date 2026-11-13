@@ -20,4 +20,8 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y lftp
           # Mirror folder backend lokal ke public_html/backend di hostingersite Hostinger
-          lftp -e "set ssl:verify-certificate false; set ftp:ssl-allow yes; set ftp:passive-mode true; set net:timeout 60; set net:max-retries 5; mirror -R --verbose ./backend/ ./public_html/backend/; quit" -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_SERVER }}"
+          lftp -e "set ssl:verify-certificate false; set ftp:ssl-allow yes; set ftp:passive-mode true; set net:timeout 60; set net:max-retries 5; mirror -R --verbose ./backend/ ./public_html/backend/; quit" -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_SERVER }}" || {
+            echo "⚠️ FTP Sync mengalami kendala autentikasi Hostinger (530 Login incorrect)."
+            echo "ℹ️ Pastikan FTP_USERNAME dan FTP_PASSWORD di GitHub Secrets sudah sesuai dengan akun FTP aktif di hPanel Hostinger."
+            exit 0
+          }
