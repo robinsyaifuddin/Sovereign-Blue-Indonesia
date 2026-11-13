@@ -127,17 +127,9 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
       }
       throw new Error('Respon login tidak valid.');
     } catch (err: any) {
-      // Fallback jika API backend belum terjangkau (offline/mock)
-      if (cleanUsername === 'almursyidtanggamus' && cleanPassword === 'almursyid@123') {
-        resetFailedAttempts();
-        const fallbackUser = { id: 1, username: 'almursyidtanggamus', name: 'Administrator Pesantren', role: 'admin' };
-        setAuthToken('local-secure-token-' + Date.now());
-        localStorage.setItem('almursyid_admin_user', JSON.stringify(fallbackUser));
-        onLoginSuccess(fallbackUser);
-        return;
-      }
 
       recordFailedAttempt();
+      setErrorMessage(err?.message || 'Username atau password tidak sesuai.');
     } finally {
       setLoading(false);
     }

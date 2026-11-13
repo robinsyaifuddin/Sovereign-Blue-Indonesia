@@ -63,9 +63,9 @@ if ($method === 'POST') {
         @unlink($rateLimitFile);
     }
 
-    // Generate secure token (valid 7 hari)
+    // Generate secure token (valid 30 hari agar admin tidak sering logout)
     $token = bin2hex(random_bytes(32));
-    $expires = date('Y-m-d H:i:s', strtotime('+7 days'));
+    $expires = date('Y-m-d H:i:s', strtotime('+30 days'));
 
     $updateStmt = $pdo->prepare("UPDATE users SET token = ?, token_expires = ? WHERE id = ?");
     $updateStmt->execute([$token, $expires, $user['id']]);
