@@ -76,7 +76,7 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
   }));
 
   if (!response.ok || !resJson.success) {
-    throw new Error(resJson.message || `HTTP Error ${response.status}`);
+    throw new Error(resJson?.message || (response.status === 429 ? 'Server sedang sibuk. Coba lagi dalam beberapa saat.' : 'HTTP Error ' + response.status));
   }
 
   return resJson.data;

@@ -63,7 +63,9 @@ export const AppStoreProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   useEffect(() => {
     // 1. Eksekusi initial direct fetch sekali saja secara singleton
-    if (!globalInitialSyncPromise) {
+    // Hanya lakukan initial sync database jika bukan di halaman login admin (mencegah beban rate limit saat login)
+    const isLoginGate = typeof window !== 'undefined' && window.location.pathname.startsWith('/admin') && !localStorage.getItem('almursyid_auth_token');
+    if (!globalInitialSyncPromise && !isLoginGate) {
       globalInitialSyncPromise = syncAllFromDatabase();
     }
 
@@ -87,6 +89,7 @@ export const AppStoreProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     // 3. Polling event realtime berkala dengan interval sehat (30 detik)
     const pollRealtimeEvents = async () => {
       if (typeof document !== 'undefined' && document.hidden) return;
+      if (typeof window !== 'undefined' && window.location.pathname.startsWith('/admin') && !localStorage.getItem('almursyid_auth_token')) return;
       try {
         const res = await api.getRealtimeEvents(lastEventIdRef.current);
         if (res && res.events && res.events.length > 0) {
