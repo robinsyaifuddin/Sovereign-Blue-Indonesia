@@ -15,19 +15,19 @@ import { getImageUrl } from '../utils/imageHelper';
 
 const HERO_SLIDES = [
   {
-    image: "/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.png",
+    image: "/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.webp",
     title: "Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi",
     subtitle: "Pondok Pesantren Al-Mursyid Islamic Boarding School Tanggamus memadukan keutamaan Tahfidzul Qur'an, Madrasah Diniyah, dan Pendidikan Formal Terpadu.",
     badge: "Penerimaan Santri Baru Telah Dibuka"
   },
   {
-    image: "/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.png",
+    image: "/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.webp",
     title: "Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama",
     subtitle: "Target hafalan mutqin 30 juz diiringi penguasaan kaidah kitab klasik dan pembiasaan aktif bahasa Arab & Inggris untuk menyiapkan generasi pemimpin umat.",
     badge: "Sanad Keilmuan Muttashil & Terakreditasi"
   },
   {
-    image: "/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.png",
+    image: "/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.webp",
     title: "Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah",
     subtitle: "Didampingi asatidz berkompeten dalam lingkungan asrama yang asri, islami, disiplin, dan aman di kaki pegunungan Way Lalaan Tanggamus.",
     badge: "Legalitas Terdaftar Resmi Kemenkumham & Kemenag"
@@ -131,7 +131,7 @@ export const HomePage: React.FC = () => {
       ],
       link: "/program#tahfidz",
       linkLabel: "Pelajari Kurikulum Tahfidz",
-      image: "/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.png",
+      image: "/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.webp",
       quote: "Sebaik-baik kalian adalah yang mempelajari Al-Qur'an dan mengajarkannya.",
       quoteSource: "HR. Bukhari",
       icon: BookOpen,
@@ -153,7 +153,7 @@ export const HomePage: React.FC = () => {
       ],
       link: "/program#diniyah",
       linkLabel: "Silabus Kitab Kuning",
-      image: "/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.png",
+      image: "/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.webp",
       quote: "Menuntut ilmu adalah kewajiban bagi setiap muslim dan pembuka jalan ke surga.",
       quoteSource: "HR. Ibnu Majah",
       icon: Award,
@@ -175,7 +175,7 @@ export const HomePage: React.FC = () => {
       ],
       link: "/program#formal",
       linkLabel: "Kurikulum Formal & Fasilitas",
-      image: "/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.png",
+      image: "/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.webp",
       quote: "Pendidikan adalah senjata paling ampuh untuk mengubah dunia dan membentuk adab.",
       quoteSource: "Visi Pendidikan",
       icon: GraduationCap,
@@ -197,7 +197,7 @@ export const HomePage: React.FC = () => {
       ],
       link: "/program#bilingual",
       linkLabel: "Eksplorasi Ekstrakurikuler",
-      image: "/gambar/ekstrakurikuler.png",
+      image: "/gambar/ekstrakurikuler.webp",
       quote: "Bahasa adalah kunci jendela dunia, adab adalah pemandu langkah manusia.",
       quoteSource: "Prinsip Global",
       icon: Languages,
@@ -356,7 +356,7 @@ export const HomePage: React.FC = () => {
               {/* Gambar dasar / latar utama */}
               <div className="absolute inset-x-5 inset-y-4 overflow-hidden rounded-xl shadow-md border border-slate-200/80 bg-slate-100">
                 <img
-                  src="/gambar/halamandepan.png"
+                  src="/gambar/halamandepan.webp"
                   alt="Pondok Pesantren Al-Mursyid"
                   className="w-full h-full object-cover filter contrast-[1.03]"
                 />
@@ -365,7 +365,7 @@ export const HomePage: React.FC = () => {
               {/* Panel pecahan kiri atas (overlap frame dengan garis border putih) */}
               <div className="absolute -top-1 left-0 w-3/5 h-3/5 rounded-xl overflow-hidden shadow-xl border-[2.5px] border-white bg-slate-100 transition-transform duration-500 hover:-translate-y-1">
                 <img
-                  src="/gambar/halamandepan.png"
+                  src="/gambar/halamandepan.webp"
                   alt=""
                   className="w-[170%] h-[170%] max-w-none object-cover -translate-x-3 -translate-y-3"
                 />
@@ -374,7 +374,7 @@ export const HomePage: React.FC = () => {
               {/* Panel pecahan vertikal kanan */}
               <div className="absolute top-5 right-0 w-[27%] h-3/5 rounded-xl overflow-hidden shadow-lg border-[2.5px] border-white bg-slate-100 transition-transform duration-500 hover:translate-y-1">
                 <img
-                  src="/gambar/halamandepan.png"
+                  src="/gambar/halamandepan.webp"
                   alt=""
                   className="w-[360%] h-[170%] max-w-none object-cover -translate-x-[68%] -translate-y-8"
                 />
@@ -383,7 +383,7 @@ export const HomePage: React.FC = () => {
               {/* Panel pecahan kanan bawah */}
               <div className="absolute bottom-0 right-2 w-7/12 h-1/2 rounded-xl overflow-hidden shadow-xl border-[2.5px] border-white bg-slate-100 transition-transform duration-500 hover:translate-x-1">
                 <img
-                  src="/gambar/halamandepan.png"
+                  src="/gambar/halamandepan.webp"
                   alt=""
                   className="w-[175%] h-[200%] max-w-none object-cover -translate-x-[42%] -translate-y-[48%]"
                 />
@@ -392,7 +392,7 @@ export const HomePage: React.FC = () => {
               {/* Aksen pecahan kecil kiri bawah */}
               <div className="absolute bottom-3 left-2 w-14 h-14 rounded-lg overflow-hidden shadow-md border-2 border-white bg-slate-100 transition-transform duration-500 hover:scale-105">
                 <img
-                  src="/gambar/halamandepan.png"
+                  src="/gambar/halamandepan.webp"
                   alt=""
                   className="w-[500%] h-[500%] max-w-none object-cover -translate-x-[15%] -translate-y-[80%]"
                 />
@@ -831,14 +831,14 @@ export const HomePage: React.FC = () => {
                 {/* Visual Image Container (Rasio Instagram 3:4) */}
                 <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-slate-100">
                   <img
-                    src={getImageUrl(ppdbSettings?.heroImage, "/gambar/halamandepan.png")}
+                    src={getImageUrl(ppdbSettings?.heroImage, "/gambar/halamandepan.webp")}
                     alt="Poster PPDB Pondok Pesantren Al-Mursyid"
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
                     onError={(e) => {
                       const target = e.currentTarget;
-                      if (!target.src.includes('/gambar/halamandepan.png')) {
-                        target.src = '/gambar/halamandepan.png';
+                      if (!target.src.includes('/gambar/halamandepan.webp')) {
+                        target.src = '/gambar/halamandepan.webp';
                       }
                     }}
                   />

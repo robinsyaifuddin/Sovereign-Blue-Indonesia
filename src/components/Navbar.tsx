@@ -21,7 +21,7 @@ export const Navbar: React.FC = () => {
           {/* Logo & Institusi Branding - Ramping & Proporsional */}
           <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0 py-1">
             <img 
-              src="/logo.png" 
+              src="/logo.webp" 
               alt="Logo Al-Mursyid" 
               className="w-8 h-8 sm:w-10 sm:h-10 object-contain transition-transform duration-200 group-hover:scale-105"
               width="40"

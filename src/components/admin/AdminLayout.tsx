@@ -76,7 +76,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
 
             <Link to="/" className="flex items-center gap-3 group">
               <img 
-                src="/logo.png" 
+                src="/logo.webp" 
                 alt="Logo Al-Mursyid" 
                 className="w-9 h-9 object-contain group-hover:scale-105 transition-transform" 
               />

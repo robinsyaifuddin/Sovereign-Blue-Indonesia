@@ -71,8 +71,17 @@ if (!empty($_FILES['file'])) {
     if (move_uploaded_file($file['tmp_name'], $targetPath)) {
         // Simpan juga salinan ke direct public_html/uploads jika path fisik berbeda
         $altUploadDir = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR;
-        if ($altUploadDir !== $uploadDir && is_dir($altUploadDir)) {
-            @copy($targetPath, $altUploadDir . $fileName);
+        if ($altUploadDir !== $uploadDir) {
+            if (!is_dir($altUploadDir)) {
+                @mkdir($altUploadDir, 0755, true);
+            }
+            if (is_dir($altUploadDir)) {
+                @copy($targetPath, $altUploadDir . $fileName);
+            }
+        }
+        $altPublicHtml = dirname($_SERVER['DOCUMENT_ROOT']) . DIRECTORY_SEPARATOR . 'public_html' . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR;
+        if (is_dir($altPublicHtml)) {
+            @copy($targetPath, $altPublicHtml . $fileName);
         }
 
         // Gunakan file.php streaming endpoint agar aman dari rewrite SPA Hostinger dan CORS
@@ -123,6 +132,20 @@ if (!empty($input['base64'])) {
         $targetPath = $uploadDir . $fileName;
 
         if (file_put_contents($targetPath, $decoded) !== false) {
+            $altUploadDir = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR;
+            if ($altUploadDir !== $uploadDir) {
+                if (!is_dir($altUploadDir)) {
+                    @mkdir($altUploadDir, 0755, true);
+                }
+                if (is_dir($altUploadDir)) {
+                    @copy($targetPath, $altUploadDir . $fileName);
+                }
+            }
+            $altPublicHtml = dirname($_SERVER['DOCUMENT_ROOT']) . DIRECTORY_SEPARATOR . 'public_html' . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR;
+            if (is_dir($altPublicHtml)) {
+                @copy($targetPath, $altPublicHtml . $fileName);
+            }
+
             $finalUrl = "{$protocol}{$host}/backend/endpoints/file.php?f=" . urlencode($fileName);
             jsonResponse(true, [
                 'url' => $finalUrl,

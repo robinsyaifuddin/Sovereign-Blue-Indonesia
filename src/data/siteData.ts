@@ -132,7 +132,7 @@ export const PROGRAMS = [
     desc: "Membekali santri kemampuan komunikasi aktif bahasa Arab dan Inggris sehari-hari, serta ekstrakurikuler kepanduan (Pramuka), seni Kaligrafi Islam, dan bela diri.",
     icon: "Languages",
     highlights: ["Yaumul Lughah (Hari Wajib Berbahasa)", "Klub Kaligrafi & Tilawah", "Pramuka Gugus Depan Pesantren", "Pelatihan Public Speaking & Khitobah"],
-    image: "/gambar/ekstrakurikuler.png"
+    image: "/gambar/ekstrakurikuler.webp"
   }
 ];
 
@@ -141,25 +141,25 @@ export const FACILITIES = [
     name: "Masjid Jami' Al-Mursyid",
     category: "Ibadah & Halaqah",
     desc: "Pusat spiritual santri untuk salat berjamaah 5 waktu, kajian diniyah, wirid, dan halaqah tahfidz yang sejuk dan luas.",
-    image: "/gambar/masjid.png"
+    image: "/gambar/masjid.webp"
   },
   {
     name: "Asrama Santri Putra & Putri Terpisah",
     category: "Tempat Tinggal",
     desc: "Gedung asrama bersih, nyaman, dengan sirkulasi udara pegunungan Tanggamus yang segar, dilengkapi ranjang tingkat dan lemari mandiri.",
-    image: "/gambar/asrama.png"
+    image: "/gambar/asrama.webp"
   },
   {
     name: "Ruang Kelas & Madrasah Diniyah",
     category: "Pendidikan",
     desc: "Ruang belajar representatif berfasilitas modern untuk pembelajaran formal, kajian kitab kuning, sains, dan literasi teknologi.",
-    image: "/gambar/pendidikan.png"
+    image: "/gambar/pendidikan.webp"
   },
   {
     name: "Kawasan Lingkungan Asri & Hijau",
     category: "Lingkungan",
     desc: "Lingkungan pesantren yang asri, hijau, dan sejuk di kaki pegunungan Tanggamus untuk kenyamanan santri beraktivitas.",
-    image: "/gambar/lingkungan.png"
+    image: "/gambar/lingkungan.webp"
   },
   {
     name: "Lapangan Olahraga & Area Terbuka",
@@ -439,7 +439,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "Tahfidz & Ibadah",
     date: "28 Oktober 2026",
     location: "Masjid Jami' Al-Mursyid",
-    image: "/gambar/masjid.png",
+    image: "/gambar/masjid.webp",
     desc: "Suasana syahdu santri menyetorkan ziyadah hafalan Al-Qur'an dan muraja'ah bersama asatidz pengampu tahfidz."
   },
   {
@@ -448,7 +448,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "Kemandirian & Sosial",
     date: "24 Oktober 2026",
     location: "Kompleks Asrama Pondok",
-    image: "/gambar/asrama.png",
+    image: "/gambar/asrama.webp",
     desc: "Kawasan asrama bersih dan tertata asri di lereng bukit Way Lalaan Tanggamus untuk kenyamanan santri beristirahat."
   },
   {
@@ -457,7 +457,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "Kemandirian & Sosial",
     date: "19 Oktober 2026",
     location: "Gerbang Utama Al-Mursyid",
-    image: "/gambar/gerbangmasuk.png",
+    image: "/gambar/gerbangmasuk.webp",
     desc: "Akses gerbang utama kampus Pondok Pesantren Al-Mursyid yang tertib, asri, dan aman bagi seluruh civitas santri."
   },
   {
@@ -466,7 +466,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "Peringatan Hari Besar",
     date: "15 Oktober 2026",
     location: "Plaza Utama Kampus Al-Mursyid",
-    image: "/gambar/halamandepan.png",
+    image: "/gambar/halamandepan.webp",
     desc: "Halaman depan yang luas dan tertata rapi sebagai pusat aktivitas apel santri dan kegiatan outdoor."
   },
   {
@@ -475,7 +475,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "Ekstrakurikuler",
     date: "12 Oktober 2026",
     location: "Kawasan Pesantren Al-Mursyid",
-    image: "/gambar/ekstrakurikuler.png",
+    image: "/gambar/ekstrakurikuler.webp",
     desc: "Pengembangan bakat, ketangkasan fisik, kemandirian, dan kreativitas santri melalui ragam kegiatan ekstrakurikuler."
   },
   {
@@ -484,7 +484,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "Kemandirian & Sosial",
     date: "22 Oktober 2026",
     location: "Area Kampus Way Lalaan",
-    image: "/gambar/lingkungan.png",
+    image: "/gambar/lingkungan.webp",
     desc: "Lingkungan belajar kondusif bebas kebisingan kota, berhawa sejuk di kaki pegunungan Tanggamus."
   },
   {
@@ -493,7 +493,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "Akademik & Formal",
     date: "08 Oktober 2026",
     location: "Ruang Kelas & Madrasah Diniyah",
-    image: "/gambar/pendidikan.png",
+    image: "/gambar/pendidikan.webp",
     desc: "Pembelajaran intensif kurikulum formal berpadu dengan kajian kitab kuning turats salafiyah secara terstruktur."
   },
   {
@@ -502,7 +502,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "Akademik & Formal",
     date: "03 Oktober 2026",
     location: "Kampus Al-Mursyid Tanggamus",
-    image: "/gambar/pedidikan.png",
+    image: "/gambar/pedidikan.webp",
     desc: "Pembiasaan adab mulia, kepemimpinan, dan kemandirian hidup berasrama 24 jam di bawah bimbingan asatidz."
   },
   {

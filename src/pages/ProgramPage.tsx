@@ -46,7 +46,7 @@ export const ProgramPage: React.FC = () => {
               {/* Horizontal Inset Image */}
               <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
                 <img
-                  src="/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.png"
+                  src="/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.webp"
                   alt="Suasana Halaqah Tahfidz Al-Mursyid"
                   className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
@@ -79,7 +79,7 @@ export const ProgramPage: React.FC = () => {
             <div className="lg:col-span-5 relative group">
               <div className="relative rounded-2xl overflow-hidden border border-emerald-200/80 shadow-md bg-slate-100">
                 <img
-                  src="/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.png"
+                  src="/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.webp"
                   alt="Mushaf Al-Qur'an dan Pembinaan Santri"
                   className="w-full h-[460px] sm:h-[540px] object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                 />
@@ -116,7 +116,7 @@ export const ProgramPage: React.FC = () => {
             <div className="lg:col-span-5 order-2 lg:order-1 relative group">
               <div className="relative rounded-2xl overflow-hidden border border-emerald-200/80 shadow-md bg-slate-100">
                 <img
-                  src="/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.png"
+                  src="/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.webp"
                   alt="Kajian Kitab Kuning Pesantren"
                   className="w-full h-[460px] sm:h-[540px] object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                 />
@@ -162,7 +162,7 @@ export const ProgramPage: React.FC = () => {
               {/* Horizontal Inset Image */}
               <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
                 <img
-                  src="/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.png"
+                  src="/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.webp"
                   alt="Kitab Turats dan Kajian Pesantren"
                   className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
@@ -224,7 +224,7 @@ export const ProgramPage: React.FC = () => {
               {/* Horizontal Inset Image */}
               <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
                 <img
-                  src="/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.png"
+                  src="/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.webp"
                   alt="Laboratorium dan Ruang Belajar Formal"
                   className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
@@ -257,7 +257,7 @@ export const ProgramPage: React.FC = () => {
             <div className="lg:col-span-5 relative group">
               <div className="relative rounded-2xl overflow-hidden border border-emerald-200/80 shadow-md bg-slate-100">
                 <img
-                  src="/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.png"
+                  src="/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.webp"
                   alt="Santri Berprestasi di Kelas Formal"
                   className="w-full h-[460px] sm:h-[540px] object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                 />
@@ -294,7 +294,7 @@ export const ProgramPage: React.FC = () => {
             <div className="lg:col-span-5 order-2 lg:order-1 relative group">
               <div className="relative rounded-2xl overflow-hidden border border-emerald-200/80 shadow-md bg-slate-100">
                 <img
-                  src="/gambar/ekstrakurikuler.png"
+                  src="/gambar/ekstrakurikuler.webp"
                   alt="Aktivitas Pengembangan Kepribadian dan Kepanduan"
                   className="w-full h-[460px] sm:h-[540px] object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                 />
@@ -340,7 +340,7 @@ export const ProgramPage: React.FC = () => {
               {/* Horizontal Inset Image */}
               <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
                 <img
-                  src="/gambar/ekstrakurikuler.png"
+                  src="/gambar/ekstrakurikuler.webp"
                   alt="Aktivitas Bahasa dan Komunikasi Santri"
                   className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />

@@ -25,15 +25,15 @@ interface QuoteSlide {
 
 const LOGIN_SLIDES: QuoteSlide[] = [
   {
-    image: "/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.png",
+    image: "/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.webp",
     quote: "Pusat kendali santri, berita, dan pendaftaran dalam satu sistem terintegrasi yang andal, tertib, dan amanah."
   },
   {
-    image: "/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.png",
+    image: "/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.webp",
     quote: "Mencetak generasi Qur'ani yang berkarakter mandiri, beradab, dan unggul di kancah nasional maupun global."
   },
   {
-    image: "/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.png",
+    image: "/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.webp",
     quote: "Memudahkan pengelolaan hafalan Quran bersanad dan arsip santri secara akurat, modern, dan real-time."
   }
 ];
@@ -315,7 +315,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
             {/* Header Brand Kanan */}
             <div className="relative z-10 flex items-center gap-3">
               <img 
-                src="/logo.png" 
+                src="/logo.webp" 
                 alt="Logo Al-Mursyid" 
                 className="w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-md" 
               />

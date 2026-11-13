@@ -142,9 +142,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
                 onError={(e) => {
                   const target = e.currentTarget;
                   // Jika URL file streaming atau uploads bermasalah, coba direct atau fallback lokal
-                  if (!target.src.includes('/gambar/halamandepan.png')) {
-                    target.src = '/gambar/halamandepan.png';
-                  }
+                  if (value.startsWith('/img/')) { target.src = 'https://mediumorchid-zebra-535607.hostingersite.com/uploads/' + value.replace('/img/', ''); } else if (value.startsWith('/api/file/')) { target.src = 'https://mediumorchid-zebra-535607.hostingersite.com/backend/endpoints/file.php?f=' + value.replace('/api/file/', ''); } else { target.style.display = 'none'; }
                 }}
               />
               <div className="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-[10px] font-bold">

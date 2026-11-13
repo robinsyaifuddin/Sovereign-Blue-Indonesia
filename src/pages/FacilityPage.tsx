@@ -32,7 +32,7 @@ const FALLBACK_FACILITIES: FacilityDisplayItem[] = [
     category: "Ibadah & Halaqah",
     tagline: "Pusat spiritual santri & halaqah Quran",
     desc: "Pusat spiritual utama santri untuk salat berjamaah 5 waktu, tahsin bersanad, kajian kitab kuning turats, dan qiyamul lail dengan suasana hening kaki bukit Tanggamus.",
-    image: "/gambar/masjid.png",
+    image: "/gambar/masjid.webp",
     badge: "Pusat Ibadah",
     highlightPoints: ["Kapasitas 500+ jamaah", "Sirkulasi sejuk alami", "Halaqah tahfidz 24 jam"]
   },
@@ -42,7 +42,7 @@ const FALLBACK_FACILITIES: FacilityDisplayItem[] = [
     category: "Hunian Santri",
     tagline: "Hunian nyaman & beradab putra-putri",
     desc: "Gedung asrama santri putra dan putri terpisah mandiri. Kamar tidur tertata higienis, ranjang bertingkat kokoh, lemari perorangan, dan sirkulasi angin pegunungan yang menyehatkan.",
-    image: "/gambar/asrama.png",
+    image: "/gambar/asrama.webp",
     badge: "Hunian Nyaman",
     highlightPoints: ["Gedung putra & putri terpisah", "Pengawasan musyrif 24 jam", "Sanitasi bersih terawat"]
   },
@@ -52,7 +52,7 @@ const FALLBACK_FACILITIES: FacilityDisplayItem[] = [
     category: "Pendidikan Formal",
     tagline: "Kombinasi sains, bahasa & teknologi",
     desc: "Ruang belajar representatif berfasilitas modern untuk kurikulum nasional dan pesantren, dilengkapi proyektor, papan interaktif, serta laboratorium komputer berbasis literasi digital.",
-    image: "/gambar/pendidikan.png",
+    image: "/gambar/pendidikan.webp",
     badge: "Sains & Teknologi",
     highlightPoints: ["Ruang belajar ergonomis", "Lab komputer & multimedia", "Akses jaringan edukasi"]
   },
@@ -62,7 +62,7 @@ const FALLBACK_FACILITIES: FacilityDisplayItem[] = [
     category: "Pustaka & Riset",
     tagline: "Khazanah ilmu salaf dan kontemporer",
     desc: "Menyediakan ratusan koleksi kitab kuning mu'tabarah, tafsir, ensiklopedia sains islam, buku teks kurikulum, dan sudut baca hening untuk menumbuhkan minat literasi riset santri.",
-    image: "/gambar/pendidikan.png",
+    image: "/gambar/pendidikan.webp",
     badge: "Khazanah Literasi",
     highlightPoints: ["Koleksi kitab kuning salaf", "Buku referensi sains modern", "Ruang baca kondusif"]
   },
@@ -72,7 +72,7 @@ const FALLBACK_FACILITIES: FacilityDisplayItem[] = [
     category: "Kebugaran & Olahraga",
     tagline: "Tubuh sehat, jiwa tangguh & disiplin",
     desc: "Lapangan multifungsi untuk futsal, voli, bulu tangkis, latihan bela diri, serta area upacara dan apel pramuka dengan panorama asri perbukitan Way Lalaan.",
-    image: "/gambar/ekstrakurikuler.png",
+    image: "/gambar/ekstrakurikuler.webp",
     badge: "Kebugaran Santri",
     highlightPoints: ["Lapangan futsal & voli", "Area latihan bela diri", "Udara pegunungan segar"]
   },
@@ -82,7 +82,7 @@ const FALLBACK_FACILITIES: FacilityDisplayItem[] = [
     category: "Gizi & Konsumsi",
     tagline: "Nutrisi sehat terjamin 3x sehari",
     desc: "Dapur pengolahan pangan berstandar kebersihan tinggi, menjamin asupan makanan halal, lezat, dan bergizi seimbang untuk menopang stamina dan kecerdasan para santri.",
-    image: "/gambar/gerbangmasuk.png",
+    image: "/gambar/gerbangmasuk.webp",
     badge: "Gizi Seimbang",
     highlightPoints: ["Menu 3 kali sehari", "Bahan segar & halal", "Penyajian higienis"]
   },
@@ -92,7 +92,7 @@ const FALLBACK_FACILITIES: FacilityDisplayItem[] = [
     category: "Lingkungan Pesantren",
     tagline: "Suasana asri penyejuk pikiran santri",
     desc: "Pekarangan asri berlatar kaki Gunung Tanggamus yang mendukung suasana tadabbur alam, ketenangan batin dalam menghafal Al-Qur'an, dan lingkungan bebas polusi perkotaan.",
-    image: "/gambar/lingkungan.png",
+    image: "/gambar/lingkungan.webp",
     badge: "Asri Pegunungan",
     highlightPoints: ["Jauh dari kebisingan kota", "Ekosistem sejuk & hijau", "Area tadabbur alam"]
   }
@@ -116,7 +116,7 @@ export const FacilityPage: React.FC = () => {
           category: f.category || 'Fasilitas & Sarana',
           tagline: matchedFallback?.tagline || `Sarana pendukung ${f.category || 'santri'}`,
           desc: f.desc || f.description || matchedFallback?.desc || 'Sarana prasarana penunjang kegiatan santri di Pondok Pesantren Al-Mursyid.',
-          image: getImageUrl(f.image || f.imageUrl || matchedFallback?.image || '/gambar/masjid.png'),
+          image: getImageUrl(f.image || f.imageUrl || matchedFallback?.image || '/gambar/masjid.webp'),
           badge: matchedFallback?.badge || f.category || 'Fasilitas Pondok',
           highlightPoints: matchedFallback?.highlightPoints || [
             'Fasilitas bersih & terawat',

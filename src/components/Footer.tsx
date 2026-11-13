@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-5 space-y-4 pr-0 lg:pr-6">
             <div className="flex items-center gap-3">
               <img 
-                src="/logo.png" 
+                src="/logo.webp" 
                 alt="Logo Al-Mursyid" 
                 className="w-12 h-12 object-contain"
                 width="48"

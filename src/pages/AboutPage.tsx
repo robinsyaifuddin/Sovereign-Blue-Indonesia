@@ -69,7 +69,7 @@ export const AboutPage: React.FC = () => {
                         '22
                       </span>
                       <img 
-                        src="/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.png" 
+                        src="/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.webp" 
                         alt="Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama" 
                         className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                       />
@@ -90,7 +90,7 @@ export const AboutPage: React.FC = () => {
                     {/* Foto Kanan Atas: Busur Lingkaran 90 Derajat Kanan-Atas */}
                     <div className="relative aspect-[4/3] rounded-tr-[145px] overflow-hidden bg-stone-200 border border-stone-200/80 shadow-2xs group">
                       <img 
-                        src="/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.png" 
+                        src="/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.webp" 
                         alt="Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi" 
                         className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                       />
@@ -99,7 +99,7 @@ export const AboutPage: React.FC = () => {
                     {/* Foto Kanan Tengah: Persegi Landscape */}
                     <div className="relative aspect-[4/3] rounded-md overflow-hidden bg-stone-200 border border-stone-200/80 shadow-2xs group">
                       <img 
-                        src="/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.png" 
+                        src="/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.webp" 
                         alt="Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah" 
                         className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                       />
@@ -355,11 +355,11 @@ export const AboutPage: React.FC = () => {
               <div className="group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                 {/* Gambar Full Panjang Dokumen */}
                 <div 
-                  onClick={() => setSelectedLegalImage({ src: '/gambar/SERTIFIKAT.jpeg', title: 'Piagam Terdaftar Pesantren (NSP) - Kementerian Agama RI' })}
+                  onClick={() => setSelectedLegalImage({ src: '/gambar/SERTIFIKAT.webp', title: 'Piagam Terdaftar Pesantren (NSP) - Kementerian Agama RI' })}
                   className="relative w-full overflow-hidden bg-stone-100 cursor-pointer group/img"
                 >
                   <img 
-                    src="/gambar/SERTIFIKAT.jpeg" 
+                    src="/gambar/SERTIFIKAT.webp" 
                     alt="Piagam Terdaftar Pesantren Kemenag RI" 
                     className="w-full h-auto object-contain block group-hover/img:scale-[1.02] transition-transform duration-500 ease-out"
                   />
@@ -378,7 +378,7 @@ export const AboutPage: React.FC = () => {
                   </div>
                   <button 
                     type="button"
-                    onClick={() => setSelectedLegalImage({ src: '/gambar/SERTIFIKAT.jpeg', title: 'Piagam Terdaftar Pesantren (NSP) - Kementerian Agama RI' })}
+                    onClick={() => setSelectedLegalImage({ src: '/gambar/SERTIFIKAT.webp', title: 'Piagam Terdaftar Pesantren (NSP) - Kementerian Agama RI' })}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-800 hover:bg-emerald-900 active:scale-95 text-white text-xs font-semibold shadow-2xs transition-all"
                   >
                     <span>Buka</span>
@@ -391,11 +391,11 @@ export const AboutPage: React.FC = () => {
               <div className="group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                 {/* Gambar Full Panjang Dokumen */}
                 <div 
-                  onClick={() => setSelectedLegalImage({ src: '/gambar/AHU.jpeg', title: 'Pengesahan Badan Hukum Yayasan - Kemenkumham RI' })}
+                  onClick={() => setSelectedLegalImage({ src: '/gambar/AHU.webp', title: 'Pengesahan Badan Hukum Yayasan - Kemenkumham RI' })}
                   className="relative w-full overflow-hidden bg-stone-100 cursor-pointer group/img"
                 >
                   <img 
-                    src="/gambar/AHU.jpeg" 
+                    src="/gambar/AHU.webp" 
                     alt="Pengesahan Badan Hukum Yayasan Kemenkumham RI" 
                     className="w-full h-auto object-contain block group-hover/img:scale-[1.02] transition-transform duration-500 ease-out"
                   />
@@ -414,7 +414,7 @@ export const AboutPage: React.FC = () => {
                   </div>
                   <button 
                     type="button"
-                    onClick={() => setSelectedLegalImage({ src: '/gambar/AHU.jpeg', title: 'Pengesahan Badan Hukum Yayasan - Kemenkumham RI' })}
+                    onClick={() => setSelectedLegalImage({ src: '/gambar/AHU.webp', title: 'Pengesahan Badan Hukum Yayasan - Kemenkumham RI' })}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-800 hover:bg-emerald-900 active:scale-95 text-white text-xs font-semibold shadow-2xs transition-all"
                   >
                     <span>Buka</span>

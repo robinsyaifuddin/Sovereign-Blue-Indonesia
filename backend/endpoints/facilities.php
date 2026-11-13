@@ -14,6 +14,13 @@ $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 // GET: Ambil fasilitas
 // GET: Fasilitas
 if ($method === 'GET') {
+    // Pastikan kolom image_url ada pada tabel facilities
+    try {
+        $pdo->query("SELECT image_url FROM facilities LIMIT 1");
+    } catch (\Throwable $e) {
+        $pdo->exec("ALTER TABLE facilities ADD COLUMN image_url VARCHAR(500) NULL AFTER description");
+    }
+
     $stmt = $pdo->query("SELECT id, name, category, description, image_url as imageUrl, sort_order FROM facilities ORDER BY sort_order ASC, id ASC");
     $facilities = $stmt->fetchAll();
 
@@ -39,6 +46,13 @@ if ($method === 'POST') {
 
     if (empty($name)) {
         jsonResponse(false, null, 'Nama fasilitas wajib diisi.', 400);
+    }
+
+    // Pastikan kolom image_url ada pada tabel facilities
+    try {
+        $pdo->query("SELECT image_url FROM facilities LIMIT 1");
+    } catch (\Throwable $e) {
+        $pdo->exec("ALTER TABLE facilities ADD COLUMN image_url VARCHAR(500) NULL AFTER description");
     }
 
     if ($id) {

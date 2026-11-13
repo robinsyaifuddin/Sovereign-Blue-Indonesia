@@ -14,7 +14,14 @@ $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 // GET: Ambil semua program unggulan (Publik & Cepat)
 // GET: Program
 if ($method === 'GET') {
-    $stmt = $pdo->query("SELECT id, title, tagline, description, icon, highlights, sort_order FROM programs ORDER BY sort_order ASC, id ASC");
+    // Pastikan kolom image_url ada pada tabel programs
+    try {
+        $pdo->query("SELECT image_url FROM programs LIMIT 1");
+    } catch (\Throwable $e) {
+        $pdo->exec("ALTER TABLE programs ADD COLUMN image_url VARCHAR(500) NULL AFTER highlights");
+    }
+
+    $stmt = $pdo->query("SELECT id, title, tagline, description, icon, highlights, image_url as image, sort_order FROM programs ORDER BY sort_order ASC, id ASC");
     $programs = $stmt->fetchAll();
 
     foreach ($programs as &$p) {
@@ -42,6 +49,7 @@ if ($method === 'POST') {
     $description = trim($input['description'] ?? $input['desc'] ?? '');
     $icon = trim($input['icon'] ?? 'BookOpen');
     $highlights = isset($input['highlights']) ? json_encode($input['highlights'], JSON_UNESCAPED_UNICODE) : json_encode([]);
+    $imageUrl = trim($input['imageUrl'] ?? $input['image_url'] ?? $input['image'] ?? '');
     $sortOrder = (int)($input['sort_order'] ?? 0);
 
     if (empty($id)) {
@@ -52,8 +60,15 @@ if ($method === 'POST') {
         jsonResponse(false, null, 'Judul dan deskripsi program wajib diisi.', 400);
     }
 
-    $stmt = $pdo->prepare("REPLACE INTO programs (id, title, tagline, description, icon, highlights, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->execute([$id, $title, $tagline, $description, $icon, $highlights, $sortOrder]);
+    // Pastikan kolom image_url ada pada tabel programs
+    try {
+        $pdo->query("SELECT image_url FROM programs LIMIT 1");
+    } catch (\Throwable $e) {
+        $pdo->exec("ALTER TABLE programs ADD COLUMN image_url VARCHAR(500) NULL AFTER highlights");
+    }
+
+    $stmt = $pdo->prepare("REPLACE INTO programs (id, title, tagline, description, icon, highlights, image_url, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$id, $title, $tagline, $description, $icon, $highlights, $imageUrl, $sortOrder]);
 
     recordRealtimeEvent($pdo, 'PROGRAM_UPDATED', 'programs', $id, ['title' => $title]);
 

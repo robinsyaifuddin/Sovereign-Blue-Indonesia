@@ -92,7 +92,7 @@ export const ContactPage: React.FC = () => {
           {/* Panoramic Campus Hero Visual */}
           <div className="mt-10 sm:mt-12 rounded-xl sm:rounded-2xl overflow-hidden aspect-[21/9] sm:aspect-[24/9] relative bg-stone-200 border border-stone-300/70 shadow-sm">
             <img 
-              src="/gambar/halamandepan.png" 
+              src="/gambar/halamandepan.webp" 
               alt="Kampus Pondok Pesantren Al-Mursyid Tanggamus" 
               className="w-full h-full object-cover contrast-[1.02] hover:scale-[1.01] transition-transform duration-700 ease-out"
             />
