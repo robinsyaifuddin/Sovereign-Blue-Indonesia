@@ -13,6 +13,7 @@ import { NewsPage } from './pages/NewsPage';
 import { NewsDetailPage } from './pages/NewsDetailPage';
 import { ContactPage } from './pages/ContactPage';
 import { AdminDashboardPage } from './pages/AdminDashboardPage';
+import { AppStoreProvider } from './context/AppStoreContext';
 
 const AppLayout: React.FC = () => {
   const location = useLocation();
@@ -49,10 +50,12 @@ const AppLayout: React.FC = () => {
 
 export const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <AppLayout />
-    </BrowserRouter>
+    <AppStoreProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <AppLayout />
+      </BrowserRouter>
+    </AppStoreProvider>
   );
 };
 
