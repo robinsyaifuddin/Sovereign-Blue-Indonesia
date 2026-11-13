@@ -23,12 +23,12 @@ if ($method === 'POST') {
     $clientIp = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
     $rateLimitFile = sys_get_temp_dir() . '/almursyid_login_rate_' . md5($clientIp);
 
-    // Rate Limiting: Maksimal 5 percobaan gagal dalam rentang 15 menit
+    // Rate Limiting: Maksimal 5 percobaan gagal (lockout 30 detik)
     if (file_exists($rateLimitFile)) {
         $rateData = @json_decode(file_get_contents($rateLimitFile), true);
         if ($rateData && isset($rateData['lock_until']) && time() < $rateData['lock_until']) {
-            $remaining = ceil(($rateData['lock_until'] - time()) / 60);
-            jsonResponse(false, null, "Terlalu banyak percobaan login gagal. Demi keamanan, akun terkunci sementara. Coba lagi dalam {$remaining} menit.", 429);
+            $remaining = max(1, $rateData['lock_until'] - time());
+            jsonResponse(false, null, "Terlalu banyak percobaan login gagal. Demi keamanan, akun terkunci sementara. Coba lagi dalam {$remaining} detik.", 429);
         }
     }
 
@@ -43,7 +43,7 @@ if ($method === 'POST') {
             $rateData = @json_decode(file_get_contents($rateLimitFile), true) ?: [];
             $attempts = ($rateData['attempts'] ?? 0) + 1;
         }
-        $lockUntil = ($attempts >= 5) ? (time() + 900) : 0; // Kunci 15 menit jika 5x gagal
+        $lockUntil = ($attempts >= 5) ? (time() + 30) : 0; // Kunci 30 detik jika 5x gagal
         @file_put_contents($rateLimitFile, json_encode([
             'attempts' => $attempts,
             'lock_until' => $lockUntil,
@@ -51,7 +51,7 @@ if ($method === 'POST') {
         ]));
 
         if ($lockUntil > 0) {
-            jsonResponse(false, null, 'Terlalu banyak percobaan gagal. Akses ditangguhkan selama 15 menit demi keamanan sistem.', 429);
+            jsonResponse(false, null, 'Terlalu banyak percobaan gagal. Akses ditangguhkan selama 30 detik demi keamanan sistem.', 429);
         }
 
         $sisa = 5 - $attempts;

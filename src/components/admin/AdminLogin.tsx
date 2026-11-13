@@ -39,7 +39,7 @@ const LOGIN_SLIDES: QuoteSlide[] = [
 ];
 
 const MAX_FAILED_ATTEMPTS = 5;
-const LOCKOUT_TIME_MS = 15 * 60 * 1000; // 15 menit
+const LOCKOUT_TIME_MS = 30 * 1000; // 30 detik
 
 export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
   const [username, setUsername] = useState('');
@@ -83,7 +83,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
       const lockUntil = Date.now() + LOCKOUT_TIME_MS;
       localStorage.setItem('admin_lockout_until', String(lockUntil));
       setLockoutRemaining(Math.ceil(LOCKOUT_TIME_MS / 1000));
-      setErrorMessage(`Terlalu banyak percobaan gagal. Akses dikunci sementara selama 15 menit.`);
+      setErrorMessage("Terlalu banyak percobaan gagal. Akses dikunci sementara selama 30 detik.");
     } else {
       const sisa = MAX_FAILED_ATTEMPTS - currentAttempts;
       setErrorMessage(`Kredensial tidak valid. Sisa percobaan: ${sisa} kali sebelum akun dikunci sementara.`);
