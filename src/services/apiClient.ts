@@ -106,7 +106,7 @@ export const api = {
   // Galeri
   getGallery: () => request<any[]>('/gallery.php'),
   
-  createGalleryItem: (item: { title: string; category: string; imageUrl: string }) =>
+  createGalleryItem: (item: { id?: number; title: string; category?: string; imageUrl: string; isFeatured?: boolean }) =>
     request<{ id: number }>('/gallery.php', {
       method: 'POST',
       body: JSON.stringify(item),

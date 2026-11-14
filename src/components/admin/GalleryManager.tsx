@@ -15,6 +15,7 @@ import { AppStore } from '../../services/appStore';
 import { GalleryItem } from '../../data/siteData';
 import { ImageUploader } from './ImageUploader';
 import { useToast } from './ToastContext';
+import { getImageUrl } from '../../utils/imageHelper';
 
 export const GalleryManager: React.FC = () => {
   const { gallery } = useAppStoreData();
@@ -262,7 +263,7 @@ export const GalleryManager: React.FC = () => {
                       <div className="w-20 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center text-slate-300">
                         {item.image ? (
                           <img 
-                            src={item.image} 
+                            src={getImageUrl(item.image)} 
                             alt={item.title} 
                             className="w-full h-full object-cover" 
                             onError={(e) => { e.currentTarget.style.display = 'none'; }}

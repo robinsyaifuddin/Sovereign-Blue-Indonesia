@@ -274,21 +274,26 @@ export const AppStore = {
       image: item.image,
       date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
       location: 'Pondok Pesantren Al-Mursyid',
-      desc: ''
+      desc: '',
+      isFeatured: Boolean(item.isFeatured)
     };
     const current = AppStore.getGallery();
     localStorage.setItem(STORAGE_KEYS.GALLERY, JSON.stringify([newItem, ...current]));
     dispatchStoreUpdate(STORAGE_KEYS.GALLERY);
 
     try {
-      await api.createGalleryItem({
+      const res = await api.createGalleryItem({
         title: item.title,
         category: item.category || 'Kegiatan',
-        imageUrl: item.image
+        imageUrl: item.image,
+        isFeatured: item.isFeatured
       });
-      await AppStore.syncGalleryFromApi();
+      if (res && res.id) {
+        await AppStore.syncGalleryFromApi();
+      }
     } catch (err) {
       console.error('Remote gallery add error:', err);
+      throw err;
     }
   },
   updateGalleryRemote: async (id: string | number, item: { title: string; category?: string; image: string; isFeatured?: boolean }) => {
@@ -302,11 +307,13 @@ export const AppStore = {
         id: isNaN(Number(id)) ? undefined : Number(id),
         title: item.title,
         category: item.category || 'Kegiatan',
-        imageUrl: item.image
-      } as any);
+        imageUrl: item.image,
+        isFeatured: item.isFeatured
+      });
       await AppStore.syncGalleryFromApi();
     } catch (err) {
       console.error('Remote gallery update error:', err);
+      throw err;
     }
   },
   deleteGalleryRemote: async (id: string | number) => {
@@ -320,6 +327,7 @@ export const AppStore = {
       await AppStore.syncGalleryFromApi();
     } catch (err) {
       console.error('Remote gallery delete error:', err);
+      throw err;
     }
   },
 
