@@ -100,7 +100,16 @@ export const AppStore = {
   getSiteInfo: () => {
     try {
       const data = localStorage.getItem(STORAGE_KEYS.SITE_INFO);
-      return data ? JSON.parse(data) : DEFAULT_SITE_INFO;
+      if (data) {
+        const parsed = JSON.parse(data);
+        // Jika nama lembaga atau pimpinan masih tersimpan versi lama Al-Mursyid, paksa reset ke DEFAULT_SITE_INFO Sovereign Blue
+        if (parsed.name?.includes('Al-Mursyid') || parsed.leadership?.pembina?.name?.includes('Usman')) {
+          localStorage.setItem(STORAGE_KEYS.SITE_INFO, JSON.stringify(DEFAULT_SITE_INFO));
+          return DEFAULT_SITE_INFO;
+        }
+        return parsed;
+      }
+      return DEFAULT_SITE_INFO;
     } catch {
       return DEFAULT_SITE_INFO;
     }
@@ -248,7 +257,7 @@ export const AppStore = {
           category: item.category || 'Tahfidz & Ibadah',
           image: getImageUrl(item.imageUrl || item.image_url || item.image || ''),
           date: item.date || 'Terbaru',
-          location: 'Pondok Pesantren Al-Mursyid',
+          location: 'Sovereign Blue Foundation',
           desc: item.desc || '',
           isFeatured: Boolean(item.isFeatured || item.is_featured)
         }));
@@ -273,7 +282,7 @@ export const AppStore = {
       category: (item.category as any) || 'Tahfidz & Ibadah',
       image: item.image,
       date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
-      location: 'Pondok Pesantren Al-Mursyid',
+      location: 'Sovereign Blue Foundation',
       desc: '',
       isFeatured: Boolean(item.isFeatured)
     };

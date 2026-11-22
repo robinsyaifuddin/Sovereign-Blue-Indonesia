@@ -11,7 +11,6 @@ import { useAppStoreData } from '../hooks/useAppStoreData';
 export const AboutPage: React.FC = () => {
   const { siteInfo: STORE_SITE_INFO } = useAppStoreData();
   const SITE_INFO = STORE_SITE_INFO || FALLBACK_SITE_INFO;
-  const [selectedLegalImage, setSelectedLegalImage] = useState<{ src: string; title: string } | null>(null);
   const pengurusSliderRef = useRef<HTMLDivElement>(null);
 
   const scrollPengurus = (direction: 'left' | 'right') => {
@@ -25,7 +24,7 @@ export const AboutPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-white text-slate-900 min-h-screen selection:bg-emerald-100 selection:text-emerald-900">
+    <div className="bg-white text-slate-900 min-h-screen selection:bg-sky-100 selection:text-sky-900">
       
       {/* HERO SECTION — Inspirasi Gambar 2 (Architectural Editorial Hero) */}
       <section className="relative overflow-hidden border-b border-stone-200/70 pt-8 pb-10 md:pt-12 md:pb-12">
@@ -49,7 +48,7 @@ export const AboutPage: React.FC = () => {
                 </h1>
                 
                 <p className="text-lg sm:text-xl text-stone-600 leading-relaxed font-normal">
-                  Pondok Pesantren Al-Mursyid didirikan di Tanggamus, Lampung untuk menghadirkan lingkungan belajar bebas distraksi, berdisiplin tinggi, dan berakar pada tradisi keilmuan Ahlussunnah wal Jama'ah.
+                  Sovereign Blue Foundation didirikan di Nusa Tenggara Timur, Lampung untuk menghadirkan lingkungan belajar bebas distraksi, berdisiplin tinggi, dan berakar pada tradisi keilmuan Ahlussunnah wal Jama'ah.
                 </p>
               </div>
             </div>
@@ -70,7 +69,7 @@ export const AboutPage: React.FC = () => {
                       </span>
                       <img 
                         src="/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.webp" 
-                        alt="Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama" 
+                        alt="Konservasi Laut & Kemaritiman Sovereign Blue" 
                         className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                       />
                     </div>
@@ -78,7 +77,7 @@ export const AboutPage: React.FC = () => {
                     {/* Teks Typography Grid: Pas di bawah foto kiri atas */}
                     <div className="space-y-2.5 pt-1 pr-1">
                       <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-slate-900 leading-none">
-                        TAHFIDZ<br />
+                        MARITIM<br />
                         AKHLAQ<br />
                         MANDIRI
                       </h3>
@@ -111,7 +110,7 @@ export const AboutPage: React.FC = () => {
                 {/* Teks Memanjang ke Samping di Bawah Grid Foto */}
                 <div className="pt-2.5 border-t border-stone-200/80 mt-1">
                   <p className="text-[11px] sm:text-xs uppercase font-bold tracking-wider text-stone-700 leading-snug">
-                    Menempa adab, memuliakan kalamullah, dan membina kemandirian santri di bumi Way Lalaan Tanggamus.
+                    Membangun Kemandirian Maritim & Menjaga Kedaulatan Laut Nusantara di Nusa Tenggara Timur.
                   </p>
                 </div>
 
@@ -131,7 +130,7 @@ export const AboutPage: React.FC = () => {
           <div className="lg:col-span-4 flex">
               {/* Foto Tokoh Full Frame */}
               {((typeof SITE_INFO?.leadership?.pembina === 'object' && SITE_INFO?.leadership?.pembina?.image && !SITE_INFO.leadership.pembina.image.includes('unsplash.com'))) ? (
-                <div className="w-full rounded-3xl overflow-hidden bg-stone-900 border border-emerald-900/50 shadow-md group relative min-h-[350px] lg:min-h-full">
+                <div className="w-full rounded-3xl overflow-hidden bg-stone-900 border border-sky-900/50 shadow-md group relative min-h-[350px] lg:min-h-full">
                   <img 
                     src={SITE_INFO.leadership.pembina.image} 
                     alt={typeof SITE_INFO?.leadership?.pembina === 'object' ? SITE_INFO?.leadership?.pembina?.name : SITE_INFO?.leadership?.pembina || 'Pembina Yayasan'} 
@@ -142,59 +141,59 @@ export const AboutPage: React.FC = () => {
                     <p className="text-lg font-bold tracking-tight text-white drop-shadow-sm">
                       {typeof SITE_INFO?.leadership?.pembina === 'object' ? SITE_INFO?.leadership?.pembina?.name : SITE_INFO?.leadership?.pembina}
                     </p>
-                    <p className="text-xs text-emerald-300 font-sans tracking-wide">
+                    <p className="text-xs text-sky-300 font-sans tracking-wide">
                       {(typeof SITE_INFO?.leadership?.pembina === 'object' && SITE_INFO?.leadership?.pembina?.role) ? SITE_INFO.leadership.pembina.role : 'Pembina & Pendiri Yayasan'}
                     </p>
                   </div>
                 </div>
               ) : (
-                <div className="w-full rounded-3xl overflow-hidden bg-emerald-900/30 border border-emerald-800/40 shadow-inner flex flex-col items-center justify-center p-8 text-center min-h-[350px] lg:min-h-full">
-                  <div className="w-20 h-20 rounded-full bg-emerald-800/60 border border-emerald-700/50 flex items-center justify-center text-white text-2xl font-bold mb-4 shadow-sm">
+                <div className="w-full rounded-3xl overflow-hidden bg-sky-900/30 border border-sky-800/40 shadow-inner flex flex-col items-center justify-center p-8 text-center min-h-[350px] lg:min-h-full">
+                  <div className="w-20 h-20 rounded-full bg-sky-800/60 border border-sky-700/50 flex items-center justify-center text-white text-2xl font-bold mb-4 shadow-sm">
                     {((typeof SITE_INFO?.leadership?.pembina === 'object' ? SITE_INFO?.leadership?.pembina?.name : SITE_INFO?.leadership?.pembina) || 'U').charAt(0)}
                   </div>
-                  <p className="text-xl font-bold tracking-tight text-emerald-950">
+                  <p className="text-xl font-bold tracking-tight text-sky-950">
                     {typeof SITE_INFO?.leadership?.pembina === 'object' ? SITE_INFO?.leadership?.pembina?.name : SITE_INFO?.leadership?.pembina}
                   </p>
-                  <p className="text-xs text-emerald-700 font-medium tracking-wide mt-1">
+                  <p className="text-xs text-sky-700 font-medium tracking-wide mt-1">
                     {(typeof SITE_INFO?.leadership?.pembina === 'object' && SITE_INFO?.leadership?.pembina?.role) ? SITE_INFO.leadership.pembina.role : 'Pembina & Pendiri Yayasan'}
                   </p>
                 </div>
               )}
           </div>
 
-          {/* Kolom Kanan: Slab Hijau Forest Memanjang ke Samping yang Berisi Teks Sambutan (8 Kolom) */}
-          <div className="lg:col-span-8 bg-gradient-to-br from-[#06372b] via-[#0b4839] to-[#06372b] text-white rounded-3xl rounded-tr-[80px] rounded-bl-[80px] p-6 sm:p-8 lg:p-10 flex flex-col justify-between relative overflow-hidden border border-white/10 shadow-lg space-y-6">
+          {/* Kolom Kanan: Slab Biru Azure Memanjang ke Samping yang Berisi Teks Sambutan (8 Kolom) */}
+          <div className="lg:col-span-8 bg-gradient-to-br from-[#03203c] via-[#07325b] to-[#01aafd] text-white rounded-3xl rounded-tr-[80px] rounded-bl-[80px] p-6 sm:p-8 lg:p-10 flex flex-col justify-between relative overflow-hidden border border-white/10 shadow-lg space-y-6">
             
-            {/* Header Card Hijau */}
+            {/* Header Card Biru */}
             <div className="border-b border-white/20 pb-4">
-              <span className="text-[11px] uppercase tracking-widest text-emerald-200 block font-medium">
+              <span className="text-[11px] uppercase tracking-widest text-sky-200 block font-medium">
                 Sambutan Pimpinan
               </span>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight mt-1 drop-shadow-sm">
-                Membangun Generasi Penjaga Kalamullah
+                Membangun Kemandirian & Kedaulatan Bahari
               </h3>
             </div>
 
             {/* Isi Teks Sambutan Lengkap */}
             <div className="space-y-4 text-sm sm:text-base text-white/95 leading-relaxed font-normal">
               <p className="font-semibold text-white">
-                Assalamu’alaikum Warahmatullahi Wabarakatuh.
+                Salam Hangat dari Pesisir Nusantara,
               </p>
               <p>
-                Pondok Pesantren Al-Mursyid didirikan di bawah naungan Yayasan Almursyid Tanggamus Lampung dengan tekad luhur: menyediakan lingkungan belajar yang aman, kondusif, dan sarat nilai ibadah bagi putra-putri kaum muslimin.
+                Sovereign Blue Foundation (Yayasan Biru Berdaulat) didirikan atas keyakinan bahwa masa depan kejayaan Indonesia berakar pada kekuatan lautnya dan kemandirian masyarakat pulau-pulaunya.
               </p>
               <p>
-                Melalui sinergi kurikulum diniyah pesantren, tahfidz 30 juz bersanad, dan pendidikan formal, kami membimbing para santri menjadi pribadi yang mutqin, berakhlakul karimah, serta siap berkontribusi nyata bagi agama dan bangsa.
+                Melalui sinergi empat pilar utama — ekowisata berbasis komunitas, pendidikan & literasi bahari modern bertenaga surya, kemandirian ekonomi biru, serta sains konservasi terumbu karang dan sabuk mangrove — kami berkomitmen mendampingi masyarakat pesisir kepulauan terluar agar berdaya mandiri dan berdaulat.
               </p>
               <p className="font-semibold text-white pt-1">
-                Wassalamu’alaikum Warahmatullahi Wabarakatuh.
+                Bersama Menjaga Laut, Merawat Masa Depan Bangsa.
               </p>
             </div>
 
-            {/* Footer Slab Hijau */}
-            <div className="pt-4 border-t border-white/20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-[11px] text-emerald-100/90">
-              <p>WAY LALAAN, KOTA AGUNG TIMUR</p>
-              <p className="text-emerald-200 font-bold">PROVINSI LAMPUNG</p>
+            {/* Footer Slab */}
+            <div className="pt-4 border-t border-white/20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-[11px] text-sky-100/90">
+              <p>PULAU ROTE & KAWASAN PESISIR</p>
+              <p className="text-sky-200 font-bold">NUSA TENGGARA TIMUR, INDONESIA</p>
             </div>
 
           </div>
@@ -212,107 +211,111 @@ export const AboutPage: React.FC = () => {
             {/* Sisi Kiri Atas: Headline Besar */}
             <div className="lg:col-span-5 space-y-4">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.1]">
-                Visi & Tiga<br className="hidden sm:inline" /> Pilar Misi
+                Visi & Misi<br className="hidden sm:inline" /> Strategis
               </h2>
               <p className="text-sm sm:text-base text-stone-600 leading-relaxed max-w-md pt-1">
-                Arah pandang peradaban dan langkah konkret Pondok Pesantren Al-Mursyid dalam mencetak kader huffadz dan santri berintegritas.
+                Arah gerak kedaulatan maritim dan langkah konkret Sovereign Blue Foundation dalam mendampingi masyarakat kepulauan nusantara.
               </p>
             </div>
 
-            {/* Sisi Kanan Atas: Box Slab Visi Utama (Mirip Slab Hitam Gambar 2) */}
-            <div className="lg:col-span-7 bg-gradient-to-br from-[#06372b] via-[#0b4839] to-[#06372b] text-white p-7 sm:p-9 rounded-3xl border border-white/10 shadow-lg relative overflow-hidden space-y-5">
+            {/* Sisi Kanan Atas: Box Slab Visi Utama */}
+            <div className="lg:col-span-7 bg-gradient-to-br from-[#03203c] via-[#07325b] to-[#01aafd] text-white p-7 sm:p-9 rounded-3xl border border-white/10 shadow-lg relative overflow-hidden space-y-5">
               <div className="flex items-center justify-between border-b border-white/20 pb-3">
-                <span className="text-[11px] uppercase tracking-widest text-emerald-200 font-semibold">
-                  Visi Utama Lembaga
+                <span className="text-[11px] uppercase tracking-widest text-sky-200 font-semibold">
+                  Visi Pokok Organisasi
                 </span>
-                <span className="text-[11px] text-emerald-300/80">
-                  EST. 2022
+                <span className="text-[11px] text-sky-300/80">
+                  EST. 2021
                 </span>
               </div>
 
               <blockquote className="text-lg sm:text-xl md:text-2xl font-bold leading-relaxed text-white">
-                “Menjadi Lembaga Pendidikan Islam yang Melahirkan Ulama, Hafidz, dan Pemimpin Umat yang Berakhlakul Karimah serta Berdaya Saing.”
+                “Mewujudkan kedaulatan maritim dan kemandirian masyarakat pesisir kepulauan Indonesia melalui sinergi ekowisata, pendidikan, ekonomi biru, dan konservasi laut berkelanjutan.”
               </blockquote>
 
-              <div className="pt-3 border-t border-white/20 flex flex-wrap items-center justify-between gap-4 text-[11px] text-emerald-200/90">
-                <span>PONDOK PESANTREN AL-MURSYID</span>
-                <span className="text-white font-bold">TANGGAMUS, LAMPUNG</span>
+              <div className="pt-3 border-t border-white/20 flex flex-wrap items-center justify-between gap-4 text-[11px] text-sky-200/90">
+                <span>Sovereign Blue Foundation</span>
+                <span className="text-white font-bold">NUSA TENGGARA TIMUR & JAKARTA</span>
               </div>
             </div>
 
           </div>
 
-          {/* Bottom Row: 3 Kotak Pilar Misi Membentang Horizontal ala Gambar 2 */}
+          {/* Bottom Row: 4 Kotak Pilar Misi Membentang Horizontal */}
           <div className="space-y-6">
             <div className="border-b border-stone-200 pb-3 flex items-center justify-between">
               <div className="inline-flex items-center gap-3">
-                <span className="text-xs uppercase tracking-widest text-emerald-800 font-bold block">
-                  Tiga Pilar Misi Pesantren
+                <span className="text-xs uppercase tracking-widest text-sky-800 font-bold block">
+                  Empat Misi Strategis Yayasan
                 </span>
-                <span className="h-[2px] w-14 sm:w-16 bg-emerald-600 block rounded-full"></span>
+                <span className="h-[2px] w-14 sm:w-16 bg-sky-600 block rounded-full"></span>
               </div>
-              <span className="text-xs text-stone-700">01 — 03</span>
+              <span className="text-xs text-stone-700">01 — 04</span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
               
               {/* Kotak Misi 1 */}
-              <div className="group bg-white p-6 sm:p-7 rounded-2xl border border-stone-200/80 shadow-2xs hover:shadow-md hover:border-emerald-700/40 transition-all duration-300 flex flex-col justify-between space-y-6">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-stone-100 pb-3">
-                    <span className="text-[10px] uppercase tracking-wider text-emerald-800 font-bold">Pilar I</span>
+              <div className="group bg-white p-5 rounded-2xl border border-stone-200/80 shadow-2xs hover:shadow-md hover:border-sky-700/40 transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between border-b border-stone-100 pb-2">
+                    <span className="text-[10px] uppercase tracking-wider text-sky-800 font-bold">Pilar I</span>
                     <span className="text-xs text-stone-700">01</span>
                   </div>
-                  <h4 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-800 transition-colors leading-snug">
-                    Menyelenggarakan Pendidikan Tahfidz
+                  <h4 className="text-sm font-bold text-slate-900 group-hover:text-sky-800 transition-colors leading-snug">
+                    Ekowisata Berbasis Komunitas
                   </h4>
-                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
-                    Membina hafalan Al-Qur'an secara talaqqi, ziyadah berjenjang, dan muraja'ah intensif demi mencetak santri penghafal Al-Qur'an mutqin.
+                  <p className="text-xs text-stone-600 leading-relaxed font-normal">
+                    Mengembangkan model pariwisata kepulauan terpadu berstandar GSTC yang menjunjung kearifan adat lokal.
                   </p>
-                </div>
-                <div className="pt-3 border-t-2 border-slate-900 group-hover:border-emerald-600 transition-colors flex items-center justify-between text-xs font-semibold text-slate-900 group-hover:text-emerald-700">
-                  <span>Tahfidzul Qur'an</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
 
               {/* Kotak Misi 2 */}
-              <div className="group bg-white p-6 sm:p-7 rounded-2xl border border-stone-200/80 shadow-2xs hover:shadow-md hover:border-emerald-700/40 transition-all duration-300 flex flex-col justify-between space-y-6">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-stone-100 pb-3">
-                    <span className="text-[10px] uppercase tracking-wider text-emerald-800 font-bold">Pilar II</span>
+              <div className="group bg-white p-5 rounded-2xl border border-stone-200/80 shadow-2xs hover:shadow-md hover:border-sky-700/40 transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between border-b border-stone-100 pb-2">
+                    <span className="text-[10px] uppercase tracking-wider text-sky-800 font-bold">Pilar II</span>
                     <span className="text-xs text-stone-700">02</span>
                   </div>
-                  <h4 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-800 transition-colors leading-snug">
-                    Mengintegrasikan Ilmu Agama dan Umum
+                  <h4 className="text-sm font-bold text-slate-900 group-hover:text-sky-800 transition-colors leading-snug">
+                    Pendidikan & Literasi Maritim
                   </h4>
-                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
-                    Memadukan kurikulum turats kitab kuning kepesantrenan dengan sains pendidikan nasional formal agar santri berwawasan seimbang.
+                  <p className="text-xs text-stone-600 leading-relaxed font-normal">
+                    Menyediakan akses Learning Center bertenaga surya, kurikulum kelautan, dan beasiswa penuh anak nelayan 3T.
                   </p>
-                </div>
-                <div className="pt-3 border-t-2 border-slate-900 group-hover:border-emerald-600 transition-colors flex items-center justify-between text-xs font-semibold text-slate-900 group-hover:text-emerald-700">
-                  <span>Integrasi Kurikulum</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
 
               {/* Kotak Misi 3 */}
-              <div className="group bg-white p-6 sm:p-7 rounded-2xl border border-stone-200/80 shadow-2xs hover:shadow-md hover:border-emerald-700/40 transition-all duration-300 flex flex-col justify-between space-y-6">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-stone-100 pb-3">
-                    <span className="text-[10px] uppercase tracking-wider text-emerald-800 font-bold">Pilar III</span>
+              <div className="group bg-white p-5 rounded-2xl border border-stone-200/80 shadow-2xs hover:shadow-md hover:border-sky-700/40 transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between border-b border-stone-100 pb-2">
+                    <span className="text-[10px] uppercase tracking-wider text-sky-800 font-bold">Pilar III</span>
                     <span className="text-xs text-stone-700">03</span>
                   </div>
-                  <h4 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-800 transition-colors leading-snug">
-                    Membina Kemandirian Santri
+                  <h4 className="text-sm font-bold text-slate-900 group-hover:text-sky-800 transition-colors leading-snug">
+                    Infrastruktur Ekonomi Biru
                   </h4>
-                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
-                    Menumbuhkan kedisiplinan hidup, adab akhlakul karimah, dan jiwa kepemimpinan melalui tata kehidupan asrama 24 jam.
+                  <p className="text-xs text-stone-600 leading-relaxed font-normal">
+                    Membangun rantai dingin bertenaga surya (Solar Cold Chain), hilirisasi rumput laut, dan garam artisanal mandiri.
                   </p>
                 </div>
-                <div className="pt-3 border-t-2 border-slate-900 group-hover:border-emerald-600 transition-colors flex items-center justify-between text-xs font-semibold text-slate-900 group-hover:text-emerald-700">
-                  <span>Adab & Mandiri</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+
+              {/* Kotak Misi 4 */}
+              <div className="group bg-white p-5 rounded-2xl border border-stone-200/80 shadow-2xs hover:shadow-md hover:border-sky-700/40 transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between border-b border-stone-100 pb-2">
+                    <span className="text-[10px] uppercase tracking-wider text-sky-800 font-bold">Pilar IV</span>
+                    <span className="text-xs text-stone-700">04</span>
+                  </div>
+                  <h4 className="text-sm font-bold text-slate-900 group-hover:text-sky-800 transition-colors leading-snug">
+                    Sains Konservasi Kolaboratif
+                  </h4>
+                  <p className="text-xs text-stone-600 leading-relaxed font-normal">
+                    Restorasi karang spider reef, penanaman mangrove Blue Carbon, dan gerakan Zero-Plastic Islands bebas sampah.
+                  </p>
                 </div>
               </div>
 
@@ -322,112 +325,7 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* LEGALITAS RESMI NEGARA — Exact 3-Column Editorial Layout (Gambar 2 Referensi) */}
-      <section id="legalitas" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* 3-Column Layout: Kolom 1 Teks Judul Kiri, Kolom 2 & 3 Dua Card Sejajar */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          
-          {/* KOLOM KIRI (4 Kolom): Headline Arsitektur & Narasi Pembuka */}
-          <div className="lg:col-span-4 space-y-4 sm:space-y-6 pr-0 lg:pr-4">
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight lg:leading-[1.08]">
-              Legalitas Resmi Pesantren
-            </h2>
 
-            <div className="space-y-2 pt-1 sm:pt-2">
-              <div className="inline-flex items-center gap-3">
-                <span className="text-xs uppercase tracking-widest text-emerald-800 font-bold block">
-                  PAYUNG HUKUM RESMI
-                </span>
-                <span className="h-[2px] w-14 sm:w-16 bg-emerald-600 block rounded-full"></span>
-              </div>
-              <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-normal">
-                Pondok Pesantren Al-Mursyid didirikan dan beroperasi di bawah legalitas penuh ketetapan Kementerian Agama RI serta Kementerian Hukum dan HAM Republik Indonesia.
-              </p>
-            </div>
-          </div>
-
-          {/* DUA KARTU SEJAJAR DI SAMPING KANAN */}
-          <div className="lg:col-span-8 flex justify-center lg:justify-end">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-xl w-full">
-              
-              {/* Card 1: Piagam Kemenag RI */}
-              <div className="group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between">
-                {/* Gambar Full Panjang Dokumen */}
-                <div 
-                  onClick={() => setSelectedLegalImage({ src: '/gambar/SERTIFIKAT.webp', title: 'Piagam Terdaftar Pesantren (NSP) - Kementerian Agama RI' })}
-                  className="relative w-full overflow-hidden bg-stone-100 cursor-pointer group/img"
-                >
-                  <img 
-                    src="/gambar/SERTIFIKAT.webp" 
-                    alt="Piagam Terdaftar Pesantren Kemenag RI" 
-                    className="w-full h-auto object-contain block group-hover/img:scale-[1.02] transition-transform duration-500 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/15 transition-colors flex items-center justify-center">
-                    <span className="opacity-0 group-hover/img:opacity-100 transition-opacity bg-black/70 text-white text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
-                      <ZoomIn className="w-3.5 h-3.5" /> Lihat Dokumen
-                    </span>
-                  </div>
-                </div>
-
-                {/* Footer Card Ringkas (Status/Tanggal & Tombol Modal) */}
-                <div className="p-4 border-t border-stone-200/80 flex items-center justify-between bg-stone-50/50">
-                  <div>
-                    <span className="text-[10px] text-stone-500 block uppercase tracking-wider font-semibold">Ditetapkan</span>
-                    <span className="text-xs font-bold text-slate-800">{SITE_INFO.legal.establishedDate}</span>
-                  </div>
-                  <button 
-                    type="button"
-                    onClick={() => setSelectedLegalImage({ src: '/gambar/SERTIFIKAT.webp', title: 'Piagam Terdaftar Pesantren (NSP) - Kementerian Agama RI' })}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-800 hover:bg-emerald-900 active:scale-95 text-white text-xs font-semibold shadow-2xs transition-all"
-                  >
-                    <span>Buka</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Card 2: SK Kemenkumham RI */}
-              <div className="group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between">
-                {/* Gambar Full Panjang Dokumen */}
-                <div 
-                  onClick={() => setSelectedLegalImage({ src: '/gambar/AHU.webp', title: 'Pengesahan Badan Hukum Yayasan - Kemenkumham RI' })}
-                  className="relative w-full overflow-hidden bg-stone-100 cursor-pointer group/img"
-                >
-                  <img 
-                    src="/gambar/AHU.webp" 
-                    alt="Pengesahan Badan Hukum Yayasan Kemenkumham RI" 
-                    className="w-full h-auto object-contain block group-hover/img:scale-[1.02] transition-transform duration-500 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/15 transition-colors flex items-center justify-center">
-                    <span className="opacity-0 group-hover/img:opacity-100 transition-opacity bg-black/70 text-white text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
-                      <ZoomIn className="w-3.5 h-3.5" /> Lihat Dokumen
-                    </span>
-                  </div>
-                </div>
-
-                {/* Footer Card Ringkas (Status & Tombol Modal) */}
-                <div className="p-4 border-t border-stone-200/80 flex items-center justify-between bg-stone-50/50">
-                  <div>
-                    <span className="text-[10px] text-stone-500 block uppercase tracking-wider font-semibold">Status Hukum</span>
-                    <span className="text-xs font-bold text-emerald-800">Terdaftar &amp; Aktif</span>
-                  </div>
-                  <button 
-                    type="button"
-                    onClick={() => setSelectedLegalImage({ src: '/gambar/AHU.webp', title: 'Pengesahan Badan Hukum Yayasan - Kemenkumham RI' })}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-800 hover:bg-emerald-900 active:scale-95 text-white text-xs font-semibold shadow-2xs transition-all"
-                  >
-                    <span>Buka</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </section>
 
       {/* STRUKTUR PENGURUS & DEWAN — Editorial Bento Cards (Inspirasi Gambar 2) */}
       <section id="pengurus" className="py-20 bg-stone-50/50 border-t border-stone-200/80">
@@ -437,10 +335,10 @@ export const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end">
             <div className="lg:col-span-7 space-y-2">
               <div className="inline-flex items-center gap-3">
-                <span className="text-xs uppercase tracking-widest text-emerald-800 font-bold block">
+                <span className="text-xs uppercase tracking-widest text-sky-800 font-bold block">
                   Struktur Kepengurusan
                 </span>
-                <span className="h-[2px] w-14 sm:w-16 bg-emerald-600 block rounded-full"></span>
+                <span className="h-[2px] w-14 sm:w-16 bg-sky-600 block rounded-full"></span>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 tracking-tight leading-[1.12]">
                 Amanah Dewan &amp; Pengelola Yayasan
@@ -449,11 +347,11 @@ export const AboutPage: React.FC = () => {
 
             <div className="lg:col-span-5 space-y-4 lg:text-left">
               <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-normal">
-                Sinergi dewan pembina, pengawas, dan pengurus harian dalam mengemban amanah pembinaan generasi santri yang berakhlakul karimah dan berwawasan luas.
+                Sinergi dewan pembina, pengawas, dan pengurus harian dalam mengemban amanah pemberdayaan masyarakat maritim kepulauan nusantara.
               </p>
-              <div className="flex items-center gap-6 text-xs sm:text-sm font-semibold text-emerald-800">
-                <span className="inline-flex items-center gap-1 hover:text-emerald-950 transition-colors cursor-default">
-                  Yayasan Almursyid Tanggamus &rsaquo;
+              <div className="flex items-center gap-6 text-xs sm:text-sm font-semibold text-sky-800">
+                <span className="inline-flex items-center gap-1 hover:text-sky-950 transition-colors cursor-default">
+                  Yayasan Almursyid Nusa Tenggara Timur &rsaquo;
                 </span>
                 <a href={`https://wa.me/${SITE_INFO.contacts.phone.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:underline">
                   Hubungi Sekretariat &rsaquo;
@@ -465,8 +363,8 @@ export const AboutPage: React.FC = () => {
           {/* Baris 1: Dewan Utama (Pembina & Pengawas) */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="h-2 w-2 rounded-full bg-emerald-700"></div>
-              <h3 className="text-xs uppercase tracking-widest text-emerald-800 font-bold">
+              <div className="h-2 w-2 rounded-full bg-sky-700"></div>
+              <h3 className="text-xs uppercase tracking-widest text-sky-800 font-bold">
                 Dewan Pembina &amp; Pengawas
               </h3>
             </div>
@@ -485,7 +383,7 @@ export const AboutPage: React.FC = () => {
                         loading="lazy"
                       />
                     ) : (
-                      <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-xl">
+                      <div className="w-14 h-14 rounded-full bg-sky-100 text-sky-800 font-bold flex items-center justify-center text-xl">
                         {((typeof SITE_INFO.leadership.pembina === 'object' ? SITE_INFO.leadership.pembina?.name : SITE_INFO.leadership.pembina) || 'U').charAt(0)}
                       </div>
                     )}
@@ -505,15 +403,15 @@ export const AboutPage: React.FC = () => {
                     <p className="text-xs text-stone-600 leading-relaxed font-normal">
                       {(typeof SITE_INFO.leadership.pembina === 'object' && SITE_INFO.leadership.pembina?.desc)
                         ? SITE_INFO.leadership.pembina.desc
-                        : 'Pondok Pesantren Al-Mursyid Tanggamus, pembina arah kebijakan strategis & kepesantrenan.'}
+                        : 'Sovereign Blue Foundation Nusa Tenggara Timur, pembina arah kebijakan strategis & kemaritiman.'}
                     </p>
                   </div>
                 </div>
 
                 {/* Bottom Card Footer */}
                 <div className="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
-                  <span className="text-[11px] text-stone-700">Yayasan Almursyid Tanggamus</span>
-                  <div className="w-9 h-9 rounded-full bg-emerald-800 text-white flex items-center justify-center font-bold shadow-2xs group-hover:bg-emerald-900 transition-colors">
+                  <span className="text-[11px] text-stone-700">Yayasan Almursyid Nusa Tenggara Timur</span>
+                  <div className="w-9 h-9 rounded-full bg-sky-800 text-white flex items-center justify-center font-bold shadow-2xs group-hover:bg-sky-900 transition-colors">
                     <ArrowRight className="w-4 h-4 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                   </div>
                 </div>
@@ -560,7 +458,7 @@ export const AboutPage: React.FC = () => {
                 {/* Bottom Card Footer */}
                 <div className="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
                   <span className="text-[11px] text-stone-700">Pengawasan Berkala</span>
-                  <div className="w-9 h-9 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold shadow-2xs group-hover:bg-emerald-800 transition-colors">
+                  <div className="w-9 h-9 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold shadow-2xs group-hover:bg-sky-800 transition-colors">
                     <ArrowRight className="w-4 h-4 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                   </div>
                 </div>
@@ -572,8 +470,8 @@ export const AboutPage: React.FC = () => {
           <div className="space-y-4 pt-4">
             <div className="flex items-center justify-between flex-wrap gap-2">
               <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-emerald-700"></div>
-                <h3 className="text-xs uppercase tracking-widest text-emerald-800 font-bold">
+                <div className="h-2 w-2 rounded-full bg-sky-700"></div>
+                <h3 className="text-xs uppercase tracking-widest text-sky-800 font-bold">
                   Dewan Pengurus Harian
                 </h3>
               </div>
@@ -626,7 +524,7 @@ export const AboutPage: React.FC = () => {
                           loading="lazy"
                         />
                       ) : (
-                        <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-xl">
+                        <div className="w-14 h-14 rounded-full bg-sky-100 text-sky-800 font-bold flex items-center justify-center text-xl">
                           {item.name.charAt(0)}
                         </div>
                       )}
@@ -636,7 +534,7 @@ export const AboutPage: React.FC = () => {
                     {/* Konten Teks Bawah */}
                     <div className="pt-3 px-1 flex items-end justify-between gap-2">
                       <div className="min-w-0 flex-1">
-                        <span className="text-[10px] uppercase tracking-wider text-emerald-800 font-bold block truncate">
+                        <span className="text-[10px] uppercase tracking-wider text-sky-800 font-bold block truncate">
                           {item.role}
                         </span>
                         <h4 className="text-sm sm:text-base font-bold text-slate-900 tracking-tight leading-snug line-clamp-2 mt-0.5" title={item.name}>
@@ -645,7 +543,7 @@ export const AboutPage: React.FC = () => {
                       </div>
 
                       {/* Tombol Bulat Panah */}
-                      <div className="shrink-0 w-8 h-8 rounded-full bg-white border border-stone-300 text-slate-900 flex items-center justify-center font-bold shadow-2xs group-hover:bg-emerald-800 group-hover:text-white group-hover:border-emerald-800 transition-all duration-300">
+                      <div className="shrink-0 w-8 h-8 rounded-full bg-white border border-stone-300 text-slate-900 flex items-center justify-center font-bold shadow-2xs group-hover:bg-sky-800 group-hover:text-white group-hover:border-sky-800 transition-all duration-300">
                         <ArrowRight className="w-3.5 h-3.5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                       </div>
                     </div>
@@ -657,45 +555,6 @@ export const AboutPage: React.FC = () => {
 
         </div>
       </section>
-
-      {/* MODAL LIGHTBOX PREVIEW DOKUMEN LEGALITAS */}
-      {selectedLegalImage && (
-        <div 
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
-          onClick={() => setSelectedLegalImage(null)}
-        >
-          <div 
-            className="relative bg-white rounded-2xl max-w-3xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl border border-stone-200"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header Modal */}
-            <div className="flex items-center justify-between px-5 py-3.5 border-b border-stone-200 bg-stone-50">
-              <p className="text-sm font-bold text-slate-800 line-clamp-1 pr-4">
-                {selectedLegalImage.title}
-              </p>
-              <button 
-                type="button"
-                onClick={() => setSelectedLegalImage(null)}
-                className="p-1.5 rounded-full hover:bg-stone-200 text-stone-600 hover:text-stone-900 transition-colors"
-                aria-label="Tutup"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Konten Gambar Dokumen (Scrollable jika layar kecil) */}
-            <div className="p-4 overflow-y-auto flex items-center justify-center bg-stone-100 max-h-[calc(92vh-60px)]">
-              <img 
-                src={selectedLegalImage.src} 
-                alt={selectedLegalImage.title} 
-                className="max-h-[80vh] w-auto max-w-full object-contain rounded-md shadow-md border border-stone-200 bg-white"
-              />
-            </div>
-          </div>
-        </div>
-      )}
 
     </div>
   );

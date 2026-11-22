@@ -15,55 +15,61 @@ import { getImageUrl } from '../utils/imageHelper';
 
 const HERO_SLIDES = [
   {
-    image: "/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.webp",
-    title: "Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi",
-    subtitle: "Pondok Pesantren Al-Mursyid Islamic Boarding School Tanggamus memadukan keutamaan Tahfidzul Qur'an, Madrasah Diniyah, dan Pendidikan Formal Terpadu.",
-    badge: "Penerimaan Santri Baru Telah Dibuka"
+    image: "/hero/hero1.webp",
+    title: "Pariwisata Berkelanjutan di Pulau Terluar Nusantara",
+    subtitle: "Mengembangkan potensi ekowisata berbasis komunitas yang melestarikan alam samudra dan mengangkat harkat ekonomi lokal di Nusa Tenggara Timur.",
+    badge: "GSTC-Aligned Ecotourism"
   },
   {
-    image: "/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.webp",
-    title: "Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama",
-    subtitle: "Target hafalan mutqin 30 juz diiringi penguasaan kaidah kitab klasik dan pembiasaan aktif bahasa Arab & Inggris untuk menyiapkan generasi pemimpin umat.",
-    badge: "Sanad Keilmuan Muttashil & Terakreditasi"
+    image: "/hero/hero2.webp",
+    title: "Mencerdaskan Generasi Emas Pesisir Indonesia",
+    subtitle: "Fasilitas belajar modern ramah surya, kurikulum literasi maritim digital, dan beasiswa bahari penuh untuk anak-anak kepulauan terluar.",
+    badge: "Marine Education & Literacy"
   },
   {
-    image: "/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.webp",
-    title: "Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah",
-    subtitle: "Didampingi asatidz berkompeten dalam lingkungan asrama yang asri, islami, disiplin, dan aman di kaki pegunungan Way Lalaan Tanggamus.",
-    badge: "Legalitas Terdaftar Resmi Kemenkumham & Kemenag"
+    image: "/hero/hero3.webp",
+    title: "Kedaulatan Ekonomi dari Laut Kita Sendiri",
+    subtitle: "Hilirisasi rumput laut regeneratif, fasilitas rantai dingin surya (Solar Cold Chain), dan koperasi nelayan modern terhubung pasar global.",
+    badge: "Blue Economy & Independence"
+  },
+  {
+    image: "/hero/hero4.webp",
+    title: "Merestorasi Terumbu Karang & Hutan Mangrove",
+    subtitle: "Perlindungan keanekaragaman hayati samudra, restorasi spider reef, dan mitigasi krisis iklim bersama komunitas adat kepulauan.",
+    badge: "Marine Conservation & Blue Carbon"
   }
 ];
 
 const STRIP_PILLARS = [
   {
-    icon: BookOpen,
-    title: "Tahfidzul Qur'an",
-    desc: "Target 30 Juz mutqin bersanad muttashil",
-    tag: "30 Juz"
-  },
-  {
-    icon: Award,
-    title: "Madrasah Diniyah",
-    desc: "Kajian turats salaf & fiqih tematik",
-    tag: "Kitab Kuning"
+    icon: Compass,
+    title: "Pariwisata Berkelanjutan",
+    desc: "Community-based ecotourism & sertifikasi GSTC",
+    tag: "Ekowisata"
   },
   {
     icon: GraduationCap,
-    title: "SMP & SMA Islam",
-    desc: "Kurikulum nasional terakreditasi resmi",
-    tag: "Formal"
+    title: "Pendidikan Maritim",
+    desc: "Learning center surya & beasiswa penuh pesisir",
+    tag: "Literasi Bahari"
   },
   {
-    icon: Languages,
-    title: "Bilingual Habit",
-    desc: "Aktif bahasa Arab & Inggris sehari-hari",
-    tag: "Arab & Inggris"
+    icon: Award,
+    title: "Ekonomi Biru",
+    desc: "Solar cold chain & budidaya rumput laut",
+    tag: "Kemandirian"
+  },
+  {
+    icon: ShieldCheck,
+    title: "Konservasi Laut",
+    desc: "Restorasi terumbu karang & zero plastic islands",
+    tag: "Blue Carbon"
   },
   {
     icon: HeartHandshake,
-    title: "Karakter Mandiri",
-    desc: "Adab Islami 24 jam di kaki pegunungan",
-    tag: "Boarding"
+    title: "Masyarakat Adat",
+    desc: "Pemberdayaan kearifan lokal pesisir nusantara",
+    tag: "Komunitas"
   }
 ];
 
@@ -117,92 +123,92 @@ export const HomePage: React.FC = () => {
 
   const PROGRAM_DATA = [
     {
-      id: "tahfidz",
-      category: "Program Inti",
+      id: "tourism",
+      category: "Pilar 01",
       number: "01",
-      title: "Tahfidzul Qur'an 30 Juz",
-      subtitle: "Talaqqi, Ziyadah & Sanad Muttashil",
-      desc: "Bimbingan talaqqi intensif, ziyadah hafalan baru berjenjang, serta muraja'ah 5 waktu dengan standar sanad muttashil bersama para ustadz huffadz berkompeten.",
+      title: "Pariwisata Berkelanjutan",
+      subtitle: "Community-Based Ecotourism & Sertifikasi GSTC",
+      desc: "Transformasi desa wisata ramah lingkungan, audit jejak karbon destinasi, standardisasi homestay bertenaga surya, dan sertifikasi pemandu wisata bahari.",
       highlights: [
-        "Target Mutqin 30 Juz Bersanad",
-        "Halaqah Intensif Maksimal 12 Santri",
-        "Karantina & Ujian Tasmi' Berkala",
-        "Bimbingan Tajwid & Makharijul Huruf"
+        "Sertifikasi Ekowisata Internasional GSTC",
+        "Standardisasi Homestay Berkelanjutan",
+        "Akademi Pemandu Wisata & Penyelamatan Laut",
+        "Revitalisasi Seni Musik Sasando & Tenun Ikat"
       ],
-      link: "/program#tahfidz",
-      linkLabel: "Pelajari Kurikulum Tahfidz",
-      image: "/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.webp",
-      quote: "Sebaik-baik kalian adalah yang mempelajari Al-Qur'an dan mengajarkannya.",
-      quoteSource: "HR. Bukhari",
-      icon: BookOpen,
-      badge: "Target 30 Juz Mutqin",
-      stats: { value: "12", label: "Santri / Halaqah" }
+      link: "/program#tourism",
+      linkLabel: "Pelajari Ekowisata",
+      image: "/hero/hero1.webp",
+      quote: "Pariwisata yang bermartabat adalah pariwisata yang menjaga kelestarian alam dan menyejahterakan warga lokal.",
+      quoteSource: "Prinsip Ekowisata",
+      icon: Compass,
+      badge: "GSTC Certified",
+      stats: { value: "180%", label: "Kenaikan Income Warga" }
     },
     {
-      id: "diniyah",
-      category: "Turats Salaf",
+      id: "education",
+      category: "Pilar 02",
       number: "02",
-      title: "Madrasah Diniyah",
-      subtitle: "Kajian Kitab Kuning & Dirasah Islamiyah",
-      desc: "Pendalaman komprehensif gramatika Arab (Nahwu & Sharaf), fiqih madzhab Syafi'i, aqidah Ahlussunnah wal Jama'ah, adab thalabul ilmi, serta hadits nabawi.",
+      title: "Pendidikan & Literasi Maritim",
+      subtitle: "Marine Learning Centers & Beasiswa Pesisir",
+      desc: "Pembangunan pusat belajar mandiri bertenaga surya di pulau terpencil, kurikulum sains kelautan kontekstual, dan beasiswa penuh bagi putra-putri nelayan.",
       highlights: [
-        "Metode Tradisional Sorogan & Bandongan",
-        "Pemahaman Fiqih & Aqidah Aswaja Kokoh",
-        "Kajian Kitab Jurumiyyah, Taqrib & Riyadlus Shalihin",
-        "Pembiasaan Adab & Etika Santri Nusantara"
+        "6 Unit Marine Learning Center Bertenaga Surya",
+        "Kurikulum Literasi Maritim Kontekstual",
+        "Beasiswa Penuh Jenjang SMP hingga PTN",
+        "Pelatihan Vokasi Pemuda & Teknisi Perahu"
       ],
-      link: "/program#diniyah",
-      linkLabel: "Silabus Kitab Kuning",
-      image: "/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.webp",
-      quote: "Menuntut ilmu adalah kewajiban bagi setiap muslim dan pembuka jalan ke surga.",
-      quoteSource: "HR. Ibnu Majah",
-      icon: Award,
-      badge: "Turats Pesantren",
-      stats: { value: "100%", label: "Berpijak Aswaja" }
-    },
-    {
-      id: "formal",
-      category: "Resmi Terakreditasi",
-      number: "03",
-      title: "SMP & SMA Islam",
-      subtitle: "Integrasi Kurikulum Nasional & Karakter",
-      desc: "Pendidikan formal terakreditasi resmi Kemendikbud yang mensinergikan sains modern, matematika, dan literasi teknologi dengan integritas nilai moral kepesantrenan.",
-      highlights: [
-        "Ijazah Resmi Kemendikbudristek",
-        "Laboratorium Komputer & Praktikum Sains",
-        "Persiapan Lanjut Studi ke PTN & Timur Tengah",
-        "Tenaga Pengajar Profesional Berdedikasi"
-      ],
-      link: "/program#formal",
-      linkLabel: "Kurikulum Formal & Fasilitas",
-      image: "/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.webp",
-      quote: "Pendidikan adalah senjata paling ampuh untuk mengubah dunia dan membentuk adab.",
-      quoteSource: "Visi Pendidikan",
+      link: "/program#education",
+      linkLabel: "Lihat Program Pendidikan",
+      image: "/hero/hero2.webp",
+      quote: "Mendidik generasi maritim adalah mengembalikan kedaulatan masa depan bangsa di lautan.",
+      quoteSource: "Visi Bahari",
       icon: GraduationCap,
-      badge: "Kemendikbud Resmi",
-      stats: { value: "A", label: "Standar Akreditasi" }
+      badge: "100 Siswa Lulus",
+      stats: { value: "1.200+", label: "Anak Terlayani" }
     },
     {
-      id: "bilingual",
-      category: "Global Readiness",
-      number: "04",
-      title: "Bilingual & Soft Skills",
-      subtitle: "Kecakapan Bahasa Dunia & Pengembangan Minat",
-      desc: "Pembiasaan percakapan harian Arab dan Inggris (*Yaumul Lughah*), kepanduan Pramuka, seni kaligrafi Islam kontemporer, bela diri, serta public speaking (khitobah).",
+      id: "economy",
+      category: "Pilar 03",
+      number: "03",
+      title: "Ekonomi Biru & Rantai Dingin",
+      subtitle: "Budidaya Regeneratif & Koperasi Nelayan Modern",
+      desc: "Membasmi ketergantungan nelayan pada tengkulak dengan fasilitas mesin es bertenaga surya (Solar Cold Chain), budidaya rumput laut higienis, dan hilirisasi nira lontar.",
       highlights: [
-        "Conversation Harian Bahasa Arab & Inggris",
-        "Pelatihan Khitobah 3 Bahasa & Public Speaking",
-        "Klub Seni Kaligrafi Islam & Kepanduan",
-        "Bimbingan Karakter Mandiri & Kepemimpinan"
+        "Solar Cold Chain Mesin Es Tenaga Surya",
+        "Solar Dome Dryer Rumput Laut Ekspor",
+        "Hilirisasi Gula & Nira Pohon Lontar Organik",
+        "Garam Laut Artisanal Alami Tunnel Kaca"
       ],
-      link: "/program#bilingual",
-      linkLabel: "Eksplorasi Ekstrakurikuler",
-      image: "/gambar/ekstrakurikuler.webp",
-      quote: "Bahasa adalah kunci jendela dunia, adab adalah pemandu langkah manusia.",
-      quoteSource: "Prinsip Global",
-      icon: Languages,
-      badge: "Arab & Inggris Aktif",
-      stats: { value: "24h", label: "Lingkungan Bahasa" }
+      link: "/program#economy",
+      linkLabel: "Jelajahi Ekonomi Biru",
+      image: "/hero/hero3.webp",
+      quote: "Lautan Indonesia berlimpah, kemakmurannya harus kembali penuh kepada nelayan yang merawatnya.",
+      quoteSource: "Kedaulatan Maritim",
+      icon: Award,
+      badge: "Solar Cold Chain",
+      stats: { value: "+60%", label: "Margin Nelayan" }
+    },
+    {
+      id: "environment",
+      category: "Pilar 04",
+      number: "04",
+      title: "Konservasi Lingkungan Laut",
+      subtitle: "Restorasi Karang, Blue Carbon & Zero-Plastic",
+      desc: "Transplantasi karang tahan panas spider reef, penanaman sabuk hijau mangrove penyerap karbon, dan inisiatif Bank Sampah penukar sembako bebas plastik.",
+      highlights: [
+        "15.000+ Mangrove Ditanam (Survival Rate 92%)",
+        "Restorasi Terumbu Karang Spider Reef",
+        "5 Desa Berhasil Raih Bebas Sampah Plastik",
+        "Patroli Komunitas Adat Cegah Destructive Fishing"
+      ],
+      link: "/program#environment",
+      linkLabel: "Bersama Jaga Laut",
+      image: "/hero/hero4.webp",
+      quote: "Merawat karang dan mangrove adalah menjaga benteng masa depan bumi kita dari krisis iklim.",
+      quoteSource: "Sains Konservasi",
+      icon: ShieldCheck,
+      badge: "Zero Plastic Islands",
+      stats: { value: "25 Ton", label: "Sampah Diangkat" }
     }
   ];
 
@@ -275,10 +281,10 @@ export const HomePage: React.FC = () => {
                 {/* Modern Action Buttons */}
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1">
                   <Link
-                    to="/ppdb"
-                    className="bg-aurora-btn text-white font-bold px-5 sm:px-6 py-2.5 rounded-full text-xs uppercase tracking-wider shadow-md shadow-emerald-950/20 flex items-center justify-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+                    to="/program"
+                    className="bg-aurora-btn text-white font-bold px-5 sm:px-6 py-2.5 rounded-full text-xs uppercase tracking-wider shadow-md shadow-blue-950/20 flex items-center justify-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
                   >
-                    <span>Daftar Santri Baru</span>
+                    <span>Pelajari Program</span>
                     <ArrowRight className="w-3.5 h-3.5 text-white/90" />
                   </Link>
                   
@@ -286,23 +292,12 @@ export const HomePage: React.FC = () => {
                     to="/kontak"
                     className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/30 font-semibold px-5 py-2.5 rounded-full text-xs tracking-wider flex items-center justify-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 shadow-sm"
                   >
-                    <Compass className="w-3.5 h-3.5 text-emerald-300" />
-                    <span>Lihat Lokasi Pondok</span>
+                    <Compass className="w-3.5 h-3.5 text-cyan-300" />
+                    <span>Hubungi Kami</span>
                   </Link>
                 </div>
 
-                {/* Mini Trust Bar */}
-                <div className="pt-2 border-t border-white/15 flex flex-wrap items-center gap-2.5 sm:gap-4 text-[11px] sm:text-xs text-white/90">
-                  <div className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    <span>SK Kemenkumham 2020</span>
-                  </div>
-                  <span className="text-white/40 hidden sm:inline">•</span>
-                  <div className="flex items-center gap-1.5">
-                    <Award className="w-3.5 h-3.5 text-gold-400 shrink-0" />
-                    <span>NSP Kemenag: <strong className="text-white">{SITE_INFO.legal.nsp}</strong></span>
-                  </div>
-                </div>
+
               </div>
             ))}
           </div>
@@ -357,7 +352,7 @@ export const HomePage: React.FC = () => {
               <div className="absolute inset-x-5 inset-y-4 overflow-hidden rounded-xl shadow-md border border-slate-200/80 bg-slate-100">
                 <img
                   src="/gambar/halamandepan.webp"
-                  alt="Pondok Pesantren Al-Mursyid"
+                  alt="Sovereign Blue Foundation"
                   className="w-full h-full object-cover filter contrast-[1.03]"
                 />
               </div>
@@ -403,11 +398,11 @@ export const HomePage: React.FC = () => {
           {/* Kolom Informasi & Nilai Keunggulan */}
           <div className="lg:col-span-7 space-y-6">
             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
-              Pendidikan Pesantren Modern Berakar pada <span className="text-emerald-800">Tradisi Keilmuan Salaf</span>
+              Membangun Kemandirian Maritim & <span className="text-sky-800">Menjaga Kedaulatan Laut</span>
             </h2>
 
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Yayasan Almursyid Tanggamus Lampung berikhtiar membangun pusat kaderisasi generasi Qur'ani yang kokoh dalam akidah Ahlussunnah wal Jama'ah, berwawasan global, dan berakhlaqul karimah di lingkungan asri kaki pegunungan Way Lalaan.
+              Sovereign Blue Foundation (Yayasan Biru Berdaulat) berikhtiar mewujudkan kepulauan Indonesia yang berdaya secara ekonomi, berpendidikan tinggi, dan teguh merawat keanekaragaman hayati samudra melalui model ekowisata dan energi surya terpadu.
             </p>
 
 
@@ -415,16 +410,10 @@ export const HomePage: React.FC = () => {
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link
                 to="/tentang-kami"
-                className="inline-flex items-center gap-2 bg-emerald-900 hover:bg-emerald-850 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md transition-all hover:-translate-y-0.5 active:scale-95"
+                className="inline-flex items-center gap-2 bg-sky-900 hover:bg-sky-850 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md transition-all hover:-translate-y-0.5 active:scale-95"
               >
                 <span>Baca Profil & Visi Misi</span>
-                <ArrowRight className="w-4 h-4 text-emerald-300" />
-              </Link>
-              <Link
-                to="/tentang-kami#legalitas"
-                className="inline-flex items-center gap-2 border border-slate-300 hover:border-emerald-800 text-slate-700 hover:text-emerald-900 font-semibold text-xs px-5 py-3.5 rounded-full transition-colors bg-white"
-              >
-                <span>Dokumen Legalitas Yayasan</span>
+                <ArrowRight className="w-4 h-4 text-sky-300" />
               </Link>
             </div>
 
@@ -440,10 +429,10 @@ export const HomePage: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-slate-200">
             <div className="space-y-1.5">
               <div className="inline-flex items-center gap-3">
-                <span className="text-xs font-bold text-emerald-800 uppercase tracking-widest block">
-                  Kurikulum & Pendidikan
+                <span className="text-xs font-bold text-sky-800 uppercase tracking-widest block">
+                  Empat Pilar Utama
                 </span>
-                <span className="h-[2px] w-16 bg-emerald-600 block rounded-full"></span>
+                <span className="h-[2px] w-16 bg-sky-600 block rounded-full"></span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900">
                 Program Unggulan.
@@ -451,14 +440,14 @@ export const HomePage: React.FC = () => {
             </div>
             <div className="max-w-md">
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                Keseimbangan mutqin tahfidz Al-Qur'an, kedalaman turats kitab kuning salaf, kurikulum resmi terpadu, dan kecakapan bahasa global.
+                Sinergi pariwisata berkelanjutan, pendidikan maritim modern, hilirisasi ekonomi biru berbasis tenaga surya, dan restorasi ekosistem laut nusantara.
               </p>
             </div>
           </div>
 
           {/* Interactive instruction hint positioned right above the cards */}
           <div className="flex items-center gap-2 text-xs text-slate-500 font-medium -mb-6">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-sky-600 animate-pulse"></span>
             <span>Klik kartu untuk membuka detail program</span>
           </div>
 
@@ -480,8 +469,8 @@ export const HomePage: React.FC = () => {
                   onClick={() => setActiveProgram(idx)}
                   className={`group/card relative overflow-hidden cursor-pointer transition-[flex] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-2xl ${heightClass} ${
                     isSelected 
-                      ? 'flex-[3.2] bg-gradient-to-br from-[#06372b] via-[#0b4839] to-[#28594d] text-white shadow-2xl border border-emerald-500/30 ring-1 ring-emerald-400/20' 
-                      : 'flex-1 bg-gradient-to-b from-[#e8f0ec] via-[#d7e5de] to-[#c2d6cc] text-slate-800 border border-emerald-200/60 hover:bg-emerald-900/90 hover:border-emerald-600 hover:shadow-lg'
+                      ? 'flex-[3.2] bg-gradient-to-br from-[#03203c] via-[#07325b] to-[#01aafd] text-white shadow-2xl border border-sky-400/40 ring-1 ring-sky-400/30' 
+                      : 'flex-1 bg-gradient-to-b from-[#f0f9ff] via-[#e0f2fe] to-[#bae6fd] text-slate-800 border border-sky-200/60 hover:bg-sky-900/90 hover:border-sky-500 hover:shadow-lg'
                   }`}
                 >
                   {/* Background Image with overlay */}
@@ -489,13 +478,13 @@ export const HomePage: React.FC = () => {
                     src={prog.image}
                     alt={prog.title}
                     className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${
-                      isSelected ? 'scale-105 opacity-25 filter contrast-125' : 'opacity-15 filter grayscale group-hover/card:opacity-30 group-hover/card:scale-105'
+                      isSelected ? 'scale-105 opacity-40 filter contrast-125' : 'opacity-30 filter group-hover/card:opacity-45 group-hover/card:scale-105'
                     }`}
                   />
                   <div className={`absolute inset-0 transition-opacity duration-500 ${
                     isSelected 
-                      ? 'bg-gradient-to-t from-[#06372b]/95 via-[#0b4839]/80 to-transparent' 
-                      : 'bg-gradient-to-t from-[#c2d6cc]/80 via-[#d7e5de]/40 to-white/40 group-hover/card:bg-gradient-to-t group-hover/card:from-[#06372b]/90 group-hover/card:via-[#0b4839]/80 group-hover/card:to-[#0b4839]/70'
+                      ? 'bg-gradient-to-t from-[#03203c]/95 via-[#07325b]/80 to-transparent' 
+                      : 'bg-gradient-to-t from-[#021b35]/85 via-[#07325b]/60 to-transparent group-hover/card:bg-gradient-to-t group-hover/card:from-[#03203c]/95 group-hover/card:via-[#07325b]/85 group-hover/card:to-[#07325b]/70'
                   }`} />
 
                   {/* KONDISI EXPANDED: Melebar ke Samping dengan Emerald Gradient & Glass Tiles */}
@@ -571,11 +560,11 @@ export const HomePage: React.FC = () => {
                     /* KONDISI COLLAPSED: Strip Vertikal Hijau Keputihan dengan Teks Bersih & Hover State Hijau */
                     <div className="relative z-10 h-full p-5 flex flex-col justify-between items-center text-center transition-colors duration-300">
                       <div className="flex flex-col items-center gap-2.5">
-                        <span className="text-sm font-bold text-emerald-950 group-hover/card:text-white transition-colors">
+                        <span className="text-sm font-bold text-sky-950 group-hover/card:text-white transition-colors">
                           {prog.number}
                         </span>
                         {/* Icon murni tanpa shape kaku */}
-                        <IconComp className="w-3.5 h-3.5 text-emerald-900 group-hover/card:text-emerald-200 stroke-[2] transition-colors" />
+                        <IconComp className="w-3.5 h-3.5 text-sky-900 group-hover/card:text-sky-200 stroke-[2] transition-colors" />
                       </div>
 
                       {/* Icon klik murni tanpa shape bulatan, berwarna putih */}
@@ -588,16 +577,16 @@ export const HomePage: React.FC = () => {
 
                       {/* Teks Vertikal Reguler Selaras */}
                       <div className="[writing-mode:vertical-rl] rotate-180 flex items-center gap-2.5 transition-colors">
-                        <span className="text-[10px] uppercase tracking-widest text-emerald-800/80 group-hover/card:text-emerald-200/90 font-normal">
+                        <span className="text-[10px] uppercase tracking-widest text-sky-800/80 group-hover/card:text-sky-200/90 font-normal">
                           {prog.category}
                         </span>
-                        <span className="text-xs font-semibold text-emerald-950 group-hover/card:text-white tracking-wide whitespace-nowrap">
+                        <span className="text-xs font-semibold text-sky-950 group-hover/card:text-white tracking-wide whitespace-nowrap">
                           {prog.title}
                         </span>
                       </div>
 
                       {/* Indicator titik hijau segar */}
-                      <div className="w-2 h-2 rounded-full bg-emerald-700/60 group-hover/card:bg-emerald-400 group-hover/card:scale-125 transition-all" />
+                      <div className="w-2 h-2 rounded-full bg-sky-700/60 group-hover/card:bg-sky-400 group-hover/card:scale-125 transition-all" />
                     </div>
                   )}
                 </div>
@@ -616,12 +605,19 @@ export const HomePage: React.FC = () => {
                   onClick={() => setActiveProgram(idx)}
                   className={`group/mcard rounded-2xl border transition-all duration-300 overflow-hidden cursor-pointer ${
                     isSelected 
-                      ? 'bg-gradient-to-br from-[#06372b] via-[#0b4839] to-[#28594d] text-white border-emerald-500/30 shadow-2xl' 
-                      : 'bg-white text-slate-800 border-slate-200 hover:bg-[#0b4839] hover:text-white hover:border-emerald-600 shadow-sm'
+                      ? 'bg-gradient-to-br from-[#03203c] via-[#07325b] to-[#01aafd] text-white border-sky-400/40 shadow-2xl' 
+                      : 'bg-white text-slate-800 border-slate-200 hover:bg-[#07325b] hover:text-white hover:border-sky-500 shadow-sm'
                   }`}
                 >
-                  <div className="p-5 sm:p-6 space-y-4">
-                    <div className={`flex items-center justify-between border-b pb-3 ${isSelected ? 'border-white/20' : 'border-slate-100 group-hover/mcard:border-white/20'}`}>
+                  <div className="relative overflow-hidden">
+                    {/* Background image preview on mobile card */}
+                    <img 
+                      src={prog.image} 
+                      alt={prog.title} 
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isSelected ? 'opacity-25' : 'opacity-15'}`} 
+                    />
+                    <div className="relative z-10 p-5 sm:p-6 space-y-4">
+                      <div className={`flex items-center justify-between border-b pb-3 ${isSelected ? 'border-white/20' : 'border-slate-100 group-hover/mcard:border-white/20'}`}>
                       <div className="flex items-center gap-2.5">
                         <span className={`text-lg font-bold ${isSelected ? 'text-white' : 'text-slate-400 group-hover/mcard:text-white'}`}>
                           {prog.number}.
@@ -632,7 +628,7 @@ export const HomePage: React.FC = () => {
                       </div>
                       <div className="flex items-center gap-2">
                         {!isSelected && (
-                          <span className="text-[10px] py-0.5 px-2 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 group-hover/mcard:bg-white/20 group-hover/mcard:text-white group-hover/mcard:border-white/30 font-medium">
+                          <span className="text-[10px] py-0.5 px-2 rounded-full bg-sky-50 text-sky-800 border border-sky-200 group-hover/mcard:bg-white/20 group-hover/mcard:text-white group-hover/mcard:border-white/30 font-medium">
                             Klik kartu
                           </span>
                         )}
@@ -674,6 +670,7 @@ export const HomePage: React.FC = () => {
                       </div>
                     )}
                   </div>
+                  </div>
                 </div>
               );
             })}
@@ -693,16 +690,16 @@ export const HomePage: React.FC = () => {
             <div className="lg:col-span-7 w-full max-w-[560px] lg:max-w-[620px] mx-auto lg:mx-0">
               <div className="space-y-3.5">
                 {/* Accent mini header dengan tombol Jelajahi Galeri di kanan atas */}
-                <div className="flex items-center justify-between pb-1.5 border-b border-emerald-900/10">
-                  <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-emerald-900/80">
+                <div className="flex items-center justify-between pb-1.5 border-b border-sky-900/10">
+                  <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-sky-900/80">
                     Dokumentasi & Kampus
                   </span>
                   <Link
                     to="/galeri"
-                    className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-emerald-900 hover:text-emerald-700 transition-colors group"
+                    className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-sky-900 hover:text-sky-700 transition-colors group"
                   >
                     <span>Jelajahi Galeri</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-emerald-800 group-hover:translate-x-0.5 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 text-sky-800 group-hover:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>
 
@@ -727,9 +724,9 @@ export const HomePage: React.FC = () => {
                         loading="lazy"
                         onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                       />
-                      <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                      <div className="absolute inset-0 bg-sky-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
-                          <ZoomIn className="w-3.5 h-3.5 text-emerald-950" />
+                          <ZoomIn className="w-3.5 h-3.5 text-sky-950" />
                         </div>
                       </div>
                     </div>
@@ -748,9 +745,9 @@ export const HomePage: React.FC = () => {
                         loading="lazy"
                         onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                       />
-                      <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                      <div className="absolute inset-0 bg-sky-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
-                          <ZoomIn className="w-3.5 h-3.5 text-emerald-950" />
+                          <ZoomIn className="w-3.5 h-3.5 text-sky-950" />
                         </div>
                       </div>
                     </div>
@@ -769,9 +766,9 @@ export const HomePage: React.FC = () => {
                         loading="lazy"
                         onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                       />
-                      <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                      <div className="absolute inset-0 bg-sky-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
-                          <ZoomIn className="w-3.5 h-3.5 text-emerald-950" />
+                          <ZoomIn className="w-3.5 h-3.5 text-sky-950" />
                         </div>
                       </div>
                     </div>
@@ -791,9 +788,9 @@ export const HomePage: React.FC = () => {
                         loading="lazy"
                         onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                       />
-                      <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                      <div className="absolute inset-0 bg-sky-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
-                          <ZoomIn className="w-3.5 h-3.5 text-emerald-950" />
+                          <ZoomIn className="w-3.5 h-3.5 text-sky-950" />
                         </div>
                       </div>
                     </div>
@@ -813,9 +810,9 @@ export const HomePage: React.FC = () => {
                         loading="lazy"
                         onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
                       />
-                      <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                      <div className="absolute inset-0 bg-sky-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
-                          <ZoomIn className="w-3.5 h-3.5 text-emerald-950" />
+                          <ZoomIn className="w-3.5 h-3.5 text-sky-950" />
                         </div>
                       </div>
                     </div>
@@ -832,7 +829,7 @@ export const HomePage: React.FC = () => {
                 <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-slate-100">
                   <img
                     src={getImageUrl(ppdbSettings?.heroImage, "/gambar/halamandepan.webp")}
-                    alt="Poster PPDB Pondok Pesantren Al-Mursyid"
+                    alt="Poster PPDB Sovereign Blue Foundation"
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
                     onError={(e) => {
@@ -847,13 +844,13 @@ export const HomePage: React.FC = () => {
                 {/* Bottom Bar: Action Ringkas & Sejajar */}
                 <div className="pt-3 pb-0.5 px-0.5 flex items-center justify-between gap-2">
                   <span className="text-[12px] text-slate-500">
-                    Mau daftar <strong className="font-semibold text-slate-900">sekarang?</strong>
+                    Ingin terhubung <strong className="font-semibold text-slate-900">dengan kami?</strong>
                   </span>
                   <Link
-                    to="/ppdb"
-                    className="inline-flex items-center gap-1.5 bg-emerald-900 hover:bg-emerald-950 text-white text-[11px] font-semibold px-3.5 py-1.5 rounded-full transition-all active:scale-95 shadow-xs shrink-0"
+                    to="/kontak"
+                    className="inline-flex items-center gap-1.5 bg-blue-900 hover:bg-blue-950 text-white text-[11px] font-semibold px-3.5 py-1.5 rounded-full transition-all active:scale-95 shadow-xs shrink-0"
                   >
-                    <span>PPDB Online</span>
+                    <span>Hubungi Kami</span>
                     <ArrowRight className="w-3 h-3 text-white/90" />
                   </Link>
                 </div>
@@ -865,222 +862,9 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. FASILITAS KAMPUS (Mood Board / Arch Bento Style ala Gambar 2) */}
-      <section className="pt-2 pb-16 lg:pt-4 lg:pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Mood Board Layout - Bersih Tanpa Shape Background */}
-        <div className="p-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            {/* Sisi Kiri: Editorial Spec Sheet & Bullet Points */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <div>
-                  <div className="inline-flex items-center gap-3 mb-1.5">
-                    <span className="text-xs font-bold text-emerald-800 uppercase tracking-widest block">
-                      Sarana & Prasarana
-                    </span>
-                    <span className="h-[2px] w-14 sm:w-16 bg-emerald-600 block rounded-full"></span>
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-emerald-950 tracking-tight leading-tight">
-                    Lingkungan Belajar Asri & Representatif
-                  </h3>
-                </div>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  Kawasan sejuk di kaki pegunungan Way Lalaan Tanggamus, dirancang untuk mendukung kenyamanan santri dalam menghafal Al-Qur'an dan beraktivitas.
-                </p>
 
-                {/* Key Checklist Points ala Gambar Unggulan (Hijau Lembut) */}
-                <div className="space-y-3 pt-3 border-t border-emerald-200/60">
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full border border-emerald-600/40 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 bg-emerald-50/80">
-                      <svg className="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-semibold text-emerald-950">Masjid Jami' Berkapasitas Luas</h4>
-                      <p className="text-[11px] text-slate-500 leading-normal">Pusat shalat berjamaah 5 waktu, kajian turats, dan halaqah tahfidz.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full border border-emerald-600/40 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 bg-emerald-50/80">
-                      <svg className="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-semibold text-emerald-950">Asrama Putra & Putri Terpisah</h4>
-                      <p className="text-[11px] text-slate-500 leading-normal">Hunian aman bertata tertib disiplin dengan pengawasan musyrif 24 jam.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full border border-emerald-600/40 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 bg-emerald-50/80">
-                      <svg className="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-semibold text-emerald-950">Lingkungan Asri & Nyaman</h4>
-                      <p className="text-[11px] text-slate-500 leading-normal">Kawasan hijau sejuk bebas polusi dan kebisingan di lereng pegunungan.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Mood/Palette Circles & Button Lihat Semua Fasilitas */}
-              <div className="pt-4 border-t border-emerald-200/60 flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#e8f0ec] border border-emerald-200/60 shadow-xs" title="Soft Sage"></span>
-                  <span className="w-5 h-5 rounded-full bg-[#c2d6cc] border border-emerald-300/60 shadow-xs" title="Mint Moss"></span>
-                  <span className="w-5 h-5 rounded-full bg-[#0b4839] border border-emerald-700/40 shadow-xs" title="Deep Forest"></span>
-                  <span className="w-5 h-5 rounded-full bg-[#06372b] border border-emerald-900/60 shadow-xs" title="Emerald Night"></span>
-                </div>
-                <Link
-                  to="/fasilitas"
-                  className="inline-flex items-center gap-1.5 text-xs font-medium text-white hover:text-white bg-emerald-800 hover:bg-emerald-700 active:scale-[0.98] border border-emerald-700 px-4 py-2 rounded-full transition-all shadow-sm"
-                >
-                  <span>Lihat Semua Fasilitas</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Sisi Kanan: Mood Board Arch Gallery (Frame lebih ringkas & proporsional) */}
-            <div className="lg:col-span-7 flex flex-col gap-4">
-              
-              {/* Top Row: Arch Top (Kubah Melengkung Atas) */}
-              <div 
-                onClick={() => setPreviewModal({ image: FACILITIES[0].image, title: FACILITIES[0].name, category: FACILITIES[0].category })}
-                className="relative group overflow-hidden bg-slate-200 shadow-sm hover:shadow-md border border-slate-200/80 rounded-t-[70px] sm:rounded-t-[90px] rounded-b-xl h-48 sm:h-56 cursor-pointer transition-all duration-300"
-                role="button"
-                tabIndex={0}
-                aria-label={`Lihat foto ${FACILITIES[0].name}`}
-              >
-                <img
-                  src={FACILITIES[0].image}
-                  alt={FACILITIES[0].name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex flex-col justify-end p-5 text-white">
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-emerald-300">
-                    {FACILITIES[0].category}
-                  </span>
-                  <h4 className="text-base sm:text-lg font-bold mt-0.5">
-                    {FACILITIES[0].name}
-                  </h4>
-                </div>
-                {/* Hover overlay hint */}
-                <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                  <div className="w-10 h-10 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
-                    <ZoomIn className="w-4 h-4 text-emerald-950" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Row: 3 Kolom dengan Pola Bentuk Gambar 2 */}
-              <div className="grid grid-cols-1 sm:grid-cols-12 gap-3.5 items-stretch">
-                
-                {/* 1. Left: Arch Top-Left Curve */}
-                <div 
-                  onClick={() => setPreviewModal({ image: FACILITIES[1].image, title: FACILITIES[1].name, category: FACILITIES[1].category })}
-                  className="sm:col-span-4 relative group overflow-hidden bg-slate-200 shadow-sm hover:shadow-md border border-slate-200/80 rounded-tl-[50px] rounded-xl h-[160px] cursor-pointer transition-all duration-300"
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`Lihat foto ${FACILITIES[1].name}`}
-                >
-                  <img
-                    src={FACILITIES[1].image}
-                    alt={FACILITIES[1].name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-3 text-white">
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-emerald-300">
-                      {FACILITIES[1].category}
-                    </span>
-                    <h4 className="text-[11px] sm:text-xs font-bold mt-0.5 line-clamp-2">
-                      {FACILITIES[1].name}
-                    </h4>
-                  </div>
-                  <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                    <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
-                      <ZoomIn className="w-3.5 h-3.5 text-emerald-950" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* 2. Center: Arch Top + Round Badge Overlay */}
-                <div 
-                  onClick={() => setPreviewModal({ image: FACILITIES[2].image, title: FACILITIES[2].name, category: FACILITIES[2].category })}
-                  className="sm:col-span-4 relative group overflow-hidden bg-slate-200 shadow-sm hover:shadow-md border border-slate-200/80 rounded-t-[50px] rounded-b-xl h-[160px] cursor-pointer transition-all duration-300"
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`Lihat foto ${FACILITIES[2].name}`}
-                >
-                  <img
-                    src={FACILITIES[2].image}
-                    alt={FACILITIES[2].name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  {/* Floating badge */}
-                  <div className="absolute top-1.5 right-1.5 w-10 h-10 rounded-full bg-forest-900 text-white flex flex-col items-center justify-center font-bold shadow-md border border-white text-center leading-none z-10 pointer-events-none">
-                    <span className="text-[10px] font-bold">100%</span>
-                    <span className="text-[7px] uppercase tracking-tighter opacity-90">Asri</span>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-3 text-white">
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-emerald-300">
-                      {FACILITIES[2].category}
-                    </span>
-                    <h4 className="text-[11px] sm:text-xs font-bold mt-0.5 line-clamp-1">
-                      {FACILITIES[2].name}
-                    </h4>
-                  </div>
-                  <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                    <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
-                      <ZoomIn className="w-3.5 h-3.5 text-emerald-950" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* 3. Right: Arch Top-Right Curve */}
-                <div 
-                  onClick={() => setPreviewModal({ image: FACILITIES[3].image, title: FACILITIES[3].name, category: FACILITIES[3].category })}
-                  className="sm:col-span-4 relative group overflow-hidden bg-slate-200 shadow-sm hover:shadow-md border border-slate-200/80 rounded-tr-[50px] rounded-xl h-[160px] cursor-pointer transition-all duration-300"
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`Lihat foto ${FACILITIES[3].name}`}
-                >
-                  <img
-                    src={FACILITIES[3].image}
-                    alt={FACILITIES[3].name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-3 text-white">
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-emerald-300">
-                      {FACILITIES[3].category}
-                    </span>
-                    <h4 className="text-[11px] sm:text-xs font-bold mt-0.5 line-clamp-1">
-                      {FACILITIES[3].name}
-                    </h4>
-                  </div>
-                  <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                    <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
-                      <ZoomIn className="w-3.5 h-3.5 text-emerald-950" />
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 7. BERITA & KEGIATAN PESANTREN */}
+      {/* 7. BERITA & CERITA MARITIM */}
       <section className="py-12 md:py-16 bg-slate-50/70 border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
@@ -1107,7 +891,7 @@ export const HomePage: React.FC = () => {
                   <span className="bg-[#059669] text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded shadow-sm">
                     {currentNewsSlide.category}
                   </span>
-                  <span className="text-emerald-300 text-[11px] font-semibold tracking-wide">
+                  <span className="text-sky-300 text-[11px] font-semibold tracking-wide">
                     {currentNewsSlide.subCategory || "Kabar Pilihan"}
                   </span>
                 </div>
@@ -1124,7 +908,7 @@ export const HomePage: React.FC = () => {
                 <div className="pt-1.5 flex flex-wrap items-center justify-between gap-4">
                   <Link 
                     to={`/berita/${createSlug(currentNewsSlide.title)}`}
-                    className="inline-flex items-center gap-2 bg-white text-slate-900 hover:bg-emerald-500 hover:text-white px-4 py-2 rounded-full text-xs font-bold transition-all shadow-sm active:scale-[0.98]"
+                    className="inline-flex items-center gap-2 bg-white text-slate-900 hover:bg-sky-500 hover:text-white px-4 py-2 rounded-full text-xs font-bold transition-all shadow-sm active:scale-[0.98]"
                   >
                     <span>Baca Selengkapnya</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -1139,7 +923,7 @@ export const HomePage: React.FC = () => {
                         aria-label={`Slide ${dotIdx + 1}`}
                         className={`h-1.5 transition-all rounded-full ${
                           dotIdx === newsHeroIndex 
-                            ? 'w-5 bg-emerald-400' 
+                            ? 'w-5 bg-sky-400' 
                             : 'w-2 bg-white/40 hover:bg-white/70'
                         }`}
                       />
@@ -1154,14 +938,14 @@ export const HomePage: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></div>
+                    <div className="w-2 h-2 rounded-full bg-sky-600 animate-pulse"></div>
                     <h3 className="font-bold text-xs tracking-wide text-slate-900 uppercase">
                       Postingan Terbaru
                     </h3>
                   </div>
                   <Link 
                     to="/berita" 
-                    className="text-[11px] font-semibold text-emerald-700 hover:text-emerald-800 transition-colors"
+                    className="text-[11px] font-semibold text-sky-700 hover:text-sky-800 transition-colors"
                   >
                     Lihat Semua
                   </Link>
@@ -1195,11 +979,11 @@ export const HomePage: React.FC = () => {
                         </div>
 
                         <div className="flex-1 min-w-0 space-y-0.5">
-                          <h4 className="text-xs font-semibold text-slate-800 line-clamp-2 leading-snug group-hover:text-emerald-700 transition-colors">
+                          <h4 className="text-xs font-semibold text-slate-800 line-clamp-2 leading-snug group-hover:text-sky-700 transition-colors">
                             {post.title}
                           </h4>
                           <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
-                            <span className="text-emerald-700 font-semibold">{post.category}</span>
+                            <span className="text-sky-700 font-semibold">{post.category}</span>
                             <span>•</span>
                             <span className="flex items-center gap-1">
                               <Clock className="w-2.5 h-2.5 text-slate-400" />
@@ -1216,9 +1000,9 @@ export const HomePage: React.FC = () => {
               <div className="pt-3 mt-2 border-t border-slate-100 text-center">
                 <Link 
                   to="/berita" 
-                  className="text-xs text-emerald-700 font-semibold hover:text-emerald-800 inline-flex items-center gap-1 transition-colors"
+                  className="text-xs text-sky-700 font-semibold hover:text-sky-800 inline-flex items-center gap-1 transition-colors"
                 >
-                  <span>Jelajahi seluruh kabar pondok</span>
+                  <span>Jelajahi seluruh kabar maritim</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -1266,7 +1050,7 @@ export const HomePage: React.FC = () => {
               {previewModal.id && (
                 <Link
                   to={`/galeri?photo=${encodeURIComponent(previewModal.id)}`}
-                  className="absolute top-3 right-3 bg-black/60 hover:bg-emerald-800 text-white backdrop-blur-md px-3 py-1.5 rounded-full text-[11px] font-semibold flex items-center gap-1.5 transition-colors shadow-sm"
+                  className="absolute top-3 right-3 bg-black/60 hover:bg-sky-800 text-white backdrop-blur-md px-3 py-1.5 rounded-full text-[11px] font-semibold flex items-center gap-1.5 transition-colors shadow-sm"
                   onClick={() => setPreviewModal(null)}
                 >
                   <span>Buka di Galeri</span>
@@ -1276,8 +1060,8 @@ export const HomePage: React.FC = () => {
 
               {/* Floating Judul Pojok Kanan Bawah */}
               <div className="absolute bottom-0 right-0 bg-white pt-2.5 pb-2 px-4 rounded-tl-[18px] shadow-sm max-w-[88%] sm:max-w-[78%]">
-                <span className="text-[10px] uppercase font-bold text-emerald-800 tracking-wider block">
-                  Al-Mursyid
+                <span className="text-[10px] uppercase font-bold text-sky-800 tracking-wider block">
+                  Sovereign Blue
                 </span>
                 <h3 className="text-xs sm:text-sm font-bold text-stone-900 tracking-tight leading-snug truncate">
                   {previewModal.title}

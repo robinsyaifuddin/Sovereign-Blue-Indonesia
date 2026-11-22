@@ -60,11 +60,11 @@ export const NewsPage: React.FC = () => {
                   )}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-[12px] font-semibold text-slate-800 line-clamp-1 leading-snug group-hover/card:text-emerald-700 transition-colors">
+                  <h4 className="text-[12px] font-semibold text-slate-800 line-clamp-1 leading-snug group-hover/card:text-sky-700 transition-colors">
                     {item.title}
                   </h4>
                   <div className="flex items-center gap-1.5 mt-0.5 text-[11px] text-slate-400">
-                    <span className="font-semibold text-emerald-700">{item.category}</span>
+                    <span className="font-semibold text-sky-700">{item.category}</span>
                     <span>•</span>
                     <span>{item.timeAgo || item.date || 'Baru saja'}</span>
                   </div>
@@ -98,10 +98,10 @@ export const NewsPage: React.FC = () => {
 
             <div className="relative z-10 space-y-4 max-w-2xl">
               <div className="inline-flex items-center gap-2">
-                <span className="bg-emerald-600 text-white text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-md shadow-sm">
+                <span className="bg-sky-600 text-white text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-md shadow-sm">
                   {currentSlide.category}
                 </span>
-                <span className="text-emerald-300 text-xs font-semibold tracking-wide">
+                <span className="text-sky-300 text-xs font-semibold tracking-wide">
                   {currentSlide.subCategory || "Kabar Pilihan"}
                 </span>
               </div>
@@ -117,7 +117,7 @@ export const NewsPage: React.FC = () => {
               <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
                 <Link 
                   to={`/berita/${currentSlide.slug || createSlug(currentSlide.title)}`}
-                  className="inline-flex items-center gap-2 bg-white text-slate-900 hover:bg-emerald-500 hover:text-white px-5 py-2.5 rounded-full text-xs font-bold transition-all shadow-sm active:scale-[0.98]"
+                  className="inline-flex items-center gap-2 bg-white text-slate-900 hover:bg-sky-500 hover:text-white px-5 py-2.5 rounded-full text-xs font-bold transition-all shadow-sm active:scale-[0.98]"
                 >
                   <span>Baca Selengkapnya</span>
                   <ArrowRight className="w-4 h-4" />
@@ -131,7 +131,7 @@ export const NewsPage: React.FC = () => {
                       aria-label={`Slide ${dotIdx + 1}`}
                       className={`h-1.5 transition-all rounded-full ${
                         dotIdx === heroIndex 
-                          ? 'w-6 bg-emerald-400' 
+                          ? 'w-6 bg-sky-400' 
                           : 'w-2 bg-white/40 hover:bg-white/70'
                       }`}
                     />
@@ -146,7 +146,7 @@ export const NewsPage: React.FC = () => {
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></div>
+                  <div className="w-2 h-2 rounded-full bg-sky-600 animate-pulse"></div>
                   <h3 className="font-bold text-sm tracking-wide text-slate-900 uppercase">
                     Postingan Terbaru
                   </h3>
@@ -179,11 +179,11 @@ export const NewsPage: React.FC = () => {
                       </div>
 
                       <div className="flex-1 min-w-0 space-y-1">
-                        <h4 className="text-xs font-semibold text-slate-800 line-clamp-2 leading-snug group-hover:text-emerald-700 transition-colors">
+                        <h4 className="text-xs font-semibold text-slate-800 line-clamp-2 leading-snug group-hover:text-sky-700 transition-colors">
                           {post.title}
                         </h4>
                         <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
-                          <span className="text-emerald-700 font-semibold">{post.category}</span>
+                          <span className="text-sky-700 font-semibold">{post.category}</span>
                           <span>•</span>
                           <span className="flex items-center gap-1">
                             <Clock className="w-2.5 h-2.5 text-slate-400" />
@@ -205,7 +205,7 @@ export const NewsPage: React.FC = () => {
           <section className="space-y-5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="w-1.5 h-4 bg-emerald-600 rounded-full"></div>
+                <div className="w-1.5 h-4 bg-sky-600 rounded-full"></div>
                 <h3 className="text-lg font-bold text-slate-900 tracking-tight">
                   Kabar Terhangat
                 </h3>
@@ -230,10 +230,10 @@ export const NewsPage: React.FC = () => {
                 ) : null}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-slate-950/30"></div>
                 <div className="relative z-10 space-y-2.5">
-                  <span className="inline-block bg-emerald-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded shadow-sm">
+                  <span className="inline-block bg-sky-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded shadow-sm">
                     {hotLead.category}
                   </span>
-                  <h4 className="text-base sm:text-lg font-bold text-white leading-snug group-hover:text-emerald-300 transition-colors">
+                  <h4 className="text-base sm:text-lg font-bold text-white leading-snug group-hover:text-sky-300 transition-colors">
                     {hotLead.title}
                   </h4>
                   <p className="text-[11px] text-slate-300 flex items-center gap-1">
@@ -263,10 +263,10 @@ export const NewsPage: React.FC = () => {
                     ) : null}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-slate-950/30"></div>
                     <div className="relative z-10 space-y-1.5">
-                      <span className="inline-block bg-slate-900/80 backdrop-blur-sm border border-white/20 text-emerald-300 text-[9px] font-bold px-2 py-0.5 rounded">
+                      <span className="inline-block bg-slate-900/80 backdrop-blur-sm border border-white/20 text-sky-300 text-[9px] font-bold px-2 py-0.5 rounded">
                         {item.category}
                       </span>
-                      <h4 className="text-xs sm:text-sm font-bold text-white line-clamp-2 leading-snug group-hover:text-emerald-300 transition-colors">
+                      <h4 className="text-xs sm:text-sm font-bold text-white line-clamp-2 leading-snug group-hover:text-sky-300 transition-colors">
                         {item.title}
                       </h4>
                       <p className="text-[10px] text-slate-300 flex items-center gap-1">

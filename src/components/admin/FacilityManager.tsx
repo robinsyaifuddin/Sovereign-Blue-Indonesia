@@ -131,7 +131,7 @@ export const FacilityManager: React.FC = () => {
               <ArrowLeft className="w-5 h-5" />
             </button>
             <div>
-              <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">
+              <span className="text-[10px] font-bold text-sky-700 uppercase tracking-wider block">
                 {editingIndex !== null ? 'Edit Sarana' : 'Tambah Fasilitas Baru'}
               </span>
               <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
@@ -161,7 +161,7 @@ export const FacilityManager: React.FC = () => {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-semibold focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-semibold focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none"
                     placeholder="Contoh: Gedung Asrama Santri Putra Al-Ghazali"
                   />
                 </div>
@@ -172,7 +172,7 @@ export const FacilityManager: React.FC = () => {
                     <select
                       value={formData.category}
                       onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                      className="w-full appearance-none px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-xs font-medium focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none pr-9"
+                      className="w-full appearance-none px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-xs font-medium focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none pr-9"
                     >
                       {categories.map((cat) => (
                         <option key={cat} value={cat}>{cat}</option>
@@ -189,7 +189,7 @@ export const FacilityManager: React.FC = () => {
                     required
                     value={formData.desc}
                     onChange={(e) => setFormData({ ...formData, desc: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none leading-relaxed"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none leading-relaxed"
                     placeholder="Jelaskan sarana pendukung, spesifikasi ruang, kapasitas santri, dan keunggulannya..."
                   />
                 </div>
@@ -220,7 +220,7 @@ export const FacilityManager: React.FC = () => {
               </button>
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-6 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95"
+                className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs px-6 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95"
               >
                 <Save className="w-4 h-4" />
                 <span>Simpan Fasilitas</span>
@@ -246,7 +246,7 @@ export const FacilityManager: React.FC = () => {
         <button
           type="button"
           onClick={handleOpenAdd}
-          className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95 shrink-0"
+          className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95 shrink-0"
         >
           <Plus className="w-4 h-4" />
           <span>Tambah Fasilitas</span>

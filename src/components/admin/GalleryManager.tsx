@@ -136,7 +136,7 @@ export const GalleryManager: React.FC = () => {
               <ArrowLeft className="w-5 h-5" />
             </button>
             <div>
-              <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">
+              <span className="text-[10px] font-bold text-sky-700 uppercase tracking-wider block">
                 {editingId ? 'Edit Dokumentasi' : 'Upload Foto Baru'}
               </span>
               <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
@@ -163,7 +163,7 @@ export const GalleryManager: React.FC = () => {
                 required
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-semibold focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-semibold focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none"
                 placeholder="Contoh: Suasana Santri Menyetorkan Hafalan Qur'an..."
               />
             </div>
@@ -187,7 +187,7 @@ export const GalleryManager: React.FC = () => {
               </button>
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-6 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95"
+                className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs px-6 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95"
               >
                 <Save className="w-4 h-4" />
                 <span>Simpan Foto</span>
@@ -207,13 +207,13 @@ export const GalleryManager: React.FC = () => {
         <div>
           <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Manajemen Galeri Kegiatan</h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Kelola judul dan foto dokumentasi kegiatan santri pondok pesantren Al-Mursyid.
+            Kelola judul dan foto dokumentasi kegiatan program yayasan Sovereign Blue.
           </p>
         </div>
         <button
           type="button"
           onClick={handleOpenAdd}
-          className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95 shrink-0"
+          className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95 shrink-0"
         >
           <Plus className="w-4 h-4" />
           <span>Upload Foto Dokumentasi</span>
@@ -229,7 +229,7 @@ export const GalleryManager: React.FC = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Cari judul momen dokumentasi..."
-            className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all"
+            className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 transition-all"
           />
         </div>
         <span className="text-xs text-slate-400 font-medium hidden sm:inline">

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  ArrowRight, CheckCircle2, BookOpen, 
-  GraduationCap, Globe2, Compass, ShieldCheck, Award
+  ArrowRight, CheckCircle2, Compass, GraduationCap, 
+  Award, ShieldCheck, Anchor, Sun, Droplets, TreePine
 } from 'lucide-react';
 import { SITE_INFO as FALLBACK_SITE_INFO } from '../data/siteData';
 import { useAppStoreData } from '../hooks/useAppStoreData';
@@ -10,7 +10,6 @@ import { useAppStoreData } from '../hooks/useAppStoreData';
 export const ProgramPage: React.FC = () => {
   const { siteInfo } = useAppStoreData();
   const SITE_INFO = siteInfo || FALLBACK_SITE_INFO;
-  const ppdbWaUrl = SITE_INFO?.contacts?.ppdbWa || `https://wa.me/6283848478150`;
 
   return (
     <div className="space-y-16 pt-8 pb-20">
@@ -18,86 +17,85 @@ export const ProgramPage: React.FC = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-24">
 
         {/* ---------------------------------------------------- */}
-        {/* PROGRAM 01: TAHFIDZUL QUR'AN (Teks Kiri, Foto Kanan) */}
+        {/* PROGRAM 01: PARIWISATA BERKELANJUTAN */}
         {/* ---------------------------------------------------- */}
-        <article id="tahfidz" className="scroll-mt-24 border-b border-emerald-100/70 pb-16 lg:pb-20">
+        <article id="tourism" className="scroll-mt-24 border-b border-sky-100/70 pb-16 lg:pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            {/* Left Content Area */}
             <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
-              {/* Category Breadcrumb */}
-              <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-emerald-600" />
-                <span>Program Unggulan Utama</span>
+              <div className="text-xs font-bold uppercase tracking-wider text-sky-700 flex items-center gap-2">
+                <Compass className="w-4 h-4 text-sky-600" />
+                <span>Pilar Utama I</span>
                 <span className="text-slate-300">•</span>
-                <span className="text-slate-700 font-semibold">Tahfidz Bersanad</span>
+                <span className="text-slate-700 font-semibold">Sustainable Tourism</span>
               </div>
 
-              {/* Title & Subtitle */}
               <div className="space-y-2">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
-                  Tahfidzul Qur'an 30 Juz Bersanad
+                  Pariwisata Berkelanjutan (Sustainable Tourism)
                 </h2>
-                <p className="text-sm sm:text-base text-emerald-800 font-medium">
-                  Mencetak penghafal Al-Qur'an mutqin dengan sanad keilmuan yang bersambung.
+                <p className="text-sm sm:text-base text-sky-800 font-medium">
+                  Mengembangkan pariwisata berbasis masyarakat (Community-Based Ecotourism) berstandar GSTC yang melestarikan alam dan mengangkat ekonomi lokal.
                 </p>
               </div>
 
-              {/* Horizontal Inset Image */}
-              <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
-                <img
-                  src="/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.webp"
-                  alt="Suasana Halaqah Tahfidz Al-Mursyid"
-                  className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-              </div>
-
-              {/* Two-Column Details */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2 border-t border-slate-100">
-                <div className="space-y-1.5 bg-emerald-50/40 p-4 rounded-xl border border-emerald-100/60">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-900 flex items-center gap-1.5">
-                    <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
-                    Metode & Halaqah
+                <div className="space-y-1.5 bg-sky-50/40 p-4 rounded-xl border border-sky-100/60">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-sky-900 flex items-center gap-1.5">
+                    <Award className="w-3.5 h-3.5 text-sky-700" />
+                    Sertifikasi GSTC Internasional
                   </h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Bimbingan intensif halaqah kecil (maksimal 12 santri) dengan setoran harian ba'da subuh dan maghrib menggunakan metode Talaqqi dan Ziyadah mandiri.
+                    Pendampingan tata kelola destinasi, audit jejak karbon destinasi, dan proteksi biota laut liar dari eksploitasi berlebih.
                   </p>
                 </div>
-                <div className="space-y-1.5 bg-emerald-50/40 p-4 rounded-xl border border-emerald-100/60">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-900 flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
-                    Uji & Sanad
+                <div className="space-y-1.5 bg-sky-50/40 p-4 rounded-xl border border-sky-100/60">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-sky-900 flex items-center gap-1.5">
+                    <Compass className="w-3.5 h-3.5 text-sky-700" />
+                    Akademi Pemandu Bahari
                   </h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Evaluasi berkala tasmi' 5 hingga 30 juz sekali duduk di hadapan dewan asatidz dan pengijazahan sanad tahfidz bagi santri purna yang telah teruji mutqin.
+                    Pelatihan navigasi perahu, teknik water rescue, etika interaksi terumbu karang/satwa liar, dan bahasa Inggris percakapan.
                   </p>
+                </div>
+              </div>
+
+              <div className="space-y-2 pt-2">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700">Inisiatif Kunci Program:</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>Standardisasi Homestay Ramah Lingkungan</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>Revitalisasi Seni Musik Sasando & Tenun Ikat</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>Peningkatan pendapatan warga homestay hingga 180%</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>250+ Pemandu tersertifikasi standar keselamatan</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Tall Feature Photo with Side Label & Large Number */}
             <div className="lg:col-span-5 relative group">
-              <div className="relative rounded-2xl overflow-hidden border border-emerald-200/80 shadow-md bg-slate-100">
+              <div className="relative rounded-2xl overflow-hidden border border-sky-200/80 shadow-md bg-slate-100">
                 <img
-                  src="/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.webp"
-                  alt="Mushaf Al-Qur'an dan Pembinaan Santri"
+                  src="/hero/hero1.webp"
+                  alt="Desa Wisata Ekowisata"
                   className="w-full h-[460px] sm:h-[540px] object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                 />
-                
-                {/* Vertical Side Tag */}
-                <div className="absolute top-6 left-6 [writing-mode:vertical-lr] rotate-180 text-[10px] uppercase font-bold tracking-widest text-white/95 drop-shadow bg-forest-950/40 px-1 py-2 rounded backdrop-blur-xs">
-                  Est. 2022 — Al-Mursyid
-                </div>
-
-                {/* Bottom Overlay Info */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest-950/90 via-forest-950/40 to-transparent p-6 flex items-end justify-between text-white pointer-events-none">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent p-6 flex items-end justify-between text-white pointer-events-none">
                   <div className="space-y-0.5">
-                    <p className="text-[11px] font-bold tracking-wider uppercase text-emerald-300">Kota Agung Timur</p>
-                    <p className="text-xs font-medium text-slate-200">Tanggamus, Lampung</p>
+                    <p className="text-[11px] font-bold tracking-wider uppercase text-sky-300">Pariwisata Komunitas</p>
+                    <p className="text-xs font-medium text-slate-200">GSTC Global Standards</p>
                   </div>
-                  <div className="text-5xl sm:text-6xl font-bold tracking-tight text-white/90">
-                    01
-                  </div>
+                  <div className="text-5xl sm:text-6xl font-bold tracking-tight text-white/90">01</div>
                 </div>
               </div>
             </div>
@@ -105,88 +103,86 @@ export const ProgramPage: React.FC = () => {
           </div>
         </article>
 
-
         {/* ---------------------------------------------------- */}
-        {/* PROGRAM 02: KAJIAN KITAB KUNING (Foto Kiri, Teks Kanan) */}
+        {/* PROGRAM 02: PENDIDIKAN & LITERASI MARITIM */}
         {/* ---------------------------------------------------- */}
-        <article id="diniyah" className="scroll-mt-24 border-b border-emerald-100/70 pb-16 lg:pb-20">
+        <article id="education" className="scroll-mt-24 border-b border-sky-100/70 pb-16 lg:pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            {/* Left Tall Feature Photo */}
             <div className="lg:col-span-5 order-2 lg:order-1 relative group">
-              <div className="relative rounded-2xl overflow-hidden border border-emerald-200/80 shadow-md bg-slate-100">
+              <div className="relative rounded-2xl overflow-hidden border border-sky-200/80 shadow-md bg-slate-100">
                 <img
-                  src="/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.webp"
-                  alt="Kajian Kitab Kuning Pesantren"
+                  src="/hero/hero2.webp"
+                  alt="Marine Learning Center"
                   className="w-full h-[460px] sm:h-[540px] object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                 />
-                
-                {/* Vertical Side Tag */}
-                <div className="absolute top-6 left-6 [writing-mode:vertical-lr] rotate-180 text-[10px] uppercase font-bold tracking-widest text-white/95 drop-shadow bg-forest-950/40 px-1 py-2 rounded backdrop-blur-xs">
-                  Turats Salafus Shalih
-                </div>
-
-                {/* Bottom Overlay Info */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest-950/90 via-forest-950/40 to-transparent p-6 flex items-end justify-between text-white pointer-events-none">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent p-6 flex items-end justify-between text-white pointer-events-none">
                   <div className="space-y-0.5">
-                    <p className="text-[11px] font-bold tracking-wider uppercase text-emerald-300">Madrasah Diniyah</p>
-                    <p className="text-xs font-medium text-slate-200">Dirasah Islamiyah</p>
+                    <p className="text-[11px] font-bold tracking-wider uppercase text-sky-300">Pendidikan Bahari</p>
+                    <p className="text-xs font-medium text-slate-200">Solar Learning Center</p>
                   </div>
-                  <div className="text-5xl sm:text-6xl font-bold tracking-tight text-white/90">
-                    02
-                  </div>
+                  <div className="text-5xl sm:text-6xl font-bold tracking-tight text-white/90">02</div>
                 </div>
               </div>
             </div>
 
-            {/* Right Content Area */}
             <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-between space-y-6">
-              {/* Category Breadcrumb */}
-              <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-2">
-                <Award className="w-4 h-4 text-emerald-600" />
-                <span>Khazanah Keilmuan Ulama</span>
+              <div className="text-xs font-bold uppercase tracking-wider text-sky-700 flex items-center gap-2">
+                <GraduationCap className="w-4 h-4 text-sky-600" />
+                <span>Pilar Utama II</span>
                 <span className="text-slate-300">•</span>
-                <span className="text-slate-700 font-semibold">Dirasah Turats</span>
+                <span className="text-slate-700 font-semibold">Marine Education</span>
               </div>
 
-              {/* Title & Subtitle */}
               <div className="space-y-2">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
-                  Madrasah Diniyah & Kajian Kitab Kuning
+                  Pendidikan & Literasi Maritim (Marine Education)
                 </h2>
-                <p className="text-sm sm:text-base text-emerald-800 font-medium">
-                  Mendalami literatur klasik berjenjang demi kedalaman ilmu fikih dan keluhuran akhlak.
+                <p className="text-sm sm:text-base text-sky-800 font-medium">
+                  Memastikan setiap anak di pulau terluar mendapatkan pendidikan berkualitas global tanpa kehilangan identitas maritim nusantara.
                 </p>
               </div>
 
-              {/* Horizontal Inset Image */}
-              <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
-                <img
-                  src="/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.webp"
-                  alt="Kitab Turats dan Kajian Pesantren"
-                  className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-              </div>
-
-              {/* Two-Column Details */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2 border-t border-slate-100">
-                <div className="space-y-1.5 bg-emerald-50/40 p-4 rounded-xl border border-emerald-100/60">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-900 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
-                    Tata Bahasa & Nahwu Shorof
+                <div className="space-y-1.5 bg-sky-50/40 p-4 rounded-xl border border-sky-100/60">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-sky-900 flex items-center gap-1.5">
+                    <Sun className="w-3.5 h-3.5 text-sky-700" />
+                    Marine Learning Centers
                   </h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Penguatan kaidah tata bahasa Arab melalui kitab Al-Ajurumiyyah, Nadhom Imrithi, hingga Alfiyah Ibnu Malik sebagai kunci memahami teks gundul.
+                    Pusat belajar komunal bertenaga panel surya dilengkapi perpustakaan literasi laut, komputer, dan satelit internet.
                   </p>
                 </div>
-                <div className="space-y-1.5 bg-emerald-50/40 p-4 rounded-xl border border-emerald-100/60">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-900 flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
-                    Fikih & Tasawuf
+                <div className="space-y-1.5 bg-sky-50/40 p-4 rounded-xl border border-sky-100/60">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-sky-900 flex items-center gap-1.5">
+                    <GraduationCap className="w-3.5 h-3.5 text-sky-700" />
+                    Beasiswa Penuh Anak Pesisir
                   </h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Kajian hukum amaliyah bermazhab Syafi'i (Safinatun Najah, Fathul Qorib) berpadu dengan kemurnian tauhid dan adab penuntut ilmu (Ta'lim Muta'allim).
+                    Beasiswa penuh bagi putra-putri keluarga nelayan berprestasi menuju jenjang SMP, SMA, hingga PTN ilmu kelautan.
                   </p>
+                </div>
+              </div>
+
+              <div className="space-y-2 pt-2">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700">Capaian Terukur:</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>100 Siswa perdana resmi lulus beasiswa perguruan tinggi</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>6 Unit Learning Center aktif melayani 1.200+ anak/pekan</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>Pelatihan vokasi digital marketing desa & mesin perahu</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>Kurikulum literasi maritim & mitigasi bencana sejak SD</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -194,88 +190,82 @@ export const ProgramPage: React.FC = () => {
           </div>
         </article>
 
-
         {/* ---------------------------------------------------- */}
-        {/* PROGRAM 03: PENDIDIKAN FORMAL (Teks Kiri, Foto Kanan) */}
+        {/* PROGRAM 03: EKONOMI BIRU & PEMBERDAYAAN PESISIR */}
         {/* ---------------------------------------------------- */}
-        <article id="formal" className="scroll-mt-24 border-b border-emerald-100/70 pb-16 lg:pb-20">
+        <article id="economy" className="scroll-mt-24 border-b border-sky-100/70 pb-16 lg:pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            {/* Left Content Area */}
             <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
-              {/* Category Breadcrumb */}
-              <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-2">
-                <GraduationCap className="w-4 h-4 text-emerald-600" />
-                <span>Pendidikan Formal Terakreditasi</span>
+              <div className="text-xs font-bold uppercase tracking-wider text-sky-700 flex items-center gap-2">
+                <Anchor className="w-4 h-4 text-sky-600" />
+                <span>Pilar Utama III</span>
                 <span className="text-slate-300">•</span>
-                <span className="text-slate-700 font-semibold">SMP & SMA IT</span>
+                <span className="text-slate-700 font-semibold">Blue Economy</span>
               </div>
 
-              {/* Title & Subtitle */}
               <div className="space-y-2">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
-                  SMP & SMA Islam Boarding School
+                  Ekonomi Biru & Pemberdayaan Pesisir (Blue Economy)
                 </h2>
-                <p className="text-sm sm:text-base text-emerald-800 font-medium">
-                  Kurikulum nasional Kurikulum Merdeka yang diperkaya wawasan sains, komputer, dan teknologi.
+                <p className="text-sm sm:text-base text-sky-800 font-medium">
+                  Mengembangkan potensi kekayaan laut secara sirkular dan bernilai tambah guna membebaskan nelayan dari jerat kemiskinan dan ketergantungan tengkulak.
                 </p>
               </div>
 
-              {/* Horizontal Inset Image */}
-              <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
-                <img
-                  src="/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.webp"
-                  alt="Laboratorium dan Ruang Belajar Formal"
-                  className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-              </div>
-
-              {/* Two-Column Details */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2 border-t border-slate-100">
-                <div className="space-y-1.5 bg-emerald-50/40 p-4 rounded-xl border border-emerald-100/60">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-900 flex items-center gap-1.5">
-                    <GraduationCap className="w-3.5 h-3.5 text-emerald-700" />
-                    Ijazah & Jalur PTN
+                <div className="space-y-1.5 bg-sky-50/40 p-4 rounded-xl border border-sky-100/60">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-sky-900 flex items-center gap-1.5">
+                    <Sun className="w-3.5 h-3.5 text-sky-700" />
+                    Solar Cold Chain Nelayan
                   </h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Lulusan menerima ijazah resmi negara berakreditasi lengkap, siap bersaing dalam seleksi masuk PTN unggulan, sekolah kedinasan, maupun beasiswa internasional.
+                    Fasilitas pembuat es bertenaga surya di tepi dermaga, memotong rantai tengkulak dan menjaga kesegaran ikan tangkapan bernilai tinggi.
                   </p>
                 </div>
-                <div className="space-y-1.5 bg-emerald-50/40 p-4 rounded-xl border border-emerald-100/60">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-900 flex items-center gap-1.5">
-                    <Compass className="w-3.5 h-3.5 text-emerald-700" />
-                    Sains & Literasi Digital
+                <div className="space-y-1.5 bg-sky-50/40 p-4 rounded-xl border border-sky-100/60">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-sky-900 flex items-center gap-1.5">
+                    <Droplets className="w-3.5 h-3.5 text-sky-700" />
+                    Rumput Laut & Nira Lontar
                   </h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Didukung sarana komputer modern, penguatan sains-matematika, serta pembekalan intensif persiapan UTBK-SNBT oleh para tenaga pendidik berpengalaman.
+                    Solar dome dryer pengeringan rumput laut ekspor higienis dan hilirisasi nira lontar organik menjadi gula kristal berdaya jual tinggi.
                   </p>
+                </div>
+              </div>
+
+              <div className="space-y-2 pt-2">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700">Dampak Terukur:</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>Margin pendapatan nelayan melonjak 40% – 60%</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>Terbuka 300+ lapangan kerja baru bagi perempuan pesisir</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>Produksi garam laut artisanal tunnel kaca higienis</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Tall Feature Photo with Side Label & Large Number */}
             <div className="lg:col-span-5 relative group">
-              <div className="relative rounded-2xl overflow-hidden border border-emerald-200/80 shadow-md bg-slate-100">
+              <div className="relative rounded-2xl overflow-hidden border border-sky-200/80 shadow-md bg-slate-100">
                 <img
-                  src="/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.webp"
-                  alt="Santri Berprestasi di Kelas Formal"
+                  src="/hero/hero3.webp"
+                  alt="Ekonomi Biru & Cold Chain"
                   className="w-full h-[460px] sm:h-[540px] object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                 />
-                
-                {/* Vertical Side Tag */}
-                <div className="absolute top-6 left-6 [writing-mode:vertical-lr] rotate-180 text-[10px] uppercase font-bold tracking-widest text-white/95 drop-shadow bg-forest-950/40 px-1 py-2 rounded backdrop-blur-xs">
-                  Kurikulum Merdeka — Terakreditasi
-                </div>
-
-                {/* Bottom Overlay Info */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest-950/90 via-forest-950/40 to-transparent p-6 flex items-end justify-between text-white pointer-events-none">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent p-6 flex items-end justify-between text-white pointer-events-none">
                   <div className="space-y-0.5">
-                    <p className="text-[11px] font-bold tracking-wider uppercase text-emerald-300">Jenjang Menengah</p>
-                    <p className="text-xs font-medium text-slate-200">Ijazah Resmi Nasional</p>
+                    <p className="text-[11px] font-bold tracking-wider uppercase text-sky-300">Ekonomi Pesisir</p>
+                    <p className="text-xs font-medium text-slate-200">Solar Cold Chain</p>
                   </div>
-                  <div className="text-5xl sm:text-6xl font-bold tracking-tight text-white/90">
-                    03
-                  </div>
+                  <div className="text-5xl sm:text-6xl font-bold tracking-tight text-white/90">03</div>
                 </div>
               </div>
             </div>
@@ -283,88 +273,86 @@ export const ProgramPage: React.FC = () => {
           </div>
         </article>
 
-
         {/* ---------------------------------------------------- */}
-        {/* PROGRAM 04: BAHASA & EKSTRAKURIKULER (Foto Kiri, Teks Kanan) */}
+        {/* PROGRAM 04: KONSERVASI LINGKUNGAN LAUT */}
         {/* ---------------------------------------------------- */}
-        <article id="ekskul" className="scroll-mt-24 pb-8">
+        <article id="environment" className="scroll-mt-24 border-b border-sky-100/70 pb-16 lg:pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            {/* Left Tall Feature Photo */}
             <div className="lg:col-span-5 order-2 lg:order-1 relative group">
-              <div className="relative rounded-2xl overflow-hidden border border-emerald-200/80 shadow-md bg-slate-100">
+              <div className="relative rounded-2xl overflow-hidden border border-sky-200/80 shadow-md bg-slate-100">
                 <img
-                  src="/gambar/ekstrakurikuler.webp"
-                  alt="Aktivitas Pengembangan Kepribadian dan Kepanduan"
+                  src="/hero/hero4.webp"
+                  alt="Restorasi Karang & Mangrove"
                   className="w-full h-[460px] sm:h-[540px] object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                 />
-                
-                {/* Vertical Side Tag */}
-                <div className="absolute top-6 left-6 [writing-mode:vertical-lr] rotate-180 text-[10px] uppercase font-bold tracking-widest text-white/95 drop-shadow bg-forest-950/40 px-1 py-2 rounded backdrop-blur-xs">
-                  Life Skills & Language
-                </div>
-
-                {/* Bottom Overlay Info */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest-950/90 via-forest-950/40 to-transparent p-6 flex items-end justify-between text-white pointer-events-none">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent p-6 flex items-end justify-between text-white pointer-events-none">
                   <div className="space-y-0.5">
-                    <p className="text-[11px] font-bold tracking-wider uppercase text-emerald-300">Arab & Inggris</p>
-                    <p className="text-xs font-medium text-slate-200">Kemandirian & Karakter</p>
+                    <p className="text-[11px] font-bold tracking-wider uppercase text-sky-300">Konservasi Laut</p>
+                    <p className="text-xs font-medium text-slate-200">Reef & Mangrove Restoration</p>
                   </div>
-                  <div className="text-5xl sm:text-6xl font-bold tracking-tight text-white/90">
-                    04
-                  </div>
+                  <div className="text-5xl sm:text-6xl font-bold tracking-tight text-white/90">04</div>
                 </div>
               </div>
             </div>
 
-            {/* Right Content Area */}
             <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-between space-y-6">
-              {/* Category Breadcrumb */}
-              <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-2">
-                <Globe2 className="w-4 h-4 text-emerald-600" />
-                <span>Pengembangan Minat & Bakat</span>
+              <div className="text-xs font-bold uppercase tracking-wider text-sky-700 flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-sky-600" />
+                <span>Pilar Utama IV</span>
                 <span className="text-slate-300">•</span>
-                <span className="text-slate-700 font-semibold">Bahasa & Kepemimpinan</span>
+                <span className="text-slate-700 font-semibold">Marine Conservation</span>
               </div>
 
-              {/* Title & Subtitle */}
               <div className="space-y-2">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
-                  Pembiasaan Bahasa & Ekstrakurikuler
+                  Konservasi Lingkungan Laut (Marine Conservation)
                 </h2>
-                <p className="text-sm sm:text-base text-emerald-800 font-medium">
-                  Membangun kemandirian raga, jiwa kepemimpinan, dan kecakapan komunikasi global.
+                <p className="text-sm sm:text-base text-sky-800 font-medium">
+                  Melindungi benteng keanekaragaman hayati samudra Indonesia dari ancaman abrasi pantai, kenaikan suhu global, dan limbah plastik.
                 </p>
               </div>
 
-              {/* Horizontal Inset Image */}
-              <div className="relative group overflow-hidden rounded-2xl border border-emerald-100 shadow-sm bg-slate-50">
-                <img
-                  src="/gambar/ekstrakurikuler.webp"
-                  alt="Aktivitas Bahasa dan Komunikasi Santri"
-                  className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-              </div>
-
-              {/* Two-Column Details */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2 border-t border-slate-100">
-                <div className="space-y-1.5 bg-emerald-50/40 p-4 rounded-xl border border-emerald-100/60">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-900 flex items-center gap-1.5">
-                    <Globe2 className="w-3.5 h-3.5 text-emerald-700" />
-                    Bilingual Atmosphere
+                <div className="space-y-1.5 bg-sky-50/40 p-4 rounded-xl border border-sky-100/60">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-sky-900 flex items-center gap-1.5">
+                    <Droplets className="w-3.5 h-3.5 text-sky-700" />
+                    Restorasi Spider Reef
                   </h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Pembiasaan bahasa Arab & Inggris aktif dalam kehidupan harian asrama dengan dukungan kosa kata tematik harian dan pelatihan pidato (khitobah) 3 bahasa.
+                    Pemasangan struktur laba-laba karang dan transplantasi fragmen karang tangguh suhu tinggi dengan monitoring scuba ilmiah.
                   </p>
                 </div>
-                <div className="space-y-1.5 bg-emerald-50/40 p-4 rounded-xl border border-emerald-100/60">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-900 flex items-center gap-1.5">
-                    <Award className="w-3.5 h-3.5 text-emerald-700" />
-                    Khat & Kepramukaan
+                <div className="space-y-1.5 bg-sky-50/40 p-4 rounded-xl border border-sky-100/60">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-sky-900 flex items-center gap-1.5">
+                    <TreePine className="w-3.5 h-3.5 text-sky-700" />
+                    Hutan Mangrove Blue Carbon
                   </h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Ekstrakurikuler seni kaligrafi Islam (khat mushaf), pramuka pesantren, bela diri praktis, olahraga sunnah, dan pembentukan karakter kepemimpinan.
+                    Penanaman sabuk hijau pelindung abrasi dan penyerap emisi karbon bumi terintegrasi bersama hukum adat kelautan.
                   </p>
+                </div>
+              </div>
+
+              <div className="space-y-2 pt-2">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700">Capaian Terukur:</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>15.000+ Pohon mangrove tertanam (tingkat hidup 92%)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>500 Hektar area konservasi terlindungi hukum adat</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>5 Desa pulau capai status Zero-Plastic bebas sampah</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>25+ Ton sampah plastik diangkat dan didaur ulang</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -373,35 +361,6 @@ export const ProgramPage: React.FC = () => {
         </article>
 
       </main>
-
-      {/* CTA Pendaftaran Selaras dengan Bagian Lain Web */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="bg-aurora-banner text-white rounded-2xl p-8 sm:p-12 border border-emerald-500/20 shadow-lg space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-            Siap Menjadi Bagian dari Keluarga Besar Al-Mursyid?
-          </h2>
-          <p className="text-xs sm:text-sm text-emerald-100/90 max-w-xl mx-auto leading-relaxed">
-            Pendaftaran dibuka setiap tahun ajaran baru dengan kuota selektif. Konsultasikan jalur pendaftaran bersama tim panitia kami.
-          </p>
-          <div className="pt-2 flex flex-wrap justify-center gap-4">
-            <Link
-              to="/ppdb"
-              className="bg-white hover:bg-emerald-50 text-forest-950 font-bold px-6 py-3 rounded-full text-xs sm:text-sm uppercase tracking-wider inline-flex items-center gap-2 shadow-sm transition-all hover:-translate-y-0.5 active:scale-95"
-            >
-              <span>Daftar Sekarang</span>
-              <ArrowRight className="w-4 h-4 text-forest-900" />
-            </Link>
-            <a
-              href={ppdbWaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-forest-900/80 hover:bg-forest-900 border border-emerald-400/30 text-white font-bold px-6 py-3 rounded-full text-xs sm:text-sm uppercase tracking-wider inline-flex items-center gap-2 transition-all hover:-translate-y-0.5 active:scale-95"
-            >
-              <span>Hubungi Panitia PPDB</span>
-            </a>
-          </div>
-        </div>
-      </section>
 
     </div>
   );

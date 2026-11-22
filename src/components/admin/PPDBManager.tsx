@@ -95,8 +95,8 @@ export const PPDBManager: React.FC = () => {
       {/* Top Header Bento */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
         <div>
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-700 mb-1">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sky-700 mb-1">
+            <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
             Manajemen Konten PPDB
           </div>
           <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Pengaturan Halaman PPDB Online</h1>
@@ -125,7 +125,7 @@ export const PPDBManager: React.FC = () => {
           <div className="lg:col-span-5 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
             <div>
               <div className="flex items-center gap-2 pb-2 mb-3 border-b border-slate-100">
-                <ImageIcon className="w-4 h-4 text-emerald-600" />
+                <ImageIcon className="w-4 h-4 text-sky-600" />
                 <h3 className="text-sm font-bold text-slate-900">Foto Kanan 3:4 Halaman PPDB</h3>
               </div>
               <p className="text-xs text-slate-500 mb-3">
@@ -146,7 +146,7 @@ export const PPDBManager: React.FC = () => {
           {/* Box Kontak WhatsApp & Link Form Pendaftaran (7 Cols) */}
           <div className="lg:col-span-7 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
             <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
-              <LinkIcon className="w-4 h-4 text-emerald-600" />
+              <LinkIcon className="w-4 h-4 text-sky-600" />
               <h3 className="text-sm font-bold text-slate-900">Kontak Panitia & Tautan Pendaftaran</h3>
             </div>
             <p className="text-xs text-slate-500">
@@ -165,7 +165,7 @@ export const PPDBManager: React.FC = () => {
                     required
                     value={settingsData.whatsappNumber}
                     onChange={(e) => setSettingsData({ ...settingsData, whatsappNumber: e.target.value })}
-                    className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none"
+                    className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none"
                     placeholder="Contoh: 0838-4847-8150"
                   />
                 </div>
@@ -183,7 +183,7 @@ export const PPDBManager: React.FC = () => {
                   required
                   value={settingsData.formUrl}
                   onChange={(e) => setSettingsData({ ...settingsData, formUrl: e.target.value })}
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none"
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none"
                   placeholder="https://forms.gle/..."
                 />
                 <span className="text-[10px] text-slate-400 mt-0.5 block">
@@ -199,7 +199,7 @@ export const PPDBManager: React.FC = () => {
                   type="url"
                   value={settingsData.brochurePdfUrl}
                   onChange={(e) => setSettingsData({ ...settingsData, brochurePdfUrl: e.target.value })}
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none"
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none"
                   placeholder="https://drive.google.com/... atau link PDF langsung"
                 />
                 <span className="text-[10px] text-slate-400 mt-0.5 block">
@@ -215,7 +215,7 @@ export const PPDBManager: React.FC = () => {
         <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <div className="flex items-center gap-2">
-              <ListOrdered className="w-4 h-4 text-emerald-600" />
+              <ListOrdered className="w-4 h-4 text-sky-600" />
               <div>
                 <h3 className="text-sm font-bold text-slate-900">Alur Pendaftaran Santri Baru (Accordion)</h3>
                 <p className="text-xs text-slate-400">Tahapan seleksi yang tampil di kolom kiri halaman PPDB</p>
@@ -286,7 +286,7 @@ export const PPDBManager: React.FC = () => {
         <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <div className="flex items-center gap-2">
-              <DollarSign className="w-4 h-4 text-emerald-600" />
+              <DollarSign className="w-4 h-4 text-sky-600" />
               <div>
                 <h3 className="text-sm font-bold text-slate-900">Tabel Estimasi Biaya Masuk & SPP Bulanan</h3>
                 <p className="text-xs text-slate-400">Rincian tabel transparansi finansial di kolom kanan halaman PPDB</p>
@@ -322,7 +322,7 @@ export const PPDBManager: React.FC = () => {
                     type="text"
                     value={fee.amount}
                     onChange={(e) => handleFeeChange(idx, 'amount', e.target.value)}
-                    className="w-full px-3 py-1.5 font-bold text-emerald-800 bg-white border border-slate-200 rounded-xl text-xs outline-none"
+                    className="w-full px-3 py-1.5 font-bold text-sky-800 bg-white border border-slate-200 rounded-xl text-xs outline-none"
                     placeholder="Rp 950.000"
                   />
                 </div>
@@ -359,7 +359,7 @@ export const PPDBManager: React.FC = () => {
         <div className="flex justify-end pt-2">
           <button
             type="submit"
-            className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-2xl shadow-sm transition-transform active:scale-95"
+            className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-2xl shadow-sm transition-transform active:scale-95"
           >
             <Save className="w-4 h-4" />
             <span>Simpan Perubahan Halaman PPDB</span>

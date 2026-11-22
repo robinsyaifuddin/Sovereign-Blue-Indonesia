@@ -120,10 +120,10 @@ export const GalleryPage: React.FC = () => {
         {/* Header editorial ala Bento */}
         <header className="mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-3 mb-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-emerald-800 block">
+            <span className="text-xs font-bold uppercase tracking-widest text-sky-800 block">
               Kisah & Cerita Kami
             </span>
-            <span className="h-[2px] w-14 sm:w-16 bg-emerald-600 block rounded-full"></span>
+            <span className="h-[2px] w-14 sm:w-16 bg-sky-600 block rounded-full"></span>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
@@ -131,7 +131,7 @@ export const GalleryPage: React.FC = () => {
               Galeri Foto
             </h1>
             <p className="text-xs sm:text-sm text-stone-500 max-w-xs sm:text-right leading-relaxed font-normal">
-              Dokumentasi visual keseharian dan ragam kegiatan santri Al-Mursyid Islamic Boarding School.
+              Dokumentasi visual aksi nyata dan inisiatif pergerakan maritim Sovereign Blue Foundation.
             </p>
           </div>
         </header>
@@ -139,7 +139,7 @@ export const GalleryPage: React.FC = () => {
         {/* BAGIAN 1: 5 FRAME UTAMA TOP FAVORIT (Persis seperti Beranda) */}
         <div className="space-y-3 sm:space-y-4 mb-14">
           <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-emerald-900/80">
+            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-sky-900/80">
               Dokumentasi Pilihan Utama (5 Frame)
             </span>
           </div>
@@ -316,7 +316,7 @@ export const GalleryPage: React.FC = () => {
                   type="button"
                   onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
                   disabled={currentPage === 1}
-                  className={`inline-flex items-center gap-1.5 transition-colors ${currentPage === 1 ? 'text-slate-300 cursor-not-allowed' : 'text-slate-700 hover:text-emerald-700'}`}
+                  className={`inline-flex items-center gap-1.5 transition-colors ${currentPage === 1 ? 'text-slate-300 cursor-not-allowed' : 'text-slate-700 hover:text-sky-700'}`}
                 >
                   <ChevronLeft className="w-4 h-4" />
                   <span>Prev</span>
@@ -330,7 +330,7 @@ export const GalleryPage: React.FC = () => {
                   type="button"
                   onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
                   disabled={currentPage === totalPages}
-                  className={`inline-flex items-center gap-1.5 transition-colors ${currentPage === totalPages ? 'text-slate-300 cursor-not-allowed' : 'text-slate-700 hover:text-emerald-700'}`}
+                  className={`inline-flex items-center gap-1.5 transition-colors ${currentPage === totalPages ? 'text-slate-300 cursor-not-allowed' : 'text-slate-700 hover:text-sky-700'}`}
                 >
                   <span>Next</span>
                   <ChevronRight className="w-4 h-4" />

@@ -124,12 +124,12 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
         onDrop={handleDrop}
         className={`
           relative border-2 border-dashed rounded-2xl p-4 transition-all cursor-pointer flex flex-col items-center justify-center text-center
-          ${dragOver ? 'border-emerald-500 bg-emerald-50/50' : 'border-slate-200 hover:border-emerald-400 bg-slate-50/70 hover:bg-slate-50'}
+          ${dragOver ? 'border-sky-500 bg-sky-50/50' : 'border-slate-200 hover:border-sky-400 bg-slate-50/70 hover:bg-slate-50'}
         `}
       >
         {isUploading ? (
           <div className="py-6 px-4 flex flex-col items-center">
-            <Loader2 className="w-7 h-7 text-emerald-600 animate-spin mb-2" />
+            <Loader2 className="w-7 h-7 text-sky-600 animate-spin mb-2" />
             <p className="text-xs font-bold text-slate-700">Mengunggah...</p>
           </div>
         ) : value ? (
@@ -149,13 +149,13 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
                 Ganti Foto
               </div>
             </div>
-            <span className="text-[10px] sm:text-[11px] font-semibold text-emerald-700 mt-1.5">
+            <span className="text-[10px] sm:text-[11px] font-semibold text-sky-700 mt-1.5">
               ✓ Siap disimpan
             </span>
           </div>
         ) : (
           <div className={`${compact ? 'py-3 px-2' : 'py-6 px-4'} flex flex-col items-center`}>
-            <div className={`${compact ? 'w-8 h-8 rounded-xl mb-1' : 'w-12 h-12 rounded-2xl mb-2'} bg-emerald-50 text-emerald-600 flex items-center justify-center shadow-2xs`}>
+            <div className={`${compact ? 'w-8 h-8 rounded-xl mb-1' : 'w-12 h-12 rounded-2xl mb-2'} bg-sky-50 text-sky-600 flex items-center justify-center shadow-2xs`}>
               <UploadCloud className={`${compact ? 'w-4 h-4' : 'w-6 h-6'} stroke-[1.75]`} />
             </div>
             <p className={`${compact ? 'text-[11px]' : 'text-xs'} font-bold text-slate-800`}>

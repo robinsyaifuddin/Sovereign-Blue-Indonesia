@@ -8,25 +8,39 @@ export default {
     extend: {
       colors: {
         forest: {
-          950: '#06372b', // Deep forest canvas (sampled)
-          900: '#0a4637', // Deep forest header/footer
-          850: '#0e5644', // Refined deep forest
-          800: '#146954', // Forest card/accent
-          700: '#1d7d65', // Interactive forest
-          600: '#28594d', // Mid forest tone
-          500: '#3a7566', // Soft forest tint
-          50: '#f0fdf4',  // Light tint
+          950: '#03203c', // Deep navy canvas
+          900: '#07325b', // Deep ocean blue
+          850: '#0a437a', // Refined deep ocean
+          800: '#0369a1', // Vibrant deep cerulean
+          700: '#0284c7', // Sky cyan-blue
+          600: '#01aafd', // Exactly user's azure electric blue (#01aafd)
+          500: '#38bdf8', // Soft sky blue
+          50: '#f0f9ff',  // Clean light blue tint
         },
         gold: {
-          600: '#15803d', // Deep vibrant green
-          500: '#10b981', // Fresh vibrant emerald
-          400: '#34d399', // Bright mint
-          300: '#a7f3d0', // Light mint
-          50: '#ecfdf5',  // Subtle emerald tint
+          600: '#0284c7', // Rich azure blue
+          500: '#01aafd', // User vivid azure blue
+          400: '#38bdf8', // Bright cyan-sky
+          300: '#7dd3fc', // Soft bright blue
+          50: '#f0f9ff',  // Subtle sky tint
+        },
+        emerald: {
+          950: '#03203c',
+          900: '#07325b',
+          850: '#0a437a',
+          800: '#0369a1',
+          700: '#0284c7',
+          600: '#01aafd',
+          500: '#38bdf8',
+          400: '#7dd3fc',
+          300: '#bae6fd',
+          200: '#e0f2fe',
+          100: '#f0f9ff',
+          50: '#f8fafc',
         },
         cream: {
           50: '#f8fafc',
-          100: '#f1f5f9',
+          100: '#f0f9ff',
           200: '#e2e8f0',
         }
       },

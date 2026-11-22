@@ -77,14 +77,14 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
             <Link to="/" className="flex items-center gap-3 group">
               <img 
                 src="/logo.webp" 
-                alt="Logo Al-Mursyid" 
+                alt="Logo Sovereign Blue" 
                 className="w-9 h-9 object-contain group-hover:scale-105 transition-transform" 
               />
               <div>
                 <span className="font-extrabold text-base tracking-tight text-slate-900 block leading-tight">
-                  Al-Mursyid
+                  Sovereign Blue
                 </span>
-                <span className="text-[10px] font-bold tracking-wider uppercase text-emerald-800 block">
+                <span className="text-[10px] font-bold tracking-wider uppercase text-sky-800 block">
                   Admin CMS & PPDB
                 </span>
               </div>
@@ -135,16 +135,16 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                     `}
                   >
                     <div className="flex items-center gap-3">
-                      <Icon className={`w-4 h-4 ${isActive ? 'text-emerald-400' : 'text-slate-400'}`} />
+                      <Icon className={`w-4 h-4 ${isActive ? 'text-sky-400' : 'text-slate-400'}`} />
                       <span>{item.label}</span>
                     </div>
 
                     {item.badge ? (
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${isActive ? 'bg-forest-800 text-white' : 'bg-emerald-100 text-emerald-800'}`}>
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${isActive ? 'bg-forest-800 text-white' : 'bg-sky-100 text-sky-800'}`}>
                         {item.badge}
                       </span>
                     ) : (
-                      isActive && <ChevronRight className="w-3.5 h-3.5 text-emerald-400/70" />
+                      isActive && <ChevronRight className="w-3.5 h-3.5 text-sky-400/70" />
                     )}
                   </button>
                 );

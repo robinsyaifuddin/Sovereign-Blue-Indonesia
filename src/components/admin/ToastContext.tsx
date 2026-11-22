@@ -141,12 +141,12 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       {/* Top Loading Progress Line & Badge di Tengah */}
       {isLoading && (
         <div className="fixed top-0 left-0 right-0 z-[100] pointer-events-none flex flex-col items-center">
-          <div className="h-1 w-full bg-emerald-950/20 overflow-hidden">
-            <div className="h-full bg-emerald-600 animate-pulse w-full"></div>
+          <div className="h-1 w-full bg-sky-950/20 overflow-hidden">
+            <div className="h-full bg-sky-600 animate-pulse w-full"></div>
           </div>
           <div className="pt-4 px-4">
             <div className="bg-slate-900/90 backdrop-blur-md text-white text-xs px-4 py-2.5 rounded-full shadow-2xl border border-slate-700/60 flex items-center gap-2.5 pointer-events-auto animate-in fade-in slide-in-from-top-2 duration-200">
-              <Loader2 className="w-4 h-4 animate-spin text-emerald-400 shrink-0" />
+              <Loader2 className="w-4 h-4 animate-spin text-sky-400 shrink-0" />
               <span className="font-medium tracking-wide text-slate-100">{loadingMessage}</span>
             </div>
           </div>
@@ -172,7 +172,7 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
                 pointer-events-auto relative w-full overflow-hidden rounded-2xl p-4 shadow-2xl border backdrop-blur-xl transition-all duration-300 ease-out animate-in fade-in zoom-in-95 slide-in-from-top-3
                 ${
                   isSuccess 
-                    ? 'bg-white/95 border-emerald-500/30 text-slate-900 shadow-emerald-950/10' 
+                    ? 'bg-white/95 border-sky-500/30 text-slate-900 shadow-emerald-950/10' 
                     : isError 
                     ? 'bg-white/95 border-rose-500/30 text-slate-900 shadow-rose-950/10' 
                     : isWarning 
@@ -184,7 +184,7 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
               <div className="flex items-start gap-3.5">
                 <div className="shrink-0 mt-0.5">
                   <div className={`p-2 rounded-xl ${
-                    isSuccess ? 'bg-emerald-50 text-emerald-600' :
+                    isSuccess ? 'bg-sky-50 text-sky-600' :
                     isError ? 'bg-rose-50 text-rose-600' :
                     isWarning ? 'bg-amber-50 text-amber-600' :
                     'bg-sky-50 text-sky-600'
@@ -220,7 +220,7 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
               {/* Tactical subtle bottom accent line */}
               <div 
                 className={`absolute bottom-0 left-0 right-0 h-[2px] ${
-                  isSuccess ? 'bg-emerald-500' : isError ? 'bg-rose-500' : isWarning ? 'bg-amber-400' : 'bg-sky-500'
+                  isSuccess ? 'bg-sky-500' : isError ? 'bg-rose-500' : isWarning ? 'bg-amber-400' : 'bg-sky-500'
                 }`} 
               />
             </div>
@@ -248,7 +248,7 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
                   ? 'bg-rose-50 text-rose-600 ring-4 ring-rose-50/50' 
                   : confirmState.type === 'warning'
                   ? 'bg-amber-50 text-amber-600 ring-4 ring-amber-50/50'
-                  : 'bg-emerald-50 text-emerald-700 ring-4 ring-emerald-50/50'
+                  : 'bg-sky-50 text-sky-700 ring-4 ring-sky-50/50'
               }`}>
                 {confirmState.type === 'danger' ? (
                   <Trash2 className="w-6 h-6" />
@@ -287,7 +287,7 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
                     ? 'bg-rose-600 hover:bg-rose-700 shadow-rose-600/20'
                     : confirmState.type === 'warning'
                     ? 'bg-amber-600 hover:bg-amber-700 shadow-amber-600/20'
-                    : 'bg-emerald-700 hover:bg-emerald-800 shadow-emerald-700/20'
+                    : 'bg-sky-700 hover:bg-sky-800 shadow-emerald-700/20'
                 }`}
               >
                 {confirmState.confirmText}

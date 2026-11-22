@@ -52,13 +52,13 @@ export const PengurusManager: React.FC = () => {
         name: rawPembina.name || '',
         role: rawPembina.role || 'Pembina Yayasan',
         image: rawPembina.image && !rawPembina.image.includes('unsplash.com') ? rawPembina.image : '',
-        desc: rawPembina.desc || 'Pondok Pesantren Al-Mursyid Tanggamus, pembina arah kebijakan strategis & kepesantrenan.'
+        desc: rawPembina.desc || 'Sovereign Blue Foundation, pembina arah kebijakan strategis & kemaritiman.'
       }
     : {
         name: typeof rawPembina === 'string' ? rawPembina : 'Usman Mursyid',
         role: 'Pembina Yayasan',
         image: '',
-        desc: 'Pondok Pesantren Al-Mursyid Tanggamus, pembina arah kebijakan strategis & kepesantrenan.'
+        desc: 'Sovereign Blue Foundation, pembina arah kebijakan strategis & kemaritiman.'
       };
 
   const rawPengawas = siteInfo?.leadership?.pengawas;
@@ -150,12 +150,12 @@ export const PengurusManager: React.FC = () => {
         name: rawPembina.name || '',
         role: rawPembina.role || 'Pembina Yayasan',
         image: rawPembina.image && !rawPembina.image.includes('unsplash.com') ? rawPembina.image : '',
-        desc: rawPembina.desc || 'Pondok Pesantren Al-Mursyid Tanggamus, pembina arah kebijakan strategis & kepesantrenan.'
+        desc: rawPembina.desc || 'Sovereign Blue Foundation, pembina arah kebijakan strategis & kemaritiman.'
       } : {
         name: rawPembina,
         role: 'Pembina Yayasan',
         image: '',
-        desc: 'Pondok Pesantren Al-Mursyid Tanggamus, pembina arah kebijakan strategis & kepesantrenan.'
+        desc: 'Sovereign Blue Foundation, pembina arah kebijakan strategis & kemaritiman.'
       });
     }
     if (rawPengawas) {
@@ -278,7 +278,7 @@ export const PengurusManager: React.FC = () => {
             ...pembinaData,
             name: pembinaData.name.trim(),
             role: pembinaData.role?.trim() || 'Pembina Yayasan',
-            desc: pembinaData.desc?.trim() || 'Pondok Pesantren Al-Mursyid Tanggamus, pembina arah kebijakan strategis & kepesantrenan.'
+            desc: pembinaData.desc?.trim() || 'Sovereign Blue Foundation, pembina arah kebijakan strategis & kemaritiman.'
           },
           pengawas: {
             ...pengawasData,
@@ -312,7 +312,7 @@ export const PengurusManager: React.FC = () => {
               <ArrowLeft className="w-5 h-5" />
             </button>
             <div>
-              <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">
+              <span className="text-[10px] font-bold text-sky-700 uppercase tracking-wider block">
                 {editingIndex !== null ? 'Edit Data Pengurus' : 'Tambah Pengurus Baru'}
               </span>
               <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
@@ -343,7 +343,7 @@ export const PengurusManager: React.FC = () => {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-semibold focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-semibold focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none"
                     placeholder="Contoh: Ustadz Ahmad Fauzi, Lc."
                   />
                 </div>
@@ -355,7 +355,7 @@ export const PengurusManager: React.FC = () => {
                     required
                     value={formData.role}
                     onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-semibold focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-semibold focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none"
                     placeholder="Contoh: Kepala Kepengurusan Putri & Asrama"
                   />
                 </div>
@@ -367,7 +367,7 @@ export const PengurusManager: React.FC = () => {
                       id="highlightCheck"
                       checked={formData.highlight || false}
                       onChange={(e) => setFormData({ ...formData, highlight: e.target.checked })}
-                      className="w-4 h-4 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500"
+                      className="w-4 h-4 text-sky-600 rounded border-slate-300 focus:ring-sky-500"
                     />
                     <label htmlFor="highlightCheck" className="text-xs font-bold text-slate-800 cursor-pointer">
                       Tandai sebagai Pengurus Inti (Highlight)
@@ -404,7 +404,7 @@ export const PengurusManager: React.FC = () => {
               </button>
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-6 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95"
+                className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs px-6 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95"
               >
                 <Save className="w-4 h-4" />
                 <span>Simpan Pengurus</span>
@@ -430,7 +430,7 @@ export const PengurusManager: React.FC = () => {
         <button
           type="button"
           onClick={handleOpenAdd}
-          className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95 shrink-0"
+          className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95 shrink-0"
         >
           <Plus className="w-4 h-4" />
           <span>Tambah Pengurus</span>
@@ -441,7 +441,7 @@ export const PengurusManager: React.FC = () => {
       <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm overflow-hidden">
         <div className="p-6 border-b border-slate-100 flex items-center justify-between flex-wrap gap-2">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center shrink-0">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
@@ -449,7 +449,7 @@ export const PengurusManager: React.FC = () => {
               <p className="text-xs text-slate-400">Dewan Pembina &amp; Dewan Pengawas Yayasan (Posisi Kehormatan)</p>
             </div>
           </div>
-          <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200/60 px-3 py-1 rounded-full">
+          <span className="text-[11px] font-semibold text-sky-800 bg-sky-50 border border-sky-200/60 px-3 py-1 rounded-full">
             2 Pimpinan Terdaftar
           </span>
         </div>
@@ -555,7 +555,7 @@ export const PengurusManager: React.FC = () => {
           <div className="bg-white w-full max-w-2xl rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
               <div>
-                <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">
+                <span className="text-[10px] font-bold text-sky-700 uppercase tracking-wider block">
                   {editingLeaderRole === 'pembina' ? 'Amanah Tertinggi' : 'Tata Kelola'}
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900">
@@ -583,7 +583,7 @@ export const PengurusManager: React.FC = () => {
                       value={leaderFormData.name}
                       onChange={(e) => setLeaderFormData({ ...leaderFormData, name: e.target.value })}
                       placeholder={editingLeaderRole === 'pembina' ? "Contoh: Usman Mursyid" : "Contoh: Budi Setiawan"}
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none"
                     />
                   </div>
 
@@ -594,7 +594,7 @@ export const PengurusManager: React.FC = () => {
                       value={leaderFormData.role || ''}
                       onChange={(e) => setLeaderFormData({ ...leaderFormData, role: e.target.value })}
                       placeholder={editingLeaderRole === 'pembina' ? "Pembina Yayasan" : "Pengawas Yayasan"}
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none"
                     />
                   </div>
 
@@ -605,7 +605,7 @@ export const PengurusManager: React.FC = () => {
                       value={leaderFormData.desc || ''}
                       onChange={(e) => setLeaderFormData({ ...leaderFormData, desc: e.target.value })}
                       placeholder="Deskripsi tugas kepengurusan..."
-                      className="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-normal focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none resize-none"
+                      className="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-normal focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none resize-none"
                     />
                   </div>
                 </div>
@@ -633,7 +633,7 @@ export const PengurusManager: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-sm transition-transform active:scale-95"
+                  className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs shadow-sm transition-transform active:scale-95"
                 >
                   <Save className="w-3.5 h-3.5" />
                   <span>Simpan Perubahan</span>
@@ -651,7 +651,7 @@ export const PengurusManager: React.FC = () => {
             <h2 className="text-sm sm:text-base font-bold text-slate-900">Jajaran Pengurus & Divisi</h2>
             <p className="text-xs text-slate-400">Total {pengurusList.length} pengurus terdaftar dalam struktur kepengurusan</p>
           </div>
-          <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200/60 px-3 py-1 rounded-full">
+          <span className="text-[11px] font-semibold text-sky-800 bg-sky-50 border border-sky-200/60 px-3 py-1 rounded-full">
             Tabel Ringkas
           </span>
         </div>

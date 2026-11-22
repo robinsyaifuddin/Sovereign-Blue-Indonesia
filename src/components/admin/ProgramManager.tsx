@@ -156,7 +156,7 @@ export const ProgramManager: React.FC = () => {
               <ArrowLeft className="w-5 h-5" />
             </button>
             <div>
-              <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">
+              <span className="text-[10px] font-bold text-sky-700 uppercase tracking-wider block">
                 {editingId ? 'Edit Program' : 'Tambah Program Baru'}
               </span>
               <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
@@ -187,7 +187,7 @@ export const ProgramManager: React.FC = () => {
                     required
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-semibold focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-semibold focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none"
                     placeholder="Contoh: Tahfidzul Qur'an 30 Juz"
                   />
                 </div>
@@ -198,7 +198,7 @@ export const ProgramManager: React.FC = () => {
                     type="text"
                     value={formData.tagline}
                     onChange={(e) => setFormData({ ...formData, tagline: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none"
                     placeholder="Contoh: Metode Talaqqi, Ziyadah & Muraja'ah Harian"
                   />
                 </div>
@@ -210,7 +210,7 @@ export const ProgramManager: React.FC = () => {
                     required
                     value={formData.desc}
                     onChange={(e) => setFormData({ ...formData, desc: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none leading-relaxed"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none leading-relaxed"
                     placeholder="Jelaskan output kurikulum, target capaian santri, dan keunggulannya..."
                   />
                 </div>
@@ -221,7 +221,7 @@ export const ProgramManager: React.FC = () => {
                     <button
                       type="button"
                       onClick={addHighlightField}
-                      className="text-xs font-bold text-emerald-700 hover:underline"
+                      className="text-xs font-bold text-sky-700 hover:underline"
                     >
                       + Tambah Poin
                     </button>
@@ -233,7 +233,7 @@ export const ProgramManager: React.FC = () => {
                           type="text"
                           value={h}
                           onChange={(e) => handleHighlightChange(idx, e.target.value)}
-                          className="flex-1 px-3 py-2 bg-white border border-slate-200 rounded-xl text-xs outline-none focus:border-emerald-600"
+                          className="flex-1 px-3 py-2 bg-white border border-slate-200 rounded-xl text-xs outline-none focus:border-sky-600"
                           placeholder={`Keunggulan ke-${idx + 1}`}
                         />
                         {formData.highlights.length > 1 && (
@@ -276,7 +276,7 @@ export const ProgramManager: React.FC = () => {
               </button>
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-6 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95"
+                className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs px-6 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95"
               >
                 <Save className="w-4 h-4" />
                 <span>Simpan Program</span>
@@ -302,7 +302,7 @@ export const ProgramManager: React.FC = () => {
         <button
           type="button"
           onClick={handleOpenAdd}
-          className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95 shrink-0"
+          className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95 shrink-0"
         >
           <Plus className="w-4 h-4" />
           <span>Tambah Program Baru</span>
@@ -323,7 +323,7 @@ export const ProgramManager: React.FC = () => {
                 </div>
               )}
               <div className="flex items-start justify-between gap-3 mb-3">
-                <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold">
                   <BookOpen className="w-5 h-5" />
                 </div>
                 <div className="flex items-center gap-1">
@@ -347,7 +347,7 @@ export const ProgramManager: React.FC = () => {
               </div>
 
               <h3 className="text-base font-bold text-slate-900">{item.title}</h3>
-              <p className="text-xs font-semibold text-emerald-700 mt-0.5">{item.tagline}</p>
+              <p className="text-xs font-semibold text-sky-700 mt-0.5">{item.tagline}</p>
               <p className="text-xs text-slate-600 mt-2 leading-relaxed">{item.desc}</p>
 
               {item.highlights && item.highlights.length > 0 && (
@@ -355,7 +355,7 @@ export const ProgramManager: React.FC = () => {
                   <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Poin Keunggulan:</p>
                   {item.highlights.map((h: string, i: number) => (
                     <div key={i} className="flex items-center gap-2 text-xs text-slate-700">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 shrink-0" />
                       <span>{h}</span>
                     </div>
                   ))}

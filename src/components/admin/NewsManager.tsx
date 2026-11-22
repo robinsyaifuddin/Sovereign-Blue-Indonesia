@@ -161,7 +161,7 @@ export const NewsManager: React.FC = () => {
               <ArrowLeft className="w-5 h-5" />
             </button>
             <div>
-              <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">
+              <span className="text-[10px] font-bold text-sky-700 uppercase tracking-wider block">
                 {editingId ? 'Edit Artikel' : 'Tulis Baru'}
               </span>
               <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
@@ -191,7 +191,7 @@ export const NewsManager: React.FC = () => {
                     required
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-semibold focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-semibold focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none"
                     placeholder="Contoh: Wisuda Akbar Tahfidz Qur'an 30 Juz & Penganugerahan Sanad..."
                   />
                 </div>
@@ -203,7 +203,7 @@ export const NewsManager: React.FC = () => {
                       <select
                         value={formData.category}
                         onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                        className="w-full appearance-none px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-xs font-medium focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none pr-9"
+                        className="w-full appearance-none px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-xs font-medium focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none pr-9"
                       >
                         {categories.filter(c => c !== 'Semua').map(c => (
                           <option key={c} value={c}>{c}</option>
@@ -219,7 +219,7 @@ export const NewsManager: React.FC = () => {
                       type="text"
                       value={formData.date}
                       onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-xs font-medium focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none"
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-xs font-medium focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none"
                       placeholder="Contoh: 03 November 2026"
                     />
                   </div>
@@ -232,7 +232,7 @@ export const NewsManager: React.FC = () => {
                     required
                     value={formData.summary}
                     onChange={(e) => setFormData({ ...formData, summary: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none leading-relaxed"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none leading-relaxed"
                     placeholder="Tuliskan isi berita, detail kegiatan santri, sambutan pimpinan, atau informasi penting lainnya..."
                   />
                 </div>
@@ -257,7 +257,7 @@ export const NewsManager: React.FC = () => {
                       id="featuredCheck"
                       checked={formData.isFeatured || false}
                       onChange={(e) => setFormData({ ...formData, isFeatured: e.target.checked })}
-                      className="w-4 h-4 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500"
+                      className="w-4 h-4 text-sky-600 rounded border-slate-300 focus:ring-sky-500"
                     />
                     <label htmlFor="featuredCheck" className="text-xs font-bold text-slate-800 cursor-pointer">
                       Jadikan Berita Utama (Highlight)
@@ -281,7 +281,7 @@ export const NewsManager: React.FC = () => {
               </button>
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-6 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95"
+                className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs px-6 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95"
               >
                 <Save className="w-4 h-4" />
                 <span>Simpan & Terbitkan</span>
@@ -307,7 +307,7 @@ export const NewsManager: React.FC = () => {
         <button
           type="button"
           onClick={handleOpenAdd}
-          className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95 shrink-0"
+          className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-sm transition-transform active:scale-95 shrink-0"
         >
           <Plus className="w-4 h-4" />
           <span>Tulis Artikel Baru</span>
@@ -323,7 +323,7 @@ export const NewsManager: React.FC = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Cari judul berita atau topik..."
-            className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all"
+            className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 transition-all"
           />
         </div>
 
@@ -334,7 +334,7 @@ export const NewsManager: React.FC = () => {
             <select
               value={filterCategory}
               onChange={(e) => setFilterCategory(e.target.value)}
-              className="w-full appearance-none pl-3.5 pr-8 py-2 bg-emerald-50 text-emerald-900 font-bold border border-emerald-200 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500/30 cursor-pointer"
+              className="w-full appearance-none pl-3.5 pr-8 py-2 bg-sky-50 text-sky-900 font-bold border border-sky-200 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-sky-500/30 cursor-pointer"
             >
               {categories.map((cat) => (
                 <option key={cat} value={cat}>
@@ -342,7 +342,7 @@ export const NewsManager: React.FC = () => {
                 </option>
               ))}
             </select>
-            <ChevronDown className="w-4 h-4 text-emerald-700 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <ChevronDown className="w-4 h-4 text-sky-700 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
         </div>
       </div>
@@ -368,8 +368,8 @@ export const NewsManager: React.FC = () => {
                         {item.category}
                       </span>
                       {item.isFeatured && (
-                        <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
-                          <Pin className="w-2.5 h-2.5 text-emerald-700" />
+                        <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-sky-50 text-sky-800 border border-sky-200">
+                          <Pin className="w-2.5 h-2.5 text-sky-700" />
                           <span>Utama</span>
                         </span>
                       )}
@@ -383,7 +383,7 @@ export const NewsManager: React.FC = () => {
                   <Link
                     to={`/berita/${item.id}`}
                     target="_blank"
-                    className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 hover:text-emerald-800"
+                    className="inline-flex items-center gap-1 text-[11px] font-semibold text-sky-700 hover:text-sky-800"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     <span>Lihat di Web</span>
@@ -464,8 +464,8 @@ export const NewsManager: React.FC = () => {
                     </td>
                     <td className="py-3 px-4 text-center">
                       {item.isFeatured ? (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
-                          <Pin className="w-3 h-3 text-emerald-700" />
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-sky-50 text-sky-800 border border-sky-200">
+                          <Pin className="w-3 h-3 text-sky-700" />
                           <span>Utama</span>
                         </span>
                       ) : (
@@ -477,7 +477,7 @@ export const NewsManager: React.FC = () => {
                         <Link
                           to={`/berita/${item.id}`}
                           target="_blank"
-                          className="p-1.5 text-slate-500 hover:text-emerald-700 hover:bg-slate-100 rounded-lg transition-colors"
+                          className="p-1.5 text-slate-500 hover:text-sky-700 hover:bg-slate-100 rounded-lg transition-colors"
                           title="Lihat di Web"
                         >
                           <ExternalLink className="w-4 h-4" />

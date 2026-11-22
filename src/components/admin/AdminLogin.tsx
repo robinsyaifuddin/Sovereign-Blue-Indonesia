@@ -156,8 +156,8 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
                   <span>Kembali ke Website Utama</span>
                 </Link>
                 <div className="flex items-center gap-2 mb-1">
-                  <ShieldCheck className="w-5 h-5 text-emerald-600" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+                  <ShieldCheck className="w-5 h-5 text-sky-600" />
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-2 py-0.5 rounded-md border border-sky-200">
                     Sistem Otentikasi Terenkripsi
                   </span>
                 </div>
@@ -281,7 +281,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
               >
                 <img 
                   src={slide.image} 
-                  alt="Al-Mursyid Hero Slide" 
+                  alt="Sovereign Blue Hero Slide" 
                   className="w-full h-full object-cover object-center scale-105 transition-transform duration-[8000ms]"
                 />
                 {/* Gradasi Khas Hero: Hitam Pekat & Emerald Halus */}
@@ -301,21 +301,21 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
             ))}
 
             {/* Ambient Glow */}
-            <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-emerald-500/15 blur-3xl pointer-events-none" />
+            <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-sky-500/15 blur-3xl pointer-events-none" />
             <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-teal-400/10 blur-3xl pointer-events-none" />
 
             {/* Header Brand Kanan */}
             <div className="relative z-10 flex items-center gap-3">
               <img 
                 src="/logo.webp" 
-                alt="Logo Al-Mursyid" 
+                alt="Logo Sovereign Blue" 
                 className="w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-md" 
               />
               <div>
                 <span className="font-extrabold text-xs sm:text-sm tracking-wider uppercase block text-white/95 leading-tight">
-                  AL-MURSYID
+                  Sovereign Blue
                 </span>
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-emerald-300 font-semibold block leading-tight mt-0.5">
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-sky-300 font-semibold block leading-tight mt-0.5">
                   Islamic Boarding School
                 </span>
               </div>
@@ -324,7 +324,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
             {/* Bagian Bawah: Glass Card Hanya Berisi Kutipan (Tanpa Nama & Jabatan) */}
             <div className="relative z-10 mt-6 sm:mt-8">
               <div className="bg-forest-950/75 backdrop-blur-xl border border-white/15 rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 shadow-2xl transition-all duration-300">
-                <Quote className="w-5 h-5 text-emerald-400 mb-2 opacity-85" />
+                <Quote className="w-5 h-5 text-sky-400 mb-2 opacity-85" />
                 <p className="text-xs sm:text-sm lg:text-base font-medium text-white/95 leading-relaxed">
                   "{activeSlide.quote}"
                 </p>
@@ -338,7 +338,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
                         onClick={() => setCurrentSlide(idx)}
                         aria-label={`Pilih slide ${idx + 1}`}
                         className={`h-1.5 rounded-full transition-all duration-300 ${
-                          idx === currentSlide ? 'w-5 bg-emerald-400' : 'w-1.5 bg-white/30 hover:bg-white/50'
+                          idx === currentSlide ? 'w-5 bg-sky-400' : 'w-1.5 bg-white/30 hover:bg-white/50'
                         }`}
                       />
                     ))}

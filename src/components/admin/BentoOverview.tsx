@@ -20,22 +20,22 @@ export const BentoOverview: React.FC<BentoOverviewProps> = ({
   onNavigate,
   onOpenNewModal
 }) => {
-  const { ppdbApplicants, news, gallery, programs, facilities, siteInfo } = useAppStoreData();
+  const { ppdbApplicants: RelawanApplicants, news, gallery, programs, facilities, siteInfo } = useAppStoreData();
 
   return (
     <div className="space-y-6">
       {/* Top Banner Bento Welcome */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
         <div>
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-800 mb-1">
-            <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sky-800 mb-1">
+            <span className="w-2 h-2 rounded-full bg-sky-600"></span>
             Portal Administrasi Terpadu
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
             Assalamu'alaikum, Admin!
           </h1>
           <p className="text-slate-500 text-sm mt-1 max-w-xl">
-            Selamat datang di Dashboard CMS Pondok Pesantren Al-Mursyid Tanggamus. Kelola informasi PPDB, berita, galeri kegiatan, profil pengurus, dan fasilitas pondok.
+            Selamat datang di Dashboard CMS Sovereign Blue Foundation. Kelola informasi Relawan, berita, galeri kegiatan, profil pengurus, dan fasilitas pondok.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ export const BentoOverview: React.FC<BentoOverviewProps> = ({
             onClick={() => onOpenNewModal('news')}
             className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 active:scale-95 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all shadow-sm"
           >
-            <PlusCircle className="w-4 h-4 text-emerald-400" />
+            <PlusCircle className="w-4 h-4 text-sky-400" />
             <span>Tulis Berita</span>
           </button>
           <button
@@ -54,7 +54,7 @@ export const BentoOverview: React.FC<BentoOverviewProps> = ({
             onClick={() => onOpenNewModal('gallery')}
             className="inline-flex items-center gap-2 bg-forest-950 hover:bg-forest-900 active:scale-95 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all shadow-sm"
           >
-            <ImageIcon className="w-4 h-4 text-emerald-300" />
+            <ImageIcon className="w-4 h-4 text-sky-300" />
             <span>Upload Foto</span>
           </button>
         </div>
@@ -62,13 +62,13 @@ export const BentoOverview: React.FC<BentoOverviewProps> = ({
 
       {/* Bento Grid 1: Key Metrics */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Card 1: PPDB */}
+        {/* Card 1: Relawan */}
         <div 
-          onClick={() => onNavigate('ppdb')}
+          onClick={() => onNavigate('Relawan')}
           className="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm hover:border-forest-900/30 transition-all cursor-pointer group"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Halaman PPDB</span>
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Halaman Relawan</span>
             <div className="w-8 h-8 rounded-xl bg-forest-50 text-forest-900 flex items-center justify-center group-hover:scale-105 transition-transform">
               <UserCheck className="w-4 h-4" />
             </div>
@@ -181,7 +181,7 @@ export const BentoOverview: React.FC<BentoOverviewProps> = ({
 
           <div className="pt-4 mt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-sky-700" />
               <span>Semua konten tersinkron otomatis ke web publik</span>
             </span>
             <span>Update real-time</span>
@@ -191,10 +191,10 @@ export const BentoOverview: React.FC<BentoOverviewProps> = ({
         {/* Right Column (4 cols): Quick Highlights & Status */}
         <div className="lg:col-span-4 space-y-4">
           
-          {/* Card Dark: Lembaga Summary - Selaras Hijau Gelap Al-Mursyid */}
+          {/* Card Dark: Lembaga Summary - Selaras Hijau Gelap Sovereign Blue */}
           <div className="bg-forest-950 text-white p-5 rounded-3xl relative overflow-hidden shadow-sm border border-forest-900/50">
             <div className="relative z-10">
-              <span className="text-[10px] font-bold tracking-wider uppercase text-emerald-300">Identitas Lembaga</span>
+              <span className="text-[10px] font-bold tracking-wider uppercase text-sky-300">Identitas Lembaga</span>
               <h3 className="text-base font-bold mt-1">{siteInfo.name}</h3>
               <p className="text-xs text-white/70 mt-1 leading-relaxed">
                 NSP Kemenag: <span className="text-white font-mono">{siteInfo.legal.nsp}</span>
@@ -206,8 +206,8 @@ export const BentoOverview: React.FC<BentoOverviewProps> = ({
                   <p className="font-semibold text-white truncate">{siteInfo.leadership.pengurus[0]?.name || '-'}</p>
                 </div>
                 <div>
-                  <p className="text-white/60 text-[10px]">Hotline PPDB</p>
-                  <p className="font-semibold text-emerald-300 truncate">{siteInfo.contacts.phone}</p>
+                  <p className="text-white/60 text-[10px]">Hotline Relawan</p>
+                  <p className="font-semibold text-sky-300 truncate">{siteInfo.contacts.phone}</p>
                 </div>
               </div>
             </div>
@@ -217,7 +217,7 @@ export const BentoOverview: React.FC<BentoOverviewProps> = ({
           <div className="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm space-y-3">
             <div className="flex items-center justify-between">
               <h4 className="text-sm font-bold text-slate-900">Konten Terintegrasi</h4>
-              <Layers className="w-4 h-4 text-emerald-700" />
+              <Layers className="w-4 h-4 text-sky-700" />
             </div>
 
             <div className="space-y-2">

@@ -4,418 +4,10 @@
   children?: { label: string; href: string; desc?: string }[];
 }
 
-export const SITE_INFO = {
-  name: "Al-Mursyid Islamic Boarding School",
-  subName: "Pondok Pesantren Al-Mursyid Tanggamus",
-  foundation: "Yayasan Almursyid Tanggamus Lampung",
-  tagline: "Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi",
-  legal: {
-    kemenkumham: "SK Kemenkumham RI No. AHU-0014511.AH.01.04.Tahun 2020",
-    kemenkumhamDate: "28 Agustus 2020",
-    piagamKemenag: "Nomor 030299 - Kemenag RI, Ditjen Pendidikan Islam",
-    nsp: "510018060046",
-    establishedDate: "01 Juli 2022",
-  },
-  address: {
-    village: "Way Lalaan Kampung Baru, Desa Kampung Baru",
-    district: "Kec. Kota Agung Timur",
-    regency: "Kabupaten Tanggamus",
-    province: "Provinsi Lampung",
-    full: "Way Lalaan Kampung Baru, Desa Kampung Baru, Kec. Kota Agung Timur, Kab. Tanggamus, Lampung 35384"
-  },
-  leadership: {
-    pembina: {
-      name: "Usman Mursyid",
-      role: "Pembina Yayasan",
-      image: "",
-      desc: "Pondok Pesantren Al-Mursyid Tanggamus, pembina arah kebijakan strategis & kepesantrenan."
-    },
-    pengawas: {
-      name: "Budi Setiawan",
-      role: "Pengawas Yayasan",
-      image: "",
-      desc: "Memastikan kepatuhan tata kelola, keterbukaan manajerial, dan operasional yayasan."
-    },
-    founders: ["Agus Aftah", "Muhammad Al Ashimi", "Usman Mursyid"],
-    pengurus: [
-      { 
-        name: "Pungut Sarifuddin Ash-Shajili", 
-        role: "Ketua Pengurus", 
-        image: "",
-        highlight: true 
-      },
-      { 
-        name: "Astoya Saimulani", 
-        role: "Sekretaris",
-        image: ""
-      },
-      { 
-        name: "Muhammad Al Ashimi", 
-        role: "Bendahara & Hubungan Umat",
-        image: ""
-      },
-      { 
-        name: "Agus Aftah", 
-        role: "Divisi Pendidikan & Kurikulum",
-        image: ""
-      },
-      { 
-        name: "Fia Aulia", 
-        role: "Kepengurusan Putri & Asrama",
-        image: ""
-      },
-      { 
-        name: "Novi Yani", 
-        role: "Administrasi & Keuangan",
-        image: ""
-      },
-    ]
-  },
-  contacts: {
-    phone: "+62 838-4847-8150",
-    whatsapp: "+62 838-4847-8150",
-    email: "info@almursyidtanggamus.sch.id",
-    ppdbWa: "https://wa.me/6283848478150?text=Halo%20Admin%20Pondok%20Pesantren%20Al-Mursyid,%20saya%20ingin%20konsultasi%20dan%20informasi%20pendaftaran%20santri%20baru.",
-    ppdbFormUrl: "https://forms.gle/almursyid-ppdb", // Ganti dengan URL Google Form resmi
-    mapsUrl: "https://maps.app.goo.gl/3FVjebPp1YaSYvom7",
-    instagram: "https://www.instagram.com/ponpes_almursyid",
-    instagramHandle: "@ponpes_almursyid",
-    operationalHours: "Senin - Sabtu: 07.30 - 16.30 WIB"
-  },
-  stats: [
-    { value: "510018060046", label: "NSP Kemenag RI", sub: "Terdaftar Resmi" },
-    { value: "30 Juz", label: "Program Tahfidz", sub: "Bersanad Mutqin" },
-    { value: "1:12", label: "Rasio Ustadz : Santri", sub: "Bimbingan Intensif" },
-    { value: "100%", label: "Boarding Terpadu", sub: "Adab & Kemandirian" },
-  ]
-};
-
-export const NAV_LINKS: NavItem[] = [
-  { label: "Beranda", href: "/" },
-  { label: "Tentang", href: "/tentang-kami" },
-  { label: "Program", href: "/program" },
-  { label: "Fasilitas", href: "/fasilitas" },
-  { label: "Galeri", href: "/galeri" },
-  { label: "PPDB", href: "/ppdb" },
-  { label: "Berita", href: "/berita" },
-];
-
-export const PROGRAMS = [
-  {
-    id: "tahfidz",
-    title: "Tahfidzul Qur'an 30 Juz",
-    tagline: "Metode Talaqqi, Ziyadah & Muraja'ah Harian",
-    desc: "Program unggulan mencetak santri hafidz-hafidzah berjiwa Qur'ani dengan tajwid makharijul huruf yang fasih, bimbingan ustadz mutqin, serta sertifikasi syahadah resmi.",
-    icon: "BookOpen",
-    highlights: ["Target 30 Juz bersanad", "Muraja'ah teratur 5 waktu", "Karantina Qur'an berkala", "Halaqah intensif maks. 12 santri"]
-  },
-  {
-    id: "diniyah",
-    title: "Madrasah Diniyah & Kitab Kuning",
-    tagline: "Turats Keilmuan Ulama Ahlussunnah",
-    desc: "Pembelajaran mendalam kitab-kitab klasik berbahasa gundul, meliputi ilmu Nahwu, Shorof, Fiqih (Safinah, Taqrib), Aqidah, Tarikh, dan Hadits (Arba'in Nawawi).",
-    icon: "Scroll",
-    highlights: ["Metode bandongan & sorogan", "Penguasaan dasar bahasa Arab", "Pembentukan akhlakul karimah", "Ujian diniyah berjenjang"]
-  },
-  {
-    id: "formal",
-    title: "SMP & SMA Islam Boarding",
-    tagline: "Sinergi Kurikulum Nasional & Pesantren",
-    desc: "Pendidikan formal terakreditasi yang mengintegrasikan sains modern, literasi numerik, kepemimpinan, dan nilai-nilai keislaman untuk lulusan berdaya saing global.",
-    icon: "GraduationCap",
-    highlights: ["Ijazah resmi diakui negara", "Guru profesional & kompeten", "Laboratorium komputer & sains", "Persiapan masuk PTN & Universitas Timur Tengah"]
-  },
-  {
-    id: "ekskul",
-    title: "Bilingual & Pengembangan Bakat",
-    tagline: "Bahasa Internasional & Soft Skills",
-    desc: "Membekali santri kemampuan komunikasi aktif bahasa Arab dan Inggris sehari-hari, serta ekstrakurikuler kepanduan (Pramuka), seni Kaligrafi Islam, dan bela diri.",
-    icon: "Languages",
-    highlights: ["Yaumul Lughah (Hari Wajib Berbahasa)", "Klub Kaligrafi & Tilawah", "Pramuka Gugus Depan Pesantren", "Pelatihan Public Speaking & Khitobah"],
-    image: "/gambar/ekstrakurikuler.webp"
-  }
-];
-
-export const FACILITIES = [
-  {
-    name: "Masjid Jami' Al-Mursyid",
-    category: "Ibadah & Halaqah",
-    desc: "Pusat spiritual santri untuk salat berjamaah 5 waktu, kajian diniyah, wirid, dan halaqah tahfidz yang sejuk dan luas.",
-    image: "/gambar/masjid.webp"
-  },
-  {
-    name: "Asrama Santri Putra & Putri Terpisah",
-    category: "Tempat Tinggal",
-    desc: "Gedung asrama bersih, nyaman, dengan sirkulasi udara pegunungan Tanggamus yang segar, dilengkapi ranjang tingkat dan lemari mandiri.",
-    image: "/gambar/asrama.webp"
-  },
-  {
-    name: "Ruang Kelas & Madrasah Diniyah",
-    category: "Pendidikan",
-    desc: "Ruang belajar representatif berfasilitas modern untuk pembelajaran formal, kajian kitab kuning, sains, dan literasi teknologi.",
-    image: "/gambar/pendidikan.webp"
-  },
-  {
-    name: "Kawasan Lingkungan Asri & Hijau",
-    category: "Lingkungan",
-    desc: "Lingkungan pesantren yang asri, hijau, dan sejuk di kaki pegunungan Tanggamus untuk kenyamanan santri beraktivitas.",
-    image: "/gambar/lingkungan.webp"
-  },
-  {
-    name: "Lapangan Olahraga & Area Terbuka",
-    category: "Kebugaran & Bakat",
-    desc: "Fasilitas olahraga futsal, bulu tangkis, voli, panahan sunnah, dan area apel upacara berlatar pemandangan alam Way Lalaan yang asri.",
-    image: ""
-  },
-  {
-    name: "Perpustakaan Islam & Maktabah Turats",
-    category: "Literasi",
-    desc: "Koleksi ratusan kitab turats, terjemahan tafsir Al-Qur'an, buku penunjang kurikulum nasional, ensiklopedia, dan karya sastra santri.",
-    image: ""
-  }
-];
-
-export const NEWS_DATA = [
-  {
-    id: "wisuda-akbar-tahfidz-quran-30-juz-dan-sanad-al-mursyid",
-    title: "Wisuda Akbar Tahfidz Qur'an 30 Juz & Penganugerahan Sanad Santri Al-Mursyid",
-    date: "28 Oktober 2026",
-    timeAgo: "1 jam yang lalu",
-    category: "Prestasi Santri",
-    subCategory: "Tahfidz & Sanad",
-    summary: "Pondok Pesantren Al-Mursyid menggelar prosesi wisuda tahfidz Al-Qur'an 30 juz dan penganugerahan sanad muttashil kepada santri yang telah menyelesaikan setoran hafalan mutqin.",
-    image: "",
-    isFeatured: true
-  },
-  {
-    id: "ppdb-santri-baru-pesantren-al-mursyid-tanggamus-resmi-dibuka",
-    title: "Penerimaan Santri Baru (PPDB) Pesantren Al-Mursyid Tanggamus Resmi Dibuka",
-    date: "25 Oktober 2026",
-    timeAgo: "3 jam yang lalu",
-    category: "Informasi PPDB",
-    subCategory: "Pendaftaran Santri",
-    summary: "Pondok Pesantren Al-Mursyid Islamic Boarding School Tanggamus membuka pendaftaran santri baru untuk jenjang pendidikan kepesantrenan dan diniyah modern.",
-    image: ""
-  },
-  {
-    id: "kajian-akbar-bulanan-dan-muhasabah-wali-santri",
-    title: "Kajian Akbar Bulanan & Muhasabah Wali Santri Bersama Majelis Asatidz",
-    date: "20 Oktober 2026",
-    timeAgo: "Kemarin",
-    category: "Agenda Pondok",
-    subCategory: "Kajian & Ukhuwah",
-    summary: "Mempererat silaturahmi dan sinergi pendidikan antara asatidz dan orang tua santri dalam membina adab serta spiritualitas putra-putri di lingkungan pesantren.",
-    image: ""
-  },
-  {
-    id: "santri-al-mursyid-ukir-prestasi-mhq-lampung",
-    title: "Santri Al-Mursyid Ukir Prestasi di Musabaqah Hifdzil Qur'an (MHQ) Provinsi Lampung",
-    date: "15 Oktober 2026",
-    timeAgo: "2 hari lalu",
-    category: "Prestasi Akademik",
-    subCategory: "Musabaqah Tahfidz",
-    summary: "Santri Pondok Pesantren Al-Mursyid kembali meraih prestasi gemilang dalam ajang Musabaqah Hifdzil Qur'an tingkat Kabupaten Tanggamus dan Provinsi Lampung.",
-    image: ""
-  },
-  {
-    id: "program-kemandirian-santri-al-mursyid-tanggamus",
-    title: "Program Kemandirian Santri: Budidaya Perikanan dan Pertanian Organik Asri di Way Lalaan",
-    date: "10 Oktober 2026",
-    timeAgo: "3 hari lalu",
-    category: "Kewirausahaan",
-    subCategory: "Agrobisnis Santri",
-    summary: "Santri Al-Mursyid dibekali keterampilan hidup melalui program agrobisnis dan kemandirian pangan di kawasan sejuk lereng Tanggamus.",
-    image: ""
-  }
-];
-
-// Data untuk ticker strip bagian atas
-export const TICKER_NEWS = [
-  {
-    title: "Juara 1 Musabaqah Hifdzil Qur'an Tingkat Provinsi Lampung",
-    category: "Tahfidz",
-    timeAgo: "1 jam lalu",
-    image: ""
-  },
-  {
-    title: "Santri Kirim Delegasi Debat Bahasa Arab Nasional",
-    category: "Bahasa",
-    timeAgo: "2 jam lalu",
-    image: ""
-  },
-  {
-    title: "Kunjungan Studi Banding Forum Pesantren Se-Sumbagsel",
-    category: "Kelembagaan",
-    timeAgo: "3 jam lalu",
-    image: ""
-  },
-  {
-    title: "Peresmian Laboratorium Komputer & Studio Multimedia Baru",
-    category: "Sarpras",
-    timeAgo: "4 jam lalu",
-    image: ""
-  },
-  {
-    title: "Pemberian Beasiswa Santri Berprestasi Bidang Sains & Riset",
-    category: "Beasiswa",
-    timeAgo: "5 jam lalu",
-    image: ""
-  },
-  {
-    title: "Klinik Santri Resmikan Layanan Konseling & Cek Medis Berkala",
-    category: "Kesehatan",
-    timeAgo: "6 jam lalu",
-    image: ""
-  }
-];
-
-// Data untuk Postingan Terbaru (Sisi Kanan Hero)
-export const LATEST_POSTS = [
-  {
-    title: "Kunjungan Studi Banding Forum Pengasuh Pesantren Se-Sumbagsel",
-    category: "Kelembagaan",
-    timeAgo: "25 mnt lalu",
-    image: ""
-  },
-  {
-    title: "Peresmian Laboratorium Komputer & Studio Multimedia Baru",
-    category: "Fasilitas",
-    timeAgo: "1 jam lalu",
-    image: ""
-  },
-  {
-    title: "Santri Al-Mursyid Raih Medali Emas Olimpiade Sains Nasional",
-    category: "Prestasi",
-    timeAgo: "3 jam lalu",
-    image: ""
-  },
-  {
-    title: "Program Kemandirian: Panen Sayur Hidroponik Perdana",
-    category: "Kemandirian",
-    timeAgo: "5 jam lalu",
-    image: ""
-  },
-  {
-    title: "Gebyar Muhadhoroh: Festival Orasi Tiga Bahasa Santriwan",
-    category: "Bahasa",
-    timeAgo: "6 jam lalu",
-    image: ""
-  }
-];
-
-// Data Don't Miss (Bento Grid)
-export const DONT_MISS_NEWS = {
-  tallLead: {
-    title: "Ekspedisi Santri Pecinta Alam & Tadabbur Alam Air Terjun Way Lalaan Tanggamus",
-    category: "Ekstrakurikuler",
-    timeAgo: "2 jam lalu",
-    image: ""
-  },
-  gridItems: [
-    {
-      title: "Uji Publik Hafalan Al-Qur'an Santri Menjelang Evaluasi Tengah Semester",
-      category: "Akademik",
-      timeAgo: "3 jam lalu",
-      image: ""
-    },
-    {
-      title: "Pelatihan Kaligrafi Kontemporer & Pameran Karya Seni Islami",
-      category: "Kesenian",
-      timeAgo: "4 jam lalu",
-      image: ""
-    },
-    {
-      title: "Latihan Gabungan Pramuka Santri Gugus Depan Al-Mursyid",
-      category: "Kepanduan",
-      timeAgo: "5 jam lalu",
-      image: ""
-    },
-    {
-      title: "Eksplorasi Lab Komputer: Santri Ciptakan Website Karya Majalah Dinding Digital",
-      category: "Digital",
-      timeAgo: "6 jam lalu",
-      image: ""
-    }
-  ]
-};
-
-// Data Top Stories (List bernomor 1-5 di sisi kanan)
-export const TOP_STORIES = [
-  {
-    rank: 1,
-    title: "Alumni Al-Mursyid Tembus Universitas Al-Azhar Kairo Jalur Beasiswa Penuh",
-    timeAgo: "1 jam lalu",
-    image: ""
-  },
-  {
-    rank: 2,
-    title: "Profil Ustadz Pembina: Membangun Karakter Qur'ani di Era Distraksi Digital",
-    timeAgo: "2 jam lalu",
-    image: ""
-  },
-  {
-    rank: 3,
-    title: "Kunjungan Silaturahmi Tokoh Masyarakat & Ulama Tanggamus",
-    timeAgo: "3 jam lalu",
-    image: ""
-  },
-  {
-    title: "Tips Mendampingi Anak Masuk Pondok Pesantren Bagi Orang Tua Baru",
-    rank: 4,
-    timeAgo: "4 jam lalu",
-    image: ""
-  },
-  {
-    rank: 5,
-    title: "Juara Umum POSPEDA Tingkat Kabupaten: Dominasi Cabor Panahan & Silat",
-    timeAgo: "5 jam lalu",
-    image: ""
-  }
-];
-
-// Data Dokumentasi Video & Liputan (Bagian Bawah)
-export const VIDEO_GALLERY = {
-  main: {
-    title: "Dokumentasi Khutbah Ikhtitam & Pelepasan Santri Angkatan Terbaru",
-    status: "Video Utama",
-    views: "1.2k tayangan",
-    duration: "18:45",
-    image: ""
-  },
-  items: [
-    {
-      title: "Lantunan Murottal Santri Al-Mursyid Surat Ar-Rahman di Alam Terbuka",
-      duration: "04:32",
-      timeAgo: "2 jam lalu",
-      image: ""
-    },
-    {
-      title: "Tur Fasilitas Asrama & Lingkungan Belajar Al-Mursyid Boarding School",
-      duration: "08:15",
-      timeAgo: "4 jam lalu",
-      image: ""
-    },
-    {
-      title: "Highlights Kegiatan Ekstrakurikuler Memanah & Beladiri Tapak Suci",
-      duration: "05:50",
-      timeAgo: "6 jam lalu",
-      image: ""
-    }
-  ]
-};
-
-export const PPDB_FEES = [
-  { item: "Infaq Pengembangan Fasilitas & Sarpras", amount: "Rp 3.500.000", note: "Dibayar sekali saat masuk" },
-  { item: "Seragam Lengkap (3 Setel + Almamater)", amount: "Rp 950.000", note: "Termasuk atribut pondok" },
-  { item: "Buku Paket & Modul Diniyah 1 Tahun", amount: "Rp 650.000", note: "Kitab & modul kurikulum" },
-  { item: "Perlengkapan Asrama (Kasur, Sprei, Loker)", amount: "Rp 850.000", note: "Fasilitas pribadi santri" },
-  { item: "Syahriah / SPP Bulanan (Makan 3x + Asrama)", amount: "Rp 950.000", note: "Per bulan (All-in)" },
-];
-
 export interface GalleryItem {
   id: string;
   title: string;
-  category: "Tahfidz & Ibadah" | "Akademik & Formal" | "Ekstrakurikuler" | "Kemandirian & Sosial" | "Peringatan Hari Besar" | string;
+  category: string;
   date: string;
   location: string;
   image: string;
@@ -423,122 +15,506 @@ export interface GalleryItem {
   isFeatured?: boolean;
 }
 
+export const PPDB_FEES = [
+  { item: "Adopsi Pohon Mangrove", amount: "Rp 50.000", note: "Per bibit dengan geotagging" },
+  { item: "Beasiswa Anak Pesisir", amount: "Rp 500.000", note: "Per bulan" },
+  { item: "Restorasi Fragmen Karang", amount: "Rp 250.000", note: "Per struktur spider reef" },
+  { item: "Dukungan Koperasi Nelayan", amount: "Rp 1.000.000", note: "Per paket pemberdayaan" }
+];
+
+export const SITE_INFO = {
+  name: "Sovereign Blue Foundation",
+  subName: "Sovereign Blue Nusantara / Yayasan Biru Berdaulat",
+  foundation: "Yayasan Biru Berdaulat (Sovereign Blue Nusantara)",
+  tagline: "Empowering Communities, Preserving Indonesian Maritime Heritage",
+  taglineId: "Membangun Kemandirian Maritim, Menjaga Kedaulatan Laut Indonesia",
+  legal: {
+    kemenkumham: "SK Kemenkumham RI Terdaftar Resmi",
+    kemenkumhamDate: "2021",
+    piagamKemenag: "Sertifikasi Maritim & Ekowisata Berkelanjutan",
+    nsp: "GSTC-Aligned 2024",
+    establishedDate: "2021",
+  },
+  address: {
+    village: "Kawasan Pesisir Maritim Komunitas",
+    district: "Pulau Rote & Sekitarnya",
+    regency: "Nusa Tenggara Timur",
+    province: "Indonesia",
+    full: "Sovereign Blue Foundation Secretariat, Jakarta & Nusa Tenggara Timur (Pulau Rote & Sekitarnya), Indonesia"
+  },
+  leadership: {
+    pembina: {
+      name: "Dr. Sarah Wijaya",
+      role: "Executive Director & Co-Founder",
+      image: "",
+      desc: "Ahli Konservasi Laut & Kebijakan Maritim Tropis, memimpin arah strategis Sovereign Blue Foundation."
+    },
+    pengawas: {
+      name: "Prof. Made Sutrisna",
+      role: "Senior Advisor & Academic Research Liaison",
+      image: "",
+      desc: "Pakar riset kelautan dan hubungan akademik kerja sama universitas nusantara."
+    },
+    founders: ["Dr. Sarah Wijaya", "Budi Santoso, M.Env", "Maria Ndoen"],
+    pengurus: [
+      { 
+        name: "Dr. Sarah Wijaya", 
+        role: "Executive Director & Co-Founder", 
+        image: "",
+        highlight: true 
+      },
+      { 
+        name: "Budi Santoso, M.Env", 
+        role: "Director of Marine Conservation & Environmental Science",
+        image: ""
+      },
+      { 
+        name: "Maria Ndoen", 
+        role: "Community Development & Sustainable Tourism Lead",
+        image: ""
+      },
+      { 
+        name: "Prof. Made Sutrisna", 
+        role: "Senior Advisor & Academic Research Liaison",
+        image: ""
+      }
+    ]
+  },
+  contacts: {
+    phone: "+62 812-3456-7890",
+    whatsapp: "+62 812-3456-7890",
+    email: "contact@sovereignblue.org",
+    emailPartnership: "partnership@sovereignblue.org",
+    emailPress: "press@sovereignblue.org",
+    volunteerWa: "https://wa.me/6281234567890?text=Halo%20Tim%20Sovereign%20Blue%20Foundation,%20saya%20tertarik%20untuk%20bergabung%20sebagai%20relawan.",
+    volunteerFormUrl: "/relawan",
+    mapsUrl: "https://maps.google.com/?q=Rote+Island+East+Nusa+Tenggara",
+    instagram: "https://www.instagram.com/sovereignbluefoundation",
+    instagramHandle: "@sovereignblue",
+    operationalHours: "Senin - Jumat: 09.00 - 17.00 WITA / WIB"
+  },
+  stats: [
+    { value: "15,000+", label: "Pohon Mangrove", sub: "Ditanam & Terjaga (92% Hidup)" },
+    { value: "1,200+", label: "Keluarga & Nelayan", sub: "Diberdayakan Mandiri" },
+    { value: "500+", label: "Siswa Berbeasiswa", sub: "& Pelatihan Digital Bahari" },
+    { value: "25+", label: "Komunitas Pesisir", sub: "Desa Binaan Berkelanjutan" },
+  ]
+};
+
+export const NAV_LINKS: NavItem[] = [
+  { label: "Beranda", href: "/" },
+  { label: "Tentang", href: "/tentang-kami" },
+  { label: "Program", href: "/program" },
+  { label: "Galeri", href: "/galeri" },
+  { label: "Berita", href: "/berita" },
+];
+
+export const PROGRAMS = [
+  {
+    id: "tourism",
+    title: "Pariwisata Berkelanjutan (Sustainable Tourism)",
+    tagline: "Community-Based Ecotourism & Pelestarian Adat Bahari",
+    desc: "Menerapkan pariwisata berbasis masyarakat di mana kegiatan wisata tidak merusak daya dukung ekosistem kepulauan dan hasil ekonominya berputar langsung di kantong masyarakat lokal.",
+    icon: "Compass",
+    highlights: [
+      "Sertifikasi Ekowisata Internasional (GSTC-Aligned) & audit jejak karbon",
+      "Standardisasi homestay ramah lingkungan higienis berenergi surya",
+      "Akademi pemandu wisata bahari & penyelamatan air (water rescue)",
+      "Revitalisasi seni budaya musik Sasando & tenun ikat pewarna alami"
+    ],
+    results: "Pendapatan homestay naik 180%, 250+ pemandu tersertifikasi, 0 insiden perusakan karang."
+  },
+  {
+    id: "education",
+    title: "Pendidikan & Literasi Maritim (Marine Education & Literacy)",
+    tagline: "Mencerdaskan Generasi Emas Pesisir & Pulau Terluar",
+    desc: "Memastikan setiap anak di pulau-pulau terluar mendapatkan pendidikan berkualitas global tanpa tercerabut dari identitas kelautan dan kearifan nenek moyang mereka.",
+    icon: "GraduationCap",
+    highlights: [
+      "Marine Learning Centers bertenaga surya, perpustakaan & internet satelit",
+      "Kurikulum literasi maritim terpadu sains samudra & mitigasi bencana laut",
+      "Program beasiswa penuh anak pesisir jenjang SMP, SMA hingga Universitas",
+      "Pelatihan vokasi pemuda: digital marketing desa wisata & teknisi mesin perahu"
+    ],
+    results: "100 siswa perdana lulus beasiswa penuh, 6 unit Learning Center aktif melayani 1.200+ anak."
+  },
+  {
+    id: "economy",
+    title: "Ekonomi Biru & Pemberdayaan Pesisir (Blue Economy)",
+    tagline: "Kedaulatan Ekonomi & Rantai Dingin Mandiri dari Laut",
+    desc: "Mengembangkan potensi kekayaan laut secara sirkular dan bernilai tambah tinggi guna membebaskan masyarakat pesisir dari jerat kemiskinan struktural dan ketergantungan pada tengkulak.",
+    icon: "Anchor",
+    highlights: [
+      "Budidaya rumput laut regeneratif & solar dome dryer standar ekspor",
+      "Hilirisasi nira pohon lontar menjadi gula kristal/cair organik",
+      "Koperasi nelayan modern & fasilitas mesin es surya (Solar Cold Chain)",
+      "Produksi garam laut artisanal alami sistem tunnel rumah kaca higienis"
+    ],
+    results: "Margin pendapatan nelayan naik 40%-60%, 300+ lapangan kerja baru perempuan pesisir."
+  },
+  {
+    id: "environment",
+    title: "Konservasi Lingkungan Laut (Marine Environmental Conservation)",
+    tagline: "Restorasi Terumbu Karang, Blue Carbon & Zero-Plastic Islands",
+    desc: "Melindungi benteng keanekaragaman hayati samudra Indonesia dari ancaman abrasi pantai, pemanasan global, penangkapan ikan ilegal (destructive fishing), dan sampah plastik.",
+    icon: "ShieldAlert",
+    highlights: [
+      "Restorasi terumbu karang spider reef & transplantasi fragmen karang tangguh",
+      "Rehabilitasi sabuk hijau hutan mangrove penyerap emisi (Blue Carbon)",
+      "Gerakan Zero-Plastic Islands & Bank Sampah pesisir penukar sembako",
+      "Patroli kearifan adat bahari pengawas perikanan destruktif (bom & potas)"
+    ],
+    results: "15.000+ mangrove hidup 92%, 500 ha laut terlindungi hukum adat, 25+ ton sampah plastik diangkat."
+  }
+];
+
+export const FACILITIES = [
+  {
+    name: "Marine Learning Center Surya Mandiri",
+    category: "Pendidikan & Literasi",
+    desc: "Pusat belajar komunal pesisir bertenaga surya mandiri dilengkapi perpustakaan literasi laut, komputer, dan satelit internet untuk anak-anak kepulauan.",
+    image: "/gambar/pendidikan.webp"
+  },
+  {
+    name: "Fasilitas Rantai Dingin Surya (Solar Cold Chain)",
+    category: "Ekonomi Biru",
+    desc: "Mesin es balok ramah lingkungan bertenaga panel surya di dermaga nelayan untuk menjaga kesegaran ikan tangkapan tanpa bahan bakar fosil.",
+    image: "/gambar/lingkungan.webp"
+  },
+  {
+    name: "Kawasan Konservasi & Pembibitan Mangrove",
+    category: "Konservasi Hayati",
+    desc: "Nursery pembibitan ribuan pohon mangrove dan stasiun observasi ilmiah terumbu karang di perairan pesisir NTT.",
+    image: "/gambar/lingkungan.webp"
+  },
+  {
+    name: "Solar Dome Dryer Rumput Laut & Lontar",
+    category: "Ekonomi Biru",
+    desc: "Kubah pengeringan higienis bertenaga surya untuk komoditas rumput laut merah dan pengolahan nira lontar organik berstandar internasional.",
+    image: "/gambar/asrama.webp"
+  },
+  {
+    name: "Sentra Ekowisata Komunitas & Homestay Lestari",
+    category: "Pariwisata Berkelanjutan",
+    desc: "Pondok informasi wisata bahari, persewaan peralatan selam ramah karang, dan homestay binaan berbasis energi terbarukan.",
+    image: "/gambar/halamandepan.webp"
+  },
+  {
+    name: "Bank Sampah Sirkular Pulau Bebas Plastik",
+    category: "Sanitasi & Konservasi",
+    desc: "Pusat pemilahan sampah anorganik pesisir, pencacahan plastik, dan distribusi penukaran tabungan sembako warga pulau.",
+    image: "/gambar/gerbangmasuk.webp"
+  }
+];
+
+export const NEWS_DATA = [
+  {
+    id: "pulau-indonesia-meraih-sertifikasi-ekowisata-internasional",
+    title: "Pulau Indonesia Meraih Sertifikasi Ekowisata Internasional",
+    date: "15 Oktober 2024",
+    timeAgo: "Terbaru",
+    category: "Pariwisata",
+    subCategory: "Ekowisata & Konservasi",
+    summary: "Raihan sertifikasi bergengsi dari Global Sustainable Tourism Council (GSTC) atas keberhasilan program ekowisata berbasis masyarakat binaan Sovereign Blue Foundation di NTT, terbukti mengangkat kedatangan turis ramah lingkungan 150% dan memulihkan 500 ha ekosistem laut.",
+    image: "",
+    isFeatured: true
+  },
+  {
+    id: "program-beasiswa-sovereign-blue-meluluskan-100-siswa-pertama",
+    title: "Program Beasiswa Sovereign Blue Meluluskan 100 Siswa Pertama",
+    date: "28 September 2024",
+    timeAgo: "2 minggu lalu",
+    category: "Pendidikan",
+    subCategory: "Beasiswa Bahari",
+    summary: "Generasi pertama putra-putri nelayan lulus dari program beasiswa intensif, siap melanjutkan ke perguruan tinggi terkemuka berbekal ilmu sains bahari dan keterampilan digital modern.",
+    image: ""
+  },
+  {
+    id: "15000-pohon-mangrove-berhasil-ditanam-di-pesisir-indonesia",
+    title: "15,000 Pohon Mangrove Berhasil Ditanam di Pesisir Indonesia",
+    date: "12 September 2024",
+    timeAgo: "1 bulan lalu",
+    category: "Lingkungan",
+    subCategory: "Blue Carbon",
+    summary: "Kolaborasi warga pesisir dan relawan sukses menuntaskan penanaman 15.000 bibit mangrove pelindung abrasi lebih cepat dari target yang ditetapkan dengan survival rate 92%.",
+    image: ""
+  },
+  {
+    id: "kemitraan-strategis-dengan-universitas-nusa-cendana",
+    title: "Kemitraan Strategis dengan Universitas Nusa Cendana",
+    date: "5 September 2024",
+    timeAgo: "1 bulan lalu",
+    category: "Kemitraan",
+    subCategory: "Riset Akademik",
+    summary: "Penandatanganan nota kesepahaman penelitian stok karbon biru, perlindungan biota langka, dan program magang lapangan mahasiswa kelautan.",
+    image: ""
+  },
+  {
+    id: "festival-gula-lontar-indonesia-promosi-produk-lokal-berkelanjutan",
+    title: "Festival Gula Lontar Indonesia: Promosi Produk Lokal Berkelanjutan",
+    date: "20 Agustus 2024",
+    timeAgo: "2 bulan lalu",
+    category: "Ekonomi",
+    subCategory: "Hilirisasi Komoditas",
+    summary: "Pameran inovasi produk olahan pohon lontar higienis yang memberdayakan ratusan petani lokal serta membuka akses pasar ritel modern.",
+    image: ""
+  },
+  {
+    id: "zero-plastic-indonesia-5-desa-berhasil-bebas-sampah-plastik",
+    title: "Zero Plastic Indonesia: 5 Desa Berhasil Bebas Sampah Plastik",
+    date: "10 Agustus 2024",
+    timeAgo: "2 bulan lalu",
+    category: "Lingkungan",
+    subCategory: "Bank Sampah",
+    summary: "Transformasi sistem pengelolaan sampah terpadu yang membebaskan 5 desa pesisir dari timbunan sampah plastik sekali pakai melalui mekanisme Bank Sampah sirkular.",
+    image: ""
+  }
+];
+
+export const TICKER_NEWS = [
+  {
+    title: "Sertifikasi GSTC Internasional Resmi Diraih Destinasi Bahari Binaan",
+    category: "Ekowisata",
+    timeAgo: "Hari ini",
+    image: ""
+  },
+  {
+    title: "Pelepasan 100 Siswa Beasiswa Bahari Sovereign Blue Batch Pertama",
+    category: "Pendidikan",
+    timeAgo: "2 hari lalu",
+    image: ""
+  },
+  {
+    title: "Penanaman 15.000 Mangrove Tembus Target dengan Tingkat Hidup 92%",
+    category: "Blue Carbon",
+    timeAgo: "4 hari lalu",
+    image: ""
+  },
+  {
+    title: "Fasilitas Solar Cold Chain Nelayan Beroperasi Penuh di Pesisir Rote",
+    category: "Ekonomi Biru",
+    timeAgo: "1 minggu lalu",
+    image: ""
+  },
+  {
+    title: "Bank Sampah Pesisir Olah 25 Ton Sampah Plastik Menjadi Produk Sirkular",
+    category: "Lingkungan",
+    timeAgo: "1 minggu lalu",
+    image: ""
+  }
+];
+
+export const LATEST_POSTS = [
+  {
+    title: "Ekspedisi Riset Terumbu Karang Bersama Peneliti Internasional di NTT",
+    category: "Riset Ilmiah",
+    timeAgo: "1 jam lalu",
+    image: ""
+  },
+  {
+    title: "Peresmian Solar Dome Dryer untuk Petani Rumput Laut Pesisir",
+    category: "Ekonomi",
+    timeAgo: "3 jam lalu",
+    image: ""
+  },
+  {
+    title: "Pelatihan Water Rescue & Etika Karang Bagi 50 Pemandu Wisata Muda",
+    category: "Pariwisata",
+    timeAgo: "5 jam lalu",
+    image: ""
+  },
+  {
+    title: "Penyaluran Perlengkapan Belajar & Tablet Edukasi ke Learning Center",
+    category: "Pendidikan",
+    timeAgo: "1 hari lalu",
+    image: ""
+  }
+];
+
+export const DONT_MISS_NEWS = {
+  tallLead: {
+    title: "Perjalanan Desa Pesisir NTT: Dari Nelayan Destruktif Menuju Kawasan Ekowisata Berkelanjutan",
+    category: "Transformasi Komunitas",
+    timeAgo: "Hari ini",
+    image: ""
+  },
+  gridItems: [
+    {
+      title: "Uji Salinitas & Kualitas Garam Artisanal Tunnel Rumah Kaca Bersama Ahli Kimia",
+      category: "Ekonomi Biru",
+      timeAgo: "2 hari lalu",
+      image: ""
+    },
+    {
+      title: "Lokakarya Kerajinan Tenun Pewarna Alami Daun Mangrove & Tarum",
+      category: "Budaya Bahari",
+      timeAgo: "3 hari lalu",
+      image: ""
+    },
+    {
+      title: "Patroli Adat Bahari: Menjaga 500 Hektar Wilayah Suaka Perairan dari Bom Ikan",
+      category: "Konservasi",
+      timeAgo: "4 hari lalu",
+      image: ""
+    },
+    {
+      title: "Kelas Literasi Digital Siswa Pesisir: Akses Satelit Buka Jendela Dunia",
+      category: "Pendidikan",
+      timeAgo: "5 hari lalu",
+      image: ""
+    }
+  ]
+};
+
+export const TOP_STORIES = [
+  {
+    rank: 1,
+    title: "Sertifikasi GSTC Pertama di Pulau Binaan Sovereign Blue Foundation",
+    timeAgo: "1 hari lalu",
+    image: ""
+  },
+  {
+    rank: 2,
+    title: "Profil Dr. Sarah Wijaya: Mengabdi untuk Masa Depan Samudra Indonesia",
+    timeAgo: "2 hari lalu",
+    image: ""
+  },
+  {
+    rank: 3,
+    title: "Solar Cold Chain Mandiri: Memutus Ketergantungan Nelayan pada Tengkulak",
+    timeAgo: "3 hari lalu",
+    image: ""
+  },
+  {
+    rank: 4,
+    title: "Inovasi Gula Lontar Organik NTT Tembus Pasar Ritel Ekspor",
+    timeAgo: "4 hari lalu",
+    image: ""
+  },
+  {
+    rank: 5,
+    title: "5 Desa Pesisir Berhasil Menghapus Sampah Plastik Sekali Pakai",
+    timeAgo: "5 hari lalu",
+    image: ""
+  }
+];
+
+export const VOLUNTEER_ROLES = [
+  {
+    id: "guru-fasilitator",
+    title: "Relawan Guru & Fasilitator Belajar",
+    commitment: "1 - 3 Bulan Lapangan",
+    location: "Marine Learning Centers NTT",
+    desc: "Mengajar literasi dasar, sains kelautan, bahasa Inggris, dan wawasan teknologi di pusat belajar pesisir pulau terluar.",
+    requirements: ["Pendidikan minimal D3/S1 segala jurusan", "Memiliki jiwa pengabdian & ramah anak", "Siap ditempatkan di pulau terluar"]
+  },
+  {
+    id: "peneliti-sains",
+    title: "Relawan Peneliti Sains Kelautan",
+    commitment: "Ekspedisi Survei (2 - 4 Pekan)",
+    location: "Kawasan Konservasi & Karang Binaan",
+    desc: "Mendukung inventarisasi kesehatan terumbu karang, pemetaan sabuk mangrove, dan studi sosial ekonomi masyarakat pesisir.",
+    requirements: ["Latar belakang Ilmu Kelautan, Biologi, atau Perikanan", "Memiliki sertifikat menyelam (SCUBA) diutamakan", "Mampu mengoperasikan data survei"]
+  },
+  {
+    id: "relawan-digital",
+    title: "Relawan Daring / Digital Campaigner",
+    commitment: "Fleksibel / Remote Daring",
+    location: "Daring (Seluruh Indonesia)",
+    desc: "Kontribusi keahlian grafis, produksi video dokumenter, artikel publikasi sains, dan penerjemahan materi advokasi maritim internasional.",
+    requirements: ["Keahlian desain grafis, editing video, atau penulisan", "Koneksi internet stabil", "Komitmen berkala minimal 3 bulan"]
+  }
+];
+
+export const DONATION_PACKAGES = [
+  {
+    title: "Adopsi Pohon Mangrove",
+    amount: "Rp 50.000",
+    unit: "/ bibit",
+    features: ["Bibit mangrove unggul", "Geotagging lokasi tanam", "Perawatan & monitoring 3 tahun", "Sertifikat adopsi digital"]
+  },
+  {
+    title: "Beasiswa Anak Pesisir",
+    amount: "Rp 500.000",
+    unit: "/ bulan",
+    features: ["Biaya SPP & buku sekolah", "Kelas literasi maritim", "Akses komputer & internet", "Laporan capaian rapor siswa"]
+  },
+  {
+    title: "Restorasi Struktur Karang",
+    amount: "Rp 250.000",
+    unit: "/ struktur spider reef",
+    features: ["Struktur laba-laba karang tangguh", "Transplantasi fragmen karang", "Pemantauan berkala tim selam", "Dokumentasi perkembangan karang"]
+  },
+  {
+    title: "Dukungan Nelayan Berdaya",
+    amount: "Rp 1.000.000",
+    unit: "/ paket",
+    features: ["Peralatan navigasi keselamatan laut", "Wadah pendingin higienis", "Pelatihan rantai dingin surya", "Dukungan koperasi nelayan"]
+  }
+];
+
 export const GALLERY_CATEGORIES = [
   "Semua",
-  "Tahfidz & Ibadah",
-  "Akademik & Formal",
-  "Ekstrakurikuler",
-  "Kemandirian & Sosial",
-  "Peringatan Hari Besar",
+  "Pariwisata Berkelanjutan",
+  "Pendidikan Bahari",
+  "Ekonomi Biru",
+  "Konservasi Laut",
+  "Pemberdayaan Komunitas"
 ] as const;
 
-export const GALLERY_ITEMS: GalleryItem[] = [
+export const GALLERY_ITEMS = [
   {
     id: "gal-1",
-    title: "Masjid Jami' Al-Mursyid & Halaqah Qur'ani",
-    category: "Tahfidz & Ibadah",
-    date: "28 Oktober 2026",
-    location: "Masjid Jami' Al-Mursyid",
-    image: "/gambar/masjid.webp",
-    desc: "Suasana syahdu santri menyetorkan ziyadah hafalan Al-Qur'an dan muraja'ah bersama asatidz pengampu tahfidz."
+    title: "Restorasi Terumbu Karang & Spider Reef",
+    category: "Konservasi Laut",
+    date: "15 Oktober 2024",
+    location: "Kawasan Konservasi Laut NTT",
+    image: "/gambar/lingkungan.webp",
+    desc: "Tim penyelam ilmiah bersama pemuda pesisir memasang struktur laba-laba karang buatan guna memulihkan ekosistem terumbu karang yang rusak."
   },
   {
     id: "gal-2",
-    title: "Gedung Asrama Santri & Pembinaan Karakter",
-    category: "Kemandirian & Sosial",
-    date: "24 Oktober 2026",
-    location: "Kompleks Asrama Pondok",
-    image: "/gambar/asrama.webp",
-    desc: "Kawasan asrama bersih dan tertata asri di lereng bukit Way Lalaan Tanggamus untuk kenyamanan santri beristirahat."
+    title: "Kegiatan Belajar di Marine Learning Center",
+    category: "Pendidikan Bahari",
+    date: "08 Oktober 2024",
+    location: "Learning Center Pesisir",
+    image: "/gambar/pendidikan.webp",
+    desc: "Anak-anak pulau antusias belajar literasi maritim dan mengakses komputer edukasi bertenaga surya."
   },
   {
     id: "gal-3",
-    title: "Kawasan & Gerbang Masuk Kampus Pesantren",
-    category: "Kemandirian & Sosial",
-    date: "19 Oktober 2026",
-    location: "Gerbang Utama Al-Mursyid",
-    image: "/gambar/gerbangmasuk.webp",
-    desc: "Akses gerbang utama kampus Pondok Pesantren Al-Mursyid yang tertib, asri, dan aman bagi seluruh civitas santri."
+    title: "Pemberdayaan Petani Rumput Laut & Solar Dome",
+    category: "Ekonomi Biru",
+    date: "02 Oktober 2024",
+    location: "Sentra Produksi Pesisir",
+    image: "/gambar/asrama.webp",
+    desc: "Proses pengeringan higienis rumput laut merah berstandar ekspor di dalam solar dome dryer ramah lingkungan."
   },
   {
     id: "gal-4",
-    title: "Halaman Depan & Plaza Utama Pesantren",
-    category: "Peringatan Hari Besar",
-    date: "15 Oktober 2026",
-    location: "Plaza Utama Kampus Al-Mursyid",
-    image: "/gambar/halamandepan.webp",
-    desc: "Halaman depan yang luas dan tertata rapi sebagai pusat aktivitas apel santri dan kegiatan outdoor."
+    title: "Aksi Bersih Pantai & Bank Sampah Sirkular",
+    category: "Konservasi Laut",
+    date: "25 September 2024",
+    location: "Desa Zero-Plastic Binaan",
+    image: "/gambar/gerbangmasuk.webp",
+    desc: "Warga desa bahu-membahu mengumpulkan dan memilah sampah plastik pantai untuk ditukarkan dengan insentif sembako."
   },
   {
     id: "gal-5",
-    title: "Kegiatan Ekstrakurikuler Santri",
-    category: "Ekstrakurikuler",
-    date: "12 Oktober 2026",
-    location: "Kawasan Pesantren Al-Mursyid",
-    image: "/gambar/ekstrakurikuler.webp",
-    desc: "Pengembangan bakat, ketangkasan fisik, kemandirian, dan kreativitas santri melalui ragam kegiatan ekstrakurikuler."
+    title: "Pelatihan Homestay & Pemandu Ekowisata Bahari",
+    category: "Pariwisata Berkelanjutan",
+    date: "18 September 2024",
+    location: "Kampung Ekowisata Binaan",
+    image: "/gambar/halamandepan.webp",
+    desc: "Sesi sertifikasi keselamatan pelayaran dan hospitality homestay berbasis kearifan lokal."
   },
   {
     id: "gal-6",
-    title: "Suasana Lingkungan Al-Mursyid Asri & Sejuk",
-    category: "Kemandirian & Sosial",
-    date: "22 Oktober 2026",
-    location: "Area Kampus Way Lalaan",
-    image: "/gambar/lingkungan.webp",
-    desc: "Lingkungan belajar kondusif bebas kebisingan kota, berhawa sejuk di kaki pegunungan Tanggamus."
-  },
-  {
-    id: "gal-7",
-    title: "Proses Belajar Mengajar & Madrasah Diniyah",
-    category: "Akademik & Formal",
-    date: "08 Oktober 2026",
-    location: "Ruang Kelas & Madrasah Diniyah",
-    image: "/gambar/pendidikan.webp",
-    desc: "Pembelajaran intensif kurikulum formal berpadu dengan kajian kitab kuning turats salafiyah secara terstruktur."
-  },
-  {
-    id: "gal-8",
-    title: "Pendidikan Karakter & Kedisiplinan Santri",
-    category: "Akademik & Formal",
-    date: "03 Oktober 2026",
-    location: "Kampus Al-Mursyid Tanggamus",
-    image: "/gambar/pedidikan.webp",
-    desc: "Pembiasaan adab mulia, kepemimpinan, dan kemandirian hidup berasrama 24 jam di bawah bimbingan asatidz."
-  },
-  {
-    id: "gal-9",
-    title: "Muhadhoroh Tiga Bahasa (Arab, Inggris, dan Indonesia)",
-    category: "Akademik & Formal",
-    date: "29 September 2026",
-    location: "Aula Pertemuan Utama",
-    image: "",
-    desc: "Latihan rutin orasi ilmiah santri di hadapan khalayak umum guna membentuk mental kepemimpinan dan public speaking internasional."
-  },
-  {
-    id: "gal-10",
-    title: "Literasi Digital & Coding Lab Santri Masa Depan",
-    category: "Akademik & Formal",
-    date: "22 September 2026",
-    location: "Laboratorium Komputer & Multimedia",
-    image: "",
-    desc: "Pengenalan teknologi digital, dasar algoritma pemrograman, dan publikasi konten dakwah santri berbasis web."
-  },
-  {
-    id: "gal-11",
-    title: "Bakti Sosial Santri Peduli Warga Kampung Sekitar Way Lalaan",
-    category: "Kemandirian & Sosial",
-    date: "17 September 2026",
-    location: "Desa Kampung Baru, Kota Agung Timur",
-    image: "",
-    desc: "Penyaluran paket sembako, gotong royong kebersihan lingkungan, serta edukasi kesehatan bersama santri dan pemuda desa."
-  },
-  {
-    id: "gal-12",
-    title: "Peringatan Maulid Nabi Muhammad SAW & Gema Sholawat",
-    category: "Peringatan Hari Besar",
-    date: "12 September 2026",
-    location: "Masjid Jami' Al-Mursyid",
-    image: "",
-    desc: "Malam mahabbah melantunkan qasidah Burdah dan Simthuddurar dalam suasana khusyuk berbalut cahaya pendar lampu asrama."
+    title: "Penanaman 15.000 Mangrove Pelindung Pesisir",
+    category: "Konservasi Laut",
+    date: "12 September 2024",
+    location: "Sabuk Hijau Mangrove Rote",
+    image: "/gambar/masjid.webp",
+    desc: "Gotong royong menanam bibit mangrove rhizophora untuk meredam gelombang dan menyerap karbon biru."
   }
 ];
