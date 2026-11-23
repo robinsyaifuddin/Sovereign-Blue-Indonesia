@@ -100,14 +100,14 @@ export const SITE_INFO = {
         image: "/Pengurus/robin.webp"
       },
       { 
-        name: "Mutiara Ayumi", 
+        name: "Ages Marsela", 
         role: "Direktur Operasional & Bendahara",
-        image: ""
+        image: "/Pengurus/ages.webp"
       },
       { 
-        name: "Ages Marsela", 
+        name: "Nurwahid Dimas Saputro, S.T, M.Eng.", 
         role: "Direktur Program & Pengembangan",
-        image: "/Pengurus/ages.webp"
+        image: "/Pengurus/dimas.webp"
       },
       { 
         name: "Brayen Ariel, S.TP", 
@@ -115,9 +115,9 @@ export const SITE_INFO = {
         image: "/Pengurus/brayen.webp"
       },
       { 
-        name: "Ages Marsela", 
+        name: "Pipit Ambarwati, S.H.", 
         role: "Direktur Riset, Monitoring dan Evaluasi",
-        image: "/Pengurus/ages.webp"
+        image: "/Pengurus/pipit.webp"
       }
     ]
   },
