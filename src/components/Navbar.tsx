@@ -104,10 +104,10 @@ export const Navbar: React.FC = () => {
           <div className="hidden lg:flex items-center gap-2">
             <Link 
               to="/kontak"
-              className="text-xs font-bold bg-blue-900 hover:bg-blue-950 text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-full shadow-xs hover:shadow transition-all duration-200 hover:-translate-y-0.5 active:scale-95 flex items-center gap-2"
+              className="text-xs font-bold bg-aurora-btn text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-full shadow-xs hover:shadow transition-all duration-200 hover:-translate-y-0.5 active:scale-95 flex items-center gap-2"
             >
               <span>Hubungi Kami</span>
-              <ArrowRight className="w-3.5 h-3.5 text-cyan-300" />
+              <ArrowRight className="w-3.5 h-3.5 text-cyan-200" />
             </Link>
           </div>
 
@@ -164,7 +164,7 @@ export const Navbar: React.FC = () => {
             <Link
               to="/kontak"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center block text-xs font-bold bg-blue-900 text-white px-4 py-2.5 rounded-xl shadow-xs"
+              className="w-full text-center block text-xs font-bold bg-aurora-btn text-white px-4 py-2.5 rounded-xl shadow-xs"
             >
               Hubungi Kami
             </Link>

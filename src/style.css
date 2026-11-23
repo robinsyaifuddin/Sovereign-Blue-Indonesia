@@ -150,6 +150,12 @@
   box-shadow: 0 4px 18px -2px rgba(1, 170, 253, 0.5);
 }
 
+/* Category Badge with Sovereign Blue button gradient */
+.badge-category-blue {
+  background: linear-gradient(135deg, #07325b 0%, #0369a1 45%, #01aafd 100%);
+  color: #ffffff;
+}
+
 .text-aurora-gradient {
   background: linear-gradient(135deg, #07325b 0%, #0284c7 50%, #01aafd 100%);
   -webkit-background-clip: text;

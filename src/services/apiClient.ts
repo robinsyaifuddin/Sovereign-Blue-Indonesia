@@ -32,16 +32,16 @@ interface ApiResponse<T = any> {
 
 // Token helper
 export const getAuthToken = (): string | null => {
-  return localStorage.getItem('almursyid_auth_token');
+  return localStorage.getItem('sovereignblue_auth_token');
 };
 
 export const setAuthToken = (token: string): void => {
-  localStorage.setItem('almursyid_auth_token', token);
+  localStorage.setItem('sovereignblue_auth_token', token);
 };
 
 export const clearAuthToken = (): void => {
-  localStorage.removeItem('almursyid_auth_token');
-  localStorage.removeItem('almursyid_admin_user');
+  localStorage.removeItem('sovereignblue_auth_token');
+  localStorage.removeItem('sovereignblue_admin_user');
 };
 
 export const isAuthenticated = (): boolean => {

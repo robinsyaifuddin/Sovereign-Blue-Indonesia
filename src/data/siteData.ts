@@ -24,8 +24,8 @@ export const PPDB_FEES = [
 
 export const SITE_INFO = {
   name: "Sovereign Blue Foundation",
-  subName: "Sovereign Blue Nusantara / Yayasan Biru Berdaulat",
-  foundation: "Yayasan Biru Berdaulat (Sovereign Blue Nusantara)",
+  subName: "Sovereign Blue Nusantara",
+  foundation: "Sovereign Blue Nusantara",
   tagline: "Empowering Communities, Preserving Indonesian Maritime Heritage",
   taglineId: "Membangun Kemandirian Maritim, Menjaga Kedaulatan Laut Indonesia",
   legal: {
@@ -38,55 +38,96 @@ export const SITE_INFO = {
   address: {
     village: "Kawasan Pesisir Maritim Komunitas",
     district: "Pulau Rote & Sekitarnya",
-    regency: "Nusa Tenggara Timur",
+    regency: "Kepulauan Rote",
     province: "Indonesia",
-    full: "Sovereign Blue Foundation Secretariat, Jakarta & Nusa Tenggara Timur (Pulau Rote & Sekitarnya), Indonesia"
+    full: "Sovereign Blue Foundation Secretariat (Pulau Rote & Sekitarnya), Indonesia"
   },
   leadership: {
+    dewanPembina: {
+      ketua: {
+        name: "drg. Yulita Dora",
+        role: "Ketua Dewan Pembina",
+        image: "/pengurus/dora.webp",
+        desc: "Mengarahkan kebijakan strategis, visi, dan tata nilai keberlanjutan yayasan."
+      },
+      anggota: [
+        {
+          name: "Brigjen TNI (Purn) Simon Petrus Kamlasi",
+          role: "Anggota Dewan Pembina",
+          image: "/pengurus/simon.webp",
+          desc: "Pengarah ketahanan teritorial kemaritiman dan kedaulatan kepulauan."
+        },
+        {
+          name: "Nurwahid Dimas Saputro, S.T, M.Eng.",
+          role: "Anggota Dewan Pembina",
+          image: "/pengurus/dimas.webp",
+          desc: "Pengarah teknologi, inovasi rekayasa maritim, dan tata kelola program."
+        }
+      ]
+    },
+    dewanPengawas: {
+      ketua: {
+        name: "Kolonel Kes Muhammad Ihsan, M.Sc (Lemhanas)",
+        role: "Ketua Dewan Pengawas",
+        image: "/pengurus/ihsan.webp",
+        desc: "Mengawasi tata kelola kepatuhan, akuntabilitas, dan integritas organisasi yayasan."
+      }
+    },
+    // Backwards-compatible aliases
     pembina: {
-      name: "Dr. Sarah Wijaya",
-      role: "Executive Director & Co-Founder",
-      image: "",
-      desc: "Ahli Konservasi Laut & Kebijakan Maritim Tropis, memimpin arah strategis Sovereign Blue Foundation."
+      name: "drg. Yulita Dora",
+      role: "Ketua Dewan Pembina",
+      image: "/pengurus/dora.webp",
+      desc: "Mengarahkan kebijakan strategis, visi, dan tata nilai keberlanjutan yayasan."
     },
     pengawas: {
-      name: "Prof. Made Sutrisna",
-      role: "Senior Advisor & Academic Research Liaison",
-      image: "",
-      desc: "Pakar riset kelautan dan hubungan akademik kerja sama universitas nusantara."
+      name: "Kolonel Kes Muhammad Ihsan, M.Sc (Lemhanas)",
+      role: "Ketua Dewan Pengawas",
+      image: "/pengurus/ihsan.webp",
+      desc: "Mengawasi tata kelola kepatuhan, akuntabilitas, dan integritas organisasi yayasan."
     },
-    founders: ["Dr. Sarah Wijaya", "Budi Santoso, M.Env", "Maria Ndoen"],
+    founders: ["drg. Yulita Dora", "Kolonel Kes Muhammad Ihsan, M.Sc", "Nanda Vesti Naliu, S.M."],
     pengurus: [
       { 
-        name: "Dr. Sarah Wijaya", 
-        role: "Executive Director & Co-Founder", 
-        image: "",
+        name: "Nanda Vesti Naliu, S.M.", 
+        role: "Direktur Eksekutif & Ketua", 
+        image: "/pengurus/nanda.webp",
         highlight: true 
       },
       { 
-        name: "Budi Santoso, M.Env", 
-        role: "Director of Marine Conservation & Environmental Science",
+        name: "Robin Syaifuddin", 
+        role: "Direktur Komunikasi & Sekretaris",
+        image: "/pengurus/robin.webp"
+      },
+      { 
+        name: "Mutiara Ayumi", 
+        role: "Direktur Operasional & Bendahara",
         image: ""
       },
       { 
-        name: "Maria Ndoen", 
-        role: "Community Development & Sustainable Tourism Lead",
-        image: ""
+        name: "Ages Marsela", 
+        role: "Direktur Program & Pengembangan",
+        image: "/pengurus/ages.webp"
       },
       { 
-        name: "Prof. Made Sutrisna", 
-        role: "Senior Advisor & Academic Research Liaison",
-        image: ""
+        name: "Brayen Ariel, S.TP", 
+        role: "Direktur Kemitraan & Hubungan Internasional",
+        image: "/pengurus/brayen.webp"
+      },
+      { 
+        name: "Ages Marsela", 
+        role: "Direktur Riset, Monitoring dan Evaluasi",
+        image: "/pengurus/ages.webp"
       }
     ]
   },
   contacts: {
-    phone: "+62 812-3456-7890",
-    whatsapp: "+62 812-3456-7890",
+    phone: "+62 887-4375-3253-03",
+    whatsapp: "+62 887-4375-3253-03",
     email: "contact@sovereignblue.org",
     emailPartnership: "partnership@sovereignblue.org",
     emailPress: "press@sovereignblue.org",
-    volunteerWa: "https://wa.me/6281234567890?text=Halo%20Tim%20Sovereign%20Blue%20Foundation,%20saya%20tertarik%20untuk%20bergabung%20sebagai%20relawan.",
+    volunteerWa: "https://wa.me/628874375325303?text=Halo%20Tim%20Sovereign%20Blue%20Foundation,%20saya%20tertarik%20untuk%20bergabung%20sebagai%20relawan.",
     volunteerFormUrl: "/relawan",
     mapsUrl: "https://maps.google.com/?q=Rote+Island+East+Nusa+Tenggara",
     instagram: "https://www.instagram.com/sovereignbluefoundation",
@@ -216,7 +257,7 @@ export const NEWS_DATA = [
     category: "Pariwisata",
     subCategory: "Ekowisata & Konservasi",
     summary: "Raihan sertifikasi bergengsi dari Global Sustainable Tourism Council (GSTC) atas keberhasilan program ekowisata berbasis masyarakat binaan Sovereign Blue Foundation di NTT, terbukti mengangkat kedatangan turis ramah lingkungan 150% dan memulihkan 500 ha ekosistem laut.",
-    image: "",
+    image: "/gambar/photo-1703769605307-395ace742240.webp",
     isFeatured: true
   },
   {
@@ -227,7 +268,7 @@ export const NEWS_DATA = [
     category: "Pendidikan",
     subCategory: "Beasiswa Bahari",
     summary: "Generasi pertama putra-putri nelayan lulus dari program beasiswa intensif, siap melanjutkan ke perguruan tinggi terkemuka berbekal ilmu sains bahari dan keterampilan digital modern.",
-    image: ""
+    image: "/gambar/photo-1710996655126-965234821bc9.webp"
   },
   {
     id: "15000-pohon-mangrove-berhasil-ditanam-di-pesisir-indonesia",
@@ -237,7 +278,7 @@ export const NEWS_DATA = [
     category: "Lingkungan",
     subCategory: "Blue Carbon",
     summary: "Kolaborasi warga pesisir dan relawan sukses menuntaskan penanaman 15.000 bibit mangrove pelindung abrasi lebih cepat dari target yang ditetapkan dengan survival rate 92%.",
-    image: ""
+    image: "/gambar/premium_photo-1730035378960-0aab7e339ff2.webp"
   },
   {
     id: "kemitraan-strategis-dengan-universitas-nusa-cendana",
@@ -247,7 +288,7 @@ export const NEWS_DATA = [
     category: "Kemitraan",
     subCategory: "Riset Akademik",
     summary: "Penandatanganan nota kesepahaman penelitian stok karbon biru, perlindungan biota langka, dan program magang lapangan mahasiswa kelautan.",
-    image: ""
+    image: "/gambar/photo-1648518295678-f78670c35924.webp"
   },
   {
     id: "festival-gula-lontar-indonesia-promosi-produk-lokal-berkelanjutan",
@@ -257,7 +298,7 @@ export const NEWS_DATA = [
     category: "Ekonomi",
     subCategory: "Hilirisasi Komoditas",
     summary: "Pameran inovasi produk olahan pohon lontar higienis yang memberdayakan ratusan petani lokal serta membuka akses pasar ritel modern.",
-    image: ""
+    image: "/gambar/photo-1624106699541-02b0fa0d16a7.webp"
   },
   {
     id: "zero-plastic-indonesia-5-desa-berhasil-bebas-sampah-plastik",
@@ -267,7 +308,7 @@ export const NEWS_DATA = [
     category: "Lingkungan",
     subCategory: "Bank Sampah",
     summary: "Transformasi sistem pengelolaan sampah terpadu yang membebaskan 5 desa pesisir dari timbunan sampah plastik sekali pakai melalui mekanisme Bank Sampah sirkular.",
-    image: ""
+    image: "/gambar/photo-1660278988532-d55143363abb.webp"
   }
 ];
 
@@ -276,31 +317,31 @@ export const TICKER_NEWS = [
     title: "Sertifikasi GSTC Internasional Resmi Diraih Destinasi Bahari Binaan",
     category: "Ekowisata",
     timeAgo: "Hari ini",
-    image: ""
+    image: "/gambar/photo-1703769605307-395ace742240.webp"
   },
   {
     title: "Pelepasan 100 Siswa Beasiswa Bahari Sovereign Blue Batch Pertama",
     category: "Pendidikan",
     timeAgo: "2 hari lalu",
-    image: ""
+    image: "/gambar/photo-1710996655126-965234821bc9.webp"
   },
   {
     title: "Penanaman 15.000 Mangrove Tembus Target dengan Tingkat Hidup 92%",
     category: "Blue Carbon",
     timeAgo: "4 hari lalu",
-    image: ""
+    image: "/gambar/premium_photo-1730035378960-0aab7e339ff2.webp"
   },
   {
     title: "Fasilitas Solar Cold Chain Nelayan Beroperasi Penuh di Pesisir Rote",
     category: "Ekonomi Biru",
     timeAgo: "1 minggu lalu",
-    image: ""
+    image: "/gambar/photo-1665317406419-20150aebbc50.webp"
   },
   {
     title: "Bank Sampah Pesisir Olah 25 Ton Sampah Plastik Menjadi Produk Sirkular",
     category: "Lingkungan",
     timeAgo: "1 minggu lalu",
-    image: ""
+    image: "/gambar/photo-1660278988532-d55143363abb.webp"
   }
 ];
 
@@ -309,25 +350,25 @@ export const LATEST_POSTS = [
     title: "Ekspedisi Riset Terumbu Karang Bersama Peneliti Internasional di NTT",
     category: "Riset Ilmiah",
     timeAgo: "1 jam lalu",
-    image: ""
+    image: "/gambar/photo-1691074428211-a0d783a37102.webp"
   },
   {
     title: "Peresmian Solar Dome Dryer untuk Petani Rumput Laut Pesisir",
     category: "Ekonomi",
     timeAgo: "3 jam lalu",
-    image: ""
+    image: "/gambar/photo-1704859597974-cb64079ef7e6.webp"
   },
   {
     title: "Pelatihan Water Rescue & Etika Karang Bagi 50 Pemandu Wisata Muda",
     category: "Pariwisata",
     timeAgo: "5 jam lalu",
-    image: ""
+    image: "/gambar/photo-1599717460927-8101594d1418.webp"
   },
   {
     title: "Penyaluran Perlengkapan Belajar & Tablet Edukasi ke Learning Center",
     category: "Pendidikan",
     timeAgo: "1 hari lalu",
-    image: ""
+    image: "/gambar/photo-1710996655126-965234821bc9.webp"
   }
 ];
 
@@ -336,32 +377,32 @@ export const DONT_MISS_NEWS = {
     title: "Perjalanan Desa Pesisir NTT: Dari Nelayan Destruktif Menuju Kawasan Ekowisata Berkelanjutan",
     category: "Transformasi Komunitas",
     timeAgo: "Hari ini",
-    image: ""
+    image: "/gambar/photo-1724258703289-06425e1578c2.webp"
   },
   gridItems: [
     {
       title: "Uji Salinitas & Kualitas Garam Artisanal Tunnel Rumah Kaca Bersama Ahli Kimia",
       category: "Ekonomi Biru",
       timeAgo: "2 hari lalu",
-      image: ""
+      image: "/gambar/photo-1665317406419-20150aebbc50.webp"
     },
     {
       title: "Lokakarya Kerajinan Tenun Pewarna Alami Daun Mangrove & Tarum",
       category: "Budaya Bahari",
       timeAgo: "3 hari lalu",
-      image: ""
+      image: "/gambar/photo-1624106699541-02b0fa0d16a7.webp"
     },
     {
       title: "Patroli Adat Bahari: Menjaga 500 Hektar Wilayah Suaka Perairan dari Bom Ikan",
       category: "Konservasi",
       timeAgo: "4 hari lalu",
-      image: ""
+      image: "/gambar/photo-1691074428211-a0d783a37102.webp"
     },
     {
       title: "Kelas Literasi Digital Siswa Pesisir: Akses Satelit Buka Jendela Dunia",
       category: "Pendidikan",
       timeAgo: "5 hari lalu",
-      image: ""
+      image: "/gambar/photo-1710996655126-965234821bc9.webp"
     }
   ]
 };
@@ -371,31 +412,31 @@ export const TOP_STORIES = [
     rank: 1,
     title: "Sertifikasi GSTC Pertama di Pulau Binaan Sovereign Blue Foundation",
     timeAgo: "1 hari lalu",
-    image: ""
+    image: "/gambar/photo-1703769605307-395ace742240.webp"
   },
   {
     rank: 2,
     title: "Profil Dr. Sarah Wijaya: Mengabdi untuk Masa Depan Samudra Indonesia",
     timeAgo: "2 hari lalu",
-    image: ""
+    image: "/gambar/photo-1648518295678-f78670c35924.webp"
   },
   {
     rank: 3,
     title: "Solar Cold Chain Mandiri: Memutus Ketergantungan Nelayan pada Tengkulak",
     timeAgo: "3 hari lalu",
-    image: ""
+    image: "/gambar/photo-1665317406419-20150aebbc50.webp"
   },
   {
     rank: 4,
     title: "Inovasi Gula Lontar Organik NTT Tembus Pasar Ritel Ekspor",
     timeAgo: "4 hari lalu",
-    image: ""
+    image: "/gambar/photo-1624106699541-02b0fa0d16a7.webp"
   },
   {
     rank: 5,
     title: "5 Desa Pesisir Berhasil Menghapus Sampah Plastik Sekali Pakai",
     timeAgo: "5 hari lalu",
-    image: ""
+    image: "/gambar/photo-1660278988532-d55143363abb.webp"
   }
 ];
 
@@ -469,8 +510,9 @@ export const GALLERY_ITEMS = [
     category: "Konservasi Laut",
     date: "15 Oktober 2024",
     location: "Kawasan Konservasi Laut NTT",
-    image: "/gambar/lingkungan.webp",
-    desc: "Tim penyelam ilmiah bersama pemuda pesisir memasang struktur laba-laba karang buatan guna memulihkan ekosistem terumbu karang yang rusak."
+    image: "/gambar/photo-1691074428211-a0d783a37102.webp",
+    desc: "Tim penyelam ilmiah bersama pemuda pesisir memasang struktur laba-laba karang buatan guna memulihkan ekosistem terumbu karang yang rusak.",
+    isFeatured: true
   },
   {
     id: "gal-2",
@@ -478,17 +520,19 @@ export const GALLERY_ITEMS = [
     category: "Pendidikan Bahari",
     date: "08 Oktober 2024",
     location: "Learning Center Pesisir",
-    image: "/gambar/pendidikan.webp",
-    desc: "Anak-anak pulau antusias belajar literasi maritim dan mengakses komputer edukasi bertenaga surya."
+    image: "/gambar/photo-1710996655126-965234821bc9.webp",
+    desc: "Anak-anak pulau antusias belajar literasi maritim dan mengakses komputer edukasi bertenaga surya.",
+    isFeatured: true
   },
   {
     id: "gal-3",
-    title: "Pemberdayaan Petani Rumput Laut & Solar Dome",
+    title: "Pemberdayaan Petani Rumput Laut & Sentra Produksi",
     category: "Ekonomi Biru",
     date: "02 Oktober 2024",
     location: "Sentra Produksi Pesisir",
-    image: "/gambar/asrama.webp",
-    desc: "Proses pengeringan higienis rumput laut merah berstandar ekspor di dalam solar dome dryer ramah lingkungan."
+    image: "/gambar/photo-1704859597974-cb64079ef7e6.webp",
+    desc: "Proses pengeringan higienis rumput laut merah berstandar ekspor di dalam solar dome dryer ramah lingkungan.",
+    isFeatured: true
   },
   {
     id: "gal-4",
@@ -496,25 +540,81 @@ export const GALLERY_ITEMS = [
     category: "Konservasi Laut",
     date: "25 September 2024",
     location: "Desa Zero-Plastic Binaan",
-    image: "/gambar/gerbangmasuk.webp",
-    desc: "Warga desa bahu-membahu mengumpulkan dan memilah sampah plastik pantai untuk ditukarkan dengan insentif sembako."
+    image: "/gambar/photo-1660278988532-d55143363abb.webp",
+    desc: "Warga desa bahu-membahu mengumpulkan dan memilah sampah plastik pantai untuk ditukarkan dengan insentif sembako.",
+    isFeatured: true
   },
   {
     id: "gal-5",
-    title: "Pelatihan Homestay & Pemandu Ekowisata Bahari",
+    title: "Destinasi Ekowisata Bahari Berkelanjutan",
     category: "Pariwisata Berkelanjutan",
     date: "18 September 2024",
     location: "Kampung Ekowisata Binaan",
-    image: "/gambar/halamandepan.webp",
-    desc: "Sesi sertifikasi keselamatan pelayaran dan hospitality homestay berbasis kearifan lokal."
+    image: "/gambar/photo-1703769605307-395ace742240.webp",
+    desc: "Sertifikasi ekowisata internasional GSTC dan pemberdayaan homestay bahari ramah lingkungan di gugusan kepulauan NTT.",
+    isFeatured: true
   },
   {
     id: "gal-6",
-    title: "Penanaman 15.000 Mangrove Pelindung Pesisir",
+    title: "Penanaman 15.000 Bibit Mangrove Sabuk Hijau",
     category: "Konservasi Laut",
     date: "12 September 2024",
     location: "Sabuk Hijau Mangrove Rote",
-    image: "/gambar/masjid.webp",
-    desc: "Gotong royong menanam bibit mangrove rhizophora untuk meredam gelombang dan menyerap karbon biru."
+    image: "/gambar/premium_photo-1730035378960-0aab7e339ff2.webp",
+    desc: "Gotong royong menanam bibit mangrove rhizophora untuk meredam gelombang abrasi dan menyerap cadangan karbon biru."
+  },
+  {
+    id: "gal-7",
+    title: "Ekspedisi Riset Bawah Laut & Ekologi Pesisir",
+    category: "Konservasi Laut",
+    date: "05 September 2024",
+    location: "Perairan Kepulauan Terluar NTT",
+    image: "/gambar/photo-1599717460927-8101594d1418.webp",
+    desc: "Riset pemetaan keanekaragaman biota laut dan survei kondisi terumbu karang bersama tim peneliti sains maritim."
+  },
+  {
+    id: "gal-8",
+    title: "Hilirisasi Gula Lontar Organik & Kerajinan Tradisional",
+    category: "Ekonomi Biru",
+    date: "28 Agustus 2024",
+    location: "Koperasi Nelayan & Petani Lontar",
+    image: "/gambar/photo-1624106699541-02b0fa0d16a7.webp",
+    desc: "Produk turunan nira pohon lontar bernilai ekonomi tinggi serta pewarnaan alami tenun ikat khas bahari."
+  },
+  {
+    id: "gal-9",
+    title: "Lokakarya & Kemitraan Akademik Maritim",
+    category: "Pemberdayaan Komunitas",
+    date: "20 Agustus 2024",
+    location: "Balai Kemitraan Komunitas",
+    image: "/gambar/photo-1648518295678-f78670c35924.webp",
+    desc: "Kolaborasi intensif antara perwakilan perguruan tinggi, tokoh masyarakat, dan tim yayasan dalam merancang program berkelanjutan."
+  },
+  {
+    id: "gal-10",
+    title: "Rantai Dingin Tenaga Surya (Solar Cold Chain)",
+    category: "Ekonomi Biru",
+    date: "12 Agustus 2024",
+    location: "Dermaga Sentra Perikanan",
+    image: "/gambar/photo-1665317406419-20150aebbc50.webp",
+    desc: "Operasional pabrik es mini bertenaga surya untuk menjaga mutu kesegaran ikan tangkapan nelayan pesisir."
+  },
+  {
+    id: "gal-11",
+    title: "Kawasan Pesisir & Lanskap Terbuka Berdaulat",
+    category: "Pariwisata Berkelanjutan",
+    date: "02 Agustus 2024",
+    location: "Pesisir Pulau Binaan",
+    image: "/gambar/photo-1724258703289-06425e1578c2.webp",
+    desc: "Pemandangan garis pantai alami yang terlindungi oleh kearifan adat laut lokal dari eksploitasi berlebihan."
+  },
+  {
+    id: "gal-12",
+    title: "Konservasi Sabuk Hijau & Kanopi Pesisir Rote",
+    category: "Konservasi Laut",
+    date: "24 Juli 2024",
+    location: "Hutan Pesisir Pulau Terluar",
+    image: "/gambar/premium_photo-1730035379027-0718456f3925.webp",
+    desc: "Monitoring pertumbuhan vegetasi pantai dan tutupan kanopi hijau pelindung tanah kepulauan."
   }
 ];

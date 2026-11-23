@@ -1,5 +1,5 @@
 # DOKUMENTASI LENGKAP KONTEN WEBSITE SOVEREIGN BLUE FOUNDATION
-*Dokumen Master Repositori Konten: Sovereign Blue Nusantara / Yayasan Biru Berdaulat*
+*Dokumen Master Repositori Konten: Sovereign Blue Nusantara*
 
 ---
 
@@ -23,7 +23,7 @@
 ## 1. IDENTITAS GLOBAL & NAVIGASI
 
 ### 1.1. Profil Organisasi
-- **Nama Resmi:** Sovereign Blue Foundation (Sovereign Blue Nusantara / Yayasan Biru Berdaulat)
+- **Nama Resmi:** Sovereign Blue Foundation (Sovereign Blue Nusantara)
 - **Slogan / Tagline:** *Empowering Communities, Preserving Indonesian Maritime Heritage* (Membangun Kemandirian Maritim, Menjaga Kedaulatan Laut Indonesia).
 - **Visi Pokok:** Mewujudkan kedaulatan maritim dan kemandirian masyarakat pesisir kepulauan Indonesia melalui sinergi ekowisata, pendidikan, ekonomi biru, dan konservasi laut berkelanjutan.
 

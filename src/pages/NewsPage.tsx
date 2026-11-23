@@ -94,11 +94,11 @@ export const NewsPage: React.FC = () => {
               />
             ) : null}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/30"></div>
-            <div className="absolute inset-0 bg-[#064e3b]/20 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-sky-950/30 mix-blend-multiply"></div>
 
             <div className="relative z-10 space-y-4 max-w-2xl">
               <div className="inline-flex items-center gap-2">
-                <span className="bg-sky-600 text-white text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-md shadow-sm">
+                <span className="badge-category-blue text-white text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-md shadow-sm">
                   {currentSlide.category}
                 </span>
                 <span className="text-sky-300 text-xs font-semibold tracking-wide">
@@ -230,7 +230,7 @@ export const NewsPage: React.FC = () => {
                 ) : null}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-slate-950/30"></div>
                 <div className="relative z-10 space-y-2.5">
-                  <span className="inline-block bg-sky-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded shadow-sm">
+                  <span className="inline-block badge-category-blue text-white text-[10px] font-bold px-2.5 py-0.5 rounded shadow-sm">
                     {hotLead.category}
                   </span>
                   <h4 className="text-base sm:text-lg font-bold text-white leading-snug group-hover:text-sky-300 transition-colors">

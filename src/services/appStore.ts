@@ -79,19 +79,19 @@ const DEFAULT_PPDB_SETTINGS: PPDBSettings = {
 };
 
 const STORAGE_KEYS = {
-  SITE_INFO: 'almursyid_site_info_v2',
-  NEWS: 'almursyid_news_v2',
-  GALLERY: 'almursyid_gallery_v2',
-  PROGRAMS: 'almursyid_programs_v2',
-  FACILITIES: 'almursyid_facilities_v2',
-  PPDB: 'almursyid_ppdb_v2',
-  PPDB_SETTINGS: 'almursyid_ppdb_settings_v2',
+  SITE_INFO: 'sovereignblue_site_info_v3',
+  NEWS: 'sovereignblue_news_v3',
+  GALLERY: 'sovereignblue_gallery_v3',
+  PROGRAMS: 'sovereignblue_programs_v3',
+  FACILITIES: 'sovereignblue_facilities_v3',
+  PPDB: 'sovereignblue_ppdb_v3',
+  PPDB_SETTINGS: 'sovereignblue_ppdb_settings_v3',
 };
 
 // Dispatch custom event saat ada mutasi data
 const dispatchStoreUpdate = (key: string) => {
   if (typeof window !== 'undefined') {
-    window.dispatchEvent(new CustomEvent('almursyid_store_updated', { detail: { key } }));
+    window.dispatchEvent(new CustomEvent('sovereignblue_store_updated', { detail: { key } }));
   }
 };
 
@@ -102,8 +102,9 @@ export const AppStore = {
       const data = localStorage.getItem(STORAGE_KEYS.SITE_INFO);
       if (data) {
         const parsed = JSON.parse(data);
-        // Jika nama lembaga atau pimpinan masih tersimpan versi lama Al-Mursyid, paksa reset ke DEFAULT_SITE_INFO Sovereign Blue
-        if (parsed.name?.includes('Al-Mursyid') || parsed.leadership?.pembina?.name?.includes('Usman')) {
+        // Jika nama lembaga atau pimpinan masih tersimpan versi lama Al-Mursyid atau pengurus belum memiliki gambar webp lokal
+        const hasLegacyImages = !parsed.leadership?.pengurus?.[0]?.image || parsed.leadership?.pengurus?.[0]?.image === '';
+        if (parsed.name?.includes('Al-Mursyid') || parsed.leadership?.pembina?.name?.includes('Usman') || hasLegacyImages) {
           localStorage.setItem(STORAGE_KEYS.SITE_INFO, JSON.stringify(DEFAULT_SITE_INFO));
           return DEFAULT_SITE_INFO;
         }
@@ -171,7 +172,12 @@ export const AppStore = {
           return !t.includes('santri') && !t.includes('pesantren') && !t.includes('al-mursyid') && !c.includes('al-mursyid');
         });
 
-        if (relevantNews.length > 0) {
+        const hasMaritimeNews = relevantNews.some(item => {
+          const img = (item.imageUrl || item.image_url || item.image || '').toLowerCase();
+          return img.includes('photo-') || img.includes('premium_photo-');
+        });
+
+        if (relevantNews.length > 0 && hasMaritimeNews) {
           const normalized = relevantNews.map(item => ({
             id: String(item.id),
             title: item.title,
@@ -265,24 +271,23 @@ export const AppStore = {
     }
   },
 
-  // GALERI (Sync ke Backend Database Hostinger)
+  // GALERI (Sync ke Backend Database & Local public/gambar)
   getGallery: (): GalleryItem[] => {
     try {
       const data = localStorage.getItem(STORAGE_KEYS.GALLERY);
       if (data) {
         const parsed = JSON.parse(data);
-        const isOldData = Array.isArray(parsed) && parsed.some((g: any) => 
-          g.title?.toLowerCase().includes('santri') || 
-          g.title?.toLowerCase().includes('pesantren') || 
-          g.title?.toLowerCase().includes('al-mursyid') ||
-          g.title?.toLowerCase().includes('way lalaan')
+        // Validasi: pastikan data galeri memiliki foto webp maritim Sovereign Blue
+        const isMaritimeGallery = Array.isArray(parsed) && parsed.length > 0 && parsed.some((g: any) => 
+          g.image?.includes('photo-') || g.image?.includes('premium_photo-')
         );
-        if (isOldData) {
+        if (!isMaritimeGallery) {
           localStorage.setItem(STORAGE_KEYS.GALLERY, JSON.stringify(DEFAULT_GALLERY));
           return DEFAULT_GALLERY;
         }
         return parsed;
       }
+      localStorage.setItem(STORAGE_KEYS.GALLERY, JSON.stringify(DEFAULT_GALLERY));
       return DEFAULT_GALLERY;
     } catch {
       return DEFAULT_GALLERY;
@@ -297,7 +302,12 @@ export const AppStore = {
           return !t.includes('santri') && !t.includes('pesantren') && !t.includes('al-mursyid') && !t.includes('way lalaan');
         });
 
-        if (relevantGallery.length > 0) {
+        const hasMaritimeItems = relevantGallery.some(item => {
+          const img = (item.imageUrl || item.image_url || item.image || '').toLowerCase();
+          return img.includes('photo-') || img.includes('premium_photo-');
+        });
+
+        if (hasMaritimeItems) {
           const normalized: GalleryItem[] = relevantGallery.map(item => ({
             id: String(item.id),
             title: item.title,

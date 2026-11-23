@@ -17,7 +17,7 @@ const HERO_SLIDES = [
   {
     image: "/hero/hero1.webp",
     title: "Pariwisata Berkelanjutan di Pulau Terluar Nusantara",
-    subtitle: "Mengembangkan potensi ekowisata berbasis komunitas yang melestarikan alam samudra dan mengangkat harkat ekonomi lokal di Nusa Tenggara Timur.",
+    subtitle: "Mengembangkan potensi ekowisata berbasis komunitas yang melestarikan alam samudra dan mengangkat harkat ekonomi lokal.",
     badge: "GSTC-Aligned Ecotourism"
   },
   {
@@ -34,7 +34,7 @@ const HERO_SLIDES = [
   },
   {
     image: "/hero/hero4.webp",
-    title: "Merestorasi Terumbu Karang & Hutan Mangrove",
+    title: "Merestorasi Ekosistem Laut dan Pesisir",
     subtitle: "Perlindungan keanekaragaman hayati samudra, restorasi spider reef, dan mitigasi krisis iklim bersama komunitas adat kepulauan.",
     badge: "Marine Conservation & Blue Carbon"
   }
@@ -225,8 +225,8 @@ export const HomePage: React.FC = () => {
   return (
     <div className="space-y-0 w-full overflow-x-hidden bg-white text-slate-800">
       
-      {/* 1. HERO SLIDER SECTION + VALUE PILLARS MARQUEE (Pas Viewport Mobile iOS & Android) */}
-      <section className="relative w-full h-[calc(100svh-4rem)] sm:h-[calc(100vh-5rem)] min-h-[520px] sm:min-h-[600px] bg-[#070c09] overflow-hidden flex flex-col justify-between">
+      {/* 1. HERO SLIDER SECTION + VALUE PILLARS MARQUEE */}
+      <section className="relative w-full h-[calc(100svh-4rem)] lg:h-[calc(100vh-6.5rem)] max-h-[820px] min-h-[500px] bg-[#070c09] overflow-hidden flex flex-col justify-between">
         {/* Background Slider Images */}
         {HERO_SLIDES.map((slide, index) => (
           <div
@@ -258,52 +258,50 @@ export const HomePage: React.FC = () => {
         ))}
 
         {/* Content Container (Center Aligned Flex Grow) */}
-        <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 z-10 flex-1 flex flex-col justify-center pt-4 sm:pt-8 pb-3 sm:pb-6">
-          <div className="max-w-2xl relative min-h-[200px] sm:min-h-[220px]">
+        <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 z-10 flex-1 flex flex-col justify-center pt-2 pb-0">
+          <div className="max-w-4xl relative min-h-[220px] sm:min-h-[250px] lg:min-h-[260px]">
             {HERO_SLIDES.map((slide, index) => (
               <div
                 key={index}
-                className={`transition-opacity duration-500 space-y-2.5 sm:space-y-4 ${
+                className={`transition-opacity duration-500 space-y-3 sm:space-y-4 lg:space-y-4 ${
                   index === currentSlide
                     ? 'opacity-100 relative pointer-events-auto'
                     : 'opacity-0 absolute inset-0 pointer-events-none'
                 }`}
               >
-                {/* Heading Modern Reguler & Terang Synchronized */}
-                <h1 className="text-2xl sm:text-4xl lg:text-[46px] font-bold tracking-tight text-white drop-shadow-sm leading-[1.2]">
+                {/* Heading Modern Lebih Besar & Berbobot */}
+                <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[64px] xl:text-[70px] font-extrabold tracking-tight text-white drop-shadow-md leading-[1.1] max-w-3xl">
                   {slide.title}
                 </h1>
 
-                <p className="text-xs sm:text-lg text-stone-200 leading-relaxed max-w-xl font-normal drop-shadow-sm line-clamp-3 sm:line-clamp-none">
+                <p className="text-sm sm:text-lg lg:text-xl text-stone-200/90 leading-relaxed max-w-2xl font-normal drop-shadow-sm line-clamp-3 sm:line-clamp-none">
                   {slide.subtitle}
                 </p>
 
                 {/* Modern Action Buttons */}
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5 pt-1 sm:pt-1.5">
                   <Link
                     to="/program"
-                    className="bg-aurora-btn text-white font-bold px-5 sm:px-6 py-2.5 rounded-full text-xs uppercase tracking-wider shadow-md shadow-blue-950/20 flex items-center justify-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+                    className="bg-aurora-btn text-white font-bold px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm uppercase tracking-wider shadow-md shadow-blue-950/20 flex items-center justify-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
                   >
                     <span>Pelajari Program</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-white/90" />
+                    <ArrowRight className="w-4 h-4 text-white/90" />
                   </Link>
                   
                   <Link
                     to="/kontak"
-                    className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/30 font-semibold px-5 py-2.5 rounded-full text-xs tracking-wider flex items-center justify-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 shadow-sm"
+                    className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/30 font-semibold px-6 py-3 rounded-full text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 shadow-sm"
                   >
-                    <Compass className="w-3.5 h-3.5 text-cyan-300" />
+                    <Compass className="w-4 h-4 text-cyan-300" />
                     <span>Hubungi Kami</span>
                   </Link>
                 </div>
-
-
               </div>
             ))}
           </div>
 
           {/* Slide Indicator Dots */}
-          <div className="flex items-center gap-2 pt-3 sm:pt-4">
+          <div className="flex items-center gap-2 pt-2 sm:pt-2.5 pb-2">
             {HERO_SLIDES.map((_, i) => (
               <button
                 key={i}
@@ -317,8 +315,8 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
 
-        {/* 2. VALUE PILLARS MARQUEE (Batas Bawah Hero Terkunci di Layar Mobile) */}
-        <div className="relative z-20 w-full overflow-hidden border-t border-white/10 bg-black/40 backdrop-blur-[4px] py-2.5 sm:py-3 shrink-0">
+        {/* 2. VALUE PILLARS MARQUEE (Posisi presisi di dalam viewport desktop tanpa terpotong taskbar) */}
+        <div className="relative z-20 w-full overflow-hidden border-t border-white/10 bg-black/40 backdrop-blur-[4px] py-1.5 sm:py-2 shrink-0">
           <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
             <div className="flex w-max animate-marquee-rtl items-center">
               {[...STRIP_PILLARS, ...STRIP_PILLARS, ...STRIP_PILLARS, ...STRIP_PILLARS].map((item, idx) => {
@@ -351,7 +349,7 @@ export const HomePage: React.FC = () => {
               {/* Gambar dasar / latar utama */}
               <div className="absolute inset-x-5 inset-y-4 overflow-hidden rounded-xl shadow-md border border-slate-200/80 bg-slate-100">
                 <img
-                  src="/gambar/halamandepan.webp"
+                  src="/hero/hero1.webp"
                   alt="Sovereign Blue Foundation"
                   className="w-full h-full object-cover filter contrast-[1.03]"
                 />
@@ -360,7 +358,7 @@ export const HomePage: React.FC = () => {
               {/* Panel pecahan kiri atas (overlap frame dengan garis border putih) */}
               <div className="absolute -top-1 left-0 w-3/5 h-3/5 rounded-xl overflow-hidden shadow-xl border-[2.5px] border-white bg-slate-100 transition-transform duration-500 hover:-translate-y-1">
                 <img
-                  src="/gambar/halamandepan.webp"
+                  src="/hero/hero1.webp"
                   alt=""
                   className="w-[170%] h-[170%] max-w-none object-cover -translate-x-3 -translate-y-3"
                 />
@@ -369,7 +367,7 @@ export const HomePage: React.FC = () => {
               {/* Panel pecahan vertikal kanan */}
               <div className="absolute top-5 right-0 w-[27%] h-3/5 rounded-xl overflow-hidden shadow-lg border-[2.5px] border-white bg-slate-100 transition-transform duration-500 hover:translate-y-1">
                 <img
-                  src="/gambar/halamandepan.webp"
+                  src="/hero/hero1.webp"
                   alt=""
                   className="w-[360%] h-[170%] max-w-none object-cover -translate-x-[68%] -translate-y-8"
                 />
@@ -378,7 +376,7 @@ export const HomePage: React.FC = () => {
               {/* Panel pecahan kanan bawah */}
               <div className="absolute bottom-0 right-2 w-7/12 h-1/2 rounded-xl overflow-hidden shadow-xl border-[2.5px] border-white bg-slate-100 transition-transform duration-500 hover:translate-x-1">
                 <img
-                  src="/gambar/halamandepan.webp"
+                  src="/hero/hero1.webp"
                   alt=""
                   className="w-[175%] h-[200%] max-w-none object-cover -translate-x-[42%] -translate-y-[48%]"
                 />
@@ -387,7 +385,7 @@ export const HomePage: React.FC = () => {
               {/* Aksen pecahan kecil kiri bawah */}
               <div className="absolute bottom-3 left-2 w-14 h-14 rounded-lg overflow-hidden shadow-md border-2 border-white bg-slate-100 transition-transform duration-500 hover:scale-105">
                 <img
-                  src="/gambar/halamandepan.webp"
+                  src="/hero/hero1.webp"
                   alt=""
                   className="w-[500%] h-[500%] max-w-none object-cover -translate-x-[15%] -translate-y-[80%]"
                 />
@@ -402,7 +400,7 @@ export const HomePage: React.FC = () => {
             </h2>
 
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Sovereign Blue Foundation (Yayasan Biru Berdaulat) berikhtiar mewujudkan kepulauan Indonesia yang berdaya secara ekonomi, berpendidikan tinggi, dan teguh merawat keanekaragaman hayati samudra melalui model ekowisata dan energi surya terpadu.
+              Sovereign Blue Foundation berikhtiar mewujudkan kepulauan Indonesia yang berdaya secara ekonomi, berpendidikan tinggi, dan teguh merawat keanekaragaman hayati samudra melalui model ekowisata dan energi surya terpadu.
             </p>
 
 
@@ -410,10 +408,10 @@ export const HomePage: React.FC = () => {
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link
                 to="/tentang-kami"
-                className="inline-flex items-center gap-2 bg-sky-900 hover:bg-sky-850 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md transition-all hover:-translate-y-0.5 active:scale-95"
+                className="inline-flex items-center gap-2 bg-aurora-btn text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md transition-all hover:-translate-y-0.5 active:scale-95"
               >
                 <span>Baca Profil & Visi Misi</span>
-                <ArrowRight className="w-4 h-4 text-sky-300" />
+                <ArrowRight className="w-4 h-4 text-cyan-200" />
               </Link>
             </div>
 
@@ -681,18 +679,166 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. SECTION CARD DOKUMENTASI & GALERI ARSITEKTURAL */}
+      {/* 5. BERITA & CERITA MARITIM */}
+      <section className="py-12 md:py-16 bg-slate-50/70 border-t border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+            
+            {/* Main Featured News Card (Left - 8 cols) */}
+            <div className="lg:col-span-8 relative rounded-2xl overflow-hidden shadow-sm border border-slate-900/10 min-h-[380px] md:min-h-[420px] flex flex-col justify-end p-5 sm:p-8 group bg-slate-900">
+              {/* Background Image with Overlay */}
+              {currentNewsSlide?.image && currentNewsSlide.image.trim() !== '' ? (
+                <img 
+                  src={getImageUrl(currentNewsSlide.image)} 
+                  alt={currentNewsSlide.title} 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+              ) : null}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/30"></div>
+              <div className="absolute inset-0 bg-sky-950/30 mix-blend-multiply"></div>
+
+              {/* Content Box */}
+              <div className="relative z-10 space-y-2.5 max-w-2xl">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="badge-category-blue text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded shadow-sm">
+                    {currentNewsSlide.category}
+                  </span>
+                  <span className="text-sky-300 text-[11px] font-semibold tracking-wide">
+                    {currentNewsSlide.subCategory || "Kabar Pilihan"}
+                  </span>
+                </div>
+
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white leading-tight tracking-tight drop-shadow-sm">
+                  {currentNewsSlide.title}
+                </h2>
+
+                <p className="text-xs sm:text-[13px] text-slate-200 line-clamp-2 leading-relaxed">
+                  {currentNewsSlide.summary}
+                </p>
+
+                {/* Bottom CTA and Dots Indicator */}
+                <div className="pt-1.5 flex flex-wrap items-center justify-between gap-4">
+                  <Link 
+                    to={`/berita/${currentNewsSlide.slug || createSlug(currentNewsSlide.title)}`}
+                    className="inline-flex items-center gap-2 bg-white text-slate-900 hover:bg-sky-500 hover:text-white px-4 py-2 rounded-full text-xs font-bold transition-all shadow-sm active:scale-[0.98]"
+                  >
+                    <span>Baca Selengkapnya</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+
+                  {/* Dot Indicators */}
+                  <div className="flex items-center gap-1.5">
+                    {newsHeroSlides.map((_, dotIdx) => (
+                      <button
+                        key={dotIdx}
+                        onClick={() => setNewsHeroIndex(dotIdx)}
+                        aria-label={`Slide ${dotIdx + 1}`}
+                        className={`h-1.5 transition-all rounded-full ${
+                          dotIdx === newsHeroIndex 
+                            ? 'w-5 bg-sky-400' 
+                            : 'w-2 bg-white/40 hover:bg-white/70'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Postingan Terbaru Sidebar (Right - 4 cols) */}
+            <div className="lg:col-span-4 bg-white text-slate-800 rounded-2xl p-5 flex flex-col justify-between border border-slate-200/90 shadow-sm">
+              <div>
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-sky-600 animate-pulse"></div>
+                    <h3 className="font-bold text-xs tracking-wide text-slate-900 uppercase">
+                      Postingan Terbaru
+                    </h3>
+                  </div>
+                  <Link 
+                    to="/berita" 
+                    className="text-[11px] font-semibold text-sky-700 hover:text-sky-800 transition-colors"
+                  >
+                    Lihat Semua
+                  </Link>
+                </div>
+
+                {/* List of Latest Posts */}
+                <div className="divide-y divide-slate-100">
+                  {LATEST_POSTS.map((post, idx) => {
+                    const hasImg = Boolean(post.image && post.image.trim() !== '');
+                    return (
+                      <Link 
+                        key={idx} 
+                        to={`/berita/${post.slug || createSlug(post.title)}`}
+                        className="py-2.5 flex items-center gap-3 group cursor-pointer block"
+                      >
+                        {/* Mini Thumbnail */}
+                        <div className="relative w-11 h-11 rounded-lg overflow-hidden shrink-0 bg-slate-100 border border-slate-200/80 flex items-center justify-center">
+                          {hasImg ? (
+                            <img 
+                              src={getImageUrl(post.image)} 
+                              alt={post.title} 
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              loading="lazy"
+                              onError={(e) => {
+                                e.currentTarget.style.display = 'none';
+                              }}
+                            />
+                          ) : (
+                            <Newspaper className="w-5 h-5 text-slate-400" />
+                          )}
+                        </div>
+
+                        <div className="flex-1 min-w-0 space-y-0.5">
+                          <h4 className="text-xs font-semibold text-slate-800 line-clamp-2 leading-snug group-hover:text-sky-700 transition-colors">
+                            {post.title}
+                          </h4>
+                          <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
+                            <span className="text-sky-700 font-semibold">{post.category}</span>
+                            <span>•</span>
+                            <span className="flex items-center gap-1">
+                              <Clock className="w-2.5 h-2.5 text-slate-400" />
+                              {post.timeAgo || (post as any).date || 'Baru saja'}
+                            </span>
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="pt-3 mt-2 border-t border-slate-100 text-center">
+                <Link 
+                  to="/berita" 
+                  className="text-xs text-sky-700 font-semibold hover:text-sky-800 inline-flex items-center gap-1 transition-colors"
+                >
+                  <span>Jelajahi seluruh kabar maritim</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 6. SECTION CARD DOKUMENTASI & GALERI ARSITEKTURAL */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 lg:pb-16">
         <div className="relative">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center justify-center max-w-6xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             
-            {/* Kolom 1 Kiri: Galeri Mosaik Arsitektural */}
-            <div className="lg:col-span-7 w-full max-w-[560px] lg:max-w-[620px] mx-auto lg:mx-0">
+            {/* Galeri Mosaik Arsitektural */}
+            <div className="w-full">
               <div className="space-y-3.5">
                 {/* Accent mini header dengan tombol Jelajahi Galeri di kanan atas */}
                 <div className="flex items-center justify-between pb-1.5 border-b border-sky-900/10">
                   <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-sky-900/80">
-                    Dokumentasi & Kampus
+                    Dokumentasi
                   </span>
                   <Link
                     to="/galeri"
@@ -821,196 +967,11 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Kolom 2 Kanan: Card Visual Ringkas PPDB */}
-            <div className="lg:col-span-5 w-full flex justify-center lg:justify-start">
-              <div className="w-full max-w-[320px] sm:max-w-[360px] bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden border border-slate-200/80 p-3.5 transition-all duration-300">
-                
-                {/* Visual Image Container (Rasio Instagram 3:4) */}
-                <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-slate-100">
-                  <img
-                    src={getImageUrl(ppdbSettings?.heroImage, "/gambar/halamandepan.webp")}
-                    alt="Poster PPDB Sovereign Blue Foundation"
-                    className="w-full h-full object-cover object-center"
-                    loading="lazy"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      if (!target.src.includes('/gambar/halamandepan.webp')) {
-                        target.src = '/gambar/halamandepan.webp';
-                      }
-                    }}
-                  />
-                </div>
-
-                {/* Bottom Bar: Action Ringkas & Sejajar */}
-                <div className="pt-3 pb-0.5 px-0.5 flex items-center justify-between gap-2">
-                  <span className="text-[12px] text-slate-500">
-                    Ingin terhubung <strong className="font-semibold text-slate-900">dengan kami?</strong>
-                  </span>
-                  <Link
-                    to="/kontak"
-                    className="inline-flex items-center gap-1.5 bg-blue-900 hover:bg-blue-950 text-white text-[11px] font-semibold px-3.5 py-1.5 rounded-full transition-all active:scale-95 shadow-xs shrink-0"
-                  >
-                    <span>Hubungi Kami</span>
-                    <ArrowRight className="w-3 h-3 text-white/90" />
-                  </Link>
-                </div>
-
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
 
 
-
-      {/* 7. BERITA & CERITA MARITIM */}
-      <section className="py-12 md:py-16 bg-slate-50/70 border-t border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
-            
-            {/* Main Featured News Card (Left - 8 cols) */}
-            <div className="lg:col-span-8 relative rounded-2xl overflow-hidden shadow-sm border border-slate-900/10 min-h-[380px] md:min-h-[420px] flex flex-col justify-end p-5 sm:p-8 group bg-slate-900">
-              {/* Background Image with Overlay */}
-              {currentNewsSlide?.image && currentNewsSlide.image.trim() !== '' ? (
-                <img 
-                  src={getImageUrl(currentNewsSlide.image)} 
-                  alt={currentNewsSlide.title} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                  }}
-                />
-              ) : null}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/30"></div>
-              <div className="absolute inset-0 bg-[#064e3b]/25 mix-blend-multiply"></div>
-
-              {/* Content Box */}
-              <div className="relative z-10 space-y-2.5 max-w-2xl">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="bg-[#059669] text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded shadow-sm">
-                    {currentNewsSlide.category}
-                  </span>
-                  <span className="text-sky-300 text-[11px] font-semibold tracking-wide">
-                    {currentNewsSlide.subCategory || "Kabar Pilihan"}
-                  </span>
-                </div>
-
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white leading-tight tracking-tight drop-shadow-sm">
-                  {currentNewsSlide.title}
-                </h2>
-
-                <p className="text-xs sm:text-[13px] text-slate-200 line-clamp-2 leading-relaxed">
-                  {currentNewsSlide.summary}
-                </p>
-
-                {/* Bottom CTA and Dots Indicator */}
-                <div className="pt-1.5 flex flex-wrap items-center justify-between gap-4">
-                  <Link 
-                    to={`/berita/${createSlug(currentNewsSlide.title)}`}
-                    className="inline-flex items-center gap-2 bg-white text-slate-900 hover:bg-sky-500 hover:text-white px-4 py-2 rounded-full text-xs font-bold transition-all shadow-sm active:scale-[0.98]"
-                  >
-                    <span>Baca Selengkapnya</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-
-                  {/* Dot Indicators */}
-                  <div className="flex items-center gap-1.5">
-                    {newsHeroSlides.map((_, dotIdx) => (
-                      <button
-                        key={dotIdx}
-                        onClick={() => setNewsHeroIndex(dotIdx)}
-                        aria-label={`Slide ${dotIdx + 1}`}
-                        className={`h-1.5 transition-all rounded-full ${
-                          dotIdx === newsHeroIndex 
-                            ? 'w-5 bg-sky-400' 
-                            : 'w-2 bg-white/40 hover:bg-white/70'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Postingan Terbaru Sidebar (Right - 4 cols) */}
-            <div className="lg:col-span-4 bg-white text-slate-800 rounded-2xl p-5 flex flex-col justify-between border border-slate-200/90 shadow-sm">
-              <div>
-                <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-sky-600 animate-pulse"></div>
-                    <h3 className="font-bold text-xs tracking-wide text-slate-900 uppercase">
-                      Postingan Terbaru
-                    </h3>
-                  </div>
-                  <Link 
-                    to="/berita" 
-                    className="text-[11px] font-semibold text-sky-700 hover:text-sky-800 transition-colors"
-                  >
-                    Lihat Semua
-                  </Link>
-                </div>
-
-                {/* List of Latest Posts */}
-                <div className="divide-y divide-slate-100">
-                  {LATEST_POSTS.map((post, idx) => {
-                    const hasImg = Boolean(post.image && post.image.trim() !== '');
-                    return (
-                      <Link 
-                        key={idx} 
-                        to={`/berita/${createSlug(post.title)}`}
-                        className="py-2.5 flex items-center gap-3 group cursor-pointer block"
-                      >
-                        {/* Mini Thumbnail */}
-                        <div className="relative w-11 h-11 rounded-lg overflow-hidden shrink-0 bg-slate-100 border border-slate-200/80 flex items-center justify-center">
-                          {hasImg ? (
-                            <img 
-                              src={getImageUrl(post.image)} 
-                              alt={post.title} 
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              loading="lazy"
-                              onError={(e) => {
-                                e.currentTarget.style.display = 'none';
-                              }}
-                            />
-                          ) : (
-                            <Newspaper className="w-5 h-5 text-slate-400" />
-                          )}
-                        </div>
-
-                        <div className="flex-1 min-w-0 space-y-0.5">
-                          <h4 className="text-xs font-semibold text-slate-800 line-clamp-2 leading-snug group-hover:text-sky-700 transition-colors">
-                            {post.title}
-                          </h4>
-                          <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
-                            <span className="text-sky-700 font-semibold">{post.category}</span>
-                            <span>•</span>
-                            <span className="flex items-center gap-1">
-                              <Clock className="w-2.5 h-2.5 text-slate-400" />
-                              {post.timeAgo || (post as any).date || 'Baru saja'}
-                            </span>
-                          </div>
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div className="pt-3 mt-2 border-t border-slate-100 text-center">
-                <Link 
-                  to="/berita" 
-                  className="text-xs text-sky-700 font-semibold hover:text-sky-800 inline-flex items-center gap-1 transition-colors"
-                >
-                  <span>Jelajahi seluruh kabar maritim</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       {/* Lightbox / Modal Kotak Foto Sesuai Desain Editorial */}
       {previewModal && (
@@ -1021,7 +982,7 @@ export const HomePage: React.FC = () => {
           {/* Top Bar: close button */}
           <div className="w-full max-w-xl flex items-center justify-between pb-3 px-1 text-white">
             <span className="text-xs sm:text-sm font-semibold tracking-wide text-white/80">
-              {previewModal.category || "Dokumentasi Kampus"}
+              {previewModal.category || "Dokumentasi"}
             </span>
 
             <button

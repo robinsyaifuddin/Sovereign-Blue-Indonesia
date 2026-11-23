@@ -21,7 +21,7 @@ const FAQS: FAQItem[] = [
   {
     id: "02",
     question: "Di mana saja wilayah kerja operasional yayasan saat ini?",
-    answer: "Sekretariat utama berkedudukan di Jakarta dan wilayah kerja lapangan terpadu berfokus di kawasan pesisir kepulauan Nusa Tenggara Timur (Pulau Rote dan pulau-pulau sekitarnya) bersama komunitas adat bahari setempat."
+    answer: "Sekretariat utama dan wilayah kerja lapangan terpadu berfokus di kawasan pesisir kepulauan (Pulau Rote dan pulau-pulau sekitarnya) bersama komunitas adat bahari setempat."
   },
   {
     id: "03",
@@ -56,6 +56,22 @@ export const ContactPage: React.FC = () => {
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
+    const waNumber = '628874375325303';
+    const lines = [
+      'Halo Tim Sovereign Blue Indonesia, saya ingin mengirimkan pesan:',
+      '',
+      `*Nama Lengkap:* ${formData.name}`,
+      `*No. HP/WhatsApp:* ${formData.phone}`,
+      formData.email ? `*Email:* ${formData.email}` : '',
+      `*Topik Kebutuhan:* ${formData.topic}`,
+      formData.schedule ? `*Waktu Respons / Jadwal:* ${formData.schedule}` : '',
+      '',
+      '*Pesan / Pertanyaan:*',
+      formData.message
+    ].filter(line => line !== '');
+
+    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(lines.join('\n'))}`;
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
     setSent(true);
   };
 
@@ -73,18 +89,18 @@ export const ContactPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-3">
               <div className="inline-flex items-center gap-3">
                 <span className="text-xs font-bold uppercase tracking-widest text-sky-800 block">
-                  Hubungi Kami &middot; 01
+                  Hubungi Kami
                 </span>
                 <span className="h-[2px] w-14 sm:w-16 bg-sky-600 block rounded-full"></span>
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-stone-900 leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
                 Mari Terhubung <br />
-                <span className="font-normal">Dengan Sovereign Blue</span>
+                <span className="font-extrabold text-sky-900">Dengan Sovereign <br />Blue Indonesia</span>
               </h1>
             </div>
             <div className="lg:col-span-5 pb-1">
-              <p className="text-sm sm:text-base text-stone-600 font-light leading-relaxed">
-                Punya pertanyaan seputar program kemaritiman, kemitraan CSR/ESG, penelitian universitas, atau donasi konservasi laut di Nusa Tenggara Timur? Tim sekretariat kami siap menyambut Anda.
+              <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-normal">
+                Punya pertanyaan seputar program kemaritiman, kemitraan CSR/ESG, penelitian universitas, atau donasi konservasi laut? Tim sekretariat kami siap menyambut Anda.
               </p>
             </div>
           </div>
@@ -92,13 +108,13 @@ export const ContactPage: React.FC = () => {
           {/* Panoramic Campus Hero Visual */}
           <div className="mt-10 sm:mt-12 rounded-xl sm:rounded-2xl overflow-hidden aspect-[21/9] sm:aspect-[24/9] relative bg-stone-200 border border-stone-300/70 shadow-sm">
             <img 
-              src="/gambar/halamandepan.webp" 
-              alt="Kampus Sovereign Blue Foundation Nusa Tenggara Timur" 
+              src="/gambar/hero1.webp" 
+              alt="Sovereign Blue Foundation" 
               className="w-full h-full object-cover contrast-[1.02] hover:scale-[1.01] transition-transform duration-700 ease-out"
             />
             <div className="absolute inset-0 bg-stone-900/10 pointer-events-none" />
             <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 px-3 py-1.5 rounded bg-stone-900/80 backdrop-blur-sm text-stone-100 text-[11px] ">
-              Kampus Sovereign Blue &bull; Kota Agung Timur, Nusa Tenggara Timur
+              Sovereign Blue Indonesia &bull; Konservasi &amp; Kemaritiman
             </div>
           </div>
         </div>
@@ -116,10 +132,9 @@ export const ContactPage: React.FC = () => {
                   <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-stone-900">
                     Kontak Resmi
                   </h2>
-                  <span className="text-[11px] font-mono text-sky-800 font-bold bg-sky-50 px-2 py-0.5 rounded-full border border-sky-200/60">02</span>
                 </div>
                 <p className="text-xs sm:text-sm text-stone-600 font-light">
-                  {SITE_INFO.foundation} &bull; Nusa Tenggara Timur &amp; Jakarta
+                  {SITE_INFO.foundation} &bull; Indonesia
                 </p>
               </div>
 
@@ -142,7 +157,9 @@ export const ContactPage: React.FC = () => {
                     Telepon & WhatsApp
                   </span>
                   <a 
-                    href={`tel:${SITE_INFO.contacts.phone}`} 
+                    href="https://wa.me/628874375325303" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-xs sm:text-sm font-medium text-stone-900 hover:text-sky-700 transition-colors block"
                   >
                     {SITE_INFO.contacts.phone}
@@ -345,7 +362,6 @@ export const ContactPage: React.FC = () => {
                 <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-stone-900">
                   FAQ
                 </h2>
-                <span className="text-[11px] text-stone-700">03</span>
               </div>
               <p className="text-xs sm:text-sm text-stone-600 font-light max-w-xs">
                 Pertanyaan yang paling sering diajukan seputar kemitraan program, donasi, dan inisiatif kemaritiman.
@@ -395,10 +411,10 @@ export const ContactPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-stone-200">
             <div>
               <span className="text-[11px] tracking-widest uppercase text-stone-700 block mb-1">
-                Lokasi &middot; 04
+                Lokasi
               </span>
               <h3 className="text-2xl font-light text-stone-900">
-                Peta Kampus Sovereign Blue
+                Peta Sovereign Blue Indonesia
               </h3>
             </div>
             <a
@@ -414,8 +430,8 @@ export const ContactPage: React.FC = () => {
 
           <div className="rounded-xl overflow-hidden border border-stone-300/80 h-[380px] sm:h-[440px] w-full bg-stone-200">
             <iframe
-              title="Peta Lokasi Sovereign Blue Secretariat Nusa Tenggara Timur"
-              src={`https://maps.google.com/maps?q=Ponpes+Sovereign Blue,+Kp.+Baru,+Kota+Agung+Barat,+Nusa Tenggara Timur&t=&z=16&ie=UTF8&iwloc=&output=embed`}
+              title="Peta Lokasi Sovereign Blue Secretariat"
+              src={`https://maps.google.com/maps?q=Ponpes+Sovereign Blue,+Kp.+Baru,+Kota+Agung+Barat&t=&z=16&ie=UTF8&iwloc=&output=embed`}
               width="100%"
               height="100%"
               style={{ border: 0 }}
