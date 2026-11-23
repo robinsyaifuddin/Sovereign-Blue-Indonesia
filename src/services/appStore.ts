@@ -50,29 +50,29 @@ export interface PPDBSettings {
 
 const DEFAULT_PPDB_SETTINGS: PPDBSettings = {
   heroImage: "",
-  whatsappNumber: "0838-4847-8150",
-  formUrl: "https://forms.gle/almursyid-ppdb",
-  brochurePdfUrl: "https://forms.gle/almursyid-ppdb",
+  whatsappNumber: "+62 812-3456-7890",
+  formUrl: "/relawan",
+  brochurePdfUrl: "/program",
   steps: [
     {
       num: '01',
-      title: 'Pendaftaran Online',
-      desc: 'Mengisi formulir pendaftaran online resmi atau langsung datang ke sekretariat pondok di Way Lalaan Tanggamus.'
+      title: 'Pendaftaran Daring / Seleksi Berkas',
+      desc: 'Mengisi formulir registrasi daring resmi atau mengirimkan berkas pengajuan beasiswa / keanggotaan relawan ke sekretariat Sovereign Blue Foundation.'
     },
     {
       num: '02',
-      title: "Tes Baca Qur'an & Wawancara",
-      desc: "Uji kemampuan membaca Al-Qur'an dasar, tes potensi akademik, serta wawancara kesiapan santri dan wali santri."
+      title: 'Wawancara & Asesmen Komitmen',
+      desc: 'Asesmen kesesuaian program kelautan, uji potensi sains maritim, serta wawancara motivasi pengabdian masyarakat pesisir.'
     },
     {
       num: '03',
-      title: 'Pengumuman Kelulusan',
-      desc: 'Hasil kelulusan disampaikan melalui WhatsApp resmi panitia dan surat keputusan penerimaan santri baru.'
+      title: 'Pengumuman Penerimaan',
+      desc: 'Hasil seleksi disampaikan melalui email resmi sekretariat dan WhatsApp resmi Sovereign Blue Foundation.'
     },
     {
       num: '04',
-      title: 'Daftar Ulang & Masuk Asrama',
-      desc: 'Penyelesaian administrasi daftar ulang, pengambilan seragam, dan penyerahan santri ke asrama pondok.'
+      title: 'Orientasi & Penempatan Lapangan',
+      desc: 'Pembekalan wawasan bahari, penerimaan perlengkapan edukasi, dan penempatan di Marine Learning Centers kepulauan.'
     }
   ],
   fees: DEFAULT_PPDB_FEES
@@ -141,32 +141,59 @@ export const AppStore = {
   getNews: (): any[] => {
     try {
       const data = localStorage.getItem(STORAGE_KEYS.NEWS);
-      return data ? JSON.parse(data) : [];
+      if (data) {
+        const parsed = JSON.parse(data);
+        // Jika data berita masih tersimpan artikel pesantren/santri lama, override ke DEFAULT_NEWS Sovereign Blue
+        const isOldData = Array.isArray(parsed) && parsed.some((n: any) => 
+          n.title?.toLowerCase().includes('santri') || 
+          n.title?.toLowerCase().includes('pesantren') || 
+          n.title?.toLowerCase().includes('al-mursyid')
+        );
+        if (isOldData) {
+          localStorage.setItem(STORAGE_KEYS.NEWS, JSON.stringify(DEFAULT_NEWS));
+          return DEFAULT_NEWS;
+        }
+        return parsed;
+      }
+      return DEFAULT_NEWS;
     } catch {
-      return [];
+      return DEFAULT_NEWS;
     }
   },
   syncNewsFromApi: async (): Promise<any[]> => {
     try {
       const remoteNews = await api.getNews();
       if (Array.isArray(remoteNews)) {
-        // Normalisasi struktur agar sesuai dengan yang diharapkan komponen frontend
-        const normalized = remoteNews.map(item => ({
-          id: String(item.id),
-          title: item.title,
-          slug: item.slug,
-          category: item.category,
-          subCategory: item.subCategory || 'Umum',
-          summary: item.excerpt || item.summary || item.content || '',
-          content: item.content || item.summary || item.excerpt || '',
-          image: getImageUrl(item.imageUrl || item.image_url || item.image || ''),
-          date: item.date || item.published_at || 'Baru saja',
-          timeAgo: item.timeAgo || 'Baru saja',
-          isFeatured: Boolean(item.isFeatured)
-        }));
-        localStorage.setItem(STORAGE_KEYS.NEWS, JSON.stringify(normalized));
-        dispatchStoreUpdate(STORAGE_KEYS.NEWS);
-        return normalized;
+        // Filter out berita lama pesantren/santri/al-mursyid agar tidak mencemari Sovereign Blue
+        const relevantNews = remoteNews.filter(item => {
+          const t = (item.title || '').toLowerCase();
+          const c = (item.content || item.summary || item.excerpt || '').toLowerCase();
+          return !t.includes('santri') && !t.includes('pesantren') && !t.includes('al-mursyid') && !c.includes('al-mursyid');
+        });
+
+        if (relevantNews.length > 0) {
+          const normalized = relevantNews.map(item => ({
+            id: String(item.id),
+            title: item.title,
+            slug: item.slug,
+            category: item.category,
+            subCategory: item.subCategory || 'Umum',
+            summary: item.excerpt || item.summary || item.content || '',
+            content: item.content || item.summary || item.excerpt || '',
+            image: getImageUrl(item.imageUrl || item.image_url || item.image || ''),
+            date: item.date || item.published_at || 'Baru saja',
+            timeAgo: item.timeAgo || 'Baru saja',
+            isFeatured: Boolean(item.isFeatured)
+          }));
+          localStorage.setItem(STORAGE_KEYS.NEWS, JSON.stringify(normalized));
+          dispatchStoreUpdate(STORAGE_KEYS.NEWS);
+          return normalized;
+        } else {
+          // Jika di remote hanya ada data dummy pesantren lama, gunakan data artikel maritim resmi Sovereign Blue
+          localStorage.setItem(STORAGE_KEYS.NEWS, JSON.stringify(DEFAULT_NEWS));
+          dispatchStoreUpdate(STORAGE_KEYS.NEWS);
+          return DEFAULT_NEWS;
+        }
       }
     } catch (e) {
       console.warn('Fallback local news:', e);
@@ -192,7 +219,7 @@ export const AppStore = {
         excerpt: item.summary || item.excerpt || '',
         content: item.content || item.summary || '',
         imageUrl: item.image || item.imageUrl || '',
-        author: item.author || 'Humas Pesantren',
+        author: item.author || 'Humas Sovereign Blue',
         date: item.date || 'Baru saja'
       });
       if (res && res.id) {
@@ -216,7 +243,7 @@ export const AppStore = {
         excerpt: item.summary || item.excerpt || '',
         content: item.content || item.summary || '',
         imageUrl: item.image || item.imageUrl || '',
-        author: item.author || 'Humas Pesantren',
+        author: item.author || 'Humas Sovereign Blue',
         date: item.date || 'Baru saja'
       });
       await AppStore.syncNewsFromApi();
@@ -242,28 +269,53 @@ export const AppStore = {
   getGallery: (): GalleryItem[] => {
     try {
       const data = localStorage.getItem(STORAGE_KEYS.GALLERY);
-      return data ? JSON.parse(data) : [];
+      if (data) {
+        const parsed = JSON.parse(data);
+        const isOldData = Array.isArray(parsed) && parsed.some((g: any) => 
+          g.title?.toLowerCase().includes('santri') || 
+          g.title?.toLowerCase().includes('pesantren') || 
+          g.title?.toLowerCase().includes('al-mursyid') ||
+          g.title?.toLowerCase().includes('way lalaan')
+        );
+        if (isOldData) {
+          localStorage.setItem(STORAGE_KEYS.GALLERY, JSON.stringify(DEFAULT_GALLERY));
+          return DEFAULT_GALLERY;
+        }
+        return parsed;
+      }
+      return DEFAULT_GALLERY;
     } catch {
-      return [];
+      return DEFAULT_GALLERY;
     }
   },
   syncGalleryFromApi: async (): Promise<GalleryItem[]> => {
     try {
       const remoteGallery = await api.getGallery();
       if (Array.isArray(remoteGallery)) {
-        const normalized: GalleryItem[] = remoteGallery.map(item => ({
-          id: String(item.id),
-          title: item.title,
-          category: item.category || 'Tahfidz & Ibadah',
-          image: getImageUrl(item.imageUrl || item.image_url || item.image || ''),
-          date: item.date || 'Terbaru',
-          location: 'Sovereign Blue Foundation',
-          desc: item.desc || '',
-          isFeatured: Boolean(item.isFeatured || item.is_featured)
-        }));
-        localStorage.setItem(STORAGE_KEYS.GALLERY, JSON.stringify(normalized));
-        dispatchStoreUpdate(STORAGE_KEYS.GALLERY);
-        return normalized;
+        const relevantGallery = remoteGallery.filter(item => {
+          const t = (item.title || '').toLowerCase();
+          return !t.includes('santri') && !t.includes('pesantren') && !t.includes('al-mursyid') && !t.includes('way lalaan');
+        });
+
+        if (relevantGallery.length > 0) {
+          const normalized: GalleryItem[] = relevantGallery.map(item => ({
+            id: String(item.id),
+            title: item.title,
+            category: item.category || 'Konservasi Hayati',
+            image: getImageUrl(item.imageUrl || item.image_url || item.image || ''),
+            date: item.date || 'Terbaru',
+            location: 'Sovereign Blue Foundation',
+            desc: item.desc || '',
+            isFeatured: Boolean(item.isFeatured || item.is_featured)
+          }));
+          localStorage.setItem(STORAGE_KEYS.GALLERY, JSON.stringify(normalized));
+          dispatchStoreUpdate(STORAGE_KEYS.GALLERY);
+          return normalized;
+        } else {
+          localStorage.setItem(STORAGE_KEYS.GALLERY, JSON.stringify(DEFAULT_GALLERY));
+          dispatchStoreUpdate(STORAGE_KEYS.GALLERY);
+          return DEFAULT_GALLERY;
+        }
       }
     } catch (e) {
       console.warn('Fallback local gallery:', e);

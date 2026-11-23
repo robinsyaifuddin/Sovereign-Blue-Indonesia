@@ -719,10 +719,10 @@ export const HomePage: React.FC = () => {
                     >
                       <img
                         src={getImageUrl(galleryPicks[0]?.image)}
-                        alt={galleryPicks[0]?.title || ''}
+                        alt=""
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
-                        onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
+                        onError={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0'; }}
                       />
                       <div className="absolute inset-0 bg-sky-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
@@ -740,10 +740,10 @@ export const HomePage: React.FC = () => {
                     >
                       <img
                         src={getImageUrl(galleryPicks[1]?.image)}
-                        alt={galleryPicks[1]?.title || ''}
+                        alt=""
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
-                        onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
+                        onError={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0'; }}
                       />
                       <div className="absolute inset-0 bg-sky-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
@@ -761,10 +761,10 @@ export const HomePage: React.FC = () => {
                     >
                       <img
                         src={getImageUrl(galleryPicks[2]?.image)}
-                        alt={galleryPicks[2]?.title || ''}
+                        alt=""
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
-                        onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
+                        onError={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0'; }}
                       />
                       <div className="absolute inset-0 bg-sky-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
@@ -783,10 +783,10 @@ export const HomePage: React.FC = () => {
                     >
                       <img
                         src={getImageUrl(galleryPicks[3]?.image)}
-                        alt={galleryPicks[3]?.title || ''}
+                        alt=""
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
-                        onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
+                        onError={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0'; }}
                       />
                       <div className="absolute inset-0 bg-sky-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">
@@ -805,10 +805,10 @@ export const HomePage: React.FC = () => {
                     >
                       <img
                         src={getImageUrl(galleryPicks[4]?.image)}
-                        alt={galleryPicks[4]?.title || ''}
+                        alt=""
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                         loading="lazy"
-                        onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
+                        onError={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0'; }}
                       />
                       <div className="absolute inset-0 bg-sky-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="w-8 h-8 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-md transform scale-90 group-hover:scale-100 transition-transform">

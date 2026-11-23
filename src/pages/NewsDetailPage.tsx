@@ -54,7 +54,7 @@ export const NewsDetailPage: React.FC = () => {
     setMetaTag('property', 'og:description', article.summary || article.title);
     setMetaTag('property', 'og:image', article.image);
     setMetaTag('property', 'og:url', currentUrl);
-    setMetaTag('property', 'og:site_name', 'Sovereign Blue Foundation Tanggamus');
+    setMetaTag('property', 'og:site_name', 'Sovereign Blue Foundation');
 
     // Twitter Card Tags
     setMetaTag('name', 'twitter:card', 'summary_large_image');
@@ -66,7 +66,7 @@ export const NewsDetailPage: React.FC = () => {
     setMetaTag('name', 'description', article.summary || article.title);
 
     return () => {
-      document.title = "Sovereign Blue Foundation Islamic Boarding School | Tanggamus Lampung";
+      document.title = "Sovereign Blue Foundation | Maritime & Conservation";
     };
   }, [article]);
 
@@ -140,8 +140,11 @@ export const NewsDetailPage: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-100 aspect-video md:aspect-[16/9]">
                 <img 
                   src={article.image} 
-                  alt={article.title} 
+                  alt="" 
                   className="w-full h-full object-cover"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLElement).style.opacity = '0';
+                  }}
                 />
               </div>
             )}
@@ -273,9 +276,12 @@ export const NewsDetailPage: React.FC = () => {
                         <div className="relative w-20 h-16 sm:w-24 sm:h-18 rounded-xl overflow-hidden shrink-0 bg-slate-100 border border-slate-200/80">
                           <img 
                             src={rel.image} 
-                            alt={rel.title} 
+                            alt="" 
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             loading="lazy"
+                            onError={(e) => {
+                              (e.currentTarget as HTMLElement).style.opacity = '0';
+                            }}
                           />
                         </div>
                       ) : (

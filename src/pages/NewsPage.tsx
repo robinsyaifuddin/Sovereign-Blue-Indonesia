@@ -48,11 +48,11 @@ export const NewsPage: React.FC = () => {
                   {hasImg ? (
                     <img 
                       src={getImageUrl(item.image)} 
-                      alt={item.title} 
+                      alt="" 
                       className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300"
                       loading="lazy"
                       onError={(e) => {
-                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.style.opacity = '0';
                       }}
                     />
                   ) : (
@@ -86,10 +86,10 @@ export const NewsPage: React.FC = () => {
             {currentSlide?.image && currentSlide.image.trim() !== '' ? (
               <img 
                 src={getImageUrl(currentSlide.image)} 
-                alt={currentSlide.title} 
+                alt="" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 onError={(e) => {
-                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.style.opacity = '0';
                 }}
               />
             ) : null}
@@ -166,11 +166,11 @@ export const NewsPage: React.FC = () => {
                         {hasImg ? (
                           <img 
                             src={getImageUrl(post.image)} 
-                            alt={post.title} 
+                            alt="" 
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             loading="lazy"
                             onError={(e) => {
-                              e.currentTarget.style.display = 'none';
+                              e.currentTarget.style.opacity = '0';
                             }}
                           />
                         ) : (
@@ -220,11 +220,11 @@ export const NewsPage: React.FC = () => {
                 {hotLead.image && hotLead.image.trim() !== '' ? (
                   <img 
                     src={getImageUrl(hotLead.image)} 
-                    alt={hotLead.title} 
+                    alt="" 
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                     onError={(e) => {
-                      e.currentTarget.style.display = 'none';
+                      e.currentTarget.style.opacity = '0';
                     }}
                   />
                 ) : null}
@@ -253,11 +253,11 @@ export const NewsPage: React.FC = () => {
                     {item.image && item.image.trim() !== '' ? (
                       <img 
                         src={getImageUrl(item.image)} 
-                        alt={item.title} 
+                        alt="" 
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                         onError={(e) => {
-                          e.currentTarget.style.display = 'none';
+                          e.currentTarget.style.opacity = '0';
                         }}
                       />
                     ) : null}

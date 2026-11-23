@@ -25,16 +25,16 @@ interface QuoteSlide {
 
 const LOGIN_SLIDES: QuoteSlide[] = [
   {
-    image: "/hero/Mencetak Generasi Qur'ani, Berakhlak, dan Berprestasi.webp",
-    quote: "Pusat kendali santri, berita, dan pendaftaran dalam satu sistem terintegrasi yang andal, tertib, dan amanah."
+    image: "/hero/hero1.webp",
+    quote: "Pusat kendali operasional, berita maritim, dan inisiatif konservasi dalam satu sistem terintegrasi yang andal dan transparan."
   },
   {
-    image: "/hero/Tahfidzul Qur'an Bersanad & Turats Keilmuan Ulama.webp",
-    quote: "Mencetak generasi Qur'ani yang berkarakter mandiri, beradab, dan unggul di kancah nasional maupun global."
+    image: "/hero/hero2.webp",
+    quote: "Membangun kemandirian maritim, melestarikan warisan bahari nusantara, dan memajukan generasi muda pesisir Indonesia."
   },
   {
-    image: "/hero/Pendidikan Holistik Berkarakter Ahlussunnah wal Jama'ah.webp",
-    quote: "Memudahkan pengelolaan hafalan Quran bersanad dan arsip santri secara akurat, modern, dan real-time."
+    image: "/hero/hero3.webp",
+    quote: "Pengelolaan program pemberdayaan ekonomi biru dan edukasi konservasi secara akurat, modern, dan real-time."
   }
 ];
 
@@ -316,7 +316,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
                   Sovereign Blue
                 </span>
                 <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-sky-300 font-semibold block leading-tight mt-0.5">
-                  Islamic Boarding School
+                  Maritime Foundation
                 </span>
               </div>
             </div>

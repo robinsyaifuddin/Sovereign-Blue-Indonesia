@@ -164,7 +164,7 @@ export const GalleryManager: React.FC = () => {
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-semibold focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none"
-                placeholder="Contoh: Suasana Santri Menyetorkan Hafalan Qur'an..."
+                placeholder="Contoh: Restorasi Terumbu Karang & Spider Reef..."
               />
             </div>
 
@@ -264,9 +264,9 @@ export const GalleryManager: React.FC = () => {
                         {item.image ? (
                           <img 
                             src={getImageUrl(item.image)} 
-                            alt={item.title} 
+                            alt="" 
                             className="w-full h-full object-cover" 
-                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                            onError={(e) => { e.currentTarget.style.opacity = '0'; }}
                           />
                         ) : (
                           <span className="text-[10px] font-semibold text-slate-400">Kosong</span>

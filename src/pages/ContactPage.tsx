@@ -119,7 +119,7 @@ export const ContactPage: React.FC = () => {
                   <span className="text-[11px] font-mono text-sky-800 font-bold bg-sky-50 px-2 py-0.5 rounded-full border border-sky-200/60">02</span>
                 </div>
                 <p className="text-xs sm:text-sm text-stone-600 font-light">
-                  {SITE_INFO.foundation} &bull; Way Lalaan, Nusa Tenggara Timur
+                  {SITE_INFO.foundation} &bull; Nusa Tenggara Timur &amp; Jakarta
                 </p>
               </div>
 

@@ -53,14 +53,14 @@ export const NewsManager: React.FC = () => {
     title: '',
     date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
     timeAgo: 'Baru saja',
-    category: 'Prestasi Santri',
-    subCategory: 'Umum',
+    category: 'Konservasi Laut',
+    subCategory: 'Blue Carbon',
     summary: '',
     image: '',
     isFeatured: false,
   });
 
-  const categories = ['Semua', 'Prestasi Santri', 'Agenda Pondok', 'Informasi PPDB', 'Prestasi Akademik', 'Kewirausahaan', 'Bahasa & Literasi', 'Teknologi'];
+  const categories = ['Semua', 'Pariwisata', 'Pendidikan', 'Lingkungan', 'Ekonomi', 'Kemitraan', 'Konservasi Laut', 'Transformasi Komunitas'];
 
   const filteredNews = localNews.filter((item: NewsItem) => {
     const matchSearch = item.title.toLowerCase().includes(search.toLowerCase()) || 
@@ -75,8 +75,8 @@ export const NewsManager: React.FC = () => {
       title: '',
       date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
       timeAgo: 'Baru saja',
-      category: 'Prestasi Santri',
-      subCategory: 'Umum',
+      category: 'Konservasi Laut',
+      subCategory: 'Blue Carbon',
       summary: '',
       image: '',
       isFeatured: false,
@@ -233,7 +233,7 @@ export const NewsManager: React.FC = () => {
                     value={formData.summary}
                     onChange={(e) => setFormData({ ...formData, summary: e.target.value })}
                     className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 outline-none leading-relaxed"
-                    placeholder="Tuliskan isi berita, detail kegiatan santri, sambutan pimpinan, atau informasi penting lainnya..."
+                    placeholder="Tuliskan isi berita, detail kegiatan kemaritiman, sambutan direktur, atau informasi penting lainnya..."
                   />
                 </div>
               </div>
@@ -299,9 +299,9 @@ export const NewsManager: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
         <div>
-          <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Manajemen Berita & Artikel</h1>
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Manajemen Berita &amp; Artikel</h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Publikasikan siaran pers, prestasi santri, agenda kegiatan pondok, dan artikel kajian.
+            Publikasikan siaran pers, program konservasi, agenda kegiatan lapangan, dan artikel kemaritiman.
           </p>
         </div>
         <button
@@ -360,7 +360,14 @@ export const NewsManager: React.FC = () => {
               <div key={item.id} className="p-4 space-y-3">
                 <div className="flex gap-3">
                   <div className="w-20 h-16 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
-                    <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                    <img 
+                      src={item.image} 
+                      alt="" 
+                      className="w-full h-full object-cover" 
+                      onError={(e) => {
+                        (e.currentTarget as HTMLElement).style.opacity = '0';
+                      }}
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 mb-1 flex-wrap">
@@ -441,9 +448,9 @@ export const NewsManager: React.FC = () => {
                         {item.image ? (
                           <img 
                             src={item.image} 
-                            alt={item.title} 
+                            alt="" 
                             className="w-full h-full object-cover" 
-                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                            onError={(e) => { e.currentTarget.style.opacity = '0'; }}
                           />
                         ) : (
                           <span className="text-[10px] font-semibold text-slate-400">Kosong</span>

@@ -163,9 +163,12 @@ export const GalleryPage: React.FC = () => {
                       <>
                         <img 
                           src={getImageUrl(item.image)} 
-                          alt={item.title}
+                          alt=""
                           className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out" 
                           loading="lazy"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLElement).style.opacity = '0';
+                          }}
                         />
                         <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                           <div className="w-10 h-10 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
@@ -201,9 +204,12 @@ export const GalleryPage: React.FC = () => {
                       <>
                         <img 
                           src={getImageUrl(item.image)} 
-                          alt={item.title}
+                          alt=""
                           className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out" 
                           loading="lazy"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLElement).style.opacity = '0';
+                          }}
                         />
                         <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                           <div className="w-10 h-10 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
@@ -243,9 +249,12 @@ export const GalleryPage: React.FC = () => {
                       <>
                         <img 
                           src={getImageUrl(item.image)} 
-                          alt={item.title}
+                          alt=""
                           className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out" 
                           loading="lazy"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLElement).style.opacity = '0';
+                          }}
                         />
                         <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                           <div className="w-10 h-10 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
@@ -293,9 +302,12 @@ export const GalleryPage: React.FC = () => {
                 >
                   <img 
                     src={getImageUrl(item.image)} 
-                    alt={item.title}
+                    alt=""
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out" 
                     loading="lazy"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLElement).style.opacity = '0';
+                    }}
                   />
                   <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                     <div className="w-9 h-9 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
@@ -382,9 +394,12 @@ export const GalleryPage: React.FC = () => {
             <div className="relative w-full aspect-[4/4] sm:aspect-[4/3.8] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-stone-950">
               <img
                 src={getImageUrl(activeItem.image)}
-                alt={activeItem.title}
+                alt=""
                 key={activeItem.id}
                 className="w-full h-full object-cover animate-in fade-in zoom-in-[0.98] duration-200"
+                onError={(e) => {
+                  (e.currentTarget as HTMLElement).style.opacity = '0';
+                }}
               />
 
               {/* Counter Badge Pojok Kiri Atas ala Gambar 2 (3/7 style) */}
