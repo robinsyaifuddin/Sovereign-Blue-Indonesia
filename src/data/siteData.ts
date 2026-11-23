@@ -47,20 +47,20 @@ export const SITE_INFO = {
       ketua: {
         name: "drg. Yulita Dora",
         role: "Ketua Dewan Pembina",
-        image: "/pengurus/dora.webp",
+        image: "/Pengurus/dora.webp",
         desc: "Mengarahkan kebijakan strategis, visi, dan tata nilai keberlanjutan yayasan."
       },
       anggota: [
         {
           name: "Brigjen TNI (Purn) Simon Petrus Kamlasi",
           role: "Anggota Dewan Pembina",
-          image: "/pengurus/simon.webp",
+          image: "/Pengurus/simon.webp",
           desc: "Pengarah ketahanan teritorial kemaritiman dan kedaulatan kepulauan."
         },
         {
           name: "Nurwahid Dimas Saputro, S.T, M.Eng.",
           role: "Anggota Dewan Pembina",
-          image: "/pengurus/dimas.webp",
+          image: "/Pengurus/dimas.webp",
           desc: "Pengarah teknologi, inovasi rekayasa maritim, dan tata kelola program."
         }
       ]
@@ -69,7 +69,7 @@ export const SITE_INFO = {
       ketua: {
         name: "Kolonel Kes Muhammad Ihsan, M.Sc (Lemhanas)",
         role: "Ketua Dewan Pengawas",
-        image: "/pengurus/ihsan.webp",
+        image: "/Pengurus/ihsan.webp",
         desc: "Mengawasi tata kelola kepatuhan, akuntabilitas, dan integritas organisasi yayasan."
       }
     },
@@ -77,13 +77,13 @@ export const SITE_INFO = {
     pembina: {
       name: "drg. Yulita Dora",
       role: "Ketua Dewan Pembina",
-      image: "/pengurus/dora.webp",
+      image: "/Pengurus/dora.webp",
       desc: "Mengarahkan kebijakan strategis, visi, dan tata nilai keberlanjutan yayasan."
     },
     pengawas: {
       name: "Kolonel Kes Muhammad Ihsan, M.Sc (Lemhanas)",
       role: "Ketua Dewan Pengawas",
-      image: "/pengurus/ihsan.webp",
+      image: "/Pengurus/ihsan.webp",
       desc: "Mengawasi tata kelola kepatuhan, akuntabilitas, dan integritas organisasi yayasan."
     },
     founders: ["drg. Yulita Dora", "Kolonel Kes Muhammad Ihsan, M.Sc", "Nanda Vesti Naliu, S.M."],
@@ -91,13 +91,13 @@ export const SITE_INFO = {
       { 
         name: "Nanda Vesti Naliu, S.M.", 
         role: "Direktur Eksekutif & Ketua", 
-        image: "/pengurus/nanda.webp",
+        image: "/Pengurus/nanda.webp",
         highlight: true 
       },
       { 
         name: "Robin Syaifuddin", 
         role: "Direktur Komunikasi & Sekretaris",
-        image: "/pengurus/robin.webp"
+        image: "/Pengurus/robin.webp"
       },
       { 
         name: "Mutiara Ayumi", 
@@ -107,17 +107,17 @@ export const SITE_INFO = {
       { 
         name: "Ages Marsela", 
         role: "Direktur Program & Pengembangan",
-        image: "/pengurus/ages.webp"
+        image: "/Pengurus/ages.webp"
       },
       { 
         name: "Brayen Ariel, S.TP", 
         role: "Direktur Kemitraan & Hubungan Internasional",
-        image: "/pengurus/brayen.webp"
+        image: "/Pengurus/brayen.webp"
       },
       { 
         name: "Ages Marsela", 
         role: "Direktur Riset, Monitoring dan Evaluasi",
-        image: "/pengurus/ages.webp"
+        image: "/Pengurus/ages.webp"
       }
     ]
   },

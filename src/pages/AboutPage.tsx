@@ -365,7 +365,7 @@ export const AboutPage: React.FC = () => {
                   <div className="flex items-start gap-4 sm:gap-5">
                     <div className="relative w-24 aspect-[3/4] sm:w-28 rounded-2xl overflow-hidden shrink-0 bg-stone-100 border border-stone-200/80 shadow-2xs flex items-center justify-center">
                       <img 
-                        src="/pengurus/dora.webp" 
+                        src="/Pengurus/dora.webp" 
                         alt="drg. Yulita Dora" 
                         className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
                         onError={(e) => {
@@ -405,7 +405,7 @@ export const AboutPage: React.FC = () => {
                     <div className="flex items-start gap-4">
                       <div className="relative w-20 aspect-[3/4] rounded-2xl overflow-hidden shrink-0 bg-stone-100 border border-stone-200/80 shadow-2xs flex items-center justify-center">
                         <img 
-                          src="/pengurus/simon.webp" 
+                          src="/Pengurus/simon.webp" 
                           alt="Brigjen TNI (Purn) Simon Petrus Kamlasi" 
                           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
                           onError={(e) => {
@@ -442,7 +442,7 @@ export const AboutPage: React.FC = () => {
                     <div className="flex items-start gap-4">
                       <div className="relative w-20 aspect-[3/4] rounded-2xl overflow-hidden shrink-0 bg-stone-100 border border-stone-200/80 shadow-2xs flex items-center justify-center">
                         <img 
-                          src="/pengurus/dimas.webp" 
+                          src="/Pengurus/dimas.webp" 
                           alt="Nurwahid Dimas Saputro, S.T, M.Eng." 
                           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
                           onError={(e) => {
@@ -497,7 +497,7 @@ export const AboutPage: React.FC = () => {
                   <div className="flex items-start gap-4 sm:gap-5">
                     <div className="relative w-24 aspect-[3/4] sm:w-28 rounded-2xl overflow-hidden shrink-0 bg-stone-100 border border-stone-200/80 shadow-2xs flex items-center justify-center">
                       <img 
-                        src="/pengurus/ihsan.webp" 
+                        src="/Pengurus/ihsan.webp" 
                         alt="Kolonel Kes Muhammad Ihsan, M.Sc" 
                         className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
                         onError={(e) => {
@@ -574,15 +574,15 @@ export const AboutPage: React.FC = () => {
               {SITE_INFO.leadership.pengurus.map((item: any, idx: number) => {
                 // Mapping nama ke file foto lokal agar selalu pasti tampil
                 const photoMap: Record<string, string> = {
-                  'nanda': '/pengurus/nanda.webp',
-                  'robin': '/pengurus/robin.webp',
-                  'dimas': '/pengurus/dimas.webp',
-                  'brayen': '/pengurus/brayen.webp',
-                  'bryan': '/pengurus/brayen.webp',
-                  'ages': '/pengurus/ages.webp',
-                  'dora': '/pengurus/dora.webp',
-                  'ihsan': '/pengurus/ihsan.webp',
-                  'simon': '/pengurus/simon.webp',
+                  'nanda': '/Pengurus/nanda.webp',
+                  'robin': '/Pengurus/robin.webp',
+                  'dimas': '/Pengurus/dimas.webp',
+                  'brayen': '/Pengurus/brayen.webp',
+                  'bryan': '/Pengurus/brayen.webp',
+                  'ages': '/Pengurus/ages.webp',
+                  'dora': '/Pengurus/dora.webp',
+                  'ihsan': '/Pengurus/ihsan.webp',
+                  'simon': '/Pengurus/simon.webp',
                 };
                 const lowerName = item.name.toLowerCase();
                 const matchedKey = Object.keys(photoMap).find(k => lowerName.includes(k));
